@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 90e53ed5001ce1c91646644bf815bb51b6a843c1
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: f7fe3181a4c361b47a7ef6fbdf815b4c495c6f76
+ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303816"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39574636"
 ---
 # <a name="activities-overview"></a>Übersicht über Aktivitäten
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 [!INCLUDE [Activity concept overview](../includes/snippet-dotnet-concept-activity.md)]
 
@@ -23,7 +25,7 @@ ms.locfileid: "39303816"
 
 Die folgenden Aktivitätstypen werden vom Bot Builder SDK für .NET unterstützt.
 
-| Activity.Type | Schnittstelle | Beschreibung |
+| Activity.Type | Schnittstelle | BESCHREIBUNG |
 |------|------|------|
 | [message](#message) | IMessageActivity | Stellt eine Kommunikation zwischen einem Bot und einem Benutzer dar. |
 | [conversationUpdate](#conversationupdate) | IConversationUpdateActivity | Gibt an, dass der Bot einer Konversation hinzugefügt wurde, andere Mitglieder hinzugefügt bzw. aus der Konversation entfernt wurden oder Konversationsmetadaten geändert wurden. |
@@ -36,7 +38,7 @@ Die folgenden Aktivitätstypen werden vom Bot Builder SDK für .NET unterstützt
 | [invoke](#invoke) | IInvokeActivity | Stellt eine an einen Bot gesendete Kommunikation für die Anforderung zur Ausführung eines bestimmten Vorgangs dar. Dieser Aktivitätstyp ist für die interne Verwendung durch Microsoft Bot Framework reserviert. |
 | [messageReaction](#messagereaction) | IMessageReactionActivity | Gibt an, dass ein Benutzer auf eine vorhandene Aktivität reagiert hat. Beispiel: Ein Benutzer hat auf die Schaltfläche „Gefällt mir“ einer Nachricht geklickt. |
 
-## <a name="message"></a>message
+## <a name="message"></a>Message:
 
 Ihr Bot sendet **message**-Aktivitäten (Nachrichtenaktivitäten), um Informationen an Benutzer zu übermitteln und **message**-Aktivitäten von Benutzern zu erhalten. Einige Nachrichten können aus Nur-Text bestehen, während andere vielfältigere Inhalte wie [gesprochenen Text](bot-builder-dotnet-text-to-speech.md), [vorgeschlagene Aktionen](bot-builder-dotnet-add-suggested-actions.md), [Medienanlagen](bot-builder-dotnet-add-media-attachments.md), [Multimedia-Karten](bot-builder-dotnet-add-rich-card-attachments.md) und [kanalspezifische Daten](bot-builder-dotnet-channeldata.md) enthalten können. Informationen zu häufig verwendeten Nachrichteneigenschaften finden Sie unter [Erstellen von Nachrichten](bot-builder-dotnet-create-messages.md).
 

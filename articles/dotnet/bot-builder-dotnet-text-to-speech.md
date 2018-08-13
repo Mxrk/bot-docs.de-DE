@@ -8,20 +8,23 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 0c972b913ab0639363a1e2f1307bcaa4bea60c54
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: a8bc0b68b3dfa63ba4e91103c57d4fac60ddca79
+ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303837"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39574996"
 ---
-# <a name="add-speech-to-messages"></a>Hinzufügen von Sprache zu Nachrichten
+# <a name="add-speech-to-messages"></a>Hinzufügen von Spracheingabe zu Nachrichten
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
+
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-text-to-speech.md)
 > - [Node.js](../nodejs/bot-builder-nodejs-text-to-speech.md)
 > - [REST](../rest-api/bot-framework-rest-connector-text-to-speech.md)
 
-Wenn Sie einen Bot für einen sprachfähigen Kanal wie Cortana erstellen, können Sie Nachrichten erstellen, die den Text angeben, der von Ihrem Bot gesprochen werden soll. Sie können auch versuchen, den Status des Mikrofons des Clients zu beeinflussen, indem Sie einen [Eingabehinweis](bot-builder-dotnet-add-input-hints.md) angeben, um festzulegen, ob Ihr Bot Benutzereingaben akzeptiert, erwartet oder ignoriert.
+Wenn Sie einen Bot für einen sprachaktivierten Kanal wie Cortana erstellen, können Sie Nachrichten erstellen, die den Text angeben, der von Ihrem Bot gesprochen werden soll. Sie können auch versuchen, den Status des Mikrofons des Clients zu beeinflussen, indem Sie einen [Eingabehinweis](bot-builder-dotnet-add-input-hints.md) angeben, um festzulegen, ob Ihr Bot Benutzereingaben akzeptiert, erwartet oder ignoriert.
 
 ## <a name="specify-text-to-be-spoken-by-your-bot"></a>Angeben des von Ihrem Bot zu sprechenden Texts
 
@@ -51,7 +54,7 @@ Um den von Ihrem Bot zu sprechenden Text anzugeben, können Sie entweder eine Nu
 
 ## <a name="input-hints"></a>Eingabehinweise
 
-Wenn Sie eine Nachricht in einem sprachfähigen Kanal senden, können Sie versuchen, den Status des Mikrofons des Clients zu beeinflussen, indem Sie auch einen Eingabehinweis einschließen, um anzugeben, ob Ihr Bot Benutzereingaben akzeptiert, erwartet oder ignoriert. Weitere Informationen finden Sie unter [Hinzufügen von Eingabehinweisen zu Nachrichten](bot-builder-dotnet-add-input-hints.md).
+Wenn Sie eine Nachricht in einem sprachaktivierten Kanal senden, können Sie versuchen, den Status des Mikrofons des Clients zu beeinflussen, indem Sie auch einen Eingabehinweis einschließen, um anzugeben, ob Ihr Bot Benutzereingaben akzeptiert, erwartet oder ignoriert. Weitere Informationen finden Sie unter [Hinzufügen von Eingabehinweisen zu Nachrichten](bot-builder-dotnet-add-input-hints.md).
 
 ## <a name="sample-code"></a>Beispielcode 
 
