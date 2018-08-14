@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 0eb14f4bf52a293d3405762c786259f771aecad6
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 43c178c4bbdf0bb04384bb8ada397066e6f7dd12
+ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303117"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39574616"
 ---
 # <a name="bot-builder-sdk-for-nodejs-samples"></a>Bot Builder SDK für Node.js – Beispiele
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 In diesen Beispielen werden aufgabenorientierte Bots veranschaulicht, die zeigen, wie Sie die Features im Bot Builder SDK für Node.js nutzen. Sie können die Beispiele dazu verwenden, schnell in die Erstellung großartiger Bots mit umfangreichen Funktionen einzusteigen.
 
@@ -48,7 +50,7 @@ Beispiel | BESCHREIBUNG
 [ChannelData](https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/core-ChannelData) | Ein Beispiel-Bot, der mithilfe von ChannelData native Metadaten an Facebook sendet.
 [AppInsights](https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/core-AppInsights) | Ein Beispiel-Bot, der Telemetriedaten, die an eine Application Insights-Instanz gesendet werden, protokolliert.
 
-## <a name="search"></a>Search
+## <a name="search"></a>Suchen,
 In diesem Beispiel wird veranschaulicht, wie Azure Search in datengesteuerten Bots genutzt wird.
 
 Beispiel | BESCHREIBUNG
