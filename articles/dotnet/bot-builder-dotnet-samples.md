@@ -7,16 +7,18 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 05/03/2018
-ms.openlocfilehash: 7e19ec2c3e523003c0831544e42eeb88765d8317
-ms.sourcegitcommit: dcbc8ad992a3e242a11ebcdf0ee99714d919a877
+ms.openlocfilehash: 129c3a2b92297980e6b5e209f6e7f400a854d3a1
+ms.sourcegitcommit: 9a38d76afb0e82fdccc1f36f9b1a65042671e538
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39352859"
+ms.lasthandoff: 08/04/2018
+ms.locfileid: "39515070"
 ---
 ::: moniker range="azure-bot-service-3.0"
 
 # <a name="bot-builder-sdk-for-net-samples"></a>Beispiele zum Bot Builder SDK für .NET
+
+[!INCLUDE [pre-release-label](~/includes/pre-release-label-v3.md)]
 
 In diesen Beispielen werden aufgabenorientierte Bots veranschaulicht, die zeigen, wie Sie die Features im Bot Builder SDK für .NET nutzen. Sie können die Beispiele dazu verwenden, schnell mit der Erstellung großartiger Bots mit umfassenden Funktionen einzusteigen.
 
@@ -39,13 +41,13 @@ Beispiel | BESCHREIBUNG
 ------------ | ------------- 
 [Send Attachment](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-SendAttachment) | Ein Beispiel-Bot, der einfache Medienanlagen (Bilder) an den Benutzer sendet. 
 [Receive Attachment](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-ReceiveAttachment) | Ein Beispiel-Bot, der vom Benutzer gesendete Anlagen empfängt und herunterlädt. 
-[Create New Conversation](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-CreateNewConversation)  | Ein Beispiel-Bot, der mithilfe einer zuvor gespeicherten Benutzeradresse eine neue Konversation erstellt.
-[Get Members of a Conversation](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-GetConversationMembers) | Ein Beispiel-Bot, der die Teilnehmerliste einer Konversation abruft und erkennt, wenn sie sich ändert. 
+[Create New Conversation](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-CreateNewConversation)  | Ein Beispiel-Bot, der mithilfe einer zuvor gespeicherten Benutzeradresse eine neue Unterhaltung erstellt.
+[Get Members of a Conversation](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-GetConversationMembers) | Ein Beispiel-Bot, der die Teilnehmerliste einer Unterhaltung abruft und erkennt, wenn sie sich ändert. 
 [Direct Line](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-DirectLine) | Ein Beispiel-Bot und ein benutzerdefinierter Client, die über die Direct Line-API miteinander kommunizieren. 
 [Direct Line (WebSockets)](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-DirectLineWebSockets) | Ein Beispiel-Bot und ein benutzerdefinierter Client, die über die Direct Line-API und WebSockets miteinander kommunizieren. 
-[Multi Dialogs](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-MultiDialogs) | Ein Beispiel-Bot, der verschiedene Arten von Dialogfeldern anzeigt.
-[State API](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-State) | Ein zustandsloser Beispiel-Bot, der den Kontext einer Konversation nachverfolgt.
-[Custom State API](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-CustomState) | Ein zustandsloser Beispiel-Bot, der den Kontext einer Konversation mithilfe eines benutzerdefinierten Speicheranbieters nachverfolgt.
+[Multi Dialogs](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-MultiDialogs) | Ein Beispiel-Bot, der verschiedene Arten von Dialogen anzeigt.
+[State API](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-State) | Ein statusloser Beispiel-Bot, der den Kontext einer Unterhaltung nachverfolgt.
+[Custom State API](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-CustomState) | Ein statusloser Beispiel-Bot, der den Kontext einer Unterhaltung mithilfe eines benutzerdefinierten Speicheranbieters nachverfolgt.
 [ChannelData](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-ChannelData) | Ein Beispiel-Bot, der mithilfe von ChannelData native Metadaten an Facebook sendet.
 [AppInsights](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-AppInsights) | Ein Beispiel-Bot, der Telemetriedaten, die an eine Application Insights-Instanz gesendet werden, protokolliert.
 
@@ -54,11 +56,11 @@ In diesem Beispiel wird veranschaulicht, wie Azure Search in datengesteuerten Bo
 
 Beispiel | BESCHREIBUNG
 ------------ | -------------
-[Azure Search](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/demo-Search) | Zwei Beispiel-Bots, die dem Benutzer beim Navigieren großer Mengen von Inhalten helfen.
+[Azure Search](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/demo-Search) | Zwei Beispiel-Bots, die dem Benutzer beim Navigieren durch große Inhaltsmengen helfen.
 
 
-## <a name="cards"></a>Karten
-Diese Beispiele veranschaulichen das Senden umfassender Karten in Bot Framework.
+## <a name="cards"></a>Cards
+Diese Beispiele veranschaulichen das Senden von Rich Cards im Bot Framework.
 
 Beispiel | BESCHREIBUNG
 ------------ | -------------
@@ -70,11 +72,11 @@ In diesen Beispielen wird veranschaulicht, wie Sie einem Bot mithilfe der Bing- 
 
 Beispiel | BESCHREIBUNG
 ------------ | -------------
-[LUIS](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-LUIS) | Ein Beispiel-Bot, der LuisDialog verwenden, um mit einer LUIS.ai-Anwendung zu integrieren.
-[Image Caption](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-ImageCaption) | Ein Beispiel-Bot, der mithilfe der Microsoft Cognitive Services-API für maschinelles Sehen eine Bildbeschriftung abruft.
+[LUIS](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-LUIS) | Ein Beispiel-Bot, der LuisDialog verwendet, um sich in eine LUIS.ai-Anwendung zu integrieren.
+[Image Caption](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-ImageCaption) | Ein Beispiel-Bot, der mithilfe der Microsoft Cognitive Services Vision-API eine Bildbeschriftung abruft.
 [Speech To Text](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-SpeechToText)  | Ein Beispiel-Bot, der mithilfe der Bing-Spracheingabe-API Text aus Audio abruft.
 [Similar Products](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-SimilarProducts) | Ein Beispiel-Bot, der mithilfe der Bing-Bildersuche-API visuell ähnliche Produkte ermittelt. 
-[Zummer](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-Zummer) | Ein Beispiel-Bot, der mithilfe der Bing-Suche-API Wikipedia-Artikel findet.
+[Zummer](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-Zummer) | Ein Beispiel-Bot, der mithilfe der Bing-Suche-API nach Wikipedia-Artikeln sucht.
 
 ## <a name="reference-implementation"></a>Referenzimplementierung
 Dieses Beispiel soll ein End-to-End-Szenario veranschaulichen. Es ist eine hervorragende Quelle für Codefragmente, wenn Sie komplexere Features in Ihren Bot implementieren möchten.

@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 04/03/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: e1b25a3b5c090cbb13b4c27279745a81da64e6c4
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 30a0c463698d9ab7e3b2b0f9ddb0e872f007d1d8
+ms.sourcegitcommit: 9a38d76afb0e82fdccc1f36f9b1a65042671e538
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302576"
+ms.lasthandoff: 08/04/2018
+ms.locfileid: "39515040"
 ---
 # <a name="add-media-to-messages"></a>Hinzufügen von Medien zu Nachrichten
 
@@ -79,8 +79,7 @@ So senden Sie eine Liste von Anlagen, die übereinander gestapelt sind: <!-- TOD
 
 ```javascript
 // require MessageFactory and CardFactory from botbuilder.
-const {MessageFactory} = require('botbuilder');
-const {CardFactory} = require('botbuilder');
+const {MessageFactory, CardFactory} = require('botbuilder');
 
 let messageWithCarouselOfCards = MessageFactory.list([
     CardFactory.heroCard('title1', ['imageUrl1'], ['button1']),
@@ -161,8 +160,8 @@ Weisen Sie für die korrekte Funktionsweise jedem anklickbaren Element auf der K
 | Typ | Wert |
 | :---- | :---- |
 | openUrl | Die URL, die im integrierten Browser geöffnet werden soll. Reagiert auf Tippen oder Klicken durch Öffnen der URL. |
-| imBack | Der Text der Nachricht, die an den Bot gesendet werden soll (vom Benutzer, der auf die Schaltfläche geklickt oder auf die Karte getippt hat). Diese Nachricht (vom Benutzer an den Bot) ist für alle Teilnehmer der Unterhaltung über die Clientanwendung sichtbar, auf der die Unterhaltung gehostet wird. |
-| postBack | Der Text der Nachricht, die an den Bot gesendet werden soll (vom Benutzer, der auf die Schaltfläche geklickt oder auf die Karte getippt hat). Einige Clientanwendungen zeigen diesen Text unter Umständen im Nachrichtenfeed an, wo er für alle Teilnehmer der Unterhaltung sichtbar ist. |
+| imBack | Der Text der Nachricht, die an den Bot gesendet werden soll (vom Benutzer, der auf die Schaltfläche geklickt oder auf die Karte getippt hat). Diese Nachricht (vom Benutzer an den Bot) ist für alle Unterhaltungsteilnehmer über die Clientanwendung sichtbar, auf der die Unterhaltung gehostet wird. |
+| postBack | Der Text der Nachricht, die an den Bot gesendet werden soll (vom Benutzer, der auf die Schaltfläche geklickt oder auf die Karte getippt hat). Einige Clientanwendungen zeigen diesen Text ggf. im Nachrichtenfeed an, wo er für alle Teilnehmer der Unterhaltung sichtbar ist. |
 | Aufruf | Ziel für einen Telefonanruf in diesem Format: `tel:123123123123`. Reagiert auf Tippen oder Klicken durch Einleiten eines Anrufs.|
 | playAudio | Die URL der Audiodatei, die wiedergegeben werden soll. Reagiert auf Tippen oder Klicken durch Wiedergabe der Audiodatei. |
 | playVideo | Die URL des Videos, das wiedergegeben werden soll. Reagiert auf Tippen oder Klicken durch Wiedergabe des Videos. |
@@ -461,8 +460,7 @@ await context.SendActivity(activity);
 
 ```javascript
 // require MessageFactory and CardFactory from botbuilder.
-const {MessageFactory} = require('botbuilder');
-const {CardFactory} = require('botbuilder');
+const {MessageFactory, CardFactory} = require('botbuilder');
 
 //  init message object
 let messageWithCarouselOfCards = MessageFactory.carousel([

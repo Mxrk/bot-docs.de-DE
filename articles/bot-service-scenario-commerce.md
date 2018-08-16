@@ -8,14 +8,17 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: b809e98ec971abaac98fd33c4fb2c285baca898f
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 15745bc25013df2fd18b0a2045ae2314d6c361e2
+ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303805"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39574856"
 ---
 # <a name="commerce-bot-scenario"></a>Szenario für einen gewerblichen Bot
+
+[!INCLUDE [pre-release-label](includes/pre-release-label-v3.md)]
+
 Das Szenario für einen [gewerblichen Bot](bot-service-scenario-commerce.md) beschreibt einen Bot, der die herkömmlichen Interaktionen per E-Mail und Telefon ersetzt, die normalerweise zwischen Gästen und dem Portierdienst eines Hotels stattfinden. Der Bot nutzt Cognitive Services, um Kundenanfragen per Text und Sprache mit Kontext, der durch die Integration von Back-End-Diensten erfasst wird, besser zu verarbeiten.
 
 ![Diagramm des App-Bots](~/media/scenarios/bot-service-scenario-commerce-bot.png)
@@ -42,13 +45,13 @@ Der gewerbliche Bot verwendet die folgenden Komponenten:
 -   Application Insights
 
 ### <a name="azure-active-directory-azure-ad"></a>Azure Active Directory (Azure AD)
-Azure Active Directory (Azure AD) ist der mehrinstanzenfähige cloudbasierte Verzeichnis- und Identitätsverwaltungsdienst von Microsoft. Als Botentwickler können Sie sich dank Azure AD vollständig auf die Erstellung Ihres Bots konzentrieren, da Azure AD die schnelle und einfache Integration in eine erstklassige Identitätsverwaltungslösung ermöglicht, die von Millionen von Unternehmen auf der ganzen Welt verwendet wird. Azure AD unterstützt einen B2C-Connector und somit die Identifizierung von Einzelpersonen anhand externer IDs (beispielsweise Google, Facebook oder Microsoft-Konto). Dank Azure AD müssen Sie sich nicht mehr um die Verwaltung von Anmeldeinformationen des Benutzers kümmern, sondern können sich stattdessen auf Ihre Botlösung konzentrieren, da Sie wissen, dass Sie den Benutzer des Bots mit den richtigen Daten, die von Ihrer Anwendung verfügbar gemacht werden, korrelieren können.
+Azure Active Directory (Azure AD) ist der mehrinstanzenfähige cloudbasierte Verzeichnis- und Identitätsverwaltungsdienst von Microsoft. Als Botentwickler können Sie sich mit Azure AD vollständig auf das Erstellen Ihres Bots konzentrieren, da Azure AD die schnelle und einfache Integration in eine erstklassige Identitätsverwaltungslösung ermöglicht, die Millionen von Unternehmen auf der ganzen Welt nutzen. Azure AD unterstützt einen B2C-Connector und somit die Identifizierung von Einzelpersonen anhand externer IDs (beispielsweise Google, Facebook oder Microsoft-Konto). Dank Azure AD müssen Sie sich nicht mehr um die Verwaltung von Anmeldeinformationen des Benutzers kümmern, sondern können sich stattdessen auf Ihre Botlösung konzentrieren, da Sie wissen, dass Sie den Benutzer des Bots mit den richtigen Daten, die von Ihrer Anwendung verfügbar gemacht werden, korrelieren können.
 
 ### <a name="cognitive-services-luis"></a>Cognitive Services: LUIS
 Als Mitglied der Technologiefamilie Cognitive Services stellt LUIS (Language Understanding) die Leistungsfähigkeit von Machine Learning in Ihren Apps bereit. Derzeit unterstützt LUIS mehrere Sprachen, durch die Ihr Bot verstehen kann, was eine Person wünscht. Beim Integrieren von LUIS geben Sie Absichten an und Definieren die Entitäten, die von Ihrem Bot verstanden werden. Anschließend bringen Sie Ihrem Bot bei, diese Absichten und Entitäten zu verstehen, indem Sie ihn mit Beispieläußerungen trainieren. Sie können die Integration mithilfe von Ausdruckslisten und Funktionen für reguläre Ausdrücke optimieren, damit Ihr Bot so dynamisch wie möglich Ihren speziellen Konversationsanforderungen entspricht.
 
 ### <a name="application-insights"></a>Application Insights
-Mit Application Insights können Sie über Application Performance Management (APM) und Sofortanalysen nützliche Erkenntnisse gewinnen. Sie erhalten ohne großen Konfigurationsaufwand eine umfassende Leistungsüberwachung, leistungsstarke Warnungen und einfach zu bedienende Dashboards, damit die Verfügbarkeit und Leistung Ihres Bots auch Ihren Erwartungen entspricht. Sie können schnell ermitteln, ob ein Problem besteht, und anschließend eine Ursachenanalyse durchführen, um das Problem zu finden und zu beheben.
+Mit Application Insights können Sie nützliche Erkenntnisse mit Application Performance Management (APM) und Sofortanalysen sammeln. Sie erhalten ohne großen Konfigurationsaufwand eine umfassende Leistungsüberwachung, leistungsstarke Warnungen und einfach zu bedienende Dashboards, damit die Verfügbarkeit und Leistung Ihres Bots Ihren Erwartungen entspricht. Sie können schnell ermitteln, ob ein Problem besteht, und anschließend eine Ursachenanalyse durchführen, um das Problem zu lokalisieren und zu beheben.
 
 ## <a name="next-steps"></a>Nächste Schritte
 Lernen Sie als Nächstes das Szenario für einen Bot für Cortana-Funktionen kennen.

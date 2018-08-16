@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: a97d21e64ce12f6158f276889762a73ac2aff49b
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 00ea81558bf4b8206dc6142ab26e47e3652be563
+ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39304384"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39574546"
 ---
 # <a name="create-messages"></a>Erstellen von Nachrichten
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 Ihr Bot sendet [Aktivitäten](bot-builder-dotnet-activities.md) für **Nachrichten**, um dem Benutzer Informationen mitzuteilen, und auf die gleiche Weise empfängt er auch **Nachrichtenaktivitäten** vom Benutzer. Einige Nachrichten können aus Nur-Text bestehen, während andere vielfältigere Inhalte wie [gesprochenen Text](bot-builder-dotnet-text-to-speech.md), [vorgeschlagene Aktionen](bot-builder-dotnet-add-suggested-actions.md), [Medienanlagen](bot-builder-dotnet-add-media-attachments.md), [Rich Cards](bot-builder-dotnet-add-rich-card-attachments.md) und [kanalspezifische Daten](bot-builder-dotnet-channeldata.md) enthalten können. 
 
@@ -33,7 +35,7 @@ Mithilfe der `TextFormat`-Eigenschaft einer Nachricht kann das Format des Texts 
 
 Eine Liste der üblicherweise unterstützten Textformatierungen finden Sie unter [Textformatierung](../bot-service-channel-inspector.md#text-formatting). Um sicherzustellen, dass die Features, die Sie verwenden möchten, vom Zielkanal unterstützt werden, zeigen Sie die Features mit der [Kanalprüfung](../bot-service-channel-inspector.md) in der Vorschau an.
 
-## <a name="attachments"></a>Anlagen
+## <a name="attachments"></a>Attachments
 
 Mit der `Attachments`-Eigenschaft der Nachrichtenaktivität können einfache Medienanlagen (Bild, Audio, Video, Datei) und Rich Cards gesendet und empfangen werden. Weitere Informationen finden Sie unter [Hinzufügen von Medienanlagen zu Nachrichten](bot-builder-dotnet-add-media-attachments.md) und [Hinzufügen von Rich Cards zu Nachrichten](bot-builder-dotnet-add-rich-card-attachments.md).
 
@@ -47,7 +49,7 @@ Viele Kanäle unterstützen die Option, dass ein Bot oder Benutzer eine Person i
 
 | Eigenschaft | BESCHREIBUNG | 
 |----|----|
-| Type | Typ der Entität („Mention“) | 
+| Typ | Typ der Entität („Mention“) | 
 | Mentioned | `ChannelAccount`-Objekt, das angibt, welcher Benutzer erwähnt wurde | 
 | Text | Text in der `Activity.Text`-Eigenschaft, der die Erwähnung selbst darstellt (kann leer oder NULL sein) |
 
@@ -66,20 +68,20 @@ Das `Place`-Objekt enthält die folgenden Eigenschaften:
 
 | Eigenschaft | BESCHREIBUNG | 
 |----|----|
-| Type | Typ der Entität („Place“) |
+| Typ | Typ der Entität („Place“) |
 | Adresse | Beschreibung oder `PostalAddress`-Objekt (in der Zukunft) | 
-| Geo | GeoCoordinates | 
+| geografischer Raum | GeoCoordinates | 
 | HasMap | URL zu einer Karte oder einem `Map`-Objekt (in der Zukunft) |
-| Name | Der Name des Orts |
+| NAME | Der Name des Orts |
 
 Das `GeoCoordinates`-Objekt enthält die folgenden Eigenschaften:
 
 | Eigenschaft | BESCHREIBUNG | 
 |----|----|
-| Type | Typ der Entität („GeoCoordinates“) |
-| Name | Der Name des Orts |
-| Longitude | Längengrad des Standorts (<a href="https://en.wikipedia.org/wiki/World_Geodetic_System" target="_blank">WGS 84</a>) | 
-| Latitude | Breitengrad des Standorts (<a href="https://en.wikipedia.org/wiki/World_Geodetic_System" target="_blank">WGS 84</a>) | 
+| Typ | Typ der Entität („GeoCoordinates“) |
+| NAME | Der Name des Orts |
+| Längengrad | Längengrad des Standorts (<a href="https://en.wikipedia.org/wiki/World_Geodetic_System" target="_blank">WGS 84</a>) | 
+| Breitengrad | Breitengrad des Standorts (<a href="https://en.wikipedia.org/wiki/World_Geodetic_System" target="_blank">WGS 84</a>) | 
 | Elevation | Die Höhe des Standorts (<a href="https://en.wikipedia.org/wiki/World_Geodetic_System" target="_blank">WGS 84</a>) | 
 
 In diesem Codebeispiel wird veranschaulicht, wie eine `Place`-Entität der `Entities`-Sammlung hinzugefügt wird:

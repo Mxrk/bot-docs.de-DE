@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: c8919712331a5f78bdbc35f28adeab966435d737
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 2a5c9dcad0d9fd70caaf28ff7ac95830bd47e2d6
+ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302549"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39574596"
 ---
 # <a name="send-and-receive-activities"></a>Senden und Empfangen von Aktivitäten
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 Der Bot Framework Connector stellt eine einzelne REST-API bereit, mit der ein Bot über verschiedene Kanäle wie Skype, Slack, E-Mail etc. kommunizieren kann. Die Kommunikation zwischen Bot und Benutzer wird ermöglicht, indem Nachrichten vom Bot zum Kanal und vom Kanal zum Bot weitergeleitet werden. 
 
@@ -63,7 +65,7 @@ Wenn Ihr Bot Teil einer Unterhaltung ist, kann er eine Nachricht senden, die kei
 Sie können die Methode `CreateReply` verwenden, um die neue Nachricht zu initialisieren. Dabei würden die Nachrichteneigenschaften `Recipient`, `From` und `Conversation` automatisch festgelegt werden. Alternativ können Sie die Methode `CreateMessageActivity` verwenden, um die neue Nachricht zu erstellen und alle Eigenschaftswerte selbst festzulegen.
 
 > [!NOTE]
-> Bot Framework legt keine Beschränkungen für die Anzahl von Nachrichten fest, die ein Bot senden darf. Die meisten Kanäle erzwingen jedoch Einschränkungsgrenzwerte, damit Bots keine große Anzahl von Nachrichten in kurzer Zeit senden. Wenn die Bots mehrere Nachrichten in schneller Folge senden, rendert der Kanal die Nachrichten außerdem ggf. nicht immer in der richtigen Reihenfolge.
+> Bot Framework legt keine Beschränkungen für die Anzahl von Nachrichten fest, die ein Bot senden darf. Die meisten Kanäle erzwingen jedoch Drosselungslimits, damit Bots nicht eine große Anzahl von Nachrichten innerhalb kurzer Zeit senden. Wenn die Bots mehrere Nachrichten in schneller Folge senden, kann der Kanal darüber hinaus die Nachrichten nicht immer in der richtigen Reihenfolge rendern.
 
 ## <a name="start-a-conversation"></a>Starten einer Unterhaltung
 

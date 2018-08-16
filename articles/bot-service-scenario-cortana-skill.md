@@ -8,14 +8,17 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 2483366c6d325e5c18a77c2a89b63cc0350aef85
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 049dffd2adc700323bec943e090d369a14ff696b
+ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301565"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39574846"
 ---
 # <a name="cortana-skills-bot-scenario"></a>Szenario für einen Bot für Cortana-Funktionen
+
+[!INCLUDE [pre-release-label](includes/pre-release-label-v3.md)]
+
 Der Bot für Cortana-Funktionen stellt eine Erweiterung für Cortana dar, die es z.B. ermöglicht, ganz einfach mithilfe einer Spracheingabe und Ihrem Kalender einen Inspektionstermin in der Autowerkstatt zu vereinbaren.
 
 Cortana ist Ihre persönliche Assistentin. Mithilfe Ihrer Stimme und dem benutzerdefinierten Bot für Cortana-Funktionen können Sie Cortana darum bitten, mit einer Organisation zu sprechen, also z.B. einer Autowerkstatt, damit Sie leicht einen Termin vereinbaren können. Dieser Dienst kann Ihnen eine Liste mit Dienstleistungen und verfügbaren Terminen anzeigen sowie die Dauer des Termins bestimmen. Außerdem kann Cortana einen Blick in Ihren Kalender werfen, um zu prüfen, ob sich die Termine überschneiden. Wenn dies nicht der Fall ist, vereinbart sie den Termin und trägt ihn in Ihren Kalender ein.
@@ -45,7 +48,7 @@ Der Cortana-Bot verwendet die folgenden Komponenten:
 Sie können Unterstützung zu Ihrem Bot hinzufügen, indem Sie Cortana-Funktionen erstellen. Verwenden Sie das Cortana-Funktionskit, um neue Features (Cortana-Funktionen) für Cortana erstellen. Mithilfe einer Cortana-Funktion wird Cortana erweitert. Sie erstellen diese Funktionen, um Sie in Ihren Bot zu integrieren, sodass Cortana Aufgaben erledigen kann. Cortana kann (wenn der Benutzer zustimmt) Informationen zum Benutzer zur Laufzeit an eine Funktion übergeben, damit diese ihre Funktionsweise entsprechend anpassen kann. Durch das kontextbezogene Wissen von Cortana ist der Bot sehr nützlich. Einige Arten von Funktionen können, wenn sie einmal aufgerufen wurden, die Schnittstelle von Cortana so manipulieren, dass eine Konversation zwischen der Funktion und dem Endbenutzer entsteht. Wenn Sie Ihre Funktion veröffentlichen, können Benutzer diese sehen und für Cortana für Windows 10 Anniversary Update und höher (Desktopversion und mobile Version), iOS und Android verwenden.
 
 ### <a name="application-insights"></a>Application Insights
-Mit Application Insights können Sie nützliche Erkenntnisse mit Application Performance Management (APM) und Sofortanalysen sammeln. Sie erhalten eine umfangreiche Überwachung der Leistung, leistungsstarke Warnungen und einfach zu bedienende Dashboards ohne großen Konfigurationsaufwand, damit die Verfügbarkeit und Leistung Ihres Bots Ihren Erwartungen entspricht. Sie können schnell ermitteln, ob ein Problem besteht, und anschließend eine Ursachenanalyse durchführen, um das Problem zu finden und zu beheben.
+Mit Application Insights können Sie nützliche Erkenntnisse mit Application Performance Management (APM) und Sofortanalysen sammeln. Sie erhalten eine umfangreiche Überwachung der Leistung, leistungsstarke Warnungen und einfach zu bedienende Dashboards ohne großen Konfigurationsaufwand, damit die Verfügbarkeit und Leistung Ihres Bots Ihren Erwartungen entspricht. Sie können schnell ermitteln, ob ein Problem besteht, und anschließend eine Ursachenanalyse durchführen, um das Problem zu lokalisieren und zu beheben.
 
 ## <a name="next-steps"></a>Nächste Schritte
 Erfahren Sie als Nächstes mehr zum Szenario für einen Bot für die Unternehmensproduktivität.

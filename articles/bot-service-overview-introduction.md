@@ -8,16 +8,18 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 05/03/2018
-ms.openlocfilehash: 142d4cbe0c252e88bab800bb3823b70434a65bd6
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: b6326ac152112ff1df01470db1f525d4bf241af4
+ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39304104"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39574606"
 ---
 ::: moniker range="azure-bot-service-3.0"
 
 # <a name="azure-bot-service"></a>Azure Bot Service
+
+[!INCLUDE [pre-release-label](includes/pre-release-label-v3.md)]
 
 Azure Bot Service bietet Tools zum Erstellen, Testen, Bereitstellen und Verwalten intelligenter Bots an einer zentralen Stelle. Über das vom SDK bereitgestellte modulare und erweiterbare Framework können Entwickler Vorlagen zum Erstellen von Bots nutzen, die Spracheingabe, Sprachverständnis, Fragen und Antworten und vieles mehr bieten.  
 
@@ -29,7 +31,7 @@ Sie können Ihre bevorzugte Entwicklungsumgebung oder Befehlszeilentools verwend
 
 ![Botübersicht](media/bot-service-overview.png) 
 
-## <a name="plan"></a>Planen 
+## <a name="plan"></a>Plan 
 Sehen Sie sich vor dem Schreiben von Code die [Entwurfsrichtlinien](bot-service-design-principles.md)  für Bots an, um Informationen zu bewährten Methoden und Anforderungen für Ihren Bot zu erhalten. Sie können einen einfachen Bot erstellen oder komplexere Funktionen einbinden, wie z.B. Spracheingabe, Sprachverständnis, Fragen und Antworten oder die Fähigkeit, Wissen aus verschiedenen Quellen zu extrahieren und intelligente Antworten bereitzustellen.  
 
 > [!TIP] 
@@ -86,7 +88,7 @@ Verbinden Sie Ihren Bot mit Kanälen wie Facebook, Messenger, Kik, Skype, Slack,
 > - [Auswählen der hinzuzufügenden Kanäle](bot-service-manage-channels.md)
 
 
-## <a name="evaluate"></a>Evaluieren 
+## <a name="evaluate"></a>Evaluate 
 Verwenden Sie die im Azure-Portal gesammelten Daten, um Möglichkeiten zur Verbesserung der Funktionen und der Leistung Ihres Bots zu ermitteln. Sie können einen Servicelevel und Instrumentierungsdaten wie Datenverkehr, Latenz und Integrationen abrufen. Analytics bietet außerdem Berichterstellung zu Benutzer, Nachricht und Kanaldaten auf Konversationsebene.
 
 > [!Tip]
@@ -112,7 +114,7 @@ Sie können Ihre bevorzugte Entwicklungsumgebung oder Befehlszeilentools verwend
 
 ![Botübersicht](media/bot-service-overview.png) 
 
-## <a name="plan"></a>Planen 
+## <a name="plan"></a>Plan 
 Sehen Sie sich vor dem Schreiben von Code die [Entwurfsrichtlinien](bot-service-design-principles.md)  für Bots an, um Informationen zu bewährten Methoden und Anforderungen für Ihren Bot zu erhalten. Sie können einen einfachen Bot erstellen oder komplexere Funktionen einbinden, wie z.B. Spracheingabe, Sprachverständnis, Fragen und Antworten oder die Fähigkeit, Wissen aus verschiedenen Quellen zu extrahieren und intelligente Antworten bereitzustellen. Für den Einstieg können Sie die [CLI-Tools](~/bot-builder-create-templates.md), [Azure-Portal](bot-service-quickstart.md) oder die unten aufgeführten Vorlagen verwenden.
 
 **Aufrufen der benötigten Vorlage**
@@ -134,7 +136,7 @@ Ihr Bot ist ein Webdienst, der eine Konversationsoberfläche implementiert und m
 
 Einige der vielen verfügbaren Komponenten sind:
 
-| Komponenten | Beschreibung |
+| Komponenten | BESCHREIBUNG |
 | --- | --- |
 | [LUIS](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/home) | Hinzufügen von Sprachverständnis |
 | [QnA Maker](https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/home)  | Hinzufügen einer Wissensdatenbank zum Beantworten von Benutzerfragen |
@@ -162,7 +164,7 @@ Verbinden Sie Ihren Bot mit Kanälen wie Facebook, Messenger, Kik, Skype, Slack,
 [Auswählen der hinzuzufügenden Kanäle](bot-service-manage-channels.md)
 
 
-## <a name="evaluate"></a>Evaluieren 
+## <a name="evaluate"></a>Evaluate 
 Verwenden Sie die im Azure-Portal gesammelten Daten, um Möglichkeiten zur Verbesserung der Funktionen und der Leistung Ihres Bots zu ermitteln. Sie können einen Servicelevel und Instrumentierungsdaten wie Datenverkehr, Latenz und Integrationen abrufen. Analytics bietet außerdem Berichterstellung zu Benutzer, Nachricht und Kanaldaten auf Konversationsebene. 
 
 Erfahren Sie, wie [Analysen gesammelt werden](bot-service-manage-analytics.md).

@@ -8,14 +8,17 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 03/13/2018
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 63e5f4b8ac86b6b0e29d09796dbe74295bf3e213
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 96f21f02e74c8f7d78a699c37eb8324b4d36139e
+ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301487"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39574676"
 ---
 # <a name="add-suggested-actions-to-messages"></a>Hinzufügen von vorgeschlagenen Aktionen zu Nachrichten
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
+
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-add-suggested-actions.md)
 > - [Node.js](../nodejs/bot-builder-nodejs-send-suggested-actions.md)
@@ -34,11 +37,11 @@ Im folgenden Codebeispiel wird demonstriert, wie Sie eine Nachricht erstellen, d
 
 [!code-csharp[Add suggested actions](../includes/code/dotnet-add-suggested-actions.cs#addSuggestedActions)]
 
-Wenn der Benutzer auf eine der vorgeschlagenen Aktionen tippt, empfängt der Bot vom Benutzer eine Nachricht mit dem Wert (`Value`) der entsprechenden Aktion.
+Wenn der Benutzer auf eine der vorgeschlagenen Aktionen tippt, empfängt der Bot vom Benutzer eine Nachricht mit dem `Value` der entsprechenden Aktion.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-- [Featurevorschau mit dem Kanalinspektor][inspector]
+- [Preview features with the Channel Inspector (Featurevorschau mit dem Kanalinspektor)][inspector]
 - [Activities overview (Übersicht über Aktivitäten)](bot-builder-dotnet-activities.md)
 - [Create messages (Erstellen von Nachrichten)](bot-builder-dotnet-create-messages.md)
 - <a href="https://docs.botframework.com/en-us/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html" target="_blank">Activity-Klasse</a>

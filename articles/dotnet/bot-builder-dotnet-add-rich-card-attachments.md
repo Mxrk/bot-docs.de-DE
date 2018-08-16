@@ -8,14 +8,17 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 4552fd8a38468b000837ef0f580d3a0e504a882b
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 9eb07a4ac63816b84830956bca0c3a3910669e0d
+ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302584"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39574536"
 ---
 # <a name="add-rich-card-attachments-to-messages"></a>Hinzufügen von Rich Card-Anlagen zu Nachrichten
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
+
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-add-rich-card-attachments.md)
 > - [Node.js](../nodejs/bot-builder-nodejs-send-rich-cards.md)
@@ -33,11 +36,11 @@ Bot Framework unterstützt derzeit acht Typen von Rich Cards:
 | Kartentyp | BESCHREIBUNG |
 |----|----|
 | <a href="/adaptive-cards/get-started/bots">Adaptive Karten</a> | Anpassbare Rich Cards, die eine beliebige Kombination von Text, Sprache, Bildern, Schaltflächen und Eingabefeldern enthalten können. Weitere Informationen finden Sie unter [Unterstützung pro Kanal](/adaptive-cards/get-started/bots#channel-status).  |
-| [Animationskarten][animationCard] | Rich Cards, die animierte GIF-Dateien oder kurze Videos abspielen können. |
-| [Audiokarten][audioCard] | Rich Cards, die eine Audiodatei abspielen können. |
+| [Animationskarten][animationCard] | Eine Karte, die animierte GIFs oder kurze Videos abspielen kann. |
+| [Audiokarten][audioCard] | Eine Karte, die eine Audiodatei abspielen kann. |
 | [Hero Cards][heroCard] | Rich Cards, die in der Regel ein einzelnes großes Bild, eine oder mehrere Schaltflächen sowie Text enthalten. |
 | [Miniaturbildkarten][thumbnailCard] | Rich Cards, die in der Regel ein Miniaturbild, eine oder mehrere Schaltflächen sowie Text enthalten. |
-| [Quittungskarten][receiptCard] | Rich Cards, mit denen ein Bot Benutzern eine Quittung bereitstellen kann. Sie enthalten in der Regel die Liste der Elemente, die in der Quittung enthalten sein sollen, Steuer- und Gesamtbeträge sowie anderen Text. |
+| [Quittungskarten][receiptCard] | Eine Karte, über die ein Bot Rechnungen für Benutzer ausstellen kann. Sie enthalten in der Regel die Liste der Elemente, die in der Quittung enthalten sein sollen, Steuer- und Gesamtbeträge sowie anderen Text. |
 | [Anmeldekarten][signinCard] | Rich Cards, mit denen ein Bot die Anmeldung eines Benutzers anfordern kann. Sie enthalten in der Regel Text und eine oder mehrere Schaltflächen, auf die der Benutzer klicken kann, um den Anmeldevorgang zu initiieren. |
 | [Videokarte][videoCard] | Rich Cards, die Videos abspielen können. |
 

@@ -8,14 +8,17 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 286d7057afb28983964ef992de2c11cebd74e0da
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: ab1f0b938703f404417e48520467dc75b9f0717d
+ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302816"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39574836"
 ---
 # <a name="bot-service-templates"></a>Bot Service-Vorlagen
+
+[!INCLUDE [pre-release-label](includes/pre-release-label-v3.md)]
+
 Bot Service umfasst fünf Vorlagen, um Ihnen den Einstieg in das Erstellen von Bots zu erleichtern. Mit diesen Vorlagen wird ein voll funktionsfähiger und sofort einsatzbereiter Bot für den schnellen Einstieg bereitgestellt. Wenn Sie [einen Bot erstellen](bot-service-quickstart.md), wählen Sie eine Vorlage und die SDK-Sprache für Ihren Bot aus.
 
 Jede Vorlage dient als ein Ausgangspunkt, der auf einer Kernfunktion für einen Bot basiert. 
@@ -45,11 +48,11 @@ Wenn Sie einen Bot erstellen möchten, der proaktive Nachrichten an den Benutzer
 
 Wenn Sie einen Bot mithilfe der Vorlage „Proaktiv“ erstellen, werden automatisch mehrere Azure-Ressourcen erstellt und zu Ihrer Ressourcengruppe hinzugefügt. Standardmäßig sind diese Azure-Ressourcen bereits für ein sehr einfaches Szenario proaktiver Nachrichten konfiguriert. 
 
-| Ressource | Beschreibung |
+| Ressource | BESCHREIBUNG |
 |----|----|
 | Azure Storage | Wird zum Erstellen der Warteschlange verwendet. |
 | Azure-Funktionen-App | Eine Azure-Funktion vom Typ `queueTrigger`, die ausgelöst wird, sobald eine Nachricht in der Warteschlange vorhanden ist. Die Kommunikation mit Bot Service erfolgt über [Direct Line](https://docs.microsoft.com/bot-framework/rest-api/bot-framework-rest-direct-line-3-0-concepts). Diese Funktion verwendet Botbindung, um die Nachricht als Teil der Nutzlast des Auslösers zu senden. Bei unserer Beispielfunktion wird die Nachricht des Benutzers in unveränderter Form aus der Warteschlange weitergeleitet.
-| Bot Service | Ihr Bot. Enthält die Logik, die die Nachricht vom Benutzer empfängt, fügt die Nachricht der Azure-Warteschlange hinzu, empfängt Auslöser von der Azure-Funktion und sendet die empfangene Nachricht über die Nutzlast des Auslösers zurück. |
+| Botdienst | Ihr Bot. Enthält die Logik, die die Nachricht vom Benutzer empfängt, fügt die Nachricht der Azure-Warteschlange hinzu, empfängt Auslöser von der Azure-Funktion und sendet die empfangene Nachricht über die Nutzlast des Auslösers zurück. |
 
 Das folgende Diagramm zeigt die Funktionsweise ausgelöster Ereignisse bei Erstellung eines Bots mit der Vorlage „Proaktiv“.
 

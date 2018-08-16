@@ -8,14 +8,17 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 7c85227d062f32f9f1e8096f1dad83c09ed85a9f
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 43eb8e25e2a17e1d6b1d30e767dd15569fcad78b
+ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303456"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39574866"
 ---
 # <a name="information-bot-scenario"></a>Szenario für einen Informationsbot
+
+[!INCLUDE [pre-release-label](includes/pre-release-label-v3.md)]
+
 Dieser Informationsbot kann Fragen beantworten, die mithilfe von QnA Maker von Cognitive Services in einer Wissenssammlung oder in häufig gestellten Fragen definiert wurden. Offenere Fragen kann der Bot mithilfe von Azure Search beantworten.
 
 Häufig sind Informationen in strukturierten Datenspeichern wie SQL Server verborgen, die durch eine Suche leicht zugänglich gemacht werden können. Stellen Sie sich vor, Sie schlagen den Bestellstatus eines Kunden mithilfe einfacher Konversationsbefehle nach. Bei Verwendung von QnA Maker von Cognitive Services werden dem Benutzer mehrere gültige Suchoptionen angezeigt, z.B. Nachschlagen eines Kunden, Überprüfen der letzten Bestellung eines Kunden usw. Durch das definierte QnA-Format kann der Benutzer ganz einfach Fragen stellen, die von Azure Search unterstützt werden, und dieser Dienst kann Daten nachschlagen, die in einer SQL-Datenbank gespeichert sind.

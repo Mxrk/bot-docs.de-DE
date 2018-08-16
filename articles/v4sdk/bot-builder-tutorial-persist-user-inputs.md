@@ -9,14 +9,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 4/23/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 6ba5e4d3b7ccc180fd53766c3cf988b17b495be9
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 539e9e1cd772495d849ce106ee7d6a157fc1a9c0
+ms.sourcegitcommit: 9a38d76afb0e82fdccc1f36f9b1a65042671e538
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39304512"
+ms.lasthandoff: 08/04/2018
+ms.locfileid: "39515080"
 ---
 # <a name="persist-user-data"></a>Speichern von Benutzerdaten
+
+[!INCLUDE [pre-release-label](~/includes/pre-release-label.md)]
 
 Wenn der Bot eine Benutzereingabe anfordert, möchten Sie wahrscheinlich, dass einige der Informationen in einem Speicher beibehalten werden. Das Bot Builder SDK erlaubt es Ihnen, Benutzereingaben mit *In-Memory-Speicher*, *File Storage* oder Datenbankspeicher wie *CosmosDB* oder *SQL* zu speichern, wobei lokale Speichertypen hauptsächlich zum Testen oder Erstellen von Prototypen verwendet werden und die späteren Speichertypen am besten für Produktionsbots geeignet sind.
 
@@ -49,7 +51,7 @@ options.Middleware.Add(new UserState<MyBot.userState>(storage));
 
 Das Bot Builder SDK bieten drei Zustandsobjekte mit unterschiedlichen Bereichen, aus denen Sie auswählen können.
 
-| Zustand | Bereich | BESCHREIBUNG |
+| State (Zustand) | Bereich | BESCHREIBUNG |
 | ---- | ---- | ---- |
 | `dc.ActiveDialog.State` | dialog | Für die Schritte im Dialog „Wasserfall“ verfügbarer Zustand |
 | `ConversationState` | conversation | Für die aktuelle Konversation verfügbarer Status |
@@ -68,7 +70,7 @@ adapter.use(new BotStateSet(convoState, userState));
 
 `BotStateSet` kann sowohl `ConversationState` als auch `UserState` gleichzeitig verwalten. Wenn die Benutzerdaten gespeichert werden sollen, können Sie daraus auswählen. Das Bot Builder SDK bieten drei Zustandsobjekte mit unterschiedlichen Bereichen, aus denen Sie auswählen können.
 
-| Zustand | Bereich | BESCHREIBUNG |
+| State (Zustand) | Bereich | BESCHREIBUNG |
 | ---- | ---- | ---- |
 | `dc.activeDialog.state` | dialog | Für die Schritte im Dialog „Wasserfall“ verfügbarer Zustand |
 | `ConversationState` | conversation | Für die aktuelle Konversation verfügbarer Status |

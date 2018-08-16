@@ -8,14 +8,17 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 0dc869aa1464c086b6596ee83d8e6e488d8a8a55
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 4e0bde9d05ed49f6674b2d721e07235b26c5cea4
+ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302528"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39574756"
 ---
 # <a name="enterprise-productivity-bot-scenario"></a>Bot für die Unternehmensproduktivität
+
+[!INCLUDE [pre-release-label](includes/pre-release-label-v3.md)]
+
 Der Bot für Unternehmen zeigt, wie Sie Ihre Produktivität steigern können, indem Sie einen Bot in Ihren Office 365-Kalender und andere Dienste integrieren.
 
 Er bietet schnellen Zugriff auf Kundeninformationen, ohne dass mehrere Fenster geöffnet werden müssen. Mit einfachen Chatbefehlen kann ein Vertriebsmitarbeiter Kunden suchen und seinen nächsten Termin mit der Graph-API und Office 365 überprüfen. Von dort aus kann er auf kundenspezifische Informationen zugreifen, die in Dynamics CRM gespeichert sind. So lassen sich beispielsweise Fallinformationen abrufen oder ein neuer Fall erstellen.
@@ -53,7 +56,7 @@ Microsoft Graph macht mehrere APIs von Office 365 und anderen Microsoft Cloud Se
 Dynamics CRM ist eine Kundeninteraktionsplattform. Mit Bots und CRM-APIs können Sie interaktive Bots erstellen, die auf die in CRM gespeicherten umfangreichen Daten zugreifen können. Die Leistungsfähigkeit von Dynamics CRM steht Ihrem Bot zur Verfügung, um Fälle zu erstellen, den Status zu überprüfen, Suchen in Wissensdatenbanken durchzuführen und vieles mehr.
 
 ### <a name="application-insights"></a>Application Insights
-Mit Application Insights können Sie mit der Verwaltung der Anwendungsleistung und Sofortanalysen nützliche Erkenntnisse gewinnen. Sie erhalten ohne großen Konfigurationsaufwand eine umfassende Leistungsüberwachung, leistungsstarke Warnungen und einfach zu bedienende Dashboards, damit die Verfügbarkeit und Leistung Ihres Bots Ihren Erwartungen entspricht. Sie können schnell ermitteln, ob ein Problem besteht, und anschließend eine Ursachenanalyse durchführen, um das Problem zu lokalisieren und zu beheben.
+Mit Application Insights können Sie nützliche Erkenntnisse mit Application Performance Management (APM) und Sofortanalysen sammeln. Sie erhalten eine umfangreiche Überwachung der Leistung, leistungsstarke Warnungen und einfach zu bedienende Dashboards ohne großen Konfigurationsaufwand, damit die Verfügbarkeit und Leistung Ihres Bots Ihren Erwartungen entspricht. Sie können schnell ermitteln, ob ein Problem besteht, und anschließend eine Ursachenanalyse durchführen, um das Problem zu lokalisieren und zu beheben.
 
 ## <a name="next-steps"></a>Nächste Schritte
 Als Nächstes lernen Sie das Szenario bei Verwendung eines Informationsbots kennen.
