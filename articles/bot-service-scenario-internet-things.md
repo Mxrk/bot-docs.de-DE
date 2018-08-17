@@ -8,14 +8,17 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 3583c4382a9262b959b31d5a9a1b7b1b97fc8a04
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 3b65f323427760fa43586f471aefb6811ef3e675
+ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301829"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39574519"
 ---
 # <a name="internet-of-things-iot-bot-scenario"></a>Bot-Szenario für das Internet der Dinge (IoT)
+
+[!INCLUDE [pre-release-label](includes/pre-release-label-v3.md)]
+
 Dieser Internet der Dinge (IoT)-Bot erleichtert Ihnen das Steuern von Geräten in Ihrem Zuhause – z.B. Philips Hue-Lichtsysteme – mit Sprachbefehlen oder Befehlen in einem interaktiven Chat.
 
 Menschen sprechen gerne mit ihren Dingen. Seit die erste Fernbedienung auf den Markt kam, haben Menschen es genossen, ihre Umgebung zu beeinflussen, ohne sich dabei zu bewegen. Dieser IoT-Bot ermöglicht Benutzern das Verwalten von Philips Hue mit einfachen Chat- oder Sprachbefehlen. Außerdem können bei Verwendung des Chats visuelle Auswahlmöglichkeiten anhand von Farben bereitgestellt werden.
@@ -48,4 +51,4 @@ Mit Philips Hue verbundene Glühbirnen und die Bridge ermöglichen Ihnen die vol
 IFTTT ist ein kostenloser webbasierter Dienst, mit dem Benutzer Verkettungen von einfachen bedingten Anweisungen namens Applets erstellen. Sie können ein Applet über Ihren Bot auslösen, damit es in Ihrem Auftrag etwas ausführt. Es gibt eine Reihe von vordefinierten Hue-Applets, z.B. zum Ein- und Ausschalten von Licht, Szenenwechsel und vieles mehr.
 
 ### <a name="application-insights"></a>Application Insights
-Mit Application Insights können Sie über Application Performance Management (APM) und Sofortanalysen nützliche Erkenntnisse gewinnen. Sie erhalten ohne großen Konfigurationsaufwand eine umfassende Leistungsüberwachung, leistungsstarke Warnungen und einfach zu bedienende Dashboards, damit die Verfügbarkeit und Leistung Ihres Bots auch Ihren Erwartungen entspricht. Sie können schnell ermitteln, ob ein Problem besteht, und anschließend eine Ursachenanalyse durchführen, um das Problem zu finden und zu beheben.
+Mit Application Insights können Sie nützliche Erkenntnisse mit Application Performance Management (APM) und Sofortanalysen sammeln. Sie erhalten eine umfangreiche Überwachung der Leistung, leistungsstarke Warnungen und einfach zu bedienende Dashboards ohne großen Konfigurationsaufwand, damit die Verfügbarkeit und Leistung Ihres Bots Ihren Erwartungen entspricht. Sie können schnell ermitteln, ob ein Problem besteht, und anschließend eine Ursachenanalyse durchführen, um das Problem zu finden und zu beheben.
