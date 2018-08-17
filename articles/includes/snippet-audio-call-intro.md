@@ -1,0 +1,3 @@
+Wenn Sie einen Bot für Skype erstellen, kann Ihr Bot mit Benutzern über Audioanrufe kommunizieren. Audioanrufe sind nützlich, wenn der Benutzer keine Eingabe durch Tippen, Klicken oder Texteingabe bereitstellen kann oder möchte.  
+
+Ein Bot kann über den Audioanruf hinaus weitere Benutzersteuerelemente wie Rich Cards oder Text zur Verfügung stellen oder seine Kommunikation auf Audioanrufe beschränken.
