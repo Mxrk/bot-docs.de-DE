@@ -1,5 +1,5 @@
 ---
-title: Erstellen einer Bot Channels Registration mit Bot Service | Microsoft-Dokumentation
+title: Erstellen einer Botkanalregistrierung mit Bot Service | Microsoft-Dokumentation
 description: Hier erfahren Sie, wie Sie einen vorhandenen Bot bei Bot Service registrieren.
 author: v-ducvo
 ms.author: v-ducvo
@@ -19,7 +19,7 @@ ms.locfileid: "39574976"
 
 [!INCLUDE [pre-release-label](includes/pre-release-label-v3.md)]
 
-Wenn Sie über einen Bot verfügen, der bereits an anderer Stelle gehostet wird, und Sie den Bot über den Bot Service mit anderen Kanälen verbinden möchten, müssen Sie Ihren Bot bei Bot Service registrieren. In diesem Thema erfahren Sie, wie Sie Ihren Bot bei Bot Service registrieren, indem Sie einen Botdienst zur **Bot Channels Registration** erstellen.
+Wenn Sie über einen Bot verfügen, der bereits an anderer Stelle gehostet wird, und Sie den Bot über den Bot Service mit anderen Kanälen verbinden möchten, müssen Sie Ihren Bot bei Bot Service registrieren. In diesem Thema erfahren Sie, wie Sie Ihren Bot bei Bot Service registrieren, indem Sie einen Botdienst zur **Botkanalregistrierung** erstellen.
 
 > [!IMPORTANT] 
 > Sie müssen Ihren Bot nur registrieren, wenn er nicht in Azure gehostet wird. Beim [Erstellen eines Bots](bot-service-quickstart.md) über das Azure-Portal wird dieser bei Bot Service registriert.
@@ -30,14 +30,14 @@ Melden Sie sich beim [Azure-Portal](http://portal.azure.com)an.
 > [!TIP]
 > Wenn Sie noch kein Abonnement besitzen, können Sie sich für ein <a href="https://azure.microsoft.com/en-us/free/" target="_blank">kostenloses Konto</a> registrieren.
 
-## <a name="create-a-bot-channels-registration"></a>Erstellen einer Bot Channels Registration
-Sie benötigen einen Botdienst zur **Bot Channels Registration**, um die Bot Service-Funktion nutzen zu können. Mit einem Registrierungsbot können Sie Ihren Bot mit Kanälen verbinden.
+## <a name="create-a-bot-channels-registration"></a>Erstellen einer Botkanalregistrierung
+Sie benötigen einen Botdienst zur **Botkanalregistrierung**, um die Bot Service-Funktion nutzen zu können. Mit einem Registrierungsbot können Sie Ihren Bot mit Kanälen verbinden.
 
-Gehen Sie wie folgt vor, um eine **Bot Channels Registration** zu erstellen:
+Gehen Sie wie folgt vor, um eine **Botkanalregistrierung** zu erstellen:
 
-1. Klicken Sie in der linken oberen Ecke des Azure-Portals auf die Schaltfläche **Neu**, und wählen Sie dann **KI + Cognitive Services > Bot Channels Registration**. 
+1. Klicken Sie in der linken oberen Ecke des Azure-Portals auf die Schaltfläche **Neu**, und wählen Sie dann **KI + Cognitive Services > Bot Channels Registration** (Botkanalregistrierung) aus. 
 
-2. Ein neues Blatt mit Informationen über die **Bot Channels Registration** wird geöffnet. Klicken Sie auf die Schaltfläche **Erstellen**, um den Erstellungsprozess zu starten. 
+2. Ein neues Blatt mit Informationen über die **Botkanalregistrierung** wird geöffnet. Klicken Sie auf die Schaltfläche **Erstellen**, um den Erstellungsprozess zu starten. 
 
 3. Geben Sie auf dem Blatt **Bot Service** die angeforderten Informationen über Ihren Bot wie in der Tabelle unter der Abbildung angegeben an.  <br/>
    ![Blatt zum Erstellen eines Registrierungsbots](~/media/azure-bot-quickstarts/registration-create-bot-service-blade.png)
@@ -59,9 +59,9 @@ Gehen Sie wie folgt vor, um eine **Bot Channels Registration** zu erstellen:
 
 Vergewissern Sie sich, ob die Registrierung erstellt wurde, indem Sie das Kontrollkästchen **Benachrichtigungen** aktivieren. Die Benachrichtigungen ändern sich von **Die Bereitstellung wird ausgeführt** in **Bereitstellung erfolgreich**. Klicken Sie auf die Schaltfläche **Zu Ressource wechseln**, um das Ressourcenblatt des Bots zu öffnen. 
 
-## <a name="bot-channels-registration-password"></a>Kennwort für die Bot Channels Registration
+## <a name="bot-channels-registration-password"></a>Kennwort für die Botkanalregistrierung
 
-Dem Botdienst **Bot Channels Registration** ist kein App-Dienst zugeordnet. Daher weist dieser Botdienst nur eine *MicrosoftAppID* auf. Sie müssen das Kennwort selbst manuell generieren und speichern. Dieses Kennwort benötigen Sie, wenn Sie Ihren Bot mit dem [Emulator](bot-service-debug-emulator.md) testen möchten.
+Dem Botdienst **Botkanalregistrierung** ist kein App-Dienst zugeordnet. Daher weist dieser Botdienst nur eine *MicrosoftAppID* auf. Sie müssen das Kennwort selbst manuell generieren und speichern. Dieses Kennwort benötigen Sie, wenn Sie Ihren Bot mit dem [Emulator](bot-service-debug-emulator.md) testen möchten.
 
 Gehen Sie wie folgt vor, um ein MicrosoftAppPassword zu generieren:
 
