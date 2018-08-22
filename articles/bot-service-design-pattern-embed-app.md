@@ -42,7 +42,7 @@ Andere Arten von Apps können mithilfe der [Direct Line-API][directLineAPI] mit 
 
 In diesem Beispiel zur Erstellung einer mobilen App, die einen Bot ausführt, wird <a href="https://www.xamarin.com/" target="_blank">Xamarin</a> verwendet. Dabei handelt es sich um ein beliebtes Tool zum Erstellen plattformübergeifender mobiler Anwendungen. 
 
-Erstellen Sie zunächst eine einfache Webansichtskomponente, und nutzen Sie sie zum Hosten eines <a href="https://github.com/Microsoft/BotFramework-WebChat" target="_blank">Webchat-Steuerelements</a>. Stellen Sie anschließend über das Bot Framework-Portal eine [Verbindung](~/bot-service-manage-channels.md) mit dem Webchatkanal her. 
+Erstellen Sie zunächst eine einfache Webansichtskomponente, und nutzen Sie sie zum Hosten eines <a href="https://github.com/Microsoft/BotFramework-WebChat" target="_blank">Webchat-Steuerelements</a>. Fügen Sie anschließend über das Azure-Portal [TODO](~/bot-service-manage-channels.md)den Webchatkanal hinzu. 
 
 ![Konfigurationseinstellungen des Bots](~/media/bot-service-design-pattern-embed-app/webchat-channel.png)
 
