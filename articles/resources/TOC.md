@@ -4,7 +4,9 @@
 # [App Insights-Schlüssel](../bot-service-resources-app-insights-keys.md)
 # [Benutzer-Agent-Anforderungen](../bot-service-resources-user-agent.md)
 # [Richtlinien für die Bot-Überprüfung](../bot-service-review-guidelines.md)
-# [Spezifikation der Bot-Framework-Aktivität](../bot-service-activity-spec.md)
+# [Bot Framework-Aktivitätsschema](https://github.com/Microsoft/BotBuilder/blob/hub/specs/botframework-activity/botframework-activity.md)
+# [Bot Framework-Kartenschema](https://github.com/Microsoft/BotBuilder/blob/hub/specs/botframework-activity/botframework-cards.md)
+# [Bot Framework-Transskriptschema](https://github.com/Microsoft/BotBuilder/blob/hub/specs/transcript/transcript.md)
 # [Bot Service-Kompatibilität](../v4sdk/bot-service-compliance.md)
 # Problembehandlung
 ## [Behandeln allgemeiner Probleme](../bot-service-troubleshoot-general-problems.md)

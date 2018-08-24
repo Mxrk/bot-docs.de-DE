@@ -1,18 +1,18 @@
 # [Verwalten eines Bots](../bot-service-manage-overview.md)
 # Entwickeln
-## [Verwenden des Onlinecode-Editors](../bot-service-build-online-code-editor.md)
-## [Herunterladen des Bot-Quellcodes](../bot-service-build-download-source-code.md)
+## [Bearbeiten eines Bots mit dem Onlinecode-Editor](../bot-service-build-online-code-editor.md)
+## [Herunterladen und erneutes Bereitstellen des Botquellcodes](../bot-service-build-download-source-code.md)
 ## [Festlegen der kontinuierlichen Bereitstellung](../bot-service-build-continuous-deployment.md)
-# [Testen in Web Chat](../bot-service-manage-test-webchat.md)
-# [Anzeigen von Analysen](../bot-service-manage-analytics.md)
+# [Testen in Webchat](../bot-service-manage-test-webchat.md)
+# [Botanalyse](../bot-service-manage-analytics.md)
 # Kanäle
-## [Konfigurieren von Kanälen](../bot-service-manage-channels.md)
+## [Verbinden eines Bots mit Kanälen](../bot-service-manage-channels.md)
 ## [Cortana](../bot-service-channel-connect-cortana.md) 
 ## [Skype](../bot-service-channel-connect-skype.md)
 ## [Skype for Business](../bot-service-channel-connect-skypeforbusiness.md)
 ## [Direct Line](../bot-service-channel-connect-directline.md)
 ## [Microsoft Teams](https://msdn.microsoft.com/en-us/microsoft-teams/bots)
-## Web Chat
+## Webchat
 ### [Verbinden eines Bots mit Web Chat](../bot-service-channel-connect-webchat.md)
 ### [Aktivieren der Spracheingabe in Web Chat](../bot-service-channel-connect-webchat-speech.md)
 ## [E-Mail](../bot-service-channel-connect-email.md)
@@ -24,7 +24,7 @@
 ## [Twilio](../bot-service-channel-connect-twilio.md)
 ## [Vorschau auf Bot-Funktionen](../bot-service-channel-inspector.md)
 # [Konfigurieren von Einstellungen](../bot-service-manage-settings.md)
-# [Einrichten der Sprachvorbereitung](../bot-service-manage-speech-priming.md)
+# [Konfigurieren der Sprachvorbereitung](../bot-service-manage-speech-priming.md)
 # [Registrieren eines Bots bei Azure Bot Service](../bot-service-quickstart-registration.md)
 # [Migrieren Ihres Bots](../bot-service-migrate-bot.md)
 # [Bereitstellen Ihres Bots in Azure](../bot-builder-howto-deploy-azure.md)
