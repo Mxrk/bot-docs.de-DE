@@ -48,7 +48,7 @@
 ## [Verwalten](manage/TOC.md)
 ## Entwickeln
 ### [Senden von Nachrichten](v4sdk/bot-builder-howto-send-messages.md)
-### [Hinzufügen von Medienanlagen](v4sdk/bot-builder-howto-add-media-attachments.md)
+### [Hinzufügen von Medien zu Nachrichten](v4sdk/bot-builder-howto-add-media-attachments.md)
 ### [Hinzufügen von Eingabehinweisen zu Nachrichten](v4sdk/bot-builder-howto-add-input-hints.md)
 ### [Hinzufügen von vorgeschlagenen Aktionen zu Nachrichten](v4sdk/bot-builder-howto-add-suggested-actions.md)
 ### [Erstellen eigener Eingabeaufforderungen zum Erfassen von Benutzereingaben](v4sdk/bot-builder-primitive-prompts.md)
