@@ -7,12 +7,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
-ms.openlocfilehash: cf8da2240df7edbb6ea8c858829e71089b7e72cb
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 565f71dee4269ecd67dabe18af57e36defcfb3fc
+ms.sourcegitcommit: e8c513d3af5f0c514cadcbcd0a737a7393405afa
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39304152"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42756571"
 ---
 # <a name="activities-overview"></a>Übersicht über Aktivitäten
 
@@ -28,7 +28,6 @@ Die folgenden Aktivitätstypen werden vom Bot Connector-Dienst unterstützt.
 | conversationUpdate | Gibt an, dass der Bot einer Konversation hinzugefügt wurde, andere Mitglieder hinzugefügt bzw. aus der Konversation entfernt wurden oder Konversationsmetadaten geändert wurden. |
 | contactRelationUpdate | Gibt an, dass der Bot der Kontaktliste eines Benutzers hinzugefügt oder daraus entfernt wurde. |
 | typing | Gibt an, dass der Benutzer oder Bot am anderen Ende einer Nachricht eine Antwort erstellt. | 
-| ping | Stellt einen Versuch zur Ermittlung dar, ob auf den Endpunkt eines Bots zugegriffen werden kann. | 
 | deleteUserData | Gibt einem Bot an, dass ein Benutzer angefordert hat, dass der Bot gespeicherte Benutzerdaten löschen soll. |
 | endOfConversation | Gibt das Ende einer Konversation an. |
 
@@ -52,10 +51,6 @@ Ein Bot empfängt eine **contactRelationUpdate**-Aktivität, wenn er der Kontakt
 ## <a name="typing"></a>typing
 
 Ein Bot empfängt eine **typing**-Aktivität, um anzugeben, dass der Benutzer eine Antwort eingibt. Ein Bot kann eine **typing**-Aktivität senden, um dem Benutzer mitzuteilen, dass er an einer Anforderung arbeitet oder eine Antwort erstellt. 
-
-## <a name="ping"></a>ping
-
-Ein Bot empfängt eine **ping**-Aktivität, um zu ermitteln, ob auf den zugehörigen Endpunkt zugegriffen werden kann. Der Bot sollte mit dem HTTP-Statuscode 200 (OK), 403 (Unzulässig) oder 401 (Nicht autorisiert) antworten.
 
 ## <a name="deleteuserdata"></a>deleteUserData
 
