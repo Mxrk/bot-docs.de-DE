@@ -8,14 +8,17 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 09/7/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: e7dfb72f69202011c4fda06c3d55e0afa8d3d045
-ms.sourcegitcommit: dcbc8ad992a3e242a11ebcdf0ee99714d919a877
+ms.openlocfilehash: 804081e52a03a27da418f549f0fadb6dc8bca52b
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39352909"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905674"
 ---
 # <a name="create-messages"></a>Erstellen von Nachrichten
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
+
 Die Kommunikation zwischen den Bot und dem Benutzer erfolgt über Nachrichten. Ihr Bot sendet Nachrichtenaktivitäten, um dem Benutzer Informationen mitzuteilen, und auf die gleiche Weise empfängt er auch Nachrichtenaktivitäten vom Benutzer. Einige Nachrichten können aus Nur-Text bestehen, während andere vielfältigere Inhalte wie gesprochenen Text, vorgeschlagene Aktionen, Medienanlagen, Rich Cards und kanalspezifische Daten enthalten können.
 
 Dieser Artikel beschreibt einige der häufig verwendeten Nachrichtenmethoden, mit denen Sie Ihre Benutzererfahrung optimieren können.

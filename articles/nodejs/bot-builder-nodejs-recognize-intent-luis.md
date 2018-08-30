@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 03/28/2018
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 9c1a0944a24af3f2a51a90818890c50edfe139d4
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 82a4d0843a9aaab25779d833f2b1b1d2ab2516c2
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303005"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905102"
 ---
 # <a name="recognize-intents-and-entities-with-luis"></a>Erkennen von Absichten und Entitäten mit LUIS 
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 In diesem Artikel wird das Beispiel eines Bots für das Aufzeichnen von Notizen verwendet, um zu veranschaulichen, wie Language Understanding ([LUIS][LUIS]) Ihren Bot dabei unterstützt, angemessen auf Eingaben in natürlicher Sprache zu reagieren. Ein Bot erkennt, was ein Benutzer tun möchte, indem er dessen **Absicht** identifiziert. Diese Absicht wird anhand von gesprochenen oder textuellen Eingaben oder **Äußerungen** bestimmt. Die Absicht ordnet Äußerungen Aktionen zu, die der Bot ausführt (z. B. einen Dialog aufrufen). Ein Bot muss möglicherweise auch **Entitäten** extrahieren, die wichtige Wörter in Äußerungen darstellen. Entitäten sind manchmal erforderlich, um eine Absicht zu erfüllen. Im Beispiel eines Notizenbots identifiziert die Entität `Notes.Title` den Titel jeder Notiz.
 

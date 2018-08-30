@@ -9,14 +9,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 5/16/17
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 6a88b0a7f44f43d0676ba88314fbba7c486e6be4
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 07f4ad7d53c456de53be196977458a3d8b03c6f0
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301605"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42906194"
 ---
 # <a name="extract-intents-and-entities-using-luisgen"></a>Extrahieren von Absichten und Entitäten mit LUISGen
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
 Neben dem Erkennen von Absichten können mit einer LUIS-App auch Entitäten extrahiert werden, bei denen es sich um wichtige Wörter für die Erfüllung der Anforderung eines Benutzers handelt. Im Beispiel mit der Reservierung für ein Restaurant kann die LUIS-App aus der Nachricht des Benutzers ggf. die Anzahl von Personen, das Datum der Reservierung oder den Standort des Restaurants extrahieren. 
 

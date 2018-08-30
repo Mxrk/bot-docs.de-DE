@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/17
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 3e990da2abcb63c695cc79d5d8d9af40d8966cfa
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 35aca6f5f50602d0a90c41997eff2e8b1d2cdb4e
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302613"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905612"
 ---
 # <a name="build-a-real-time-media-bot-for-skype"></a>Erstellen eines Echtzeit-Medienbots für Skype
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 Die Echtzeit-Medienplattform für Bots ist eine erweiterte Funktion mit der Bots Sprach- und Videoinhalte Frame für Frame senden und empfangen können. Der Bot hat Rohdatenzugriff auf die Echtzeitmodalitäten der Sprach-, Video- und Bildschirmfreigabe. Dieser Artikel bietet einen Überblick über das Erstellen eines Bots für Audio-/Videoanrufe und das Zugreifen auf die Echtzeitmodalitäten.
 

@@ -7,14 +7,17 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: a5936f3a622bdc91084ba9a636d8be3b782f9a11
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: c213c1155b1eef5f5c776ba42a221d95b74f99a5
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303877"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42906078"
 ---
-# <a name="build-a-speech-enabled-bot-with-cortana-skills"></a>Erstellen eines sprachaktivierten Bots mit Cortana-Fähigkeiten
+# <a name="build-a-speech-enabled-bot-with-cortana-skills"></a>Erstellen eines sprachaktivierten Bots mit Cortana-Funktionen
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
+
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-cortana-skill.md)
 > - [Node.js](../nodejs/bot-builder-nodejs-cortana-skill.md)
@@ -24,14 +27,14 @@ Das Bot Builder SDK für Node.js ermöglicht Ihnen, einen sprachaktivierten Bot 
 > [!TIP]
 > Weitere Informationen zur Definition einer Fähigkeit und zu den Einsatzmöglichkeiten finden Sie im [Cortana Skills Kit][CortanaGetStarted].
 
-Das Erstellen einer Cortana-Fähigkeit mit dem Bot Framework erfordert nur sehr wenig Cortana-spezifische Kenntnisse und besteht in erster Linie aus dem Erstellen eines Bots. Einer der wichtigsten Unterschiede zu anderen Bots, die Sie vielleicht schon erstellt haben, besteht darin, dass Cortana sowohl über visuelle als auch Audiokomponenten verfügt. Für die visuelle Komponente stellt Cortana einen Bereich des Zeichenbereichs zum Rendern von Inhalten (z. B. Karten) bereit. Für die Audiokomponente geben Sie Text oder SSML in Ihre Bot-Nachrichten ein, die Cortana dem Benutzer vorliest und so Ihrem Bot eine Stimme verleiht. 
+Das Erstellen einer Cortana-Fähigkeit mit dem Bot Framework erfordert nur sehr wenig Cortana-spezifische Kenntnisse und besteht in erster Linie aus dem Erstellen eines Bots. Einer der wichtigsten Unterschiede zu anderen Bots, die Sie vielleicht schon erstellt haben, besteht darin, dass Cortana sowohl über visuelle als auch Audiokomponenten verfügt. Für die visuelle Komponente stellt Cortana einen Bereich des Zeichenbereichs zum Rendern von Inhalten (z. B. Karten) bereit. Für die Audiokomponente geben Sie Text oder SSML in Ihre Botnachrichten ein, die Cortana dem Benutzer vorliest und so Ihrem Bot eine Stimme verleiht. 
 
 > [!NOTE]
-> Cortana ist auf vielen verschiedenen Geräten verfügbar. Einige haben einen Bildschirm, während das bei anderen (z. B. eigenständiger Lautsprecher) möglicherweise nicht der Fall ist. Sie sollten sicherstellen, dass Ihr Bot beide Szenarien verarbeiten kann. Das Überprüfen von Geräteinformationen ist unter [Cortana-spezifische Entitäten][CortanaSpecificEntities] beschrieben.
+> Cortana ist auf vielen verschiedenen Geräten verfügbar. Einige haben einen Bildschirm, während das bei anderen (z.B. eigenständiger Lautsprecher) möglicherweise nicht der Fall ist. Sie sollten sicherstellen, dass Ihr Bot beide Szenarien verarbeiten kann. Informationen zum Überprüfen von Geräteinformationen finden Sie unter [Cortana-spezifische Entitäten][CortanaSpecificEntities].
 
 ## <a name="adding-speech-to-your-bot"></a>Hinzufügen von Sprache zu Ihrem Bot
 
-Gesprochene Nachrichten von Ihrem Bot werden als Speech Synthesis Markup Language (SSML) dargestellt. Mit dem Bot Builder SDK können Sie SSML in Ihre Bot-Antworten einbinden, um neben der Anzeige des Bots auch dessen Sprachausgabe zu steuern.
+Gesprochene Nachrichten von Ihrem Bot werden in der Speech Synthesis Markup Language (SSML) dargestellt. Mit dem Bot Builder SDK können Sie SSML in Ihre Bot-Antworten einbinden, um neben der Anzeige des Bots auch dessen Sprachausgabe zu steuern.
 
 ### <a name="sessionsay"></a>session.say
 
@@ -183,9 +186,9 @@ module.exports.speak = function (template, params, options) {
 
 ```
 ## <a name="sample-rollerskill"></a>Beispiel: RollerSkill
-Der Code in den folgenden Abschnitten stammt aus einer Cortana-Beispielfähigkeit für das Rollen von Würfeln. Laden Sie den vollständigen Code für den Bot aus dem [BotBuilder-Samples Repository](https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/demo-RollerSkill) herunter.
+Der Code in den folgenden Abschnitten stammt aus einer Cortana-Beispielfunktion für das Werfen von Würfeln. Laden Sie den vollständigen Code für den Bot aus dem [Repository für Bot Builder-Beispiele](https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/demo-RollerSkill) herunter.
 
-Sie rufen die Fähigkeit auf, indem Sie Cortana den [Aufrufnamen][InvocationNameGuidelines] sagen. Bei RollerSkill können Sie, nachdem Sie den [Bot zum Cortana-Kanal hinzugefügt ][CortanaChannel] und ihn als Cortana-Fähigkeit registriert haben, die Fähigkeit aufrufen, indem Sie Cortana „Ask Roller“ oder „Ask Roller to roll dice“ sagen.
+Sie rufen die Fähigkeit auf, indem Sie Cortana den [Aufrufnamen][InvocationNameGuidelines] sagen. Bei RollerSkill können Sie die Funktion aufrufen, nachdem Sie dem [Cortana-Kanal den Bot hinzugefügt ][CortanaChannel] und ihn als Cortana-Funktion registriert haben, indem Sie Cortana „Ask Roller“ oder „Ask Roller to roll dice“ sagen.
 
 ### <a name="explore-the-code"></a>Untersuchen des Codes
 
@@ -406,10 +409,10 @@ Wenn Sie einen Bot haben, der lokal ausgeführt oder in der Cloud bereitgestellt
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 * [Cortana Skills Kit][CortanaGetStarted]
-* [Hinzufügen von Spracheingabe zu Nachrichten](bot-builder-nodejs-text-to-speech.md)
+* [Hinzufügen von Sprache zu Nachrichten](bot-builder-nodejs-text-to-speech.md)
 * [SSML-Referenz][SSMLRef]
-* [Sprachdesign – Bewährte Methoden für Cortana][VoiceDesign]
-* [Kartendesign – Bewährte Methoden für Cortana][CardDesign]
+* [Sprachdesign – bewährte Methoden für Cortana][VoiceDesign]
+* [Kartendesign – bewährte Methoden für Cortana][CardDesign]
 * [Cortana Dev Center][CortanaDevCenter]
 * [Testen und Debuggen von bewährten Methoden für Cortana][Cortana-TestBestPractice]
 

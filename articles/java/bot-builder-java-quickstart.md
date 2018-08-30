@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 05/02/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: ca4714d3b3988fd08021f55a4905d9426996b7eb
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 3b618bfb7cd1a462390aee4d564778c8ec0a7247
+ms.sourcegitcommit: d486dd088b87a44fc8142f7a08877ff993861a42
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301909"
+ms.lasthandoff: 08/26/2018
+ms.locfileid: "42928429"
 ---
 # <a name="create-a-bot-with-the-bot-builder-sdk-for-java"></a>Erstellen eines Bots mit dem Bot Builder SDK für Java
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
@@ -165,8 +165,6 @@ Starten Sie im nächste Schritt den Emulator, und stellen Sie dann im Emulator e
 Senden Sie „Hallo“ an Ihren Bot, und der Bot gibt die Nachricht zurück.
 
 ## <a name="next-steps"></a>Nächste Schritte
-
-Im nächsten Schritt können Sie sich mit den Konzepten vertraut machen, die für einen Bot und dessen Funktionsweise gelten.
 
 > [!div class="nextstepaction"]
 > [Grundlegende Botkonzepte](../v4sdk/bot-builder-basics.md)

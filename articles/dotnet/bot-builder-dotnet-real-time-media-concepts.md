@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 255248449ab7adb6512db93ece51389d65c01dee
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: eed4ac20664d15fbc40969551a1f23fc91b4f120
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301965"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42906224"
 ---
 # <a name="real-time-media-calling-with-skype"></a>Medienanrufe in Echtzeit mit Skype
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 Mit der Real-Time Media Platform for Bots bekommt die Art, in der Bots mit Benutzern interagieren können, durch Aktivierung von Modalitäten zur Sprach-, Video- und Bildschirmübertragung in Echtzeit eine neue Dimension. Dies bietet die Möglichkeit, faszinierende, interaktive Unterhaltungs-, Bildungs- und Assistenzbots zu erstellen. Benutzer kommunizieren über Skype mit Echtzeit-Medienbots.
 

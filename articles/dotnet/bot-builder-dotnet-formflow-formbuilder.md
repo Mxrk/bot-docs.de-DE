@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: d24e43a3f48db024ab55c2089acbc42edebab929
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 3ad843530b70b75a6db728a399a315534d2234ac
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303893"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42904193"
 ---
 # <a name="customize-a-form-using-formbuilder"></a>Anpassen eines Formulars mithilfe von FormBuilder
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 Im Artikel [Grundlegende Funktionen von FormFlow](bot-builder-dotnet-formflow.md) wird eine grundlegende FormFlow-Implementierung beschrieben, die eine relativ allgemeine Benutzeroberfläche bereitstellt, und im Artikel [Erweiterte Funktionen von FormFlow](bot-builder-dotnet-formflow-advanced.md) wird beschrieben, wie Sie die Benutzeroberfläche mithilfe von Geschäftslogik und Attributen anpassen können. In diesem Artikel wird beschrieben, wie Sie die Benutzeroberfläche mit [FormBuilder][formBuilder] noch mehr anpassen können, indem Sie die Reihenfolge angeben, in der das Formular Schritte ausführt, sowie Feldwerte, Bestätigungen und Meldungen dynamisch definieren. 
 

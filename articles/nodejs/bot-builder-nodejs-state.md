@@ -8,14 +8,17 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 1001f1aa2fe76127073551e98548fc20ef9e1bd7
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: cdd35bc5b487b5bf0d49006cf168f2541e17a057
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302805"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42904372"
 ---
 # <a name="manage-state-data"></a>Verwalten von Statusdaten
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
+
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-state.md)
 > - [Node.js](../nodejs/bot-builder-nodejs-state.md)
@@ -42,7 +45,7 @@ Sie können mit dieser Methode Ihren eigenen benutzerdefinierten Datenspeicher f
 
 ## <a name="manage-custom-data-storage"></a>Verwalten eines benutzerdefinierten Datenspeichers
 
-In Hinblick auf Leistung und Sicherheit in der Produktionsumgebung werden Sie wohl Ihren eigenen Datenspeicher festlegen oder das Implementieren einer der folgenden Datenspeicheroptionen in Betracht ziehen:
+Im Hinblick auf Leistung und Sicherheit in der Produktionsumgebung können Sie Ihren eigenen Datenspeicher festlegen oder das Implementieren einer der folgenden Datenspeicheroptionen in Betracht ziehen:
 
 1. [Verwalten von Statusdaten mit Cosmos DB](bot-builder-nodejs-state-azure-cosmosdb.md)
 
@@ -133,7 +136,7 @@ session.userData.about.job.Title = "Senior Developer";
 session.save();
 ```
 
-## <a name="get-data"></a>Abrufen von Daten
+## <a name="get-data"></a>Datensammlung
 
 Wenn Sie auf die in einem bestimmten Speichercontainer gespeicherten Daten zugreifen möchten, verweisen Sie einfach auf die entsprechende Eigenschaft. Die folgenden Codebeispiele zeigen, wie Sie auf Daten zugreifen, die zuvor als primitive Daten, Array, Objektzuordnung und komplexes Date-Objekt gespeichert wurden.
 

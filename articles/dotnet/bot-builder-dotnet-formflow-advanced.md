@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 8860c6b3fa0eaaf9f9bfc92984a501c066f2fe5c
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 6637876b016b8680fe722602f530a0c6b0ddfc5a
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39298617"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905404"
 ---
 # <a name="advanced-features-of-formflow"></a>Erweiterte Features von FormFlow
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 [Grundlegende Features von FormFlow](bot-builder-dotnet-formflow.md) beschreibt eine grundlegende FormFlow-Implementierung, die eine recht allgemeine Benutzererfahrung bietet. Um eine individuellere Benutzererfahrung mit FormFlow bereitzustellen, können Sie den anfänglichen Formularstatus angeben, Geschäftslogik zum Verwalten von Abhängigkeiten zwischen Feldern zum Verarbeiten von Benutzereingaben hinzufügen und mithilfe von Attributen Eingabeaufforderungen anpassen, Vorlagen überschreiben, optionale Felder festlegen, Benutzereingaben auf Übereinstimmung überprüfen und Benutzereingaben validieren. 
 

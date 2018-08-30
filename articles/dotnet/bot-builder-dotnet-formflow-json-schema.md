@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: a7f6e3f186e0c4b9f6096cad72a91ef6f3fdffd4
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 03478431822c8be0e696577a18a2e693d441509b
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303869"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42904551"
 ---
 # <a name="define-a-form-using-json-schema"></a>Definieren eines Formulars mit dem JSON-Schema
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 Wenn Sie beim Erstellen eines Bots mit FormFlow eine [C#-Klasse](bot-builder-dotnet-formflow.md#create-class) zum Definieren des Formulars verwenden, wird das Formular von der statischen Definition Ihres Typs in C# abgeleitet. Als Alternative können Sie das Formular stattdessen mit dem <a href="http://json-schema.org/documentation.html" target="_blank">JSON-Schema</a> definieren. Ein mit dem JSON-Schema definiertes Formular ist ausschließlich datengesteuert. Sie können das Formular (und somit das Verhalten des Bots) einfach durch Aktualisieren des Schemas ändern. 
 
@@ -25,7 +27,7 @@ Das JSON-Schema beschreibt die Felder in Ihrem <a href="http://www.newtonsoft.co
 
 FormFlow unterstützt die folgenden <a href="http://json-schema.org/documentation.html" target="_blank">JSON-Schema</a>-Standardschlüsselwörter:
 
-| Schlüsselwort | Beschreibung | 
+| Schlüsselwort | BESCHREIBUNG | 
 |----|----|
 | type | Definiert den Typ der im Feld enthaltenen Daten. |
 | enum | Definiert die gültigen Werte für das Feld. |
@@ -43,7 +45,7 @@ FormFlow erweitert das standardmäßige <a href="http://json-schema.org/document
 | Eigenschaft | Wert |
 |----|----|
 | OnCompletion | C#-Skript mit Argumenten `(IDialogContext context, JObject state)` zum Ausfüllen des Formulars. |
-| References | In Skripts einzuschließende Verweise. Beispiel: `[assemblyReference, ...]`. Pfade sollten absolut oder relativ zum aktuellen Verzeichnis sein. Standardmäßig enthält das Skript `Microsoft.Bot.Builder.dll`. |
+| Referenzen | In Skripts einzuschließende Verweise. Beispiel: `[assemblyReference, ...]`. Pfade sollten absolut oder relativ zum aktuellen Verzeichnis sein. Standardmäßig enthält das Skript `Microsoft.Bot.Builder.dll`. |
 | Importe | In Skripts einzuschließende Importe. Beispiel: `[import, ...]`. Standardmäßig enthält das Skript die Namespaces `Microsoft.Bot.Builder`, `Microsoft.Bot.Builder.Dialogs`, `Microsoft.Bot.Builder.FormFlow`, `Microsoft.Bot.Builder.FormFlow.Advanced`, `System.Collections.Generic` und `System.Linq`. |
 
 ### <a name="additional-properties-at-the-root-of-the-schema-or-as-peers-of-the-type-property"></a>Zusätzliche Eigenschaften im Schemastamm oder als Peers der „type“-Eigenschaft
@@ -61,7 +63,7 @@ Verwenden Sie zum Angeben von Vorlagen und Eingabeaufforderungen im JSON-Schema 
 
 ### <a name="additional-properties-as-peers-of-the-type-property"></a>Zusätzliche Eigenschaften als Peers der „type“-Eigenschaft
 
-|   Eigenschaft   |          Inhalt:           |                                                   Beschreibung                                                    |
+|   Eigenschaft   |          Inhalt:           |                                                   BESCHREIBUNG                                                    |
 |--------------|-----------------------------|------------------------------------------------------------------------------------------------------------------|
 |   Datetime   |            bool             |                                  Gibt an, ob es sich bei dem Feld um ein Feld des Typs `DateTime` handelt.                                  |
 |   Describe   |      Zeichenfolge oder Objekt       |                  Beschreibung eines Felds (wie unter [DescribeAttribute][describeAttribute] beschrieben).                  |
@@ -84,7 +86,7 @@ Verwenden Sie `{Message:script|[string, ...] ...templateArgs}` im Wert der **Bef
 
 Einige der oben beschriebenen Eigenschaften enthalten ein Skript als Eigenschaftswert. Ein Skript kann ein beliebiger Ausschnitt von C#-Code sein, den Sie normalerweise im Text einer Methode finden. Sie können Verweise mithilfe der **References**-Eigenschaft und/oder der **Imports**-Eigenschaft hinzufügen. Im Folgenden werden einige spezielle globale Variablen aufgeführt:
 
-| Variable | Beschreibung |
+| Variable | BESCHREIBUNG |
 |----|----|
 | choice | Interne Verteilung für das auszuführende Skript. |
 | state | `JObject`, Formularstatus für alle Skripts. |
@@ -310,8 +312,8 @@ Wenn Sie FormFlow mit einem JSON-Schema implementieren möchten, verwenden Sie d
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 - [Grundlegende Funktionen von FormFlow](bot-builder-dotnet-formflow.md)
-- [Erweiterte Funktionen von FormFlow](bot-builder-dotnet-formflow-advanced.md)
-- [Anpassen eines Formulars mithilfe von FormBuilder](bot-builder-dotnet-formflow-formbuilder.md)
+- [Advanced features of FormFlow (Erweiterte Features von FormFlow)](bot-builder-dotnet-formflow-advanced.md)
+- [Customize a form using FormBuilder (Anpassen eines Formulars mithilfe von FormBuilder)](bot-builder-dotnet-formflow-formbuilder.md)
 - [Lokalisieren von Formularinhalten](bot-builder-dotnet-formflow-localize.md)
 - [Anpassen der Benutzeroberfläche mit Mustersprache](bot-builder-dotnet-formflow-pattern-language.md)
 - <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">Referenz zum Bot Builder SDK für .NET</a>

@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: c77b07801b8eb0168ac3e09d7b271ddfb17a04ac
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 84fdbecfe59db49e2e88567a6c942c300ea226a2
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302280"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42904360"
 ---
 # <a name="manage-custom-state-data-with-azure-table-storage-for-nodejs"></a>Verwalten von benutzerdefinierten Statusdaten mit Azure Table Storage für Node.js
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 In diesem Artikel wird beschrieben, wie Sie Azure Table Storage zum Speichern und Verwalten der Statusdaten Ihres Bots implementieren. Der von Bots verwendete standardmäßige Connector State Service ist nicht für die Produktionsumgebung vorgesehen. Sie sollten entweder die in GitHub verfügbaren [Azure-Erweiterungen](https://www.npmjs.com/package/botbuilder-azure) verwenden oder mithilfe einer Datenspeicherplattform Ihrer Wahl einen benutzerdefinierten Statusclient implementieren. Im Folgenden sind einige Gründe für die Verwendung eines benutzerdefinierten Statusspeichers aufgeführt:
 

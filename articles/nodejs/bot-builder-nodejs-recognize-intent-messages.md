@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: b737b11db3876d8b98cbd9f46f6e23f8b8564244
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 67dc8a196393458b37bb6447ceaa8f36a28a564a
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39304205"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905931"
 ---
 # <a name="recognize-user-intent-from-message-content"></a>Erkennen von Absichten anhand des Nachrichteninhalts
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 Wenn Ihr Bot eine Nachricht von einem Benutzer empfängt, kann Ihr Bot mit einer **Erkennung** die Nachricht überprüfen und die Absicht bestimmen. Die Absicht stellt eine Zuordnung von Nachrichten zu den aufzurufenden Dialogen bereit. In diesem Artikel wird erläutert, wie Absichten mithilfe von regulären Ausdrücken oder durch Überprüfen des Nachrichteninhalts erkannt werden. Ein Bot kann z. B. mithilfe von regulären Ausdrücken überprüfen, ob eine Nachricht das Wort „Hilfe“ enthält, und einen Hilfedialog aufrufen. Ein Bot kann auch die Eigenschaften der Benutzernachricht überprüfen, um beispielsweise festzustellen, ob der Benutzer ein Bild statt Text gesendet hat, und einen Bildverarbeitungsdialog aufrufen. 
 

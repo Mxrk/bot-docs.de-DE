@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: ac8e01a81e3f8acca3aa6976eec47017876c3042
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: fcda5bb35712f3a1ec27fba64a492ced911c41db
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302269"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905962"
 ---
 # <a name="define-conversation-steps-with-waterfalls"></a>Definieren von Unterhaltungsschritten mit Wasserfällen
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 Bei einer Unterhaltung handelt es sich um einen Austausch mehrerer Nachrichten zwischen einem Benutzer und einem Bot. Wenn das Ziel des Bots darin besteht, den Benutzer durch eine Reihe von Schritten zu leiten, können Sie anhand eines Wasserfalls die Schritte der Unterhaltung definieren.
 

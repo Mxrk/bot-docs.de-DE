@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 04/06/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 7241b67b582b3e31c1b3c15dc5474e750b7cc558
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: e316ff90b68f860274579f06e7196deec364e082
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39304397"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905633"
 ---
 # <a name="translate-from-the-users-language-to-make-your-bot-multilingual"></a>Übersetzen aus der Sprache des Benutzers, um einen mehrsprachige Bot bereitzustellen
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
 Ihr Bot kann [Microsoft Translator](https://www.microsoft.com/en-us/translator/) verwenden, um Nachrichten automatisch in die Sprache zu übersetzen, die Ihr Bot versteht, und optional die Antworten des Bots in die Sprache des Benutzers zurückübersetzen.
 <!-- 
@@ -29,9 +31,9 @@ Ihr Bot kann [Microsoft Translator](https://www.microsoft.com/en-us/translator/)
 
 Zunächst benötigen Sie einen Schlüssel für die Verwendung des Microsoft Translator-Diensts. Sie können einen [Schlüssel für die kostenlose Testversion](https://www.microsoft.com/en-us/translator/trial.aspx#get-started) im Azure-Portal abrufen.
 
-## <a name="installing-packages"></a>Installieren von Paketen
+## <a name="installing-packages"></a>Pakete werden installiert.
 
-Stellen Sie sicher, dass Sie über die Pakete verfügen, die zum Hinzufügen von Übersetzungsfunktionen zu Ihrem Bot erforderlich sind.
+Stellen Sie sicher, dass Sie über die Pakete verfügen, die zum Hinzufügen von Übersetzungsfeatures zu Ihrem Bot erforderlich sind.
 
 # <a name="ctabcsrefs"></a>[C#](#tab/csrefs)
 
@@ -42,11 +44,11 @@ Stellen Sie sicher, dass Sie über die Pakete verfügen, die zum Hinzufügen von
 
 Wenn Sie vorhaben, die Übersetzung mit Language Understanding (LUIS) zu kombinieren, fügen Sie auch einen Verweis auf Folgendes hinzu:
 
-* `Microsoft.Bot.Builder.Luis` (erforderlich für LUIS)
+* `Microsoft.Bot.Builder.Luis` (für LUIS erforderlich)
 
 # <a name="javascripttabjsrefs"></a>[JavaScript](#tab/jsrefs)
 
-Jeder dieser Dienste kann Ihrem Bot mit dem botbuilder-ai-Paket hinzugefügt werden. Sie können Ihrem Projekt dieses Paket über npm hinzufügen:
+Jeder dieser Dienste kann Ihrem Bot mit dem Paket „botbuilder-ai“ hinzugefügt werden. Sie können Ihrem Projekt dieses Paket über npm hinzufügen:
 * `npm install --save botbuilder@preview`
 * `npm install --save botbuilder-ai@preview`
 
@@ -54,12 +56,12 @@ Jeder dieser Dienste kann Ihrem Bot mit dem botbuilder-ai-Paket hinzugefügt wer
 
 ## <a name="configure-translation"></a>Konfigurieren der Übersetzung
 
-Sie können Ihren Bot so konfigurieren, dass er den Übersetzer für jede von einem Benutzer empfangene Nachricht aufruft, indem Sie ihn einfach zum Middlewarestapel Ihres Bots hinzufügen. Die Middleware verwendet das Übersetzungsergebnis zum Ändern der Nachricht des Benutzers mithilfe des Kontextobjekts.
+Sie können Ihren Bot so konfigurieren, dass er den Übersetzer für jede von einem Benutzer empfangene Nachricht aufruft, indem Sie ihn einfach zum Middlewarestapel Ihres Bots hinzufügen. Die Middleware verwendet das Übersetzungsergebnis zum Ändern der Benutzernachricht mithilfe des Kontextobjekts.
 
 
 # <a name="ctabcssetuptranslate"></a>[C#](#tab/cssetuptranslate)
 
-Beginnen Sie mit dem EchoBot-Beispiel im SDK, und aktualisieren Sie die `ConfigureServices`-Methode in Ihrer Datei `Startup.cs`, um dem Bot `TranslationMiddleware` hinzuzufügen. Dadurch wird Ihr Bot für das Übersetzen jeder Nachricht konfiguriert, die von einem Benutzer empfangen wird. <!--, by simply adding it to your bot's middleware set. The middleware stores the translation results on the context object. -->
+Beginnen Sie mit dem EchoBot-Beispiel im SDK, und aktualisieren Sie die `ConfigureServices`-Methode in Ihrer Datei `Startup.cs`, um dem Bot `TranslationMiddleware` hinzuzufügen. Dadurch wird Ihr Bot so konfiguriert, dass jede vom Benutzer empfange Nachricht übersetzt wird. <!--, by simply adding it to your bot's middleware set. The middleware stores the translation results on the context object. -->
 
 **Startup.cs**
 ```csharp
@@ -93,11 +95,11 @@ public void ConfigureServices(IServiceCollection services)
 ```
 
 > [!TIP] 
-> Das BotBuilder SDK erkennt die Sprache des Benutzers automatisch anhand der Nachricht, die er gerade gesendet hat. Um diese Funktionalität außer Kraft zu setzen, können Sie zusätzliche Rückrufparameter angeben, um Ihre eigene Logik zur Erkennung und Änderung der Sprache des Benutzers hinzuzufügen.  
+> Das Bot Builder SDK erkennt die Sprache des Benutzers automatisch anhand der Nachricht, die er gerade gesendet hat. Um diese Funktionalität zu überschreiben, können Sie zusätzliche Rückrufparameter angeben, um Ihre eigene Logik zur Erkennung und Änderung der Sprache des Benutzers hinzuzufügen.  
 
 
 
-Sehen Sie sich den Code in `EchoBot.cs` an, der „You sent“, gefolgt von der Benutzeraussage sendet:
+Sehen Sie sich den Code in `EchoBot.cs` an, durch den „You sent“ und die Benutzeraussage gesendet wird:
 
 ```cs
 using Microsoft.Bot.Builder;
@@ -135,7 +137,7 @@ namespace Microsoft.Bot.Samples
 }
 ```
 
-Wenn Sie Übersetzungsmiddleware hinzufügen, gibt ein optionaler Parameter an, ob Antworten zurück in die Sprache des Benutzers übersetzt werden sollen. In `Startup.cs` haben wir `false` angegeben, um nur die Benutzernachrichten in die Sprache des Bots zu übersetzen.
+Wenn Sie Übersetzungsmiddleware hinzufügen, gibt ein optionaler Parameter an, ob Antworten zurück in die Sprache des Benutzers übersetzt werden sollen. In `Startup.cs` wurde `false` angegeben, damit nur die Benutzernachrichten in die Sprache des Bots übersetzt werden.
 
 ```cs
         // The first parameter is a list of languages the bot recognizes
@@ -146,7 +148,7 @@ Wenn Sie Übersetzungsmiddleware hinzufügen, gibt ein optionaler Parameter an, 
 
 # <a name="javascripttabjssetuptranslate"></a>[JavaScript](#tab/jssetuptranslate)
 
-Um Übersetzungsmiddleware mit einem Echobot einzurichten, fügen Sie Folgendes in „app.js“ ein.
+Fügen Sie folgenden Code in die Datei „app.js“ ein, um die Übersetzungsmiddleware mit einem Echobot einzurichten:
 
 ```javascript
 const { BotFrameworkAdapter, MemoryStorage, ConversationState } = require('botbuilder');
@@ -197,16 +199,16 @@ server.post('/api/messages', (req, res) => {
 
 ## <a name="run-the-bot-and-see-translated-input"></a>Ausführen des Bots und Anzeigen der übersetzten Eingabe
 
-Führen Sie den Bot aus, und geben Sie einige Nachrichten in anderen Sprachen ein. Sie sehen, dass der Bot die Benutzernachricht übersetzt hat und die Übersetzung in der Antwort angibt.
+Führen Sie den Bot aus, und geben Sie einige Nachrichten in anderen Sprachen ein. Der Bot übersetzt die Benutzernachricht und zeigt diese in seiner Antwort an.
 
 ![Bot erkennt die Sprache und übersetzt die Eingabe](./media/how-to-bot-translate/bot-detects-language-translates-input.png)
 
 
 
 
-## <a name="invoke-logic-in-the-bots-native-language"></a>Aufrufen von Programmlogik in der nativen Sprache des Bots
+## <a name="invoke-logic-in-the-bots-native-language"></a>Aufrufen von Logik in der nativen Sprache des Bots
 
-Fügen Sie nun Logik hinzu, die überprüft, ob englische Wörter vorhanden sind. Wenn der Benutzer „help“ oder „cancel“ in einer anderen Sprache sagt, übersetzt der Bot dies ins Englische, und die Logik, die nach den englischen Wörtern „help“ oder „cancel“ sucht, wird aufgerufen.
+Fügen Sie nun Logik hinzu, die überprüft, ob englische Wörter vorhanden sind. Wenn der Benutzer „help“ oder „cancel“ in einer anderen Sprache eingibt, übersetzt der Bot dies ins Englische, und die Logik, die nach den englischen Wörtern „help“ oder „cancel“ sucht, wird aufgerufen.
 
 # <a name="ctabcshelp"></a>[C#](#tab/cshelp)
 ```cs
@@ -232,7 +234,7 @@ if (context.activity.type === 'message') {
 
 ---
 
-![Bot erkennt „Hilfe“ in Französisch](./media/how-to-bot-translate/bot-detects-help-french.png)
+![Bot erkennt „Hilfe“ auf Französisch](./media/how-to-bot-translate/bot-detects-help-french.png)
 
 
 
@@ -264,7 +266,7 @@ adapter.use(languageTranslator);
 
 ## <a name="run-the-bot-to-see-replies-in-the-users-language"></a>Ausführen des Bots, um Antworten in der Sprache des Benutzers anzuzeigen
 
-Führen Sie den Bot aus, und geben Sie einige Nachrichten in anderen Sprachen ein. Sie sehen, dass die Sprache des Benutzers erkannt und die Antwort übersetzt wird.
+Führen Sie den Bot aus, und geben Sie einige Nachrichten in anderen Sprachen ein. Die Sprache des Benutzers wird erkannt und die Antwort übersetzt.
 
 ![Bot erkennt die Sprache und übersetzt die Antwort](./media/how-to-bot-translate/bot-detects-language-translates-response.png)
 
@@ -382,9 +384,9 @@ server.post('/api/messages', (req, res) => {
 
 ---
 
-## <a name="combining-luis-or-qna-with-translation"></a>Kombinieren von LUIS oder QnA mit der Übersetzungsfunktion
+## <a name="combining-luis-or-qna-with-translation"></a>Kombinieren von LUIS oder QnA mit dem Übersetzungsfeature
 
-Wenn Sie die Übersetzungsfunktion mit anderen Diensten in Ihrem Bot kombinieren (etwa LUIS oder QnA Maker), fügen Sie zuerst die Übersetzungsmiddleware hinzu, sodass die Nachrichten übersetzt werden, bevor sie an andere Middleware weitergeleitet werden, die die native Sprache des Bots erwartet.
+Wenn Sie das Übersetzungsfeature mit anderen Diensten in Ihrem Bot kombinieren (etwa LUIS oder QnA Maker), fügen Sie zuerst die Übersetzungsmiddleware hinzu, sodass die Nachrichten übersetzt werden, bevor sie an eine andere Middleware weitergeleitet werden, die die native Sprache des Bots erwartet.
 
 # <a name="ctabcslanguageluis"></a>[C#](#tab/cslanguageluis)
 ```cs
@@ -476,7 +478,7 @@ public async Task OnTurn(ITurnContext context)
 ```
 
 ## <a name="bypass-translation-for-specified-patterns"></a>Umgehen der Übersetzung für angegebene Muster
-Möglicherweise gibt es bestimmte Wörter, die Ihr Bot nicht übersetzen soll, z.B. Eigennamen. Sie können reguläre Ausdrücke bereitstellen, um Muster anzugeben, die nicht übersetzt werden sollen. Wenn der Benutzer z.B. „Mein Name ist...“ in einer anderen als der nativen Sprache Ihres Bots sagt, und Sie möchten seinen Namen nicht übersetzen, können Sie dies mit einem Muster angeben.
+Möglicherweise gibt es bestimmte Wörter, die Ihr Bot nicht übersetzen soll, z.B. Eigennamen. Sie können reguläre Ausdrücke bereitstellen, um Muster anzugeben, die nicht übersetzt werden sollen. Wenn der Benutzer z.B. „Mein Name ist...“ in einer anderen als der nativen Sprache Ihres Bots sagt, und Sie seinen Namen nicht übersetzen möchten, können Sie dies durch ein Muster festlegen.
 
 # <a name="ctabcsbypass"></a>[C#](#tab/csbypass)
 ```cs
@@ -509,7 +511,7 @@ adapter.use(languageTranslator);
 
 ---
 
-![Bot umgeht die Übersetzung für ein Muster](./media/how-to-bot-translate/bot-no-translate-name-fr.png)
+![Bot umgeht die Übersetzung mithilfe eines Musters](./media/how-to-bot-translate/bot-no-translate-name-fr.png)
 
 ## <a name="localize-dates"></a>Lokalisieren von Datumsangaben
 
@@ -518,13 +520,13 @@ Wenn Sie Datumsangaben lokalisieren müssen, können Sie `LocaleConverterMiddlew
 > [!NOTE]
 > Die Gebietsschema-Konvertierungsmiddleware ist dafür konzipiert, nur Datumsangaben zu konvertieren. Sie kennt die Ergebnisse der Übersetzungsmiddleware nicht. Wenn Sie Übersetzungsmiddleware verwenden, achten Sie darauf, wie Sie diese mit der Gebietsschemakonvertierung kombinieren. Die Übersetzungsmiddleware übersetzt einige Datumsangaben im Textformat zusammen mit anderen Texteingaben, aber sie übersetzt keine Datumsangaben.
 
-Das folgende Bild zeigt z.B. einen Bot, der die Benutzereingabe nach der Übersetzung aus dem Englischen in das Französische zurücksendet. Er verwendet `TranslationMiddleware`, ohne `LocaleConverterMiddleware` zu verwenden.
+Auf dem folgenden Bild ist beispielsweise zu sehen, wie ein Bot die Benutzereingabe nach der Übersetzung aus dem Englischen ins Französische zurücksendet. Er verwendet `TranslationMiddleware` ohne `LocaleConverterMiddleware`.
 
-![Bot, der Datumsangaben ohne Konvertierung des Datums übersetzt](./media/how-to-bot-translate/locale-date-before.png)
+![Bot, der Datumsangaben übersetzt, ohne diese zu konvertieren](./media/how-to-bot-translate/locale-date-before.png)
 
-Das folgende Beispiel zeigt den gleichen Bot, wenn die `LocaleConverterMiddleware` hinzugefügt wird.
+Im folgenden Beispiel ist derselbe Bot zu sehen. Dieser verwendet nun jedoch `LocaleConverterMiddleware`.
 
-![Bot, der Datumsangaben ohne Konvertierung des Datums übersetzt](./media/how-to-bot-translate/locale-date-after.png)
+![Bot, der Datumsangaben übersetzt, ohne diese zu konvertieren](./media/how-to-bot-translate/locale-date-after.png)
 
 Die Gebietsschemakonvertierung unterstützt die Gebietsschemas Englisch, Französisch, Deutsch und Chinesisch. <!-- TODO: ADD DETAIL ABOUT SUPPORTED LOCALES -->
 

@@ -7,14 +7,17 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: b99dc4cd9011871d52479ade92968ebb29c8c73f
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: cb64d25582589b7bcbbe715cb4288cf56ac93e1c
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303632"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42906079"
 ---
 # <a name="manage-custom-state-data-with-azure-cosmos-db-for-net"></a>Verwalten von benutzerdefinierten Statusdaten mit Azure Cosmos DB für .NET
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
+
 In diesem Artikel wird beschrieben, wie Sie Azure Cosmos DB zum Speichern und Verwalten der Statusdaten Ihres Bots implementieren. Der von Bots verwendete standardmäßige Connector State Service ist nicht für die Produktionsumgebung vorgesehen. Sie sollten entweder die in GitHub verfügbaren [Azure-Erweiterungen](https://github.com/Microsoft/BotBuilder-Azure) verwenden oder mithilfe einer Datenspeicherplattform Ihrer Wahl einen benutzerdefinierten Statusclient implementieren. Im Folgenden sind einige Gründe für die Verwendung eines benutzerdefinierten Statusspeichers aufgeführt:
  - Höherer Durchsatz der Status-API (mehr Kontrolle über die Leistung)
  - Niedrigere Latenz für die geografische Verteilung
@@ -31,14 +34,14 @@ Sie benötigen Folgendes:
  - [Bot Framework-Emulator](~/bot-service-debug-emulator.md)
  
 ## <a name="create-azure-account"></a>Erstellen eines Azure-Kontos
-Wenn Sie nicht über ein Azure-Konto verfügen, klicken Sie [hier](https://azure.microsoft.com/en-us/free/), um sich für ein kostenloses Konto zu registrieren.
+Wenn Sie noch kein Azure-Konto haben, klicken Sie [hier](https://azure.microsoft.com/en-us/free/), um sich für ein kostenloses Konto zu registrieren.
 
 ## <a name="set-up-the-azure-cosmos-db-database"></a>Einrichten der Azure Cosmos DB-Datenbank
 1. Nachdem Sie sich beim Azure-Portal angemeldet haben, können Sie eine neue *Azure Cosmos DB*-Datenbank erstellen, indem Sie auf **Neu** klicken. 
 2. Klicken Sie auf **Datenbanken**. 
 3. Suchen Sie nach **Azure Cosmos DB**, und klicken Sie auf **Erstellen**.
 4. Füllen Sie die Felder aus. Wählen Sie für das Feld **API** den Eintrag **SQL (DocumentDB)** aus. Nachdem Sie alle Felder ausgefüllt haben, klicken Sie am unteren Bildschirmrand auf die Schaltfläche **Erstellen**, um die neue Datenbank bereitzustellen. 
-5. Navigieren Sie nach der Bereitstellung der neuen Datenbank zu Ihrer neuen Datenbank. Klicken Sie auf **Zugriffsschlüssel**, um nach Schlüsseln und Verbindungszeichenfolgen zu suchen. Ihr Bot verwendet diese Informationen, um den Speicherdienst zum Speichern von Statusdaten aufzurufen.
+5. Navigieren Sie nach der Bereitstellung zu Ihrer neuen Datenbank. Klicken Sie auf **Zugriffsschlüssel**, um nach Schlüsseln und Verbindungszeichenfolgen zu suchen. Ihr Bot verwendet diese Informationen, um den Speicherdienst zum Speichern von Statusdaten aufzurufen.
 
 ## <a name="install-nuget-packages"></a>Installieren von NuGet-Paketen
 1. Öffnen Sie ein vorhandenes C#-Botprojekt, oder erstellen Sie in Visual Studio mithilfe der Botvorlage ein neues Botprojekt. 
@@ -104,7 +107,7 @@ Führen Sie Ihren Bot in Visual Studio aus. Der von Ihnen hinzugefügte Code ers
 
 ## <a name="connect-your-bot-to-the-emulator"></a>Verbinden Ihres Bots mit dem Emulator
 Zu diesem Zeitpunkt wird Ihr Bot lokal ausgeführt. Starten Sie als Nächstes den Emulator, und verbinden Sie dann Ihren Bot im Emulator:
-1. Geben Sie in die Adressleiste die Zeichenfolge http://localhost:port-number/api/messages ein, wobei „Portnummer“ der Portnummer entspricht, die in dem Browser angezeigt wird, in dem Ihre Anwendung ausgeführt wird. Sie können die Felder <strong>Microsoft-App-ID</strong> und <strong>Microsoft-App-Kennwort</strong> vorerst leer lassen. Sie erhalten diese Informationen später, wenn Sie [Ihren Bot registrieren](~/bot-service-quickstart-registration.md).
+1. Geben Sie in die Adressleiste die Zeichenfolge http://localhost:port-number/api/messages ein, wobei „port-number“ der Portnummer entspricht, die in dem Browser angezeigt wird, in dem Ihre Anwendung ausgeführt wird. Sie können die Felder <strong>Microsoft-App-ID</strong> und <strong>Microsoft-App-Kennwort</strong> vorerst leer lassen. Sie erhalten diese Informationen später, wenn Sie [Ihren Bot registrieren](~/bot-service-quickstart-registration.md).
 2. Klicken Sie auf **Verbinden**. 
 3. Testen Sie Ihren Bot, indem Sie einige Nachrichten im Emulator eingeben. 
 

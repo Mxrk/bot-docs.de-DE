@@ -9,16 +9,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 5/10/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: a5c55d4437033968f9c08ed49c07b9586cb9b7d8
-ms.sourcegitcommit: 9a38d76afb0e82fdccc1f36f9b1a65042671e538
+ms.openlocfilehash: 7546b46a0bbca86665538b47e8f7b05d5812a920
+ms.sourcegitcommit: 44f100a588ffda19c275b118f4f97029f12d1449
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/04/2018
-ms.locfileid: "39514970"
+ms.lasthandoff: 08/26/2018
+ms.locfileid: "42928318"
 ---
 # <a name="ask-the-user-questions"></a>Dem Benutzer Fragen stellen
 
-[!INCLUDE [pre-release-label](~/includes/pre-release-label.md)]
+[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
 Im Grunde wird ein Bot für eine Unterhaltung mit einem Benutzer erstellt. Unterhaltungen können [viele Formen](bot-builder-conversations.md) annehmen. Sie können kurz oder komplexer sein, Fragen stellen oder Fragen beantworten. Welche Form die Unterhaltung annimmt, ist von mehreren Faktoren abhängig, aber alle umfassen eine Unterhaltung.
 
@@ -184,7 +184,7 @@ Sobald der Benutzer auf die Frage geantwortet hat, ist die Antwort im `results`-
 
 Nachdem Sie nun Ihre `dialogs` definiert haben, um eine Frage zu stellen, müssen Sie das Dialogfeld aufrufen, um den Eingabeaufforderungsvorgang zu starten.
 
-## <a name="start-the-dialog"></a>Starten des Dialogfelds
+## <a name="start-the-dialog"></a>Starten des Dialogs
 
 # <a name="ctabcstab"></a>[C#](#tab/cstab)
 
@@ -339,7 +339,7 @@ public CafeBot()
 
 # <a name="javascripttabjstab"></a>[JavaScript](#tab/jstab)
 
-Das `reserveTable`-Dialogfeld sieht folgendermaßen aus:
+Der `reserveTable`-Dialog sieht folgendermaßen aus:
 
 ```javascript
 // Reserve a table:
@@ -410,7 +410,7 @@ dialogs.add('partySizePrompt', new botbuilder_dialogs.NumberPrompt());
 
 Nun sind Sie bereit, dies in die Botlogik einzubinden.
 
-## <a name="start-the-dialog"></a>Starten des Dialogfelds
+## <a name="start-the-dialog"></a>Starten des Dialogs
 
 # <a name="ctabcstab"></a>[C#](#tab/cstab)
 Ändern Sie `OnTurn` des Bots so, dass der folgende Code enthalten ist:

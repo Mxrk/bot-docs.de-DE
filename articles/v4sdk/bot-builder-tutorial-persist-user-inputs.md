@@ -9,16 +9,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 4/23/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 539e9e1cd772495d849ce106ee7d6a157fc1a9c0
-ms.sourcegitcommit: 9a38d76afb0e82fdccc1f36f9b1a65042671e538
+ms.openlocfilehash: 28377a1e611464012df28d3edf78d1cf01351345
+ms.sourcegitcommit: 44f100a588ffda19c275b118f4f97029f12d1449
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/04/2018
-ms.locfileid: "39515080"
+ms.lasthandoff: 08/26/2018
+ms.locfileid: "42928368"
 ---
 # <a name="persist-user-data"></a>Speichern von Benutzerdaten
 
-[!INCLUDE [pre-release-label](~/includes/pre-release-label.md)]
+[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
 Wenn der Bot eine Benutzereingabe anfordert, möchten Sie wahrscheinlich, dass einige der Informationen in einem Speicher beibehalten werden. Das Bot Builder SDK erlaubt es Ihnen, Benutzereingaben mit *In-Memory-Speicher*, *File Storage* oder Datenbankspeicher wie *CosmosDB* oder *SQL* zu speichern, wobei lokale Speichertypen hauptsächlich zum Testen oder Erstellen von Prototypen verwendet werden und die späteren Speichertypen am besten für Produktionsbots geeignet sind.
 

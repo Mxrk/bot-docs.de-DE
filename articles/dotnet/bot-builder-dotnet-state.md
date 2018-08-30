@@ -8,14 +8,17 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/17
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: b218ae4ffd2ffbfe9144b4143f2600be15d688dd
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 3a924503ecadc9f56fa2543881c116f7fbbb4d9a
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301760"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42904328"
 ---
-# <a name="manage-state-data"></a>Verwalten von Zustandsdaten
+# <a name="manage-state-data"></a>Verwalten von Statusdaten
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
+
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-state.md)
 > - [Node.js](../nodejs/bot-builder-nodejs-state.md)
@@ -64,7 +67,7 @@ Sie können mit dieser Methode Ihren eigenen benutzerdefinierten Datenspeicher f
 
 Im Hinblick auf Leistung und Sicherheit in der Produktionsumgebung können Sie Ihren eigenen Datenspeicher festlegen oder das Implementieren einer der folgenden Datenspeicheroptionen in Betracht ziehen:
 
-1. [Manage state data with Cosmos DB (Verwalten von Zustandsdaten mit Cosmos DB)](bot-builder-dotnet-state-azure-cosmosdb.md)
+1. [Verwalten von Statusdaten mit Cosmos DB](bot-builder-dotnet-state-azure-cosmosdb.md)
 
 2. [Manage state data with Table storage (Verwalten von Zustandsdaten mit Tabellenspeicher)](bot-builder-dotnet-state-azure-table-storage.md)
 

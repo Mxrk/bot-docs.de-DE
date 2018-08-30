@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 4/23/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 10c1cb240a22c1c16dd0d946ee55531d514f332e
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 86f70fd66f1bc2261339cbe0590061913b51ddbc
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303189"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42904438"
 ---
 # <a name="save-user-state-data"></a>Speichern von Benutzerstatusdaten
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
 Wenn der Bot eine Benutzereingabe anfordert, möchten Sie wahrscheinlich, dass einige der Informationen in einem Speicher beibehalten werden. Mit dem Bot Builder SDK können Sie Benutzereingaben mit *In-Memory-Speicher*, *Dateispeicher* und Datenbankspeicher wie *CosmosDB* oder *SQL* speichern. 
 

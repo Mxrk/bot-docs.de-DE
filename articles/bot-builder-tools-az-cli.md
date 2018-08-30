@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 04/25/2018
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 20258949cd8ea403e5cc9bf774d6a3b7c1e86e7e
-ms.sourcegitcommit: dcbc8ad992a3e242a11ebcdf0ee99714d919a877
+ms.openlocfilehash: 1eb47e76ef1bd6765d5ba93c27b97a8d9e6143db
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39352899"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905304"
 ---
 # <a name="create-bots-with-azure-cli"></a>Erstellen von Bots mit der Azure CLI
+
+[!INCLUDE [pre-release-label](./includes/pre-release-label-v3.md)]
 
 Die [Botgeneratortools](https://github.com/microsoft/botbuilder-tools) sind ein neues Toolset, das Sie zum Verwalten und Interagieren mit Ihren Botressourcen direkt über die Befehlszeile verwenden können. 
 
@@ -37,7 +39,7 @@ Um diese Tools über die Befehlszeile aktivieren zu können, muss Node.js auf Ih
 
 ## <a name="1-enable-azure-cli"></a>1. Aktivieren der Azure CLI
 
-Sie können jetzt Bots mit der [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) wie jede andere Azure-Ressource verwalten. Um die Azure CLI zu aktivieren, führen Sie die folgenden Schritte aus:
+Sie können jetzt Bots mit der [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) wie jede andere Azure-Ressource verwalten. Um die Azure CLI zu aktivieren, führen Sie die folgenden Schritte aus:
 
 1. [Laden](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) Sie die Azure CLI herunter, wenn diese noch nicht vorhanden ist. 
 
@@ -64,7 +66,7 @@ Nach der erfolgreichen Anmeldung wird die Willkommensseite der Azure CLI zusamme
 ![Azure Bot-CLI](media/bot-builder-tools/az-cli-bot.png)
 
 
- Eine vollständige Liste der Azure CLI-Befehle [finden Sie hier](https://docs.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest).
+ Eine vollständige Liste der Azure CLI-Befehle [finden Sie hier](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest).
 
 
 ## <a name="2-create-a-new-bot-from-azure-cli"></a>2. Erstellen eines neuen Bots über die Azure CLI
@@ -78,12 +80,12 @@ az bot [command]
 |----|----|
 | create      |Hinzufügen einer Ressource|
 | delete     |Klonen einer Ressource|
-| download   | Herunterladen des Botquellcodes|
-| publish   |Veröffentlichen in einem vorhandenen Botdienst|
+| Download   | Herunterladen des Botquellcodes|
+| Veröffentlichen   |Veröffentlichen in einem vorhandenen Botdienst|
 | show |Anzeigen vorhandener Botressourcen|
-| update| Aktualisieren eines vorhandenen Botdiensts|
+| aktualisieren| Aktualisieren eines vorhandenen Botdiensts|
 
-Um einen neuen Bot mithilfe der CLI zu erstellen, müssen Sie eine vorhandene [Ressourcengruppe](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) auswählen oder eine neue Ressourcengruppe erstellen. 
+Um einen neuen Bot mithilfe der CLI zu erstellen, müssen Sie eine vorhandene [Ressourcengruppe](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) auswählen oder eine neue Ressourcengruppe erstellen. 
 
 ```azurecli
 az bot create --resource-group "my-resource-group" --name "my-bot-name" --kind "my-resource-type" --description "description-of-my-bot"
@@ -156,7 +158,7 @@ Um Ihren Bot mit einem Dienst zu verbinden, geben Sie in der CLI **msbot connect
 msbot connect service-type
 ```
 
-| Diensttyp | BESCHREIBUNG |
+| Dienstart | BESCHREIBUNG |
 | ------ | ----------- |
 | azure  |Verbinden Ihres Bots mit einer Azure Bot Service-Registrierung|
 |endpoint| Verbinden Ihres Bots mit einem Endpunkt, z.B. „localhost“|
@@ -183,7 +185,7 @@ Die [Botgeneratortools](https://github.com/microsoft/botbuilder-tools) sind ein 
 > Jedes Botgeneratortool enthält einen globalen Hilfebefehl, auf den über die Befehlszeile durch die Eingabe von **-h** oder **--help** zugegriffen werden kann. Dieser Befehl steht jederzeit in beliebigen Aktionen zur Verfügung und bietet eine nützliche Anzeige der verfügbaren Optionen sowie deren Beschreibungen.
 
 ### <a name="ludown"></a>LUDown
-[LUDown](https://github.com/Microsoft/botbuilder-tools/tree/master/Ludown) ermöglicht Ihnen das Beschreiben und Erstellen leistungsfähiger Sprachkomponenten für Bots unter Verwendung von **LU**-Dateien. Die neue LU-Datei ist eine Art von Markdownformat, die das LUDown-Tool nutzt. Es gibt dann JSON-Dateien aus, die für den Zieldienst spezifisch sind. Zurzeit können Sie LU-Dateien verwenden, um eine neue [LUIS](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-get-started-create-app)-Anwendung oder eine [QnA](https://qnamaker.ai/Documentation/CreateKb)-Wissensdatenbank mit jeweils unterschiedlichen Formaten zu erstellen. LUDown ist als npm-Modul verfügbar und kann verwendet werden, indem Sie das Tool global auf Ihrem Computer installieren:
+[LUDown](https://github.com/Microsoft/botbuilder-tools/tree/master/Ludown) ermöglicht Ihnen das Beschreiben und Erstellen leistungsfähiger Sprachkomponenten für Bots unter Verwendung von **LU**-Dateien. Die neue LU-Datei ist eine Art von Markdownformat, die das LUDown-Tool nutzt. Es gibt dann JSON-Dateien aus, die für den Zieldienst spezifisch sind. Zurzeit können Sie LU-Dateien verwenden, um eine neue [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app)-Anwendung oder eine [QnA](https://qnamaker.ai/Documentation/CreateKb)-Wissensdatenbank mit jeweils unterschiedlichen Formaten zu erstellen. LUDown ist als npm-Modul verfügbar und kann verwendet werden, indem Sie das Tool global auf Ihrem Computer installieren:
 
 ```shell
 npm install -g ludown
@@ -193,9 +195,9 @@ Das LUDown-Tool kann zum Erstellen von neuen JSON-Modellen für LUIS und QnA ver
 
 ### <a name="creating-a-luis-application-with-ludown"></a>Erstellen einer LUIS-Anwendung mit LUDown
 
-Sie können [Absichten](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/add-intents) und [Entitäten](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/add-entities) für eine LUIS-Anwendung auf die gleiche Weise definieren, wie Sie über das LUIS-Portal vorgehen würden. 
+Sie können [Absichten](https://docs.microsoft.com/azure/cognitive-services/luis/add-intents) und [Entitäten](https://docs.microsoft.com/azure/cognitive-services/luis/add-entities) für eine LUIS-Anwendung auf die gleiche Weise definieren, wie Sie über das LUIS-Portal vorgehen würden. 
 
-`# \<intent-name\>` beschreibt einen neuen Absichtsdefinitionsabschnitt. Nachfolgende Zeilen enthalten [Äußerungen](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/add-example-utterances), die diese Absicht beschreiben.
+`# \<intent-name\>` beschreibt einen neuen Absichtsdefinitionsabschnitt. Nachfolgende Zeilen enthalten [Äußerungen](https://docs.microsoft.com/azure/cognitive-services/luis/add-example-utterances), die diese Absicht beschreiben.
 
 Beispielsweise können Sie mehrere LUIS-Absichten in einer einzelnen LU-Datei wie folgt erstellen: 
 
@@ -349,10 +351,10 @@ az bot publish --name "my-bot-name" --resource-group "my-resource-group"
 ```
 
 ## <a name="references"></a>Referenzen
-- [BotBuilder-Tools: Quellcode](https://github.com/Microsoft/botbuilder-tools)
+- [Bot Builder-Tools: Quellcode](https://github.com/Microsoft/botbuilder-tools)
 - [MSBot](https://github.com/Microsoft/botbuilder-tools/tree/master/MSBot)
 - [ChatDown](https://github.com/Microsoft/botbuilder-tools/tree/master/Chatdown)
 - [LUDown](https://github.com/Microsoft/botbuilder-tools/tree/master/ludown)
-- [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Azure-CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 

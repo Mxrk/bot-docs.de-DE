@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: f432a570f5a8393a2aef3e4ec97c5e7e8cbaa43f
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 509cba25eae229d1e454cd1846a97474f0af957b
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303285"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42904264"
 ---
 # <a name="send-proactive-messages"></a>Senden von proaktiven Nachrichten
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
+
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-proactive-messages.md)
 > - [Node.js](../nodejs/bot-builder-nodejs-proactive-messages.md)
@@ -119,7 +121,7 @@ bot.dialog('survey', function (session, args, next) {
 
 ## <a name="sample-code"></a>Beispielcode
 
-Ein vollständiges Beispiel, das zeigt, wie Sie Nachrichten mit dem Bot Builder SDK für Node.js senden können, finden Sie in GitHub im <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/core-proactiveMessages" target="_blank">Beispiel für proaktive Nachrichten</a>. Im Beispiel für proaktive Nachrichten zeigt <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/core-proactiveMessages/simpleSendMessage" target="_blank">SimpleSendMessage</a>, wie eine proaktive Ad-hoc-Nachricht gesendet wird, und <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/core-proactiveMessages/startNewDialog" target="_blank">StartNewDialog</a> zeigt, wie Sie eine dialogbasierte proaktive Nachricht senden.
+Ein vollständiges Beispiel, das zeigt, wie Sie Nachrichten mit dem Bot Builder SDK für Node.js senden können, finden Sie in GitHub im <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/core-proactiveMessages" target="_blank">Beispiel für proaktive Nachrichten</a>. Im Beispiel für proaktive Nachrichten zeigt <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/core-proactiveMessages/simpleSendMessage" target="_blank">simpleSendMessage</a>, wie eine proaktive Ad-hoc-Nachricht gesendet wird, und <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/core-proactiveMessages/startNewDialog" target="_blank">startNewDialog</a> zeigt, wie Sie eine dialogbasierte proaktive Nachricht senden.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 

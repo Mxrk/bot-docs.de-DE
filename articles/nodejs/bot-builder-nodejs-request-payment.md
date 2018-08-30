@@ -8,14 +8,17 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 1e0c262c3a8dbef6430d51dab79a2d7c3cda938c
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 783d9e1fb3b90f6ba977440b3eefae5c16a1b8ca
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39304197"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905835"
 ---
 # <a name="request-payment"></a>Anfordern von Zahlungen
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
+
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-request-payment.md)
 > - [Node.js](../nodejs/bot-builder-nodejs-request-payment.md)
@@ -35,11 +38,11 @@ Aktualisieren Sie bei Ihrem Bot die Umgebungsvariablen für `MicrosoftAppId` und
 
 ### <a name="create-and-configure-merchant-account"></a>Erstellen und Konfigurieren eines Händlerkontos
 
-1. <a href="https://dashboard.stripe.com/register" target="_blank">Erstellen und aktivieren Sie ein Stripe-Konto, wenn Sie noch keins haben.</a>
+1. <a href="https://dashboard.stripe.com/register" target="_blank">Erstellen und aktivieren Sie ein Stripe-Konto, falls Sie noch keins besitzen.</a>
 
-2. <a href="https://seller.microsoft.com/en-us/dashboard/registration/seller/?accountprogram=botframework" target="_blank">Melden Sie sich mit Ihrem Microsoft-Konto in Microsoft Seller Center an.</a>
+2. <a href="https://seller.microsoft.com/en-us/dashboard/registration/seller/?accountprogram=botframework" target="_blank">Melden Sie sich mit Ihrem Microsoft-Konto beim Seller Center an.</a>
 
-3. Verbinden Sie in Seller Center Ihr Konto mit Stripe.
+3. Verbinden Sie im Seller Center Ihr Konto mit Stripe.
 
 4. Navigieren Sie in Seller Center zum Dashboard, und kopieren Sie den Wert von **MerchantID**.
 
@@ -83,8 +86,8 @@ HTTP-Rückrufe werden an Ihren Bot gesendet, um anzugeben, dass bestimmte Vorgä
 
 | Eigenschaft | Wert |
 |----|----|
-| `type` | Aufrufen | 
-| `name` | Gibt den Typ des Vorgangs an, den der Bot durchführen soll (z. B. Versandadresse aktualisieren, Versandoption aktualisieren, Zahlung vornehmen). | 
+| `type` | invoke | 
+| `name` | Gibt den Typ des Vorgangs an, den der Bot ausführen soll (z. B. Lieferanschrift aktualisieren, Versandoption aktualisieren, Zahlung vornehmen). | 
 | `value` | Die Anforderungsnutzlast im JSON-Format. | 
 | `relatesTo` |  Beschreibt den Kanal und den Benutzer, welche der Zahlungsanforderung zugeordnet sind. | 
 
@@ -102,9 +105,9 @@ Als Händler sollten Sie diese Rückrufe als statische, gegebene Zahlungseingabe
 
 ### <a name="payment-complete-callbacks"></a>Rückrufe des Typs „Zahlung vornehmen“
 
-Beim Empfang eines Rückrufs „Zahlung vornehmen“ werden Ihrem Bot in der `value`-Eigenschaft des Ereignisses eine Kopie der ersten, unveränderten Zahlungsanforderung sowie die Zahlungsantwortobjekte bereitgestellt. Ein Zahlungsantwortobjekt enthält die endgültige Auswahl durch den Kunden sowie ein Zahlungstoken. Ihr Bot sollte die Gelegenheit wahrnehmen, anhand der ersten Zahlungsanforderung und der Endauswahl des Kunden die endgültige Zahlungsanforderung neu zu berechnen. Vorausgesetzt, dass die Auswahl des Kunden als gültig ermittelt wurde, sollte der Bot den Betrag und die Währung in der Kopfzeile des Zahlungstokens überprüfen, um sicherzustellen, dass die Werte mit der letzten Zahlungsanforderung übereinstimmen.  Wenn der Bot entscheidet, den Kunden zu belasten, sollte nur der Betrag in der Kopfzeile des Zahlungstokens belastet werden, da dies der durch den Kunden bestätigte Preis ist. Wenn es zwischen den Werten, die der Bot erwartet und die er im Rückruf „Zahlung vornehmen“ empfangen hat, Abweichungen gibt, kann er durch Senden des HTTP-Statuscodes `200 OK` und Festlegen des Ergebnisfelds auf `failure` die Zahlungsanforderung als fehlerhaft kennzeichnen.   
+Beim Empfang eines Rückrufs „Zahlung vornehmen“ werden Ihrem Bot in der `value`-Eigenschaft des Ereignisses eine Kopie der ersten, unveränderten Zahlungsanforderung sowie die Zahlungsantwortobjekte bereitgestellt. Ein Zahlungsantwortobjekt enthält die endgültige Auswahl durch den Kunden sowie ein Zahlungstoken. Ihr Bot sollte die letzte Zahlungsanforderung anhand der ersten Zahlungsanforderung und der endgültigen Auswahl des Kunden neu berechnen. Unter der Voraussetzung, dass die Auswahl des Kunden als gültig ermittelt wurde, sollte der Bot den Betrag und die Währung in der Kopfzeile des Zahlungstokens überprüfen, um sicherzustellen, dass die Werte mit der letzten Zahlungsanforderung übereinstimmen.  Wenn der Bot entscheidet, den Kunden zu belasten, sollte nur der Betrag in der Kopfzeile des Zahlungstokens in Rechnung gestellt werden, da dies der vom Kunden bestätigte Preis ist. Wenn es zwischen den Werten, die der Bot erwartet und die er im Rückruf „Zahlung vornehmen“ empfangen hat, Abweichungen gibt, kann er durch Senden des HTTP-Statuscodes `200 OK` und Festlegen des Ergebnisfelds auf `failure` die Zahlungsanforderung als fehlerhaft kennzeichnen.   
 
-Neben der Überprüfung der Zahlungsdetails sollte der Bot auch prüfen, ob der Auftrag ausgeführt werden kann, bevor er die Zahlungsverarbeitung initiiert. Beispielsweise sollte er sicherstellen, dass die Artikel, die gekauft werden, auch noch vorrätig sind. Wenn die Werte korrekt sind und Ihr Zahlungsabwickler das Zahlungstoken erfolgreich belastet hat, sollte der Bot mit dem HTTP-Statuscode `200 OK` antworten und das Ergebnisfeld auf `success` festlegen, damit auf der Zahlungsweboberfläche die Zahlungsbestätigung angezeigt werden kann. Das Zahlungstoken, das der Bot empfängt, kann nur einmal von dem anfordernden Händler verwendet werden und muss an Stripe (der einzige Zahlungsabwickler, der das Bot Framework derzeit unterstützt) übermittelt werden. Das Senden eines HTTP-Statuscodes im Bereich `400` oder `500` führt zu einem allgemeinen Fehler für den Kunden.
+Neben der Überprüfung der Zahlungsdetails sollte der Bot auch prüfen, ob der Auftrag ausgeführt werden kann, bevor er die Zahlungsverarbeitung initiiert. Beispielsweise sollte er sicherstellen, dass die Artikel, die gekauft werden, auch noch vorrätig sind. Wenn die Werte korrekt sind und Ihr Zahlungsabwickler das Zahlungstoken erfolgreich belastet hat, sollte der Bot mit dem HTTP-Statuscode `200 OK` antworten und das Ergebnisfeld auf `success` festlegen, damit auf der Zahlungsweboberfläche die Zahlungsbestätigung angezeigt werden kann. Das Zahlungstoken, das der Bot empfängt, kann nur einmal von dem anfordernden Händler verwendet werden und muss an Stripe übermittelt werden. (Stripe ist der einzige Zahlungsabwickler, der aktuell vom Bot Framework unterstützt wird.) Das Senden eines HTTP-Statuscodes im Bereich `400` oder `500` führt zu einem allgemeinen Fehler für den Kunden.
 
 Im folgenden Codeausschnitt aus dem **Zahlungs-Bot**-Beispiel werden die Rückrufe verarbeitet, die der Bot empfängt. 
 
@@ -116,10 +119,10 @@ In diesem Beispiel untersucht der Bot die `name`-Eigenschaft des eingehenden Ere
 
 [!INCLUDE [Test a payment bot](../includes/snippet-payment-test-bot.md)]
 
-Im <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/sample-payments" target="_blank">Zahlungs-Bot</a>-Beispiel bestimmt die Umgebungsvariable `PAYMENTS_LIVEMODE` in **.env**, ob Rückrufe des Typs „Zahlung vornehmen“ emulierte oder echte Zahlungstoken enthalten. Wenn `PAYMENTS_LIVEMODE` auf `false` festgelegt ist, wird der ausgehenden Zahlungsanforderung des Bots eine Kopfzeile hinzugefügt, die angibt, dass sich der Bot im Testmodus befindet, und der Rückruf „Zahlung vornehmen“ enthält ein emuliertes Zahlungstoken, das nicht belastet werden kann. Wenn `PAYMENTS_LIVEMODE` auf `true` festgelegt ist, fehlt die Kopfzeile mit dem Hinweis auf den Testmodus in der ausgehenden Zahlungsanforderung des Bots, und der Rückruf „Zahlung vornehmen“ enthält ein echtes Zahlungstoken, das der Bot an Stripe zur Zahlungsabwicklung sendet. Dies ist dann eine echte Transaktion, die in einer Belastung des angegebenen Zahlungsinstruments resultiert. 
+Im <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/sample-payments" target="_blank">Zahlungs-Bot</a>-Beispiel bestimmt die Umgebungsvariable `PAYMENTS_LIVEMODE` in **.env**, ob Rückrufe des Typs „Zahlung vornehmen“ emulierte oder echte Zahlungstoken enthalten. Wenn `PAYMENTS_LIVEMODE` auf `false` festgelegt ist, wird der ausgehenden Zahlungsanforderung des Bots eine Kopfzeile hinzugefügt, die angibt, dass sich der Bot im Testmodus befindet, und der Rückruf „Zahlung vornehmen“ enthält ein emuliertes Zahlungstoken, das nicht belastet werden kann. Wenn `PAYMENTS_LIVEMODE` auf `true` festgelegt ist, fehlt die Kopfzeile mit dem Hinweis auf den Testmodus in der ausgehenden Zahlungsanforderung des Bots, und der Rückruf „Zahlung vornehmen“ enthält ein echtes Zahlungstoken, das der Bot an Stripe zur Zahlungsabwicklung sendet. Dies ist dann eine echte Transaktion, die zu einer Belastung des angegebenen Zahlungsinstruments führt. 
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-- <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/sample-payments" target="_blank">Beispiel für einen Zahlungs-Bot</a>
+- <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/sample-payments" target="_blank">Zahlungsbot-Beispiel</a>
 - [Hinzufügen von Rich Cards-Anlagen zu Nachrichten](bot-builder-nodejs-send-rich-cards.md)
 - <a href="http://www.w3.org/Payments/" target="_blank">Webzahlungen bei W3C</a> 

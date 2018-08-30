@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 9e555de909275a991294cf093c4a76b7035b4a13
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: dd40123ef641d3cef80525d466fd85ecab80654a
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302792"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42904938"
 ---
 # <a name="conduct-audio-calls-with-skype"></a>Durchführen von Audioanrufen mit Skype
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 [!INCLUDE [Introduction to conducting audio calls](../includes/snippet-audio-call-intro.md)]
 
@@ -52,7 +54,7 @@ public class CallingController : ApiController
 > [!NOTE]
 > Neben dem `CallingController`, der Audioanrufe unterstützt, kann ein Bot auch einen `MessagesController` zum Unterstützen von Nachrichten enthalten. Durch die Bereitstellung beider Optionen ermöglichen Sie den Benutzern die Interaktion mit dem Bot auf die von ihnen bevorzugte Weise. <!-- docs on MessagesController are where? -->
 
-##  <a name="answer-the-call"></a>Annehmen des Anrufs
+##  <a name="answer-the-call"></a>Antwort beantworten
 
 Die Aufgabe `ProcessIncomingCallAsync` wird ausgeführt, wenn ein Benutzer über Skype einen Anruf an diesen Bot initiiert.
 Der Konstruktor registriert die `IVRBot`-Klasse, die über einen vordefinierten Handler für das `incomingCallEvent` verfügt.

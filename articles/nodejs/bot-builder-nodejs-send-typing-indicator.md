@@ -8,15 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: aff2509a426fb42f136fb9d2b4a2df9ec1accda0
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 1c6b01b1cab9165b1513bfda5af182f27635290e
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303912"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42904382"
 ---
 # <a name="send-a-typing-indicator"></a>Senden eines Eingabeindikators 
 
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 Benutzer erwarten eine zeitnahe Antwort auf ihre Nachrichten. Wenn Ihr Bot eine langdauernde Aufgabe ausführt (z. B. Aufrufen eines Servers oder Ausführen einer Abfrage), ohne dem Benutzer einen Hinweis zu geben, dass der Bot ihn gehört hat, könnte der Benutzer ungeduldig werden und weitere Nachrichten senden oder einfach davon ausgehen, dass der Bot fehlerhaft ist.
 Viele Kanäle unterstützen das Senden eines Eingabeindikators, um den Benutzern zu zeigen, dass die Nachricht empfangen wurde und verarbeitet wird.

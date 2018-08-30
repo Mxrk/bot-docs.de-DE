@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: bb0ac4b8e3fa34ec8863bb323ae968db37972a6f
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 587e21049ed8c9c3259f04f929784153d06db40c
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301877"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42904224"
 ---
 # <a name="localize-form-content"></a>Lokalisieren von Formularinhalten
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 Die Lokalisierungssprache eines Formulars wird durch die Eigenschaften [CurrentUICulture](https://msdn.microsoft.com/en-us/library/system.threading.thread.currentuiculture(v=vs.110).aspx) und [CurrentCulture](https://msdn.microsoft.com/en-us/library/system.threading.thread.currentculture(v=vs.110).aspx) des aktuellen Threads festgelegt. Standardmäßig wird die Kultur vom **Locale**-Feld der aktuellen Nachricht abgeleitet. Sie können dieses Standardverhalten überschreiben. Lokalisierte Informationen können je nach Erstellungsmethode für Ihren Bot aus drei unterschiedlichen Quellen stammen, nämlich aus
 
@@ -150,7 +152,7 @@ Par pain "neuf" vouliez-vous dire (1. Neuf grains miel avoine, ou 2. Neuf grains
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-- [Basic features of FormFlow (Grundlegende Features von FormFlow)](bot-builder-dotnet-formflow.md)
+- [Grundlegende Funktionen von FormFlow](bot-builder-dotnet-formflow.md)
 - [Advanced features of FormFlow (Erweiterte Features von FormFlow)](bot-builder-dotnet-formflow-advanced.md)
 - [Anpassen eines Formulars mithilfe von FormBuilder](bot-builder-dotnet-formflow-formbuilder.md)
 - [Definieren eines Formulars mit dem JSON-Schema](bot-builder-dotnet-formflow-json-schema.md)

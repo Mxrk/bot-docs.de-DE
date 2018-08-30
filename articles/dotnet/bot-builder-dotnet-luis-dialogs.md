@@ -8,22 +8,26 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: b98eea6bdae097beec85e93301e5380a1de991c3
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: fc260f34f28e406dc88dd5b688d84cd79c7e9449
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303240"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905952"
 ---
 # <a name="recognize-intents-and-entities-with-luis"></a>Erkennen von Absichten und Entitäten mit LUIS 
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 In diesem Artikel wird das Beispiel eines Bots für das Aufzeichnen von Notizen verwendet, um zu veranschaulichen, wie Language Understanding ([LUIS][LUIS]) Ihren Bot dabei unterstützt, angemessen auf Eingaben in natürlicher Sprache zu reagieren. Ein Bot erkennt, was ein Benutzer tun möchte, indem er dessen **Absicht** identifiziert. Diese Absicht wird anhand von gesprochenen oder textuellen Eingaben oder **Äußerungen** bestimmt. Die Absicht ordnet Äußerungen Aktionen zu, die der Bot ausführt. Ein Notizenbot erkennt z. B. die Absicht `Notes.Create`, um die Funktion zum Erstellen einer Notiz aufzurufen. Ein Bot muss möglicherweise auch **Entitäten** extrahieren, die wichtige Wörter in Äußerungen darstellen. Im Beispiel eines Notizenbots identifiziert die Entität `Notes.Title` den Titel jeder Notiz.
 
 ## <a name="create-a-language-understanding-bot-with-bot-service"></a>Erstellen eines Language Understanding-Bots mit Bot Service
 
-1. Wählen Sie im [Azure-Portal](https://portal.azure.com) auf dem Menüblatt die Option **Neue Ressource erstellen** aus, und klicken Sie dann auf **Alle anzeigen**.<!-- Start with the steps in [Create a bot with Bot Service](../bot-service-quickstart.md) to start creating a new bot service.  -->
+1. Wählen Sie im [Azure-Portal](https://portal.azure.com) auf dem Menüblatt die Option **Neue Ressource erstellen** aus, und klicken Sie dann auf **Alle anzeigen**.
 
-    ![Neue Ressource erstellen](../media/bot-builder-dotnet-use-luis/bot-service-creation.png)
+<!-- Start with the steps in [Create a bot with Bot Service](../bot-service-quickstart.md) to start creating a new bot service.  -->
+
+    ![Create new resource](../media/bot-builder-dotnet-use-luis/bot-service-creation.png)
 
 2. Suchen Sie im Suchfeld nach **Web-App-Bot**. 
 
@@ -60,7 +64,7 @@ In der LUIS-App sind zunächst 4 Absichten verfügbar: „Cancel“ „Greeting�
 
 Mit den folgenden Schritten werden die Absichten „Note.Create“, „Note.ReadAloud“ und „Note.Delete“ hinzugefügt: 
 
-1. Klicken Sie unten links auf der Seite auf **Prebuit Domains** (Vordefinierte Domänen). Suchen Sie nach der Domäne **Note** (Notiz), und klicken Sie auf **Add domain** (Domäne hinzufügen).
+1. Klicken Sie unten links auf der Seite auf **Prebuilt Domains** (Vordefinierte Domänen). Suchen Sie nach der Domäne **Note** (Notiz), und klicken Sie auf **Add domain** (Domäne hinzufügen).
 
 2. In diesem Tutorial werden nicht alle Absichten verwendet, die in der vordefinierten Domäne **Note** (Notiz) enthalten sind. Klicken Sie auf der Seite **Intents** (Absichten) auf jeden der folgenden Absichtsnamen, und klicken Sie dann auf die Schaltfläche **Delete Intent** (Absicht löschen).
    * Note.ShowNext
@@ -86,7 +90,7 @@ Mit den folgenden Schritten werden die Absichten „Note.Create“, „Note.Read
 
 ## <a name="modify-the-bot-code"></a>Ändern des Botcodes
 
-Klicken Sie auf **Erstellen**, und klicken Sie dann auf **Open online code editor ** (Onlinecode-Editor öffnen).
+Klicken Sie auf **Erstellen**, und klicken Sie dann auf **Open online code editor**  (Onlinecode-Editor öffnen).
     ![Open online code editor](../media/bot-builder-dotnet-use-luis/bot-service-build.png) (Onlinecode-Editor öffnen)
 
 Öffnen Sie im Code-Editor `BasicLuisDialog.cs`. Darin ist der folgende Code zum Verarbeiten von Absichten aus der LUIS-App enthalten.

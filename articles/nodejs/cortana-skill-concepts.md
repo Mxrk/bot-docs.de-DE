@@ -8,15 +8,17 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 513feff4fed92bdffb0ed1ed0c9571999858d99d
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 38fa3811c079f07f847fbfb0fad1b9ed9f695c51
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303152"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905846"
 ---
 # <a name="key-concepts-for-building-a-bot-for-cortana-skills-using-nodejs"></a>Schlüsselkonzepte zum Erstellen eines Bots für Cortana-Funktionen mit Node.js
  
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
+
 > [!NOTE]
 > Dieser Artikel enthält vorläufigen Inhalt und wird aktualisiert.
 

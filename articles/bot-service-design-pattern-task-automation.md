@@ -7,14 +7,16 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 2/13/2018
-ms.openlocfilehash: 1f14329958711cc7f9ef8832b267587e1232da2a
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 60a3796e255611ff09d5418cdeaa6f363ad8da15
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301280"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42904966"
 ---
 # <a name="create-task-automation-bots"></a>Erstellen von Bots zur Aufgabenautomatisierung
+
+[!INCLUDE [pre-release-label](./includes/pre-release-label-v3.md)]
 
 Mit einem Bot zur Aufgabenautomatisierung kann eine bestimmte Aufgabe oder eine Reihe von Aufgaben ohne Benutzereingriff durchgeführt werden. Diese Art von Bot gleicht häufig einer typischen App oder Website, bei der in erster Linie über umfangreiche Benutzersteuerelemente und Text mit dem Benutzer kommuniziert wird. Dabei können zur attraktiveren Gestaltung der Konversation mit Benutzern Funktionen zur Erkennung natürlicher Sprache enthalten sein. 
 
@@ -106,8 +108,8 @@ Ein vollständiges Beispiel für die Implementierung einer einfachen Aufgabenaut
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 - [Dialoge](~/dotnet/bot-builder-dotnet-dialogs.md)
-- [Verwalten des Konversationsflusses mit Dialogen (.NET)](~/dotnet/bot-builder-dotnet-manage-conversation-flow.md)
-- [Verwalten des Konversationsflusses mit Dialogen (.Node.js)](~/nodejs/bot-builder-nodejs-manage-conversation-flow.md)
+- [Verwalten des Unterhaltungsflusses mit Dialogen (.NET)](~/dotnet/bot-builder-dotnet-manage-conversation-flow.md)
+- [Verwalten des Unterhaltungsflusses mit Dialogen (Node.js)](~/nodejs/bot-builder-nodejs-manage-conversation-flow.md)
 
 ::: moniker-end
 

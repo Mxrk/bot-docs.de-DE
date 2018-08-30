@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/17
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 71e04d2c76d6bff22352c6b4e90aae933f209638
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 091c90da9b14c0abe70d08f45f528a3cce818cef
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303277"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42904034"
 ---
 # <a name="requirements-and-considerations-for-real-time-media-bots"></a>Anforderungen und Aspekte für Echtzeit-Medienbots
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 Nicht alle für die Entwicklung von Messaging- und IVR-Anrufbots geltenden Hinweise gelten gleichermaßen für die Erstellung von Echtzeit-Medienbots. In diesem Artikel werden einige der wichtigen Anforderungen und Aspekte für das Entwickeln von Echtzeit-Medienbots beschrieben. 
 

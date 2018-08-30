@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: d1a2eca2ebdfccf6dacdf773c48c8b41444559ca
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 4343e9742d6bfabeab1ccb6a96f0d379d824125e
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301733"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905734"
 ---
 # <a name="replace-dialogs"></a>Ersetzen von Dialogfeldern
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 Es kann nützlich sein, Dialogfelder zu ersetzen, wenn Sie im Laufe einer Konversation eine Benutzereingaben überprüfen oder eine Aktion wiederholen müssen. Mithilfe des Bot Builder SDK für Node.js können Sie über die [`session.replaceDialog`](http://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session#replacedialog)-Methode ein Dialogfeld ersetzen. Mit dieser Methode können Sie das aktuelle Dialogfeld beenden und durch ein neues ersetzen, ohne dabei den Aufrufer erneut kontaktieren zu müssen. 
 

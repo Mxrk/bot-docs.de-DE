@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: f38424c2fa86fd4456ab6f8dee81bde71bfd6753
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: cf3d69f7941d8c3177788bd00e4b58416a71cf5e
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301765"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42904624"
 ---
 # <a name="basic-features-of-formflow"></a>Grundlegende Features von FormFlow
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 [Dialogfelder](bot-builder-dotnet-dialogs.md) sind zwar ein nützliches und flexibles Mittel, aber die Verarbeitung einer geführten Konversation (z.B. zum Bestellen eines Sandwiches) kann sehr viel Mühe kosten. Es gibt jederzeit im Laufe einer Konversation mehrere Möglichkeiten, um fortzufahren. Möglicherweise müssen Unklarheiten geklärt oder Hilfe geleistet werden, oder Sie müssen einen Schritt vor oder zurück gehen. Wenn Sie **FormFlow** im Bot Builder SDK für .NET verwenden, können Sie den Prozess zum Verwalten einer geführten Konversation um einiges vereinfachen. 
 
@@ -312,15 +314,15 @@ Obwohl die grundlegenden Features von FormFlow in den meisten Fällen ausreichen
 FormFlow vereinfacht das Entwickeln von Dialogfeldern. Mithilfe der erweiterten Features von FormFlow können Sie das Verhalten eines FormFlow-Objekts anpassen.
 
 > [!div class="nextstepaction"]
-> [Advanced features of FormFlow (Erweiterte FormFlow-Features)](bot-builder-dotnet-formflow-advanced.md)
+> [Advanced features of FormFlow (Erweiterte Features von FormFlow)](bot-builder-dotnet-formflow-advanced.md)
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-- [Customize a form using FormBuilder (Anpassen eines Formulars mithilfe von FormBuilder)](bot-builder-dotnet-formflow-formbuilder.md)
-- [Localize form content (Lokalisieren von Formularinhalten)](bot-builder-dotnet-formflow-localize.md)
-- [Define a form using JSON schema (Definieren eines Formulars mit dem JSON-Schema)](bot-builder-dotnet-formflow-json-schema.md)
-- [Customize user experience with pattern language (Anpassen der Benutzeroberfläche mit einer Mustersprache)](bot-builder-dotnet-formflow-pattern-language.md)
-- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">Bot Builder SDK for .NET Reference (Referenz zum Bot Builder SDK für .NET)</a>
+- [Anpassen eines Formulars mithilfe von FormBuilder](bot-builder-dotnet-formflow-formbuilder.md)
+- [Lokalisieren von Formularinhalten](bot-builder-dotnet-formflow-localize.md)
+- [Definieren eines Formulars mit dem JSON-Schema](bot-builder-dotnet-formflow-json-schema.md)
+- [Anpassen der Benutzeroberfläche mit Mustersprache](bot-builder-dotnet-formflow-pattern-language.md)
+- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">Referenz zum Bot Builder SDK für .NET</a>
 
 [LuisDialog]: /dotnet/api/microsoft.bot.builder.dialogs.luisdialog-1
 

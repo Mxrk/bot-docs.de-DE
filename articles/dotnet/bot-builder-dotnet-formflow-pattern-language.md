@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 109353d6dc26b957d23ae29e77b1c36811d2c2a2
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: a192b69b2ffbac428d80b2fe7c3fd9180caacd4f
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303821"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905582"
 ---
 # <a name="customize-user-experience-with-pattern-language"></a>Anpassen der Benutzeroberfläche mit Mustersprache
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 Beim Anpassen einer Eingabeaufforderung oder beim Überschreiben einer Standardvorlage können Sie mit Mustersprache den Inhalt und/oder das Format der Eingabeaufforderung angeben. 
 
@@ -32,7 +34,7 @@ Formulare verwenden Vorlagen, um Eingabeaufforderungen und andere Elemente wie H
 
 Die Mustersprache verwendet geschweifte Klammern (`{}`), um Elemente zu identifizieren, die zur Laufzeit durch tatsächliche Werte ersetzt werden. In der folgenden Tabelle sind die Elemente der Mustersprache aufgeführt.
 
-| Element | Beschreibung |
+| Element | BESCHREIBUNG |
 |----|----|
 | `{<format>}` | Zeigt den Wert des aktuellen Felds an (das Feld, für das das Attribut gilt). |
 | `{&}` | Zeigt die Beschreibung des aktuellen Felds an (sofern nicht anders angegeben, handelt es sich dabei um den Namen des Felds). |
@@ -87,7 +89,7 @@ What kind of sandwich would you like?
 
 Eingabeaufforderungen und Vorlagen unterstützen die folgenden Formatierungsparameter.
 
-| Verwendung | Beschreibung |
+| Verwendung | BESCHREIBUNG |
 |----|----|
 | `AllowDefault` | Gilt für Musterelemente des Typs <code>{&#124;&#124;}</code>. Bestimmt, ob auf dem Formular der aktuelle Wert des Felds als mögliche Option angezeigt werden soll. Wenn `true`, wird der aktuelle Wert als möglicher Wert angezeigt. Der Standardwert lautet `true`. |
 | `ChoiceCase` | Gilt für Musterelemente des Typs <code>{&#124;&#124;}</code>. Bestimmt, ob der Text jeder Option normalisiert wird, (beispielsweise ob der erste Buchstabe jedes Worts groß geschrieben wird). Der Standardwert lautet `CaseNormalization.None`. Mögliche Werte finden Sie unter [CaseNormalization][caseNormalization]. |
@@ -137,8 +139,8 @@ What kind of sandwich would you like?
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 - [Grundlegende Funktionen von FormFlow](bot-builder-dotnet-formflow.md)
-- [Erweiterte Funktionen von FormFlow](bot-builder-dotnet-formflow-advanced.md)
-- [Anpassen eines Formulars mithilfe von FormBuilder](bot-builder-dotnet-formflow-formbuilder.md)
+- [Advanced features of FormFlow (Erweiterte Features von FormFlow)](bot-builder-dotnet-formflow-advanced.md)
+- [Customize a form using FormBuilder (Anpassen eines Formulars mithilfe von FormBuilder)](bot-builder-dotnet-formflow-formbuilder.md)
 - [Lokalisieren von Formularinhalten](bot-builder-dotnet-formflow-localize.md)
 - [Definieren eines Formulars mit dem JSON-Schema](bot-builder-dotnet-formflow-json-schema.md)
 - <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">Referenz zum Bot Builder SDK für .NET</a>

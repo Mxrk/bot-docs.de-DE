@@ -8,24 +8,27 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: b5efb024c01437867b6ab1cf99b2f544077eee0c
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 2bbf75f166a90d2e0a905bd269f51cef4398a2ef
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302789"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42904492"
 ---
 # <a name="add-input-hints-to-messages"></a>Hinzufügen von Eingabehinweisen zu Nachrichten
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
+
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-add-input-hints.md)
 > - [Node.js](../nodejs/bot-builder-nodejs-send-input-hints.md)
 > - [REST](../rest-api/bot-framework-rest-connector-add-input-hints.md)
 
-Durch die Angabe eines Eingabehinweises für eine Nachricht können Sie angeben, ob Ihr Bot Benutzereingaben akzeptiert, erwartet oder ignoriert, nachdem die Nachricht an den Client gesendet wurde. Bei vielen Kanälen können Clients dadurch den Status der Benutzereingabesteuerungen entsprechend festlegen. Wenn beispielsweise der Eingabehinweis für eine Nachricht angibt, dass der Bot die Benutzereingabe ignoriert, kann der Client das Mikrofon schließen und das Eingabefeld deaktivieren, um die Eingabe durch den Benutzer zu verhindern.
+Durch die Angabe eines Eingabehinweises für eine Nachricht können Sie angeben, ob Ihr Bot Benutzereingaben akzeptiert, erwartet oder ignoriert, nachdem die Nachricht an den Client gesendet wurde. Bei vielen Kanälen können Clients dadurch den Zustand von Benutzereingabe-Steuerelementen entsprechend festlegen. Wenn beispielsweise der Eingabehinweis für eine Nachricht angibt, dass der Bot die Benutzereingabe ignoriert, kann der Client das Mikrofon schließen und das Eingabefeld deaktivieren, um die Eingabe durch den Benutzer zu verhindern.
 
 ## <a name="accepting-input"></a>Eingabe wird akzeptiert
 
-Um anzugeben, dass Ihr Bot passiv für eine Eingabe bereit ist, aber keine Antwort vom Benutzer erwartet, legen Sie den Eingabehinweis für die Nachricht auf `builder.InputHint.acceptingInput` fest. Bei vielen Kanälen wird dadurch das Eingabefeld des Clients aktiviert und das Mikrofon geschlossen, das aber weiterhin für den Benutzer verfügbar ist. Cortana öffnet beispielsweise das Mikrofon, um Eingaben vom Benutzer anzunehmen, wenn der Benutzer die Mikrofontaste gedrückt hält. Mit dem folgenden Codebeispiel erstellen Sie eine Nachricht, die darauf hinweist, dass der Bot Benutzereingaben akzeptiert.
+Um anzugeben, dass Ihr Bot passiv für eine Eingabe bereit ist, aber keine Antwort vom Benutzer erwartet, legen Sie den Eingabehinweis für die Nachricht auf `builder.InputHint.acceptingInput` fest. Bei vielen Kanälen wird dadurch das Eingabefeld des Clients aktiviert und das Mikrofon geschlossen, das aber weiterhin für den Benutzer verfügbar ist. Cortana öffnet beispielsweise das Mikrofon, um Eingaben vom Benutzer anzunehmen, wenn der Benutzer die Mikrofontaste gedrückt hält. Im folgenden Codebeispiel wird eine Nachricht erstellt, die darauf hinweist, dass der Bot Benutzereingaben akzeptiert.
 
 [!code-javascript[IMessage.speak](../includes/code/node-input-hints.js#InputHintAcceptingInput)]
 
@@ -45,13 +48,13 @@ Um anzugeben, dass Ihr Bot nicht bereit ist, eine Eingabe vom Benutzer zu empfan
 
 Wenn Sie den Eingabehinweis für eine Nachricht nicht festlegen, legt ihn das Bot Builder SDK automatisch anhand der folgenden Logik fest: 
 
-- Wenn Ihr Bot eine Aufforderung sendet, gibt der Eingabehinweis für die Nachricht an, dass Ihr Bot eine **Eingabe erwartet**.</li>
-- Wenn Ihr Bot eine einzelne Nachricht sendet, gibt der Eingabehinweis für die Nachricht an, dass Ihr Bot eine **Eingabe annimmt**.</li>
+- Wenn Ihr Bot eine Eingabeaufforderung sendet, gibt der Eingabehinweis für die Nachricht an, dass Ihr Bot eine **Eingabe erwartet**.</li>
+- Wenn Ihr Bot eine einzelne Nachricht sendet, gibt der Eingabehinweis für die Nachricht an, dass Ihr Bot eine **Eingabe akzeptiert**.</li>
 - Wenn Ihr Bot eine Reihe aufeinanderfolgender Nachrichten sendet, gibt der Eingabehinweis bei allen Nachrichten (mit Ausnahme der letzten Nachricht) an, dass Ihr Bot die **Eingabe ignoriert**. Der Eingabehinweis für die letzte Nachricht in der Reihe gibt jedoch an, dass der Bot eine **Eingabe akzeptiert**.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-- [Hinzufügen von Spracheingabe zu Nachrichten](bot-builder-nodejs-text-to-speech.md)
+- [Hinzufügen von Sprache zu Nachrichten](bot-builder-nodejs-text-to-speech.md)
 - [Bot Builder SDK für Node.js – Referenz][SDKReference]
 
 [SDKReference]: https://docs.botframework.com/en-us/node/builder/chat-reference/modules/_botbuilder_d_.html

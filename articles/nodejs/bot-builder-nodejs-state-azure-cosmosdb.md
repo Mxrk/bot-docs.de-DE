@@ -8,20 +8,22 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 9d3e1c315399ce3cadc6371ceb93055c836590a6
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: e326147f32161c2e99dacdfa24ff41080a9b33e9
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39304109"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42906234"
 ---
 # <a name="manage-custom-state-data-with-azure-cosmos-db-for-nodejs"></a>Verwalten von benutzerdefinierten Statusdaten mit Azure Cosmos DB für Node.js
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
 In diesem Artikel wird beschrieben, wie Sie Cosmos DB-Speicher zum Speichern und Verwalten der Statusdaten Ihres Bots implementieren. Der von Bots verwendete standardmäßige Connector State Service ist nicht für die Produktionsumgebung vorgesehen. Sie sollten entweder die in GitHub verfügbaren [Azure-Erweiterungen](https://www.npmjs.com/package/botbuilder-azure) verwenden oder mithilfe einer Datenspeicherplattform Ihrer Wahl einen benutzerdefinierten Statusclient implementieren. Im Folgenden sind einige Gründe für die Verwendung eines benutzerdefinierten Statusspeichers aufgeführt:
 
 - Höherer Durchsatz der Status-API (mehr Kontrolle über die Leistung)
 - Niedrigere Latenz bei geografischer Verteilung
-- Kontrolle über den Speicherort der Daten (z. B. USA, Westen statt USA, Osten)
+- Kontrolle über die Region, in der die Daten gespeichert werden (z.B. „USA, Westen“ statt „USA, Osten“)
 - Zugriff auf die tatsächlichen Statusdaten
 - Datenbank mit Statusdaten nicht für andere Bots freigegeben
 - Speichern von mehr als 32 KB
@@ -44,7 +46,7 @@ Wenn Sie noch kein Azure-Konto haben, klicken Sie [hier](https://azure.microsoft
 
 ## <a name="install-botbuilder-azure-module"></a>Installieren des Moduls „botbuilder-azure“
 
-Um das Modul `botbuilder-azure` von einer Befehlszeile zu installieren, navigieren Sie zum Verzeichnis für den Bot und führen den folgenden npm-Befehl aus:
+Um das Modul `botbuilder-azure` über eine Eingabeaufforderung zu installieren, navigieren Sie zum Verzeichnis für den Bot und führen den folgenden npm-Befehl aus:
 
 ```nodejs
 npm install --save botbuilder-azure
@@ -91,7 +93,7 @@ Jetzt können Sie den Bot mit dem Emulator testen.
 
 ## <a name="run-your-bot-app"></a>Ausführen Ihrer Bot-App
 
-Navigieren Sie von der Befehlszeile zu Ihrem Bot Verzeichnis, und führen Sie Ihren Bot mit dem folgenden Befehl aus:
+Navigieren Sie von der Befehlszeile zu Ihrem Bot-Verzeichnis, und führen Sie Ihren Bot mit dem folgenden Befehl aus:
 
 ```nodejs
 node app.js
@@ -101,7 +103,7 @@ node app.js
 
 Zu diesem Zeitpunkt wird Ihr Bot lokal ausgeführt. Starten Sie den Emulator, und verbinden Sie dann Ihren Bot vom Emulator aus:
 
-1. Geben Sie  <strong>in die Adressleiste des Emulators ein. Dabei entspricht http://localhost:port-number/api/messagesport-number</strong> der Portnummer, die in dem Browser angezeigt wird, in dem Ihre Anwendung ausgeführt wird. Sie können die Felder <strong>Microsoft App ID</strong> (Microsoft-App-ID) und <strong>Microsoft App Password</strong> (Microsoft-App-Kennwort) vorerst leer lassen. Sie erhalten diese Informationen später, wenn Sie [Ihren Bot registrieren](~/bot-service-quickstart-registration.md).
+1. Geben Sie <strong>http://localhost:port-number/api/messages</strong> in die Adressleiste des Emulators ein. Dabei entspricht „port-number“ der Portnummer, die in dem Browser angezeigt wird, in dem Ihre Anwendung ausgeführt wird. Sie können die Felder <strong>Microsoft-App-ID</strong> und <strong>Microsoft-App-Kennwort</strong> vorerst leer lassen. Sie erhalten diese Informationen später, wenn Sie [Ihren Bot registrieren](~/bot-service-quickstart-registration.md).
 2. Klicken Sie auf **Verbinden**.
 3. Testen Sie Ihren Bot, indem Sie ihm eine Nachricht senden. Interagieren Sie mit Ihrem Bot wie gewohnt. Wechseln Sie, wenn Sie fertig sind, zum **Storage-Explorer**, und zeigen Sie Ihre gespeicherten Statusdaten an.
 
@@ -111,7 +113,7 @@ Wenn Sie die Statusdaten anzeigen möchten, melden Sie sich bei Ihrem Azure-Port
 
 ## <a name="next-step"></a>Nächster Schritt
 
-Da Sie nun die vollständige Kontrolle über die Statusdaten Ihres Bots haben, erfahren Sie als Nächstes, wie Sie diese Daten für eine optimale Verwaltung des Konversationsflusses einsetzen können.
+Da Sie nun die vollständige Kontrolle über die Statusdaten Ihres Bots haben, erfahren Sie als Nächstes, wie Sie diese Daten für eine optimale Verwaltung des Konversationsfluss einsetzen können.
 
 > [!div class="nextstepaction"]
 > [Verwalten des Konversationsflusses](bot-builder-nodejs-dialog-manage-conversation-flow.md)
