@@ -1,5 +1,5 @@
 ---
-title: Speichern des Zustands mithilfe der Konversations- und Benutzereigenschaften | Microsoft-Dokumentation
+title: Verwalten des Konversations- und Benutzerzustands | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie mithilfe des Bot Builder SDK V4 für .NET Daten speichern und abrufen.
 keywords: konversationszustand, benutzerzustand, zustandsmiddleware, konversationsfluss, file storage, azure table storage
 author: ivorb
@@ -9,14 +9,14 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 05/03/18
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 16df371b1cabb4b3eb47d1f491a5d45e26627d38
-ms.sourcegitcommit: dcbc8ad992a3e242a11ebcdf0ee99714d919a877
+ms.openlocfilehash: a74c52af0ca56b62491ca3aa39d09885c2540c18
+ms.sourcegitcommit: ee63d9dc1944a6843368bdabf5878950229f61d0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39352849"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42795209"
 ---
-# <a name="save-state-using-conversation-and-user-properties"></a>Speichern des Zustands mithilfe der Konversations- und Benutzereigenschaften
+# <a name="manage-conversation-and-user-state"></a>Verwalten des Konversations- und Benutzerzustands
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
@@ -30,6 +30,16 @@ Sie müssen den Bot-Adapter im SDK initialisieren, um die Zustands-Manager-Middl
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 Um zu erfahren, wie `ConversationState` initialisiert wird, sehen Sie sich `Startup.cs` im Beispiel Microsoft.Bot.Samples.EchoBot-AspNetCore an.
+
+Die für diesen Code erforderlichen Bibliotheken:
+
+```csharp
+using Microsoft.Bot.Builder.BotFramework;
+using Microsoft.Bot.Builder.Core.Extensions;
+using Microsoft.Bot.Builder.Integration.AspNet.Core;
+```
+
+`ConversationState` wird initialisiert:
 
 ```csharp
 services.AddBot<EchoBot>(options =>
@@ -304,7 +314,7 @@ server.post('/api/messages', (req, res) => {
 
 ---
 
-Alternativ können Sie das _Wasserfallmodell_ eines Dialogfelds verwenden. Das Dialogfeld verfolgt den Konversationszustand für Sie, weshalb Sie keine Flags erstellen müssen, um den Zustand nachzuverfolgen. Weitere Informationen finden Sie unter [Manage conversation with Dialogs (Verwalten von Konversationen mithilfe von Dialogfeldern)](bot-builder-dialog-manage-conversation-flow.md).
+Alternativ können Sie das _Wasserfallmodell_ eines Dialogfelds verwenden. Das Dialogfeld verfolgt den Konversationszustand für Sie, weshalb Sie keine Flags erstellen müssen, um den Zustand nachzuverfolgen. Weitere Informationen finden Sie im Thema zum [Verwalten einfacher Konversationen mit Dialogen](bot-builder-dialog-manage-conversation-flow.md).
 
 ## <a name="file-storage"></a>File Storage
 
@@ -465,5 +475,5 @@ Da Sie nun wissen, wie Sie den Zustand zum Lesen und Schreiben von Botdaten in d
 Weitere Informationen zum Speicher finden Sie unter [Storage in the Bot Builder SDK (Speicher im Bot Builder SDK)](bot-builder-storage-concept.md)
 
 <!-- Links -->
-[AzureStorageEmulator]: https://docs.microsoft.com/en-us/azure/storage/common/storage-use-emulator
-[AzureStorageExplorer]: https://azure.microsoft.com/en-us/features/storage-explorer/
+[AzureStorageEmulator]: https://docs.microsoft.com/azure/storage/common/storage-use-emulator
+[AzureStorageExplorer]: https://azure.microsoft.com/features/storage-explorer/

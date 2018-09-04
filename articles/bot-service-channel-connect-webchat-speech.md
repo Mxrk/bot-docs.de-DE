@@ -1,5 +1,5 @@
 ---
-title: Aktivieren der Spracheingabe im Webchatkanal | Microsoft-Dokumentation
+title: Aktivieren der Spracheingabe in Webchat | Microsoft-Dokumentation
 description: Es wird beschrieben, wie Sie die Spracheingabe im Webchat-Steuerelement für einen Bot aktivieren, der mit dem Webchatkanal verbunden ist.
 keywords: Sprache, Webchat, Stimme, Mikrofon, Audio
 author: DeniseMak
@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
-ms.openlocfilehash: 37e18f49eb55fcb7d0bf94e96051479753eec8aa
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 2499197d82b618d7a535efca78f98ce260dd15a7
+ms.sourcegitcommit: 1abc32353c20acd103e0383121db21b705e5eec3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301584"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42756464"
 ---
-# <a name="how-to-enable-speech-in-web-chat"></a>Aktivieren der Spracheingabe im Webchat
+# <a name="enable-speech-in-web-chat"></a>Aktivieren der Spracheingabe in Webchat
 Sie können eine Sprachschnittstelle im Webchat-Steuerelement aktivieren. Benutzer interagieren mit der Sprachschnittstelle über das Mikrofon im Webchat-Steuerelement.
 
 ![Sprachbeispiel für Webchat](~/media/bot-service-channel-webchat/webchat-sample-speech.png)
@@ -114,6 +114,6 @@ Nachdem Sie nun die Sprachinteraktion mit dem Webchat aktivieren können, könne
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* Sie können auf GitHub für das Webchat-Steuerelement [den Quellcode herunterladen](https://github.com/Microsoft/BotFramework-WebChat).
+* Sie können den Quellcode für das Webchat-Steuerelement auf GitHub [herunterladen](https://github.com/Microsoft/BotFramework-WebChat).
 * Die [Dokumentation zur Bing-Spracheingabe-API](https://docs.microsoft.com/azure/cognitive-services/speech/home) enthält weitere Informationen zur Bing-Spracheingabe-API.
 

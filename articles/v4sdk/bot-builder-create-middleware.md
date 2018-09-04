@@ -1,5 +1,5 @@
 ---
-title: Schreiben einer eigenen Middleware | Microsoft-Dokumentation
+title: Erstellen eigener Middleware | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie Ihre eigene Middleware schreiben.
 keywords: middleware, custom middleware, short circuit, fallback, activity handlers
 author: ivorb
@@ -9,20 +9,22 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 03/21/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 6bc73b2886374fbb50d8257c387df54f21a12ed7
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: b774f2de5856e6001d1b75c47b92aff6399d8fe3
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303197"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42904350"
 ---
-# <a name="write-your-own-middleware"></a>Schreiben einer eigenen Middleware
+# <a name="create-your-own-middleware"></a>Erstellen eigener Middleware
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
 Mithilfe von Middleware können Sie umfassende Plug-Ins für Ihre Bots schreiben, die auch von anderen Benutzern verwendet werden können. In diesem Artikel wird gezeigt, wie grundlegende Middleware hinzugefügt und implementiert wird und wie diese funktioniert. Das SDK v4 stellt Middleware für Sie zur Verfügung, z.B. die Zustandsverwaltung, die LUIS-App, QnAMaker und Übersetzung. Werfen Sie einen Blick auf den Bot Builder SDK für [.NET](https://github.com/Microsoft/botbuilder-dotnet) oder [JavaScript](https://github.com/Microsoft/botbuilder-js), um weitere Informationen zu erhalten.
 
 ## <a name="adding-middleware"></a>Hinzufügen von Middleware
 
-Im folgenden Beispiel werden basierend auf unserem einfachen HelloBot-Beispiel zwei unterschiedliche Middlewareplattformen mit einer neuen Instanz der einzelnen Klassen zu unseren Diensten hinzugefügt.
+Im folgenden Beispiel, das auf dem in den [ersten Schritten](~/bot-service-quickstart.md) erstellten einfachen Bot-Beispiel basiert, werden unseren Diensten zwei unterschiedliche Middlewareplattformen mit einer neuen Instanz jeder dieser Klassen hinzugefügt.
 
 > [!IMPORTANT]
 > Beachten Sie, dass die Reihenfolge, in der sie den Optionen hinzugefügt werden, die Reihenfolge darstellt, in der sie ausgeführt werden. Achten Sie darauf, wie sich die Verwendung von mehreren Middlewareplattformen auf Ihre Arbeit auswirkt.

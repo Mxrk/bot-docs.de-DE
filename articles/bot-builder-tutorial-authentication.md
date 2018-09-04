@@ -8,17 +8,13 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 7/2/2018
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 6d2e22bdfaa9fc4e3ce55bc1dd969921e90c87cc
-ms.sourcegitcommit: 97bb24f15041caccef4ca5736aa14f144881e0c6
+ms.openlocfilehash: ca9ccb0f0425bd0cabf1ce7ef236acb7a008aefe
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39567509"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905911"
 ---
-# <a name="add-authentication-to-your-bot-via-azure-bot-service"></a>Hinzufügen von Authentifizierung zu Ihrem Bot über Azure Bot Service
-
-[!INCLUDE [pre-release-label](includes/pre-release-label-v3.md)]
-
 In diesem Tutorial werden neue Funktionen für die Bot-Authentifizierung in Azure Bot Service verwendet und Features bereitgestellt, mit denen das Entwickeln eines Bots vereinfacht wird, der Benutzer für verschiedene Identitätsanbieter authentifiziert, z.B. Azure Active Directory. GitHub, Uber usw. Diese Updates führen auch eine verbesserte Benutzerfreundlichkeit ein, indem die _Überprüfung von magischem Code_ für einige Clients entfernt wird.
 
 Zuvor musste Ihr Bot OAuth-Controller und Anmeldungslinks enthalten, die Zielclient-IDs und Geheimnisse speichern sowie die Verwaltung von Benutzertoken durchführen.
@@ -48,7 +44,7 @@ Sie können die Schritte in diesem Artikel auch verwenden, um solche Features ei
 > [!NOTE]
 > Die Authentifizierungsfeatures funktionieren auch mit Node.js mit BotBuilder V3. Allerdings wird in diesem Artikel nur C#-Beispielcode behandelt.
 
-Weitere Informationen und Unterstützung finden Sie unter [Bot Framework additional resources (Zusätzliche Ressourcen zu Bot Framework)](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-resources-links-help).
+Weitere Informationen und Unterstützung finden Sie unter [Bot Framework additional resources (Zusätzliche Ressourcen zu Bot Framework)](https://docs.microsoft.com/azure/bot-service/bot-service-resources-links-help).
 
 ## <a name="overview"></a>Übersicht
 
@@ -90,7 +86,7 @@ Informationen zu den Unterschieden zwischen den V1- und V2-Endpunkten finden Sie
    1. Legen Sie **Web-App/API** für den **Anwendungstyp** fest.
    1. Legen Sie `https://token.botframework.com/.auth/web/redirect` als **Anmelde-URL** fest.
    1. Klicken Sie auf **Create**.
-      - Nach der Erstellung wird die App auf einem **Registrierte App**-Blatt angezeigt.
+      - Nach der Erstellung wird die App in einem Bereich **Registrierte App** angezeigt.
       - Notieren Sie sich die **Anwendungs-ID**. Diese müssen Sie später als _Client-ID_ angeben.
 1. Klicken Sie auf **Einstellungen**, um Ihre Anwendung zu konfigurieren.
 1. Klicken Sie auf **Schlüssel**, um den Bereich **Schlüssel** zu öffnen.
@@ -178,7 +174,7 @@ Sie können diesen Verbindungsnamen nun im Code Ihres Bots verwenden, um Benutze
 
 #### <a name="to-register-an-azure-ad-v2-application"></a>So registrieren Sie eine Azure AD V2-Anwendung
 
-1. Navigieren Sie im [Azure-Portal](http://portal.azure.com/) zum Blatt „Botkanalregistrierung“ Ihres Bots.
+1. Navigieren Sie im [Azure-Portal](http://portal.azure.com/) zur Seite für die Bot-Kanalregistrierung Ihres Bots.
 1. Klicken Sie auf **Einstellungen**.
 1. Klicken Sie ganz unten Auf der Seite unter **OAuth-Verbindungseinstellungen** auf **Einstellung hinzufügen**.
 1. Füllen Sie das Formular wie folgt aus:
@@ -205,7 +201,7 @@ Sie können diesen Verbindungsnamen nun im Code Ihres Bots verwenden, um Benutze
 #### <a name="to-test-your-connection"></a>So testen Sie Ihre Verbindung
 
 1. Öffnen Sie die Verbindung, die Sie gerade erstellt haben.
-1. Klicken Sie am oberen Rand des Blatts **Service Provider Connection Setting** (Dienstanbieter-Verbindungseinstellung) auf **Verbindung testen**.
+1. Klicken Sie oben im Bereich **Service Provider Connection Setting** (Dienstanbieter-Verbindungseinstellung) auf **Verbindung testen**.
 1. Beim ersten Mal sollte dies eine neue Registerkarte im Browser öffnen, auf der die Berechtigungen aufgeführt werden, die die App von Ihnen anfordert.
 1. Klicken Sie auf **Annehmen**.
 1. Daraufhin werden Sie auf die Seite **Test Connection to `<your-connection-name>' Succeeded** (Testverbindung mit „<Name-Ihrer-Verbindung>“ erfolgreich) weitergeleitet.

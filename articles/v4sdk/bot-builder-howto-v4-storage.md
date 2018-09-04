@@ -1,5 +1,5 @@
 ---
-title: Speichern von Daten | Microsoft Docs
+title: Direktes Schreiben in den Speicher | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie mit V4 des Bot Builder SDK für .NET direkt in den Speicher schreiben können.
 keywords: Speicher, lesen und schreiben, Arbeitsspeicher, eTag
 author: DeniseMak
@@ -9,14 +9,14 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 05/2/18
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 653ec6a1983dd59c485a91b2c08ea07d9f2a34c8
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 76f8976aefe3d4fefcffc46e691dbd0b35e41ec7
+ms.sourcegitcommit: 1abc32353c20acd103e0383121db21b705e5eec3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302829"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42756406"
 ---
-# <a name="save-data-directly-to-storage"></a>Speichern Sie Daten direkt im Speicher
+# <a name="write-directly-to-storage"></a>Direktes Schreiben in den Speicher
 
 <!--
  Note for V4: You can write directly to storage without using the state manager. Therefore, this topic isn't called "managing state". State is in a separate topic.
@@ -34,7 +34,7 @@ Wir definieren ein Objekt und verwenden `IStorage.Write` und `IStorage.Read` zum
 Das folgende Beispiel fügt jede Nachricht des Benutzers einer Liste hinzu. Die Datenstruktur, die die Liste enthält, wird in einer Datei innerhalb des Verzeichnisses gespeichert, das Sie für den `FileStorage`-Konstruktor bereitstellen.
 
 Beginnen Sie mit der Visual Studio-Vorlage „EchoBot“ im BotBuilder V4 SDK.
-Bearbeiten Sie die Datei `EchoBot.cs`. Fügen Sie die folgenden using-Anweisungen hinzu, und ersetzen Sie die `EchoBot`-Klassendefinition.
+Bearbeiten Sie die Datei `EchoBot.cs` . Fügen Sie die folgenden using-Anweisungen hinzu, und ersetzen Sie die `EchoBot`-Klassendefinition.
 
 ```csharp
 using System.Collections.Generic;

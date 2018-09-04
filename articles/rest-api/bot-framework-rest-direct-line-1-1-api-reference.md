@@ -7,12 +7,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
-ms.openlocfilehash: 2f688b9c80e762b93c2eba8f4671ff1760f624f9
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 3569e3bfbb3be51cf9023b4686ed4693e90ed50c
+ms.sourcegitcommit: ee63d9dc1944a6843368bdabf5878950229f61d0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303592"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42795179"
 ---
 # <a name="api-reference---direct-line-api-11"></a>API-Referenz – Direct Line API 1.1
 
@@ -29,7 +29,7 @@ Verwenden Sie für den Zugriff auf Direct Line API 1.1 diesen Basis-URI für all
 
 ## <a name="headers"></a>Header
 
-Zusätzlich zu den standardmäßigen HTTP-Anforderungsheadern muss eine Direct Line-API-Anforderung einen `Authorization`-Header enthalten, der einen geheimen Schlüssel oder ein Token zum Authentifizieren des Clients angibt, der die Anforderung ausgibt. Sie können den `Authorization`-Header mit dem Schema „Bearer“ oder dem Schema „BotConnector“ angeben. 
+Zusätzlich zu den Standard-HTTP-Anforderungsheadern muss eine Direct Line-API-Anforderung einen `Authorization`-Header enthalten, der einen Geheimnis oder ein Token zum Authentifizieren des Clients angibt, der die Anforderung sendet. Sie können den `Authorization`-Header mit dem Schema „Bearer“ oder dem Schema „BotConnector“ angeben. 
 
 **Bearer-Schema**:
 ```http
@@ -41,7 +41,7 @@ Authorization: Bearer SECRET_OR_TOKEN
 Authorization: BotConnector SECRET_OR_TOKEN
 ```
 
-Ausführliche Informationen zum Abrufen eines geheimen Schlüssels oder eines Tokens, mit denen der Client seine Direct Line-API-Anforderungen authentifizieren kann, finden Sie unter [Authentifizierung](bot-framework-rest-direct-line-1-1-authentication.md).
+Ausführliche Informationen zum Abrufen eines Geheimnisses oder eines Tokens, mit denen der Client seine Direct Line-API-Anforderungen authentifizieren kann, finden Sie unter [Authentifizierung](bot-framework-rest-direct-line-1-1-authentication.md).
 
 ## <a name="http-status-codes"></a>HTTP-Statuscodes
 
@@ -55,7 +55,8 @@ Der <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html" target="_bl
 | 401 | Der Client ist nicht zum Ausführen der Anforderung autorisiert. Dieser Statuscode tritt häufig aufgrund eines fehlenden oder falsch formatierten `Authorization`-Headers auf. |
 | 403 | Der Client darf den angeforderten Vorgang nicht durchführen. Dieser Statuscode tritt häufig auf, weil der `Authorization`-Header ein ungültiges Token oder einen ungültigen geheimen Schlüssel angibt. |
 | 404 | Die angeforderte Ressource wurde nicht gefunden. In der Regel weist dieser Statuscode auf einen ungültigen Anforderungs-URI hin. |
-| 500 | Entweder ist ein interner Serverfehler im Direct Line-Dienst oder ein Fehler im Bot aufgetreten. Wenn beim Posten einer Nachricht an einen Bot der Fehlercode 500 angezeigt wird, wurde der Fehler möglicherweise durch einen Fehler im Bot ausgelöst. **Dies ist ein häufiger Fehlercode.** |
+| 500 | Innerhalb des Direct Line-Diensts ist ein interner Serverfehler aufgetreten. |
+| 502 | Im Bot ist ein Fehler aufgetreten. Der Bot ist nicht verfügbar oder hat einen Fehler zurückgegeben.  **Dies ist ein häufig auftretender Fehlercode.** |
 
 ## <a name="token-operations"></a>Tokenvorgänge 
 Verwenden Sie diese Vorgänge zum Erstellen oder Aktualisieren eines Tokens, mit dessen Hilfe ein Client auf eine einzelne Konversationen zugreifen kann.
@@ -65,7 +66,7 @@ Verwenden Sie diese Vorgänge zum Erstellen oder Aktualisieren eines Tokens, mit
 | [Token generieren](#generate-token) | Generiert ein Token für eine neue Konversation. | 
 | [Token aktualisieren](#refresh-token) | Aktualisiert ein Token. | 
 
-### <a name="generate-token"></a>Token generieren
+### <a name="generate-token"></a>Generieren eines Tokens
 Generiert ein Token, das für eine Konversation gültig ist. 
 ```http 
 POST /api/tokens/conversation
@@ -92,13 +93,13 @@ Verwenden Sie diese Vorgänge, um eine Konversation mit Ihrem Bot zu öffnen und
 
 | Vorgang | BESCHREIBUNG |
 |----|----|
-| [Konversation starten](#start-conversation) | Öffnet eine neue Konversation mit dem Bot. | 
+| [Konversation starten](#start-conversation) | Startet eine neue Konversation mit dem Bot. | 
 | [Get Messages](#get-messages) | Empfängt Nachrichten vom Bot. |
 | [Nachricht senden](#send-a-message) | Sendet eine Nachricht an den Bot. | 
 | [Datei(en) hochladen und senden](#upload-send-files) | Lädt Dateien hoch und sendet sie als Anlagen. |
 
-### <a name="start-conversation"></a>Konversation starten
-Öffnet eine neue Konversation mit dem Bot. 
+### <a name="start-conversation"></a>Starten einer Konversation
+Startet eine neue Konversation mit dem Bot. 
 ```http 
 POST /api/conversations
 ```
@@ -106,7 +107,7 @@ POST /api/conversations
 | | |
 |----|----|
 | **Anforderungstext** | – |
-| **Rückgabe** | Ein [Conversation](#conversation-object)-Objekt | 
+| **Rückgabe** | Ein [Conversation](#conversation-object)-Objekt. | 
 
 ### <a name="get-messages"></a>Nachrichten abrufen
 Ruft Nachrichten vom Bot für eine angegebene Konversation ab. Legen Sie den `watermark`-Parameter im Anforderungs-URI so fest, dass die neueste Nachricht vom Client angezeigt wird. 
@@ -159,7 +160,7 @@ Definiert eine Nachricht, die ein Client an einen Bot sendet oder von einem Bot 
 | **conversationId** | Zeichenfolge | ID, die die Konversation identifiziert.  | 
 | **created** | Zeichenfolge | Datum und Uhrzeit der Nachrichtenerstellung, ausgedrückt im <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO-8601</a>-Format. | 
 | **from** | Zeichenfolge | ID, die den Benutzer identifiziert, der der Absender der Nachricht ist. Wenn Sie eine Nachricht erstellen, sollten Clients diese Eigenschaft auf eine stabile Benutzer-ID festlegen. Obwohl Direct Line eine Benutzer-ID zuweist, wenn kein Wert angegeben ist, führt dies in der Regel zu unerwartetem Verhalten. | 
-| **text** | Zeichenfolge | Text der Nachricht, die vom Benutzer an den Bot oder vom Bot an den Benutzer gesendet wird. | 
+| **text** | Zeichenfolge | Der Text der Nachricht, die vom Benutzer an den Bot oder vom Bot an den Benutzer gesendet wird. | 
 | **channelData** | object | Ein Objekt mit kanalspezifischem Inhalt. Einige Kanäle stellen Funktionen bereit, für die zusätzliche Informationen erforderlich sind, die mit dem Anlagenschema nicht dargestellt werden können. Legen Sie für diese Fälle diese Eigenschaft auf den kanalspezifischen Inhalt fest, wie in der Dokumentation des Kanals definiert. Diese Daten werden zwischen Client und Bot unverändert gesendet. Diese Eigenschaft muss entweder auf ein komplexes Objekt festgelegt oder leer gelassen werden. Legen Sie sie nicht auf eine Zeichenfolge, Zahl oder einen anderen einfachen Typ fest. | 
 | **images** | string[] | Array von Zeichenfolgen, das die URL(s) für die Bilder in der Nachricht enthält. In einigen Fällen können Zeichenfolgen in diesem Array relative URLs sein. Wenn eine Zeichenfolge in diesem Array nicht mit „http“ oder „https“ beginnt, setzen Sie `https://directline.botframework.com` vor die Zeichenfolge, um die vollständige URL zu erstellen. | 
 | **attachments** | [Attachment](#attachment-object)[] | Array von **Attachment**-Objekten, die die in der Nachricht enthaltenen Anlagen ohne Bilder darstellen. Jedes Objekt im Array enthält eine `url`-Eigenschaft und eine `contentType`-Eigenschaft. In Nachrichten, die ein Client von einem Bot erhält, kann die `url`-Eigenschaft möglicherweise manchmal eine relative URL angeben. Wenn ein `url`-Eigenschaftswert nicht mit „http“ oder „https“ beginnt, setzen Sie `https://directline.botframework.com` vor die Zeichenfolge, um die vollständige URL zu erstellen. | 
@@ -206,14 +207,14 @@ Definiert eine Anlage ohne Bilder.<br/><br/>
 | Eigenschaft | Typ | BESCHREIBUNG |
 |----|----|----|
 | **contentType** | Zeichenfolge | Der Medientyp des Inhalts der Anlage. |
-| **url** | Zeichenfolge | URL für den Inhalt der Anlage. |
+| **url** | Zeichenfolge | Die URL für den Inhalt der Anlage. |
 
 ### <a name="conversation-object"></a>Conversation-Objekt
 Definiert eine Direct Line-Konversation.<br/><br/>
 
 | Eigenschaft | Typ | BESCHREIBUNG |
 |----|----|----|
-| **conversationId** | Zeichenfolge | ID, die die Konversation, für die das angegebene Token gültig ist, eindeutig identifiziert. |
+| **conversationId** | Zeichenfolge | ID, die Konversation, für die das angegebene Token gültig ist, eindeutig identifiziert. |
 | **token** | Zeichenfolge | Token, das für die angegebene Konversation gültig ist. |
 | **expires_in** | number | Die Anzahl der Sekunden bis zum Ablauf des Tokens. |
 

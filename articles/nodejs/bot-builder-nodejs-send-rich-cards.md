@@ -8,14 +8,18 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 45f138d53ebf12325e17659148f2a95ebabfe1dd
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 7f94ea05fcccfe7bdeb1dec187d735cef28b1d7c
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301497"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905394"
 ---
 # <a name="add-rich-card-attachments-to-messages"></a>Hinzufügen von Rich Card-Anlagen zu Nachrichten
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
+
+
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-add-rich-card-attachments.md)
 > - [Node.js](../nodejs/bot-builder-nodejs-send-rich-cards.md)
@@ -28,14 +32,14 @@ Bot Framework unterstützt derzeit acht Typen von Rich Cards:
 
 | Kartentyp | BESCHREIBUNG |
 |------|------|
-| <a href="/adaptive-cards/get-started/bots">Adaptive Cards</a> | Anpassbare Rich Cards, die eine beliebige Kombination von Text, Sprache, Bildern, Schaltflächen und Eingabefeldern enthalten können.  Weitere Informationen finden Sie unter [Unterstützung pro Kanal](/adaptive-cards/get-started/bots#channel-status). |
-| [Animation Cards][animationCard] | Eine Karte, die animierte GIFs oder kurze Videos abspielen kann. |
-| [Audio Cards][audioCard] | Eine Karte, die eine Audiodatei abspielen kann. |
+| <a href="/adaptive-cards/get-started/bots">Adaptive Karten</a> | Anpassbare Rich Cards, die eine beliebige Kombination von Text, Sprache, Bildern, Schaltflächen und Eingabefeldern enthalten können.  Weitere Informationen finden Sie unter [Unterstützung pro Kanal](/adaptive-cards/get-started/bots#channel-status). |
+| [Animationskarten][animationCard] | Eine Karte, die animierte GIFs oder kurze Videos abspielen kann. |
+| [Audiokarten][audioCard] | Eine Karte, die eine Audiodatei abspielen kann. |
 | [Hero Cards][heroCard] | Rich Cards, die in der Regel ein einzelnes großes Bild, eine oder mehrere Schaltflächen sowie Text enthalten. |
-| [Thumbnail Cards][thumbnailCard] | Rich Cards, die in der Regel ein Miniaturbild, eine oder mehrere Schaltflächen sowie Text enthalten.|
-| [Receipt Cards][receiptCard] | Eine Karte, über die ein Bot Rechnungen für Benutzer ausstellen kann. Sie enthalten in der Regel die Liste der Elemente, die in der Quittung enthalten sein sollen, Steuer- und Gesamtbeträge sowie anderen Text. |
+| [Miniaturbildkarten][thumbnailCard] | Rich Cards, die in der Regel ein Miniaturbild, eine oder mehrere Schaltflächen sowie Text enthalten.|
+| [Quittungskarten][receiptCard] | Eine Karte, über die ein Bot Rechnungen für Benutzer ausstellen kann. Sie enthalten in der Regel die Liste der Elemente, die in der Quittung enthalten sein sollen, Steuer- und Gesamtbeträge sowie anderen Text. |
 | [SignIn Cards][signinCard] | Eine Karte, über die ein Bot den Benutzer auffordern kann, sich anzumelden. Sie enthalten in der Regel Text und eine oder mehrere Schaltflächen, auf die der Benutzer klicken kann, um den Anmeldevorgang zu initiieren. |
-| [Video Cards][videoCard] | Eine Karte, die Videos abspielen kann. |
+| [Videokarte][videoCard] | Eine Karte, die Videos abspielen kann. |
 
 ## <a name="send-a-carousel-of-hero-cards"></a>Senden eines Karussells von Hero Cards
 Im folgenden Beispiel ist ein Bot für ein fiktives T-Shirt-Unternehmen dargestellt, das zeigt, wie als Reaktion auf die mündliche Benutzereingabe „Hemden anzeigen“ ein Karussell von Karten gesendet wird. 
@@ -154,17 +158,17 @@ Die Adaptive Card kann eine beliebige Kombination von Text, Sprache, Bildern, Sc
 
 Nutzen Sie beim Erstellen einer Adaptive Card mit Node.js die Informationen auf der <a href="http://adaptivecards.io" target="_blank">Adaptive Cards</a>-Website, um das Adaptive Card-Schema zu verstehen, Adaptive Card-Elemente zu untersuchen und sich JSON-Beispiele anzusehen, die verwendet werden können, um Karten mit unterschiedlichem Aufbau und unterschiedlicher Komplexität zu erstellen. Darüber hinaus können Sie die interaktive Schnellansicht verwenden, um Adaptive Card-Nutzlasten zu entwerfen und die Kartenausgabe in der Vorschau anzeigen.
 
-Dieses Codebeispiel zeigt, wie Sie eine Meldung erstellen, die eine Adaptive Card für eine Kalendererinnerung enthält: 
+Dieses Codebeispiel zeigt, wie Sie eine Nachricht erstellen, die eine adaptive Karte für eine Kalendererinnerung enthält: 
 
 [!code-javascript[Add Adaptive Card attachment](../includes/code/node-send-card-buttons.js#addAdaptiveCardAttachment)]
 
 Die daraus resultierende Karte enthält drei Textblöcke, ein Eingabefeld (Auswahlliste) und drei Schaltflächen:
 
-![Adaptive Card-Kalendererinnerung](../media/adaptive-card-reminder.png)
+![Adaptive Karte für eine Kalendererinnerung](../media/adaptive-card-reminder.png)
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-* [Featurevorschau mit der Kanalprüfung][inspector]
+* [Funktionsvorschau mit Channel Inspector][inspector]
 * <a href="http://adaptivecards.io" target="_blank">Adaptive Cards</a>
 * [AnimationCard][animationCard]
 * [AudioCard][audioCard]

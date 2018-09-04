@@ -8,14 +8,17 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: e276b7f3f4cc46e0978b3ee182b8251e39b86ead
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: fd81b9dfe5d3e16096ffd6ab25c1ee23ff77f79f
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302589"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42904928"
 ---
 # <a name="key-concepts-in-the-bot-builder-sdk-for-nodejs"></a>Wichtige Begriffe im Bot Builder SDK für Node.js
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
+
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-concepts.md)
 > - [Node.js](../nodejs/bot-builder-nodejs-concepts.md)
@@ -42,8 +45,9 @@ Ein Beispiel für das Senden einer Rich Card mit interaktiven Schaltflächen, di
 ## <a name="dialogs"></a>Dialoge
 Dialoge helfen dabei, die Unterhaltungslogik in Ihrem Bot zu organisieren, und sind grundlegend für [die Gestaltung des Unterhaltungsflusses](../bot-service-design-conversation-flow.md). Eine Einführung in Dialoge erhalten Sie unter [Verwalten einer Unterhaltung mit Dialogen](bot-builder-nodejs-dialog-manage-conversation.md).
 
-## <a name="actions"></a>Actions
-Es ist ratsam, den Bot so zu entwickeln, dass er Unterbrechungen wie Abbruch- oder Hilfeanforderungen jederzeit in einer Unterhaltung verarbeiten kann. Das Bot Builder SDK für Node.js bietet globale Meldungshandler, die Aktionen wie das Abbrechen oder Aufrufen anderer Dialoge auslösen. Unter <!--[Handling cancel](bot-builder-nodejs-manage-conversation-flow.md#handling-cancel), [Confirming interruptions](bot-builder-nodejs-manage-conversation-flow.md#confirming-interruptions) and-->[Behandeln von Benutzeraktionen](bot-builder-nodejs-dialog-actions.md) finden Sie Beispiele zum Verwenden von [triggerAction][triggerAction]-Handlern.
+## <a name="actions"></a>Aktionen
+Es ist ratsam, den Bot so zu entwickeln, dass er Unterbrechungen wie Abbruch- oder Hilfeanforderungen jederzeit in einer Unterhaltung verarbeiten kann. Das Bot Builder SDK für Node.js bietet globale Meldungshandler, die Aktionen wie das Abbrechen oder Aufrufen anderer Dialoge auslösen. Unter [Behandeln von Benutzeraktionen](bot-builder-nodejs-dialog-actions.md) finden Sie Beispiele zum Verwenden von [triggerAction][triggerAction]-Handlern.
+<!--[Handling cancel](bot-builder-nodejs-manage-conversation-flow.md#handling-cancel), [Confirming interruptions](bot-builder-nodejs-manage-conversation-flow.md#confirming-interruptions) and-->
 
 
 ## <a name="recognizers"></a>Erkennungen

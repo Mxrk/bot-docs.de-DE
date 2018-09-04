@@ -8,14 +8,17 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 04/25/2018
-ms.openlocfilehash: 7cf05b3396099f1c65fce7abbceb143a3ad43e9a
-ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
+ms.openlocfilehash: 8004389aba58b5cf79f1559b3ce65d1d66c5358c
+ms.sourcegitcommit: 44f100a588ffda19c275b118f4f97029f12d1449
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39574586"
+ms.lasthandoff: 08/26/2018
+ms.locfileid: "42928338"
 ---
 # <a name="create-bots-with-botbuilder-templates"></a>Erstellen von Bots mit Bot Builder-Vorlagen
+
+> [!NOTE]
+> Dieses Thema gilt für v3- und v4-Versionen des SDK. Weitere Hinweise finden Sie im Folgenden.
 
 Vorlagen zum Erstellen von Bots sind nun in jeder Bot Builder SDK-Plattform verfügbar: 
 

@@ -1,5 +1,5 @@
 ---
-title: Ereignishandler | Microsoft Docs
+title: Verwenden von Ereignishandlern | Microsoft-Dokumentation
 description: Informationen zur Verwendung von Ereignishandlern.
 author: ivorb
 ms.author: v-ivorb
@@ -8,14 +8,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 06/14/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 0c054b8f4209004806e4564be45e83bdf3a8ec25
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 36bd2638c599de1662a37dd85790b6126184d51b
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303640"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905689"
 ---
-# <a name="event-handlers"></a>Ereignishandler
+# <a name="using-event-handlers"></a>Verwenden von Ereignishandlern
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
 Ereignishandler sind Funktionen, die wir zukünftigen Aktivitätsereignissen in einem [Durchgang](bot-builder-basics.md#defining-a-turn) hinzufügen können. Diese Aktivitäten sind `SendActivity`, `UpdateActivity` und `DeleteActivity`, und jede von ihnen besitzt einen eigenen Handler. Diese Handler sind nützlich, wenn Sie bei jeder zukünftigen Aktivität dieses Typs für das aktuelle Kontextobjekt eine Aktion ausführen müssen.
 

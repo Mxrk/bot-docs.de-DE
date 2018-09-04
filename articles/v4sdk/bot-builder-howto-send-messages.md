@@ -1,5 +1,5 @@
 ---
-title: Senden von Nachrichten mit dem Bot Builder SDK | Microsoft Docs
+title: Senden von Nachrichten | Microsoft-Dokumentation
 description: Erfahren Sie, wie Nachrichten innerhalb des Bot Builder SDK gesendet werden.
 keywords: Senden von Nachrichten, Nachrichtenaktivitäten, einfache Textnachricht, Sprache, gesprochene Nachricht
 author: ivorb
@@ -7,18 +7,20 @@ ms.author: v-ivorb
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 04/04/2018
+ms.date: 08/23/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: b854eeb4ecb45a875ab3be5d867333cd63babffd
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: b56ad56e19691cfbd7b39606832ed10fce951aa3
+ms.sourcegitcommit: f89ed979eb6321232fb21100ef376d9b0d5113c9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302797"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42914590"
 ---
-# <a name="sending-messages"></a>Senden von Nachrichten
+# <a name="send-messages"></a>Senden von Nachrichten
 
-Die primäre Art und Weise, wie Ihr Bot mit Benutzern kommuniziert und seinerseits Kommunikation empfängt, erfolgt über **Nachrichten**aktivitäten. Einige Nachrichten bestehen einfach aus Nur-Text, während andere reichhaltigere Inhalte wie Karten oder Anlagen enthalten können. Der turn-Handler Ihres Bots empfängt Nachrichten vom Benutzer, und Sie können Antworten an den Benutzer von dort aus senden. Das turn-Kontextobjekt stellt Methoden zum Senden von Nachrichten zurück an den Benutzer bereit. Weitere Informationen zur Aktivitätsverarbeitung im Allgemeinen finden Sie unter [Aktivitätsverarbeitung](bot-builder-concept-activity-processing.md).
+[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
+
+Die primäre Art und Weise, wie Ihr Bot mit Benutzern kommuniziert und seinerseits Kommunikation empfängt, erfolgt über **Nachrichten**aktivitäten. Einige Nachrichten bestehen einfach aus Nur-Text, während andere reichhaltigere Inhalte wie Karten oder Anlagen enthalten können. Der turn-Handler Ihres Bots empfängt Nachrichten vom Benutzer, und Sie können Antworten an den Benutzer von dort aus senden. Das [Turn-Kontextobjekt](bot-builder-concept-activity-processing.md#turn-context) stellt Methoden bereit, mit denen Nachrichten zurück an den Benutzer gesendet werden können. Weitere Informationen zur Aktivitätsverarbeitung im Allgemeinen finden Sie unter [Aktivitätsverarbeitung](bot-builder-concept-activity-processing.md).
 
 Dieser Artikel beschreibt, wie einfache Text- und Sprachnachrichten gesendet werden. Informationen zum Senden umfangreicherer Inhalte finden Sie unter [Hinzufügen von Rich-Media-Anlagen](bot-builder-howto-add-media-attachments.md). Informationen zum Verwenden von Eingabeaufforderungsobjekten finden Sie unter [Auffordern von Benutzern zur Eingabe](bot-builder-prompts.md).
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 ROBOTS: NoIndex, NoFollow
-ms.openlocfilehash: 01f52a6aa6e2c9fc3d2613ff03386a7d87e64a3a
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 2dec87fbdce1cc556c15f7220200da98a4496513
+ms.sourcegitcommit: a2f3d87c0f252e876b3e63d75047ad1e7e110b47
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303813"
+ms.lasthandoff: 08/25/2018
+ms.locfileid: "42928215"
 ---
 # <a name="configure-adaptive-cards"></a>Adaptive Karten konfigurieren
 > [!IMPORTANT]
@@ -24,18 +24,16 @@ Conversation Designer stellt eine hochgradig integrierte Umgebung zum Erstellen,
 
 Adaptive Karten können an verschiedenen wichtigen Orten definiert werden.
 
-- Eine einfache Antwort auf [Aktion](conversation-designer-tasks.md) für eine Aufgabe.
+- Eine einfache Antwort auf die Aktion für eine Aufgabe.
 - Im Feedbackzustand in einem Dialog.
 - In Aufforderungszuständen in einem Dialog. Beachten Sie, dass Aufforderungen getrennte Karten aufweisen können: eine für die Antwort und eine weitere für die erneute Aufforderung.
 
 Um eine adaptive Karte zu definieren, navigieren Sie zu dem relevanten Editor. Durchsuchen Sie die vorhandenen Vorlagen für adaptive Karten, und wählen Sie eine aus, oder erstellen Sie eine eigene im JSON-Code-Editor. 
 
-<!--TODO: Insert screenshot -->
-
 Während Sie eine Karte erstellen, wird eine aussagekräftige Vorschau der Karte im Erstellungsportal angezeigt.
 
 > [!NOTE]
-> Die Funktionen adaptiver Karten befinden sich in fortlaufender Entwicklung. Zurzeit unterstützen nicht alle Kanäle alle Funktionen von adaptiven Karten. Informationen dazu, welche Funktionen von den einzelnen Kanälen unterstützt werden, finden Sie im Abschnitt [Channel status](/adaptive-cards/get-started/bots#channel-status) (Kanalstatus).
+> Die Funktionen adaptiver Karten befinden sich in fortlaufender Entwicklung. Zurzeit unterstützen nicht alle Kanäle alle Funktionen von adaptiven Karten. Informationen dazu, welche Funktionen von den einzelnen Kanälen unterstützt werden, finden Sie im Abschnitt zum Kanalstatus.
 
 ## <a name="input-form"></a>Eingabeformular
 
@@ -74,13 +72,7 @@ Adaptive Karten unterstützen vollständig die Auflösung mithilfe von Sprachgen
 * `entityName` verwendet Entitäten innerhalb der Karte.
 * `responseTemplateName` verwendet Vorlagen für einfache oder bedingte Antworten innerhalb der Karte.
 
-<!--
-# Binding form flow input fields to bot entities
-TODO: fill this out based on design/ implementation -->
-
-<!-- ## Adaptive Card schema
-
-You can learn more about adaptive cards here  TODO: Insert link to adaptive cards schema documentation -->
+Hier erfahren Sie mehr über adaptive Karten: TODO: Insert link to adaptive cards schema documentation -->
 
 ## <a name="sample-adaptive-card-payload"></a>Beispielnutzlast für eine adaptive Karte
 
@@ -149,6 +141,3 @@ Die folgende JSON-Code zeigt die Nutzlast einer adaptiven Karte.
 }
 ```
 
-## <a name="next-step"></a>Nächster Schritt
-> [!div class="nextstepaction"]
-> [Verbinden mit Kanälen](conversation-designer-deploy.md)

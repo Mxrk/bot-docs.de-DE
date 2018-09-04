@@ -7,8 +7,8 @@ Dieser Artikel beschreibt, wie Sie die Eigenschaft `ChannelData` einer Nachricht
 | Kanal | Funktionalität |
 |----|----|
 | E-Mail | Senden und Empfangen einer E-Mail mit Text, Betreff und wichtigen Metadaten |
-| Slack | Senden originalgetreuer Slack-Nachrichten |
-| Facebook | Systeminternes Senden von Facebook-Benachrichtigungen |
+| Puffer | Senden originalgetreuer Slack-Nachrichten |
+| Facebook | Natives Senden von Facebook-Benachrichtigungen |
 | Telegram | Ausführen von Telegram-spezifischen Aktionen, z.B. Freigeben einer Sprachnachricht oder eines Stickers |
 | Kik | Senden und Empfangen nativer Kik-Nachrichten | 
 
@@ -121,7 +121,124 @@ Dieser Codeausschnitt zeigt ein Beispiel für die `channelData`-Eigenschaft in d
 ```
 
 Ihr Bot kann auf diese Nachricht [normal](../dotnet/bot-builder-dotnet-connector.md#create-reply) antworten oder seine Antwort direkt an den Endpunkt posten, der durch die `response_url`-Eigenschaft des `payload`-Objekts angegeben ist.
-Weitere Informationen dazu, wann und wie Sie eine Antwort an `response_url` posten können, finden Sie unter <a href="https://api.slack.com/docs/message-buttons" target="_blank">Slack-Schaltflächen</a> (in englischer Sprache). 
+Weitere Informationen dazu, wann und wie Sie eine Antwort an `response_url` posten können, finden Sie im Artikel zu <a href="https://api.slack.com/docs/message-buttons" target="_blank">Slack-Schaltflächen</a>. 
+
+Sie können mit dem folgenden Code dynamische Schaltflächen erstellen:
+```cs
+private async Task DemoButtonsAsync(IDialogContext context)
+        {
+            var reply = context.MakeMessage();
+
+            string s = @"{
+                ""text"": ""Would you like to play a game ? "",
+                ""attachments"": [
+                    {
+                        ""text"": ""Choose a game to play!"",
+                        ""fallback"": ""You are unable to choose a game"",
+                        ""callback_id"": ""wopr_game"",
+                        ""color"": ""#3AA3E3"",
+                        ""attachment_type"": ""default"",
+                        ""actions"": [
+                            {
+                                ""name"": ""game"",
+                                ""text"": ""Chess"",
+                                ""type"": ""button"",
+                                ""value"": ""chess""
+                            },
+                            {
+                                ""name"": ""game"",
+                                ""text"": ""Falken's Maze"",
+                                ""type"": ""button"",
+                                ""value"": ""maze""
+                            },
+                            {
+                                ""name"": ""game"",
+                                ""text"": ""Thermonuclear War"",
+                                ""style"": ""danger"",
+                                ""type"": ""button"",
+                                ""value"": ""war"",
+                                ""confirm"": {
+                                    ""title"": ""Are you sure?"",
+                                    ""text"": ""Wouldn't you prefer a good game of chess?"",
+                                    ""ok_text"": ""Yes"",
+                                    ""dismiss_text"": ""No""
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }";
+
+            reply.Text = null;
+            reply.ChannelData = JObject.Parse(s);
+            await context.PostAsync(reply);
+            context.Wait(MessageReceivedAsync);
+        }
+```
+
+Verwenden Sie zum Erstellen interaktiver Menüs den folgenden Code:
+```cs
+private async Task DemoMenuAsync(IDialogContext context)
+        {
+            var reply = context.MakeMessage();
+
+            string s = @"{
+                ""text"": ""Would you like to play a game ? "",
+                ""response_type"": ""in_channel"",
+                ""attachments"": [
+                    {
+                        ""text"": ""Choose a game to play"",
+                        ""fallback"": ""If you could read this message, you'd be choosing something fun to do right now."",
+                        ""color"": ""#3AA3E3"",
+                        ""attachment_type"": ""default"",
+                        ""callback_id"": ""game_selection"",
+                        ""actions"": [
+                            {
+                                ""name"": ""games_list"",
+                                ""text"": ""Pick a game..."",
+                                ""type"": ""select"",
+                                ""options"": [
+                                    {
+                                        ""text"": ""Hearts"",
+                                        ""value"": ""menu_id_hearts""
+                                    },
+                                    {
+                                        ""text"": ""Bridge"",
+                                        ""value"": ""menu_id_bridge""
+                                    },
+                                    {
+                                        ""text"": ""Checkers"",
+                                        ""value"": ""menu_id_checkers""
+                                    },
+                                    {
+                                        ""text"": ""Chess"",
+                                        ""value"": ""menu_id_chess""
+                                    },
+                                    {
+                                        ""text"": ""Poker"",
+                                        ""value"": ""menu_id_poker""
+                                    },
+                                    {
+                                        ""text"": ""Falken's Maze"",
+                                        ""value"": ""menu_id_maze""
+                                    },
+                                    {
+                                        ""text"": ""Global Thermonuclear War"",
+                                        ""value"": ""menu_id_war""
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }";
+
+            reply.Text = null;
+            reply.ChannelData = JObject.Parse(s);
+            await context.PostAsync(reply);
+            context.Wait(MessageReceivedAsync);
+        }
+```
 
 ## <a name="create-a-facebook-notification"></a>Erstellen einer Facebook-Benachrichtigung
 
@@ -129,13 +246,13 @@ Um eine Facebook-Nachricht zu erstellen, legen Sie die `ChannelData`-Eigenschaft
 
 | Eigenschaft | BESCHREIBUNG |
 |----|----|
-| notification_type | Der Typ der Benachrichtigung (z.B. **REGULAR**, **SILENT_PUSH**, **NO_PUSH**).
-| attachment | Eine Anlage, die ein Bild, ein Video oder einen anderen Multimediatyp angibt bzw. eine auf Vorlagen basierende Anlage, z.B. eine Bestätigung. |
+| notification_type | Der Typ der Benachrichtigung (z.B. **REGULAR**, **SILENT_PUSH**, **NO_PUSH**)
+| attachment | Eine Anlage, die ein Bild, ein Video oder einen anderen Multimediatyp angibt bzw. eine auf Vorlagen basierende Anlage, z.B. eine Bestätigung |
 
 > [!NOTE]
-> Ausführliche Informationen zum Format und Inhalt der Eigenschaften `notification_type` und `attachment` finden Sie in der <a href="https://developers.facebook.com/docs/messenger-platform/send-api-reference#guidelines" target="_blank">API-Dokumentation von Facebook</a>. 
+> Ausführliche Informationen zum Format und Inhalt der Eigenschaften `notification_type` und `attachment` finden Sie in der <a href="https://developers.facebook.com/docs/messenger-platform/send-api-reference#guidelines" target="_blank">Dokumentation zur Facebook-API</a>. 
 
-Dieser Codeausschnitt zeigt ein Beispiel für die `channelData`-Eigenschaft für eine Facebook-Anlage vom Typ Bestätigung.
+Dieser Codeausschnitt zeigt ein Beispiel der `channelData`-Eigenschaft für eine Facebook-Anlage vom Typ „Bestätigung“.
 
 ```json
 "channelData": {
@@ -156,10 +273,10 @@ Um eine Nachricht zu erstellen, die Telegram-spezifische Aktionen implementiert,
 
 | Eigenschaft | BESCHREIBUNG |
 |----|----|
-| method | Die aufzurufende Telegram-Bot-API-Methode. |
-| Parameter | Die Parameter der angegebenen Methode. |
+| method | Die aufzurufende Telegram-Bot-API-Methode |
+| Parameter | Die Parameter der angegebenen Methode |
 
-Diese Telegram-Methoden werden unterstützt: 
+Die folgenden Telegram-Methoden werden unterstützt: 
 
 - answerInlineQuery
 - editMessageCaption
@@ -180,11 +297,11 @@ Diese Telegram-Methoden werden unterstützt:
 - sendVoice
 - unbanChateMember
 
-Weitere Informationen zu diesen Telegram-Methoden und ihren Parametern finden Sie in der <a href="https://core.telegram.org/bots/api#available-methods" target="_blank">Telegram-Bot-API-Dokumentation</a> (in englischer Sprache).
+Weitere Informationen zu diesen Telegram-Methoden und ihren Parametern finden Sie in der <a href="https://core.telegram.org/bots/api#available-methods" target="_blank">Telegram-Bot-API-Dokumentation</a>.
 
 > [!NOTE]
 > <ul><li>Der <code>chat_id</code>-Parameter gilt für alle Telegram-Methoden. Wenn Sie <code>chat_id</code> nicht als Parameter angeben, stellt das Framework die ID für die Sie bereit.</li>
-> <li>Anstatt Dateiinhalte inline zu übergeben, geben Sie die Datei über eine URL und einen Medientyp an, wie im folgenden Beispiel gezeigt.</li>
+> <li>Anstatt Dateiinhalte inline zu übergeben, geben Sie die Datei über eine URL und einen Medientyp an, wie im Beispiel unten gezeigt.</li>
 > <li>In jeder Nachricht, die Ihr Bot vom Telegram-Kanal empfängt, enthält die <code>ChannelData</code>-Eigenschaft die Nachricht, die Ihr Bot zuvor gesendet hat.</li></ul>
 
 Dieser Codeausschnitt zeigt ein Beispiel für eine `channelData`-Eigenschaft, die eine einzelne Telegram-Methode angibt.
@@ -230,7 +347,7 @@ Um eine native Kik-Nachricht zu erstellen, legen Sie die `ChannelData`-Eigenscha
 
 | Eigenschaft | BESCHREIBUNG |
 |----|----|
-| Cloud an das Gerät | Ein Array von Kik-Nachrichten. Weitere Informationen zum Kik-Nachrichtenformat finden Sie unter <a href="https://dev.kik.com/#/docs/messaging#message-formats" target="_blank">Kik-Nachrichtenformate</a> (in englischer Sprache). |
+| Cloud an das Gerät | Ein Array von Kik-Nachrichten. Weitere Informationen zum Kik-Nachrichtenformat finden Sie im Artikel zu <a href="https://dev.kik.com/#/docs/messaging#message-formats" target="_blank">Kik-Nachrichtenformaten</a>. |
 
 Dieser Codeausschnitt zeigt ein Beispiel für die `channelData`-Eigenschaft für eine native Kik-Nachricht.
 

@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 04/30/2018
-ms.openlocfilehash: bc1da99c7d0f7a6431ad0c2746b8583ef7bfbd5f
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 2a92281e9bbee09d8dfb00fbbc67fe6ac6b6c69b
+ms.sourcegitcommit: 1abc32353c20acd103e0383121db21b705e5eec3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302592"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42756613"
 ---
-# <a name="debug-bots-with-the-bot-framework-emulator"></a>Debuggen von Bots mit dem Bot Framework-Emulator
+# <a name="debug-with-the-bot-framework-emulator"></a>Debuggen mit dem Bot Framework-Emulator
 
 Der Bot Framework-Emulator ist eine Desktopanwendung, mit der Botentwickler ihre Bots lokal oder remote testen und debuggen können. Mit dem Emulator können Sie mit Ihrem Bot chatten und die Nachrichten ansehen, die Ihr Bot sendet und empfängt. Der Emulator zeigt Nachrichten so an, wie sie in einer Webchat-Benutzeroberfläche erscheinen würden und protokolliert JSON-Anforderungen und -Antworten, während Sie Nachrichten mit Ihrem Bot austauschen. 
 

@@ -7,14 +7,14 @@ ms.author: v-ivorb
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 04/03/2018
+ms.date: 08/24/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 30a0c463698d9ab7e3b2b0f9ddb0e872f007d1d8
-ms.sourcegitcommit: 9a38d76afb0e82fdccc1f36f9b1a65042671e538
+ms.openlocfilehash: 5883b31df95da26fa0432f4cfe195f12fc3089ad
+ms.sourcegitcommit: 86ddf3ebe6cc3385d1c4d30b971ac9c3e1fc5a77
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/04/2018
-ms.locfileid: "39515040"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43055994"
 ---
 # <a name="add-media-to-messages"></a>Hinzufügen von Medien zu Nachrichten
 
@@ -233,8 +233,13 @@ await context.sendActivity(hero);
 ---
 
 ## <a name="send-an-adaptive-card"></a>Senden adaptiver Karten
+Adaptive Karten und MessageFactory werden verwendet, um zur Kommunikation mit Benutzern Rich-Media-Nachrichten mit Texten, Bildern, Video, Audio und Dateien zu senden. Es gibt jedoch einige Unterschiede zwischen diesen beiden Formaten. 
 
-Sie können auch eine adaptive Karte als Anlage senden. Derzeit unterstützen nicht alle Kanäle adaptive Karten. Die neuesten Informationen zur Unterstützung adaptiver Karten durch Kanäle finden Sie unter <a href="http://adaptivecards.io/visualizer/">Adaptive Karten – Schnellansicht</a> (in englischer Sprache).
+Erstens unterstützen nur einige Kanäle adaptive Karten. Kanäle, bei denen dies nicht der Fall ist, unterstützen adaptive Karten möglicherweise teilweise. Wenn Sie beispielsweise eine adaptive Karte in Facebook senden, funktionieren die Schaltflächen nicht, während die Texte und Bilder einwandfrei funktionieren. MessageFactory ist lediglich eine Hilfsklasse innerhalb des Bot Builder SDK, die zum Automatisieren von Erstellungsschritten dient und von den meisten Kanälen unterstützt wird. 
+
+Zweitens übermitteln adaptive Karten Nachrichten im Kartenformat, und der Kanal bestimmt das Layout der Karte. Das Format der Nachrichten von MessageFactory hängt vom Kanal ab, und sofern die adaptive Karte nicht Teil der Anlage ist, wird nicht unbedingt das Kartenformat verwendet. 
+
+Die neuesten Informationen zur Unterstützung adaptiver Karten durch Kanäle finden Sie unter <a href="http://adaptivecards.io/visualizer/">Adaptive Karten – Schnellansicht</a> (in englischer Sprache).
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 Fügen Sie das NuGet-Paket `Microsoft.AdaptiveCards` hinzu, um adaptive Karten zu verwenden.
@@ -476,6 +481,6 @@ await context.sendActivity(messageWithCarouselOfCards);
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-[Funktionsvorschau mit Channel Inspector](../bot-service-channel-inspector.md)
+[Preview features with the Channel Inspector](../bot-service-channel-inspector.md) (Funktionsvorschau mit der Kanalprüfung)
 
 ---

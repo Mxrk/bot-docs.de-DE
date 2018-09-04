@@ -7,12 +7,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
-ms.openlocfilehash: 53643f21e2cf1ebdfd84caed38f8f84c330ef71b
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 998586820a0489bc4cca1d25b53cb6ac8162c452
+ms.sourcegitcommit: 0b2be801e55f6baa048b49c7211944480e83ba95
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302821"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43115045"
 ---
 # <a name="authentication"></a>Authentifizierung
 
@@ -24,7 +24,7 @@ Ihr Bot kommuniziert mit dem Bot Connector-Dienst über HTTP über einen sichere
 Wenn Sie das [Bot Builder-SDK für .NET](../dotnet/bot-builder-dotnet-overview.md) oder das [Bot Builder-SDK für Node.js](../nodejs/index.md) verwenden, müssen Sie die in diesem Artikel beschriebenen Sicherheitsverfahren nicht implementieren, da das SDK dies automatisch für Sie erledigt. Konfigurieren Sie einfach Ihr Projekt mit der für Ihren Bot während der [Registrierung](../bot-service-quickstart-registration.md) erhaltenen App-ID und dem Kennwort, und das SDK erledigt den Rest.
 
 > [!WARNING]
-> Im Dezember 2016 wurde mit Version 3.1 des Bot Framework-Sicherheitsprotokolls Änderungen an mehreren Werten eingeführt, die bei der Tokengenerierung und -validierung verwendet werden. Im Spätherbst 2017 wird die Version 3.2 des Bot Framework-Sicherheitsprotokolls eingeführt, die wiederum Änderungen an Werten enthält, die bei der Tokengenerierung und -validierung verwendet werden.
+> Im Dezember 2016 wurde mit Version 3.1 des Bot Framework-Sicherheitsprotokolls Änderungen an mehreren Werten eingeführt, die bei der Tokengenerierung und -validierung verwendet werden. Im Spätherbst 2017 wurde die Version 3.2 des Bot Framework-Sicherheitsprotokolls eingeführt, die Änderungen an Werten enthält, die bei der Tokengenerierung und -validierung verwendet werden.
 > Weitere Informationen finden Sie unter [Änderungen am Sicherheitsprotokoll](#security-protocol-changes).
 
 ## <a name="authentication-technologies"></a>Authentifizierungstechnologien
@@ -232,7 +232,7 @@ payload:
 ## <a id="emulator-to-bot"></a> Authentifizieren von Anforderungen vom Bot Framework Emulator an Ihren Bot
 
 > [!WARNING]
-> Im Spätherbst 2017 wird Version 3.2. des Bot Framework -Sicherheitsprotokolls eingeführt. Diese neue Version enthält einen neuen „issuer“-Wert in Token, die zwischen dem Bot Framework Emulator und Ihrem Bot ausgetauscht werden. Zur Vorbereitung dieser Änderung beschreiben die unten aufgeführten Schritte, wie Sie „issuer“-Werte sowohl für Version 3.1 als auch Version 3.2 überprüfen. 
+> Im Spätherbst 2017 wurde Version 3.2. des Bot Framework -Sicherheitsprotokolls eingeführt. Diese neue Version enthält einen neuen „issuer“-Wert in Token, die zwischen dem Bot Framework Emulator und Ihrem Bot ausgetauscht werden. Zur Vorbereitung dieser Änderung beschreiben die unten aufgeführten Schritte, wie Sie „issuer“-Werte sowohl für Version 3.1 als auch Version 3.2 überprüfen. 
 
 Der [Bot Framework Emulator](../bot-service-debug-emulator.md) ist ein Desktoptool, das Sie zum Testen der Funktionalität Ihres Bots verwenden können. Der Bot Framework Emulator verwendet zwar die gleichen [Authentifizierungstechnologien](#authentication-technologies) wie oben beschrieben, ist aber nicht in der Lage, den echten Bot Connector-Dienst nachzuahmen. Stattdessen verwendet er die Microsoft App-ID und das Microsoft App-Kennwort, die Sie angeben, wenn Sie den Emulator mit Ihrem Bot verbinden, um Token zu erstellen, die mit denen identisch sind, die der Bot erstellt. Wenn der Emulator eine Anforderung an Ihren Bot sendet, wird das JWT-Token im `Authorization`-Header der Anforderung angegeben – im Wesentlichen mit den eigenen Anmeldeinformationen des Bots zum Authentifizieren der Anforderung. 
 

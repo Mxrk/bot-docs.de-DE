@@ -8,12 +8,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 03/01/2018
-ms.openlocfilehash: 984c0d59c0c80bb53c8cef42db79d444d85941f3
-ms.sourcegitcommit: dcbc8ad992a3e242a11ebcdf0ee99714d919a877
+ms.openlocfilehash: 8f4b6c27fc28e4cf3b800dad11c3e6bd58561387
+ms.sourcegitcommit: 0b2be801e55f6baa048b49c7211944480e83ba95
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39352939"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43115065"
 ---
 # <a name="entities-and-activity-types"></a>Entitäten und Aktivitätstypen
 
@@ -75,17 +75,17 @@ Das Place-Objekt enthält die folgenden Eigenschaften:
 | Adresse | Beschreibung oder PostalAddress-Objekt (in der Zukunft) |
 | geografischer Raum | GeoCoordinates |
 | HasMap | URL zu einer Karte oder einem Map-Objekt (in der Zukunft) |
-| NAME | Name des Orts |
+| NAME | Der Name des Orts |
 
 Das GeoCoordinates-Objekt enthält die folgenden Eigenschaften:
 
 | Eigenschaft | BESCHREIBUNG |
 |----|----|
 | Typ | Typ der Entität („GeoCoordinates“) |
-| NAME | Name des Orts |
+| NAME | Der Name des Orts |
 | Längengrad | Längengrad des Standorts (<a href="https://en.wikipedia.org/wiki/World_Geodetic_System" target="_blank">WGS 84</a>) |
 | Längengrad | Breitengrad des Standorts (<a href="https://en.wikipedia.org/wiki/World_Geodetic_System" target="_blank">WGS 84</a>) |
-| Höhe | Die Höhe des Standorts (<a href="https://en.wikipedia.org/wiki/World_Geodetic_System" target="_blank">WGS 84</a>) |
+| Elevation | Die Höhe des Standorts (<a href="https://en.wikipedia.org/wiki/World_Geodetic_System" target="_blank">WGS 84</a>) |
 
 In diesem Codebeispiel wird veranschaulicht, wie eine Place-Entität der Entitätensammlung hinzugefügt wird:
 
@@ -114,13 +114,13 @@ entity = [place];
 
 # <a name="ctabcs"></a>[C#](#tab/cs)
 
-Verwenden Sie entweder das Schlüsselwort `dynamic` oder stark typisierte Klassen, um Entitäten zu nutzen.
+Verwenden Sie entweder das `dynamic`-Schlüsselwort oder stark typisierte Klassen, um Entitäten zu nutzen.
 
-In diesem Codebeispiel wird gezeigt, wie Sie das `dynamic`-Schlüsselwort zum Verarbeiten einer Entität in der `Entities`-Eigenschaft einer Nachricht verwenden:
+In diesem Codebeispiel wird veranschaulicht, wie Sie das `dynamic`-Schlüsselwort zum Verarbeiten einer Entität in der `Entities`-Eigenschaft einer Nachricht verwenden:
 
 [!code-csharp[examine entity using dynamic keyword](includes/code/dotnet-create-messages.cs#examineEntity1)]
 
-In diesem Codebeispiel wird gezeigt, wie Sie eine stark typisierte Klasse zum Verarbeiten einer Entität in der `Entities`-Eigenschaft einer Nachricht verwenden:
+In diesem Codebeispiel wird veranschaulicht, wie Sie eine stark typisierte Klasse zum Verarbeiten einer Entität in der `Entities`-Eigenschaft einer Nachricht verwenden:
 
 [!code-csharp[examine entity using typed class](includes/code/dotnet-create-messages.cs#examineEntity2)]
 
@@ -226,7 +226,7 @@ Dieser Aktivitätstyp ist für die interne Verwendung durch Microsoft Bot Framew
 
 ## <a name="messagereaction"></a>messageReaction
 
-Einige Kanäle senden messageReactionActivity-Objekte an Ihren Bot, wenn ein Benutzer auf eine vorhandene Aktivität reagiert. Wenn ein Benutzer beispielsweise auf die Schaltfläche „Gefällt mir“ einer Nachricht geklickt hat. Die Eigenschaft „reply told“ gibt an, auf welche Aktivität der Benutzer reagiert hat.
+Einige Kanäle senden messageReactionActivity-Objekte an Ihren Bot, wenn ein Benutzer auf eine vorhandene Aktivität reagiert. Beispiel: Ein Benutzer hat auf die Schaltfläche „Gefällt mir“ einer Nachricht geklickt. Die replyToId-Eigenschaft gibt an, auf welche Aktivität der Benutzer reagiert hat.
 
 Das messageReactionActivity-Objekt kann einer beliebigen Anzahl von messageReaction-Typen entsprechen, die der Kanal definiert. „Gefällt mir“ oder „PlusOne“ sind Beispiele für Reaktionen, die ein Kanal möglicherweise sendet.
 

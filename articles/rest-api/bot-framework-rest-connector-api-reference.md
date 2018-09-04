@@ -7,12 +7,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
-ms.openlocfilehash: 1eb334f719279c987b30e604eacfb3878970ba02
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: d76daffcfc4661a87d1efaf85e6bb08e3e999988
+ms.sourcegitcommit: e8c513d3af5f0c514cadcbcd0a737a7393405afa
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39304125"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42756656"
 ---
 # <a name="api-reference"></a>API-Referenz
 
@@ -22,7 +22,7 @@ ms.locfileid: "39304125"
 Innerhalb des Bot Frameworks ermöglicht der Bot Connector-Dienst Ihrem Bot den Austausch von Nachrichten mit Benutzern über Kanäle, die im Bot Framework-Portal konfiguriert sind, und der Bot State-Dienst ermöglicht Ihrem Bot das Speichern und Abrufen von Zustandsdaten, die sich auf die Unterhaltungen beziehen, die Ihr Bot über den Bot Connector-Dienst führt. Beide Dienste verwenden den Branchenstandard REST und JSON über HTTPS.
 
 > [!IMPORTANT]
-> Die Bot Framework State-Dienst-API wird nicht für Produktionsumgebungen empfohlen und kann in einem zukünftigen Release veraltet sein. Es wird empfohlen, dass Sie Ihren Botcode aktualisieren, um den In-Memory-Speicher für Testzwecke zu nutzen, oder verwenden Sie eine der **Azure-Erweiterungen** für Produktionsbots. Weitere Informationen finden Sie im Thema **Verwalten von Zustandsdaten** für [.NET](~/dotnet/bot-builder-dotnet-state.md) bzw. unter [Node](~/nodejs/bot-builder-nodejs-state.md)-Implementierung.
+> Die Bot Framework State-Dienst-API wird nicht für Produktionsumgebungen empfohlen und kann in einem zukünftigen Release veraltet sein. Es wird empfohlen, dass Sie Ihren Bot-Code aktualisieren, um den In-Memory-Speicher für Testzwecke zu nutzen, oder eine der **Azure-Erweiterungen** für Produktions-Bots verwenden. Weitere Informationen finden Sie im Thema **Verwalten von Zustandsdaten** für die Implementierung unter [.NET](~/dotnet/bot-builder-dotnet-state.md) bzw. [Node](~/nodejs/bot-builder-nodejs-state.md).
 
 ## <a name="base-uri"></a>Basis-URI
 
@@ -116,7 +116,7 @@ Der <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html" target="_bl
 | 500 | Interner Serverfehler. |
 | 503 | Der Dienst ist nicht verfügbar. |
 
-### <a name="errors"></a>Fehler
+### <a name="errors"></a>Errors
 
 Jede Antwort, die einen HTTP-Statuscode im Bereich 4xx oder 5xx angibt, enthält ein [ErrorResponse](#errorresponse-object)-Objekt im Text der Antwort, das Informationen zum Fehler bereitstellt. Wenn Sie eine Fehlerantwort im Bereich 4xx erhalten, überprüfen Sie das **ErrorResponse**-Objekt, um die Fehlerursache zu identifizieren und Ihr Problem zu beheben, bevor Sie die Anforderung erneut senden.
 
@@ -420,7 +420,7 @@ Definiert eine Nachricht, die zwischen Bot und Benutzer ausgetauscht wird.<br/><
 | **textFormat** | Zeichenfolge | Das Format des **text** der Nachricht. Einer der folgenden Werte: **markdown**, **plain**, **xml**. Weitere Informationen zum Textformat finden Sie unter [Erstellen von Nachrichten](bot-framework-rest-connector-create-messages.md). |
 | **timestamp** | Zeichenfolge | Datum und Uhrzeit des Sendens der Nachricht in der UTC-Zeitzone, ausgedrückt im <a href="https://en.wikipedia.org/wiki/ISO_8601" target="_blank">ISO-8601</a>-Format. |
 | **topicName** | Zeichenfolge | Das Thema der Unterhaltung, zu der die Aktivität gehört. |
-| **type** | Zeichenfolge | Der Typ der Aktivität. Einer der folgenden Werte: **contactRelationUpdate**, **conversationUpdate**, **deleteUserData**, **message**, **ping** , **typing**, **endOfConversation**. Weitere Informationen zu Aktivitätstypen finden Sie unter [Aktivitäten: Überblick](bot-framework-rest-connector-activities.md). |
+| **type** | Zeichenfolge | Der Typ der Aktivität. Einer der folgenden Werte: **contactRelationUpdate**, **conversationUpdate**, **deleteUserData**, **message**, **typing**, **endOfConversation**. Weitere Informationen zu Aktivitätstypen finden Sie unter [Aktivitäten: Überblick](bot-framework-rest-connector-activities.md). |
 | **value** | object | Ein Wert mit unbestimmtem Ende. |
 
 <a href="#objects">Zurück zur Schematabelle</a>
@@ -611,7 +611,7 @@ Definiert einen bestimmten Zeitpunkt in einer Unterhaltung.<br/><br/>
 | **activityId** | Zeichenfolge | Die ID, die die Aktivität eindeutig identifiziert, auf die dieses Objekt verweist. | 
 | **bot** | [ChannelAccount](#channelaccount-object) | Ein **ChannelAccount**-Objekt, das den Bot in der Unterhaltung identifiziert, auf die dieses Objekt verweist. |
 | **channelId** | Zeichenfolge | Die ID, die die Aktivität in der Unterhaltung eindeutig identifiziert, auf die dieses Objekt verweist. | 
-| **conversation** | [ConversationAccount](#conversationaccount-object) | Ein **ChannelAccount**-Objekt, das die Unterhaltung identifiziert, auf die dieses Objekt verweist. |
+| **Unterhaltung** | [ConversationAccount](#conversationaccount-object) | Ein **ChannelAccount**-Objekt, das die Unterhaltung identifiziert, auf die dieses Objekt verweist. |
 | **serviceUrl** | Zeichenfolge | Die URL, die den Dienstendpunkt des Kanals in der Unterhaltung angibt, auf die dieses Objekt verweist. | 
 | **user** | [ChannelAccount](#channelaccount-object) | Ein **ChannelAccount**-Objekt, das den Benutzer in der Unterhaltung identifiziert, auf die dieses Objekt verweist. |
 

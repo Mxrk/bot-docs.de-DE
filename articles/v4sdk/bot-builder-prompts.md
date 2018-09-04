@@ -1,6 +1,6 @@
 ---
-title: Auffordern von Benutzern zur Eingabe | Microsoft Docs
-description: Erfahren Sie, wie Benutzer im Bot Builder-SDK für Node.js zur Eingabe aufgefordert werden.
+title: Auffordern von Benutzern zur Eingabe mithilfe der Dialogbibliothek | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie Benutzer mithilfe der Dialogbibliothek im Bot Builder SDK für Node.js zur Eingabe auffordern.
 keywords: Eingabeaufforderungen, Dialogfelder, AttachmentPrompt, ChoicePrompt, ConfirmPrompt, DatetimePrompt, NumberPrompt, TextPrompt, erneute Eingabeaufforderung, Überprüfung
 author: v-ducvo
 ms.author: v-ducvo
@@ -9,37 +9,37 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 4/10/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: b08c087bcce4a3dcee5de20311e2f7b890ea2f6b
-ms.sourcegitcommit: b45e16cac2febb7034da4ccd3af3bd7e6f430c31
+ms.openlocfilehash: 0b238ed510fd1d6fda82734af373f344b0dc28e3
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39469277"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905364"
 ---
-# <a name="prompt-users-for-input"></a>Auffordern von Benutzern zur Eingabe
+# <a name="prompt-users-for-input-using-the-dialogs-library"></a>Auffordern von Benutzern zur Eingabe mithilfe der Dialogbibliothek
 
-[!INCLUDE [pre-release-label](~/includes/pre-release-label.md)]
+[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-Bots sammeln ihre Informationen häufig, indem sie dem Benutzer Fragen stellen. Sie können dem Benutzer einfach eine Standardnachricht senden, indem Sie die Methode _send activity_ des turn context-Objekts verwenden, um nach einer Zeichenfolgeneingabe zu fragen. Das Bot Builder SDK stellt jedoch eine **Dialogfeld**bibliothek zur Verfügung, mit der Sie nach verschiedenen Typen von Informationen fragen können. In diesem Thema wird erläutert, wie ein Benutzer mit **Eingabeaufforderungen** um eine Eingabe gebeten wird.
+Bots sammeln ihre Informationen häufig, indem sie dem Benutzer Fragen stellen. Sie können dem Benutzer einfach eine Standardnachricht senden, indem Sie ihn mithilfe der _send activity_-Methode des [Turn](bot-builder-concept-activity-processing.md#turn-context)-Kontextobjekts zur Eingabe einer Zeichenfolge auffordern. Das Bot Builder SDK enthält jedoch eine **Dialogbibliothek**, mit der Sie nach verschiedenen Typen von Informationen fragen können. In diesem Thema wird erläutert, wie ein Benutzer mit **Eingabeaufforderungen** um eine Eingabe gebeten wird.
 
-In diesem Artikel wird beschrieben, wie Eingabeaufforderungen in einem Dialogfeld verwendet werden. Weitere Informationen zum Verwenden von Dialogfeldern im Allgemeinen finden Sie unter [Verwenden von Dialogfeldern zum Verwalten des Gesprächssflusses](bot-builder-dialog-manage-conversation-flow.md).
+In diesem Artikel wird beschrieben, wie Eingabeaufforderungen in einem Dialogfeld verwendet werden. Informationen zur Verwendung von Dialogen im Allgemeinen finden Sie im Thema zur [Verwendung von Dialogen zum Verwalten eines einfachen Konversationsflusses](bot-builder-dialog-manage-conversation-flow.md).
 
 ## <a name="prompt-types"></a>Eingabeaufforderungstypen
 
 Die Dialogfeldbibliothek bietet eine Vielzahl verschiedener Arten von Eingabeaufforderungen, die eine jeweils andere Art von Antwort anfordern.
 
-| Eingabeaufforderung | BESCHREIBUNG |
+| Prompt | BESCHREIBUNG |
 |:----|:----|
 | **AttachmentPrompt** | Der Benutzer wird aufgefordert, eine Anlage anzugeben, z.B. ein Dokument oder ein Bild. |
 | **ChoicePrompt** | Der Benutzer wird aufgefordert, aus einer Sammlung von Optionen auszuwählen. |
 | **ConfirmPrompt** | Der Benutzer aufgefordert, seine Aktion zu bestätigen. |
-| **DatetimePrompt** | Der Benutzer wird aufgefordert, eine Datums-/Uhrzeitangabe einzugeben. Benutzer können mithilfe von natürlicher Sprache antworten, z.B. „morgen um 20: 00 Uhr“ oder „Freitag um 10 Uhr“. Das Bot Framework SDK verwendet die vordefinierte LUIS `builtin.datetimeV2`-Entität. Weitere Informationen finden Sie unter [builtin.datetimev2](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-reference-prebuilt-entities#builtindatetimev2). |
+| **DatetimePrompt** | Der Benutzer wird aufgefordert, eine Datums-/Uhrzeitangabe einzugeben. Benutzer können mithilfe von natürlicher Sprache antworten, z.B. „morgen um 20: 00 Uhr“ oder „Freitag um 10 Uhr“. Das Bot Framework SDK verwendet die vordefinierte LUIS `builtin.datetimeV2`-Entität. Weitere Informationen finden Sie unter [builtin.datetimev2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-entities#builtindatetimev2). |
 | **NumberPrompt** | Der Benutzer wird aufgefordert, eine Zahl einzugeben. Der Benutzer kann z.B. mit „10“ oder „zehn“ antworten. Wenn die Antwort z.B. „zehn“ ist, konvertiert die Eingabeaufforderung die Antwort in eine Zahl und gibt `10` als Ergebnis zurück. |
 | **TextPrompt** | Der Benutzer wird aufgefordert, eine Textzeichenfolge einzugeben. |
 
 ## <a name="add-references-to-prompt-library"></a>Hinzufügen von Verweisen zur Eingabeaufforderungsbibliothek
 
-Sie können die **Dialogfelder**bibliothek abrufen, indem Sie Ihrem Bot das Paket **dialogs** hinzufügen. Dialogfelder werden in [Verwenden von Dialogfeldern zum Verwalten des Gesprächsflusses](bot-builder-dialog-manage-conversation-flow.md) ausführlich behandelt. Wir verwenden aber für unsere Eingabeaufforderungen Dialogfelder.
+Sie können die **Dialogfelder**bibliothek abrufen, indem Sie Ihrem Bot das Paket **dialogs** hinzufügen. Dialoge werden im Thema zur [Verwendung von Dialogen zum Verwalten eines einfachen Konversationsflusses](bot-builder-dialog-manage-conversation-flow.md) ausführlich behandelt. Wir verwenden aber Dialoge für unsere Eingabeaufforderungen.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -75,7 +75,7 @@ public class MyDialog : DialogSet
 Installieren Sie das Paket für die Dialogfelder von npm:
 
 ```cmd
-npm install --save botbuilder-dialogs
+npm install --save botbuilder-dialogs@preview
 ```
 
 Um **Dialogfelder** in Ihrem Bot zu verwenden, schließen Sie es in den Botcode ein.
@@ -93,7 +93,7 @@ const dialogs = new DialogSet();
 
 Um einen Benutzer zur Eingabe aufzufordern, können Sie Ihrem Dialogfeld eine Eingabeaufforderung hinzufügen. Sie können z.B. eine Aufforderung vom Typ **TextPrompt** definieren und dieser eine Dialogfeld-ID **TextPrompt** zuweisen:
 
-Sobald ein Eingabeaufforderungs-Dialogfeld hinzugefügt wurde, können Sie dieses in einem einfachen zweistufigen Wasserfalldialogfeld oder mehrere Eingabeaufforderungen zusammen in einem mehrstufigen Wasserfall verwenden. Ein *Wasserfall*-Dialogfeld ist einfach eine Möglichkeit, eine Abfolge von Schritten zu definieren. Weitere Informationen finden Sie im Abschnitt [Verwenden von Dialogfeldern](bot-builder-dialog-manage-conversation-flow.md#using-dialogs-to-guide-the-user-through-steps) von [Verwalten des Gesprächsflusses mit Dialogfeldern](bot-builder-dialog-manage-conversation-flow.md).
+Sobald ein Eingabeaufforderungs-Dialogfeld hinzugefügt wurde, können Sie dieses in einem einfachen zweistufigen Wasserfalldialogfeld oder mehrere Eingabeaufforderungen zusammen in einem mehrstufigen Wasserfall verwenden. Ein *Wasserfall*-Dialogfeld ist einfach eine Möglichkeit, eine Abfolge von Schritten zu definieren. Weitere Informationen finden Sie im Abschnitt zum [Verwenden von Dialogen](bot-builder-dialog-manage-conversation-flow.md#using-dialogs-to-guide-the-user-through-steps) unter [Verwalten eines einfachen Konversationsflusses mit Dialogen](bot-builder-dialog-manage-conversation-flow.md).
 
 Im ersten Durchgang fordert das Dialogfeld den Benutzer zur Eingabe seines Namens auf, im zweiten Durchgang verarbeitet das Dialogfeld die Benutzereingaben als Antwort auf die Eingabeaufforderung.
 
@@ -129,13 +129,13 @@ public class MyDialog : DialogSet
             async (dc, args, next) =>
             {
                 // Prompt for the user's name.
-                await dc.Prompt(Inputs.Text, "What is your name?").ConfigureAwait(false);
+                await dc.Prompt(Inputs.Text, "What is your name?");
             },
             async(dc, args, next) =>
             {
                 var user = (string)args["Text"];
-                await dc.Context.SendActivity($"Hi {user}!").ConfigureAwait(false);
-                await dc.End().ConfigureAwait(false);
+                await dc.Context.SendActivity($"Hi {user}!");
+                await dc.End();
             }
         });
     }
@@ -166,7 +166,7 @@ dialogs.add('greetings', [
 ---
 
 > [!NOTE]
-> Um ein Dialogfeld zu starten, rufen Sie einen Dialogfeldkontext ab und verwenden dessen _begin_-Methode. Weitere Informationen finden Sie unter [Verwenden von Dialogfeldern zum Verwalten des Gesprächsflusses](./bot-builder-dialog-manage-conversation-flow.md).
+> Um ein Dialogfeld zu starten, rufen Sie einen Dialogfeldkontext ab und verwenden dessen _begin_-Methode. Weitere Informationen finden Sie im Thema zur [Verwendung von Dialogen zum Verwalten eines einfachen Konversationsflusses](./bot-builder-dialog-manage-conversation-flow.md).
 
 ## <a name="reusable-prompts"></a>Wiederverwendbare Eingabeaufforderungen
 
@@ -197,21 +197,21 @@ public class MyDialog : DialogSet
             async (dc, args, next) =>
             {
                 // Prompt for the user's name.
-                await dc.Prompt(Inputs.Text, "What is your name?").ConfigureAwait(false);
+                await dc.Prompt(Inputs.Text, "What is your name?");
             },
             async(dc, args, next) =>
             {
                 var user = (string)args["Text"];
 
                 // Ask them where they work.
-                await dc.Prompt(Inputs.Text, $"Hi {user}! Where do you work?").ConfigureAwait(false);
+                await dc.Prompt(Inputs.Text, $"Hi {user}! Where do you work?");
             },
             async(dc, args, next) =>
             {
                 var workplace = (string)args["Text"];
 
-                await dc.Context.SendActivity($"{workplace} is a cool place!").ConfigureAwait(false);
-                await dc.End().ConfigureAwait(false);
+                await dc.Context.SendActivity($"{workplace} is a cool place!");
+                await dc.End();
             }
         });
     }
@@ -273,21 +273,21 @@ public MyDialog()
         async (dc, args, next) =>
         {
             // Prompt for the user's name.
-            await dc.Prompt(Inputs.Name, "What is your name?").ConfigureAwait(false);
+            await dc.Prompt(Inputs.Name, "What is your name?");
         },
         async(dc, args, next) =>
         {
             var user = (string)args["Text"];
 
             // Ask them where they work.
-            await dc.Prompt(Inputs.Work, $"Hi {user}! Where do you work?").ConfigureAwait(false);
+            await dc.Prompt(Inputs.Work, $"Hi {user}! Where do you work?");
         },
         async(dc, args, next) =>
         {
             var workplace = (string)args["Text"];
 
-            await dc.Context.SendActivity($"{workplace} is a cool place!").ConfigureAwait(false);
-            await dc.End().ConfigureAwait(false);
+            await dc.Context.SendActivity($"{workplace} is a cool place!");
+            await dc.End();
         }
     });
 }
@@ -334,7 +334,7 @@ In einem Dialogfeldschritt würde der folgende Code den Benutzer zur Eingabe auf
 await dc.Prompt("numberPrompt", "How many people are in your party?", new PromptOptions()
 {
     RetryPromptString = "Sorry, please specify the number of people in your party."
-}).ConfigureAwait(false);
+});
 ```
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
@@ -405,14 +405,14 @@ public class MyDialog : DialogSet
                     Choices = ChoiceFactory.ToChoices(Colors),
                     RetryPromptActivity =
                         MessageFactory.SuggestedActions(Colors, "Please choose a color.") as Activity
-                }).ConfigureAwait(false);
+                });
             },
             async(dc, args, next) =>
             {
                 var color = (FoundChoice)args["Value"];
 
-                await dc.Context.SendActivity($"You chose {color.Value}.").ConfigureAwait(false);
-                await dc.End().ConfigureAwait(false);
+                await dc.Context.SendActivity($"You chose {color.Value}.");
+                await dc.End();
             }
         });
     }
@@ -482,14 +482,14 @@ public class MyDialog : DialogSet
                 await dc.Prompt(Inputs.Size, "How many people are in your party?", new PromptOptions()
                 {
                     RetryPromptString = "Please specify party size between 6 and 20."
-                }).ConfigureAwait(false);
+                });
             },
             async(dc, args, next) =>
             {
                 var size = (int)args["Value"];
 
-                await dc.Context.SendActivity($"Okay, {size} people!").ConfigureAwait(false);
-                await dc.End().ConfigureAwait(false);
+                await dc.Context.SendActivity($"Okay, {size} people!");
+                await dc.End();
             }
         });
     }
@@ -569,7 +569,7 @@ private static async Task TimeValidator(ITurnContext context, DateTimeResult res
 {
     if (result.Resolution.Count == 0)
     {
-        await context.SendActivity("Sorry, I did not recognize the time that you entered.").ConfigureAwait(false);
+        await context.SendActivity("Sorry, I did not recognize the time that you entered.");
         result.Status = PromptStatus.NotRecognized;
     }
 
@@ -588,7 +588,7 @@ private static async Task TimeValidator(ITurnContext context, DateTimeResult res
     else
     {
         // Otherwise, flag the input as out of range.
-        await context.SendActivity("Please enter a time in the future, such as \"tomorrow at 9am\"").ConfigureAwait(false);
+        await context.SendActivity("Please enter a time in the future, such as \"tomorrow at 9am\"");
         result.Status = PromptStatus.OutOfRange;
     }
 }
@@ -635,5 +635,4 @@ Wenn Benutzer zu einer Eingabe aufgefordert werden, bestehen mehrere Optionen f�
 
 Da Sie jetzt wissen, wie ein Benutzer zu einer Eingabe aufgefordert wird, können Sie den Botcode und die Benutzeroberfläche verbessern, indem Sie verschiedene Gesprächsflüsse über Dialogfelder verwalten.
 
-> [!div class="nextstepaction"]
-> [Verwalten des Gesprächsflusses mit Dialogfeldern](bot-builder-dialog-manage-conversation-flow.md)
+

@@ -7,17 +7,17 @@ ms.author: mateusv
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 12/13/2017
-ms.openlocfilehash: 21f5b35e992f792a5667ef05d2708b5a446f8023
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.date: 08/27/2018
+ms.openlocfilehash: 0bf58773cfbb6c58773cc5c63b735a0099ad569e
+ms.sourcegitcommit: 86ddf3ebe6cc3385d1c4d30b971ac9c3e1fc5a77
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301597"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43056014"
 ---
 # <a name="design-the-user-experience"></a>Entwerfen der Benutzeroberfläche
 
-Bots verwenden in der Regel eine Kombination aus **umfangreichen Benutzersteuerelementen**, **Text und natürlicher Sprache** sowie **Spracheingaben**, um Informationen mit Benutzern auszutauschen.
+Sie können Bots mit einer Vielzahl von Features erstellen, beispielsweise Text, Schaltflächen, Bildern, im Karussell- oder Listenformat angezeigten Rich Cards usw. Letztlich bestimmt jedoch jeder Kanal (beispielsweise Facebook, Slack und Skype), wie Features von seinen Messaging-Clients gerendert werden. Auch wenn ein Feature von mehreren Kanälen unterstützt wird, kann jeder Kanal das Feature etwas unterschiedlich rendern. Wenn eine Nachricht Features enthält, die ein Kanal nicht systemintern unterstützt, versucht der Kanal möglicherweise, Nachrichteninhalte als Text oder statisches Bild abwärts zu rendern, was erhebliche Auswirkungen auf die Darstellung der Nachricht auf dem Client haben kann. In einigen Fällen unterstützt ein Kanal ein bestimmtes Feature möglicherweise überhaupt nicht. GroupMe-Clients können beispielsweise keinen Eingabeindikators anzeigen.
 
 ## <a name="rich-user-controls"></a>Umfangreiche Benutzersteuerelemente
 
@@ -44,39 +44,10 @@ Microsoft Bot Service-Karten sind programmierbare Objekte, die standardisierte S
 | VideoCard | ![VideoCard-Bild](~/media/video-card.png) | Eine Karte, die Videos abspielen kann. Wird in der Regel verwendet, um eine URL zu öffnen und ein verfügbares Video zu streamen. |
 | CardCarousel | ![CardCarousel-Bild](~/media/card-carousel.png) | Eine Sammlung von Karten, durch die horizontal gescrollt werden und aus denen der Benutzer auswählen kann.|
 
-Durch Karten müssen Sie nur einmal einen Bot entwerfen, der dann auf verschiedenen Kanälen eingesetzt werden kann. Allerdings werden nicht alle Kartentypen auf allen verfügbaren Kanälen unterstützt. In der folgenden Tabelle werden einige Kartentypen aufgeführt, die derzeit auf verschiedenen Kanälen unterstützt werden. Aktuelle Informationen zu unterstützen Kanälen erhalten Sie über den [Channel Inspector](bot-service-channel-inspector.md), wenn Sie sehen möchten, wie bestimmte Karten aussehen und auf dem gewünschten Kanal funktionieren. Weitere Informationen zu adaptiven Karten finden Sie in der <a href="http://adaptivecards.io/visualizer/">Schnellansicht zu adaptiven Karten</a>.
-
-In der folgenden Tabelle werden die unterstützten Kanäle für Kartentypen aufgeführt, die in der Regel in einem Kartenkarussell verwendet werden.
-
-| Kanal | Adaptiv | Hero | Miniaturansicht | Karussell |
-| ---- | ---- | ---- | ---- | ---- |
-| Cortana | ✔ | ✔ | ✔ | ✔ |
-| O365-E-Mail | ✔ | ✔ | ✔ | ✔ |
-| Facebook | - | ✔ | ✔ | ✔ |
-| Kik | ✔ | ✔ | ✔ | ✔ |
-| Skype | ✔ | ✔ | ✔ | ✔ |
-| Puffer | ✔ | ✔ | ✔ | ✔ |
-| sms | ✔ | ✔ | ✔ | ✔ |
-| Teams | ✔ | ✔ | ✔ | ✔ |
-| Webchat | ✔ | ✔ | ✔ | ✔ |
-
-In der folgenden Tabelle werden die unterstützten Kanäle für zusätzliche Kartentypen für Microsoft Bot Service aufgeführt.
-
-| Kanal | Video | Rechnung | SignIn | SuggestedAction |
-| ---- | ---- | ---- | ---- | ---- |
-| Cortana | ✔ | ✔ | ✔ | - |
-| O365-E-Mail | ✔ | ✔ | ✔ | ✔ |
-| Facebook | ✔ | ✔ | ✔ | ✔ |
-| Kik | ✔ | ✔ | ✔ | ✔ |
-| Skype | ✔ | ✔ | ✔ | ✔ |
-| Puffer | ✔ | ✔ | ✔ | ✔ |
-| sms | ✔ | ✔ | - | ✔ |
-| Teams | - | ✔ | ✔ | - |
-| Webchat | ✔ | ✔ | ✔ | ✔ |
-
-✔ = unterstützt
+Durch Karten müssen Sie nur einmal einen Bot entwerfen, der dann auf verschiedenen Kanälen eingesetzt werden kann. Allerdings werden nicht alle Kartentypen auf allen verfügbaren Kanälen unterstützt. 
 
 Weitere Informationen zum Hinzufügen von Karten zu Ihrem Bot finden Sie in den Abschnitten [Add rich card media attachments (Hinzufügen von Rich Card-Medienanlagen)](v4sdk/bot-builder-howto-add-media-attachments.md) und [Add suggested actions to messages (Hinzufügen von vorgeschlagenen Aktionen zu Nachrichten)](v4sdk/bot-builder-howto-add-suggested-actions.md).
+
 
 Sie können für Ihren Bot auch die üblichen Benutzeroberflächenelemente verwenden, da auch diese viele nützliche Funktionen bieten. Wie [zuvor](~/bot-service-design-principles.md#designing-a-bot) bereits erwähnt sollte Ihr Bot so konzipiert sein, dass er ein Problem eines Benutzers auf die schnellste und einfachste Weise löst. Sie sollten nicht als erstes Funktionen zum Verstehen natürlicher Sprache integrieren, da dies häufig unnötig ist und den Vorgang verkompliziert.
 
@@ -129,5 +100,4 @@ Ein Bot kann **Spracheingaben** bzw. -ausgaben verwenden, um mit den Benutzern z
 Genauso wie Menschen bei der Kommunikation verschiedene Gesten, Stimmhöhen und Symbole verwenden, kann ein Bot mithilfe von umfangreichen Benutzersteuerelementen, Text (teilweise einschließlich natürlicher Sprache) und Spracheingaben mit Benutzern kommunizieren. Diese Kommunikationsmethoden können alle zusammen verwendet werden. Sie müssen sich nicht für eine entscheiden. 
 
 Angenommen, es handelt sich um einen „Kochbot“, der Benutzer beim Kochen unterstützt, indem er möglicherweise Anweisungen erteilt, indem er ein Video abspielt oder verschiedene Bilder anzeigt, um zu erklären, wie der Benutzer vorgehen muss. Manche Benutzer bevorzugen es, mithilfe von Spracheingaben zur nächsten Seite des Rezepts zu blättern oder dem Bot Fragen zu stellen. Andere berühren lieber den Gerätebildschirm, anstatt mithilfe von Spracheingaben mit dem Bot zu kommunizieren. Wenn Sie Ihren Bot erstellen, sollten Sie Benutzeroberflächenelemente in diesen integrieren, die die verschiedenen Möglichkeiten unterstützen, über die Benutzer mit dem Bot interagieren können. Dabei sollten die genauen Anwendungsfälle berücksichtigt werden, die unterstützt werden sollen. 
-
 

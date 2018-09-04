@@ -9,16 +9,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 05/24/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 9986ac7d46acfa94694456d653b91dd66c1f55f0
-ms.sourcegitcommit: f95702d27abbd242c902eeb218d55a72df56ce56
+ms.openlocfilehash: d8201da0fb406f30888dfaa4ff6017f125990104
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39304653"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905374"
 ---
 # <a name="middleware"></a>Middleware
 
-[!INCLUDE [pre-release-label](~/includes/pre-release-label.md)]
+[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
 Middleware ist lediglich eine Klasse zwischen dem Adapter und der Bot-Logik, die während der Initialisierung der Middlewaresammlung Ihres Adapters hinzugefügt wird. Das SDK ermöglicht Ihnen das Schreiben eigener Middleware sowie das Hinzufügen wiederverwendbarer Komponenten von Middleware, die von anderen erstellt wurde. Was können Sie in der Middleware tun? So ziemlich alles. Jede Aktivität, die in oder aus Ihrem Bot kommt, durchläuft die Middleware.
 
@@ -36,7 +36,7 @@ Es gibt viele Situationen, in denen der Bot jede Aktivität oder jede Aktivität
 
 ### <a name="modifying-or-enhancing-the-turn-context"></a>Ändern und Erweitern des Turn-Kontexts
 
-Bestimmte Konversationen können erfolgreicher sein, wenn der Bot über mehr Informationen verfügt, als in der Aktivität bereitgestellt werden. In diesem Fall kann Middleware auf die bisher verfügbaren Informationen zum Konversationszustand zugreifen, eine externe Datenquelle abfragen und diese an das Kontextobjekt anfügen, bevor die Ausführung an die Bot-Logik übergeben wird.
+Bestimmte Konversationen können erfolgreicher sein, wenn der Bot über mehr Informationen verfügt, als in der Aktivität bereitgestellt werden. In diesem Fall kann Middleware auf die bisher verfügbaren Informationen zum Konversationszustand zugreifen, eine externe Datenquelle abfragen und diese an das [Turn](bot-builder-concept-activity-processing.md#turn-context)-Kontextobjekt anfügen, bevor die Ausführung an die Bot-Logik übergeben wird.
 Middleware kann beispielsweise Konversationsdetails wie die Konversations-ID und -Zustand identifizieren und anschließend einen Verzeichnisdienst für Informationen abfragen. Die Middleware kann das von der externen Abfrage empfangene Benutzerobjekt dem Kontextobjekt hinzufügen und übergeben, wodurch mehr Daten über den Benutzer bereitgestellt werden und dem Bot ermöglicht wird, die Anforderung besser zu verarbeiten.
 
 Die Middleware kann auf beide der oben beschriebenen Weisen oder auf ganz andere Weise verwendet werden. Es hängt voll und ganz davon ab, wie Sie Ihren Bot strukturieren möchten, und was die Aufgabe des Bots ist.

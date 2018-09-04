@@ -8,12 +8,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
-ms.openlocfilehash: 503e9b2231b198346f5a7cd767a1e6a866e9e5b3
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 3b0032db8e99c75ec8697f79a78cd6b0bd915db9
+ms.sourcegitcommit: e8c513d3af5f0c514cadcbcd0a737a7393405afa
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301880"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42756684"
 ---
 # <a name="bot-analytics"></a>Botanalyse
 Analytics ist eine Erweiterung von [Application Insights](/azure/application-insights/app-insights-analytics). Application Insights bietet einen **Servicelevel** und Instrumentierungsdaten wie Datenverkehr, Latenz und Integrationen. Analytics bietet auf **Konversationsebene** Berichterstellung an den Benutzer, Nachrichten und Datenkanal.
@@ -40,7 +40,7 @@ Klicken Sie auf das Dropdownmenü und dann auf die Zeitspanne, die die Diagramme
 Beachten Sie, dass sich bei Änderung des gesamten Zeitrahmens der Zeitschritt (X-Achse) in den Diagrammen entsprechend ändert.
 
 ### <a name="grand-totals"></a>Gesamtergebnisse
-Die Gesamtzahl aktiver Benutzer und gesendeter und empfangener Nachrichten während des angegebenen Zeitraums.
+Die Gesamtanzahl von aktiven Benutzern sowie gesendeten und empfangenen Aktivitäten während des angegebenen Zeitrahmens.
 Striche `--` zeigen an, dass keine Aktivität stattgefunden hat.
 
 ### <a name="retention"></a>Aufbewahrung
@@ -60,14 +60,14 @@ Das Benutzerdiagramm verfolgt nach, wie viele Benutzer im angegebenen Zeitrahmen
 * Das Liniendiagramm zeigt an, wie viele Benutzer zu einem bestimmten Zeitpunkt auf den Bot zugegriffen haben.
 * Die Legende für das Liniendiagramm gibt an, welche Farbe welchen Kanal darstellt, und enthält die Gesamtzahl der Benutzer während des angegebenen Zeitraums.
 
-### <a name="messages"></a>Meldungen
-Das Nachrichtendiagramm verfolgt nach, wie viele Nachrichten im angegebenen Zeitrahmen über welchen Kanal gesendet und empfangen wurden.
+### <a name="activities"></a>Aktivitäten
+Das Diagramm „Aktivitäten“ verfolgt nach, wie viele Aktivitäten im angegebenen Zeitrahmen über die einzelnen Kanäle gesendet und empfangen wurden.
 
-![Nachrichtendiagramm](~/media/analytics-messages.png)
+![Diagramm „Aktivitäten“](~/media/analytics-activities.png)
 
-* Das Prozentsatzdiagramm zeigt an, wie viel Prozent der Nachrichten über die einzelnen Kanäle übertragen wurden.
-* Das Liniendiagramm zeigt an, wie viele Nachrichten im angegebenen Zeitrahmen gesendet und empfangen wurden.
-* Die Legende für das Liniendiagramm gibt an, welche Linienfarbe welchen Kanal darstellt, und die Gesamtzahl der im angegebenen Zeitraum über den jeweiligen Kanal gesendeten und empfangenen Nachrichten. 
+* Das Prozentsatzdiagramm zeigt, wie viel Prozent der Aktivitäten über die einzelnen Kanäle übertragen wurden.
+* Das Liniendiagramm zeigt, wie viele Aktivitäten im angegebenen Zeitrahmen gesendet und empfangen wurden.
+* Der Legende für das Liniendiagramm können Sie die Linienfarbe der einzelnen Kanäle und die Gesamtanzahl von Aktivitäten entnehmen, die im angegebenen Zeitraum über den jeweiligen Kanal gesendet und empfangen wurden. 
 
 ## <a name="enable-analytics"></a>Aktivieren der Analyse
 Analytics ist erst verfügbar, nachdem Application Insights aktiviert und konfiguriert wurde. Application Insights beginnt nach der Aktivierung mit dem Sammeln von Daten. Wenn Application Insights z.B. vor einer Woche für einen sechs Monate alten Bot aktiviert wurde, wurden die Daten der letzten Woche erfasst.

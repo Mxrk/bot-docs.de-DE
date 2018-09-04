@@ -1,5 +1,5 @@
 ---
-title: Erstellen modularer Botlogik unter Verwendung des Dialogfeldcontainers | Microsoft Docs
+title: Erstellen eines integrierten Dialogsatzes | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie Ihre Botlogik mithilfe des Dialogfeldcontainers im Bot Builder SDK für Node.js und C# modularisieren können.
 keywords: zusammengesetztes Steuerelement, modulare Botlogik
 author: v-ducvo
@@ -9,14 +9,14 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 4/27/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 2441a32167618ebb08e6a43d68d74076c3351d8f
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 93037d70a33d66269f3a79ce7e2a55900d25a6a9
+ms.sourcegitcommit: ee63d9dc1944a6843368bdabf5878950229f61d0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303920"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42795199"
 ---
-# <a name="create-modular-bot-logic-with-a-dialog-container"></a>Erstellen modularer Botlogik mit einem Dialogfeldcontainer
+# <a name="create-an-integrated-set-of-dialogs"></a>Erstellen eines integrierten Dialogsatzes
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
@@ -74,7 +74,7 @@ public class UserInfo
 ```
 
 In einem Botdurchlauf richtet die festgelegte `CreateContext`-Methode des Dialogfelds den Dialogfeldzustand ein.
-Die Methode nimmt den Durchlaufkontext und ein Zustandsobjekt als Parameter an.
+Die Methode nimmt den [Turn-Kontext](bot-builder-concept-activity-processing.md#turn-context) und ein Zustandsobjekt als Parameter an.
 
 Für Dialogfelder muss dieses Zustandsobjekt die `IDictionary<string, object>`-Schnittstelle implementieren. Da dieser Bot nur den Unterhaltungszustand verwendet, um den Dialogfeldzustand zu speichern, kann unsere Unterhaltungszustandsklasse ein einfaches Wörterbuch sein.
 
@@ -104,7 +104,7 @@ Zunächst starten wir mit einem einfachen Eincheckdialogfeld, das den Benutzer n
 1. Fragen nach dem gewünschten Zimmertyp.
 1. Senden einer Bestätigungsnachricht und Beenden des Dialogfelds.
 
-Weitere Informationen zu Dialogfeldern und Wasserfällen finden Sie unter [Verwenden von Dialogfeldern zum Verwalten von Gesprächsflüssen](bot-builder-dialog-manage-conversation-flow.md).
+Weitere Informationen zu Dialogen und Wasserfällen finden Sie im Thema zur [Verwendung von Dialogen zum Verwalten eines einfachen Konversationsflusses](bot-builder-dialog-manage-conversation-flow.md).
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 

@@ -1,5 +1,5 @@
 ---
-title: Speichern des Status und Zugreifen auf Daten | Microsoft-Dokumentation
+title: Zustand und Speicher | Microsoft-Dokumentation
 description: Hier erfahren Sie mehr über Status-Manager, Unterhaltungsstatus und Benutzerstatus innerhalb des Bot Builder-SDK.
 keywords: LUIS, Unterhaltungsstatus, Benutzerstatus, Speicher, Statusverwaltung
 author: DeniseMak
@@ -9,21 +9,21 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 02/15/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 56814ab12a85d18e52b0d5ec83fd81682f3b9f60
-ms.sourcegitcommit: f95702d27abbd242c902eeb218d55a72df56ce56
+ms.openlocfilehash: e25ecec3aec1cdebe3b9eae4bff0d3c434cb610b
+ms.sourcegitcommit: 1abc32353c20acd103e0383121db21b705e5eec3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39304624"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42756452"
 ---
-# <a name="save-state-and-access-data"></a>Speichern des Status und Zugreifen auf Daten
+# <a name="state-and-storage"></a>Zustand und Speicher
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
 Wesentlich für gute Botentwicklung ist, den Unterhaltungskontext nachzuverfolgen, damit sich der Bot beispielsweise an Antworten auf bereits gestellte Fragen erinnert.
 Je nachdem, wofür Ihr Bot verwendet wird, müssen Sie möglicherweise auch den Status verfolgen oder Informationen über die Lebensdauer einer Unterhaltung hinaus speichern.
 Der *Status* eines Bots ist eine Information, die er sich merkt, um auf eingehende Nachrichten angemessen zu reagieren. Das Bot Builder SDK stellt Klassen zum Speichern und Abrufen von Statusdaten als Objekt bereit, das einem Benutzer oder einer Unterhaltung zugeordnet ist.
 
-* **Unterhaltungseigenschaften** helfen Ihrem Bot, die aktuelle Unterhaltung mit dem Benutzer nachzuverfolgen. Wenn Ihr Bot eine Reihe von Schritten ausführen oder zwischen Unterhaltungsthemen wechseln muss, können Sie mit den Unterhaltungseigenschaften diese Schritte verwalten oder das aktuelle Thema nachverfolgen. Da die Unterhaltungseigenschaften den Status der aktuellen Unterhaltung wiedergeben, löschen Sie sie in der Regel am Ende einer Sitzung, wenn der Bot eine Aktivität zum _Beenden der Unterhaltung_ empfängt.
+* **Unterhaltungseigenschaften** helfen Ihrem Bot, die aktuelle Unterhaltung mit dem Benutzer nachzuverfolgen. Wenn Ihr Bot eine Reihe von Schritten ausführen oder zwischen Unterhaltungsthemen wechseln muss, können Sie mit den Unterhaltungseigenschaften diese Schritte verwalten oder das aktuelle Thema nachverfolgen. Da die Konversationseigenschaften den Zustand der aktuellen Konversation wiedergeben, löschen Sie sie in der Regel am Ende einer Konversation, wenn der Bot eine Aktivität zum _Beenden der Konversation_ empfängt.
 * **Benutzereigenschaften** können für viele Zwecke verwendet werden, z.B. um festzustellen, an welcher Stelle eine frühere Unterhaltung unterbrochen wurde, oder um einen wiederkehrenden Benutzer mit seinem Namen zu begrüßen. Wenn Sie die Einstellungen eines Benutzers speichern, können Sie diese Informationen zum Anpassen der Unterhaltung beim nächsten Chat verwenden. Sie können beispielsweise den Benutzer auf einen Nachrichtenartikel zu einem Thema, das ihn interessiert, aufmerksam machen oder ihn benachrichtigen, wenn ein Termin verfügbar wird. Sie sollten die Daten löschen, wenn der Bot eine Aktivität zum _Löschen der Benutzerdaten_ empfängt.
 
 Sie können [Speicher](bot-builder-howto-v4-storage.md) verwenden, um aus einem beständigen Speicher zu lesen und in den Speicher zu schreiben. So kann Ihr Bot beispielsweise gemeinsame Ressourcen aktualisieren, Antworten oder Abstimmungen aufzeichnen oder historische Wetterdaten lesen. Genauso wie eine App den Speicher für ihre Zwecke nutzt, kann Ihr Bot eine Unterhaltung mit Ihrem Benutzer verwenden.

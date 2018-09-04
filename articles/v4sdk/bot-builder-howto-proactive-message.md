@@ -1,5 +1,5 @@
 ---
-title: Verwenden von proaktivem Messaging | Microsoft Docs
+title: Senden von proaktiven Nachrichten | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie proaktives Messaging mit Ihrem Bot ausführen können.
 keywords: Proaktive Nachricht
 author: jonathanfingold
@@ -9,14 +9,17 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 05/01/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: fd53a897d9847432fd337402d40edfcd6f4ff061
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: c22ce6a35d4d49506360a78a439f15137c429d9d
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303128"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905134"
 ---
-# <a name="how-to-use-proactive-messaging"></a>Verwenden von proaktivem Messaging
+# <a name="send-proactive-messages"></a>Senden von proaktiven Nachrichten 
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
+
 
 Bots senden häufig _reaktive Nachrichten_, aber es gibt auch Situationen, in denen wir in der Lage sein müssen, eine [proaktive Nachricht](bot-builder-proactive-messages.md) zu senden. 
 
@@ -120,7 +123,7 @@ Als Reaktion führt der Bot in diesem Durchgang die folgenden Schritte aus:
 
 Der Auftrag, den wir starten, ist ein einfacher 5-Sekunden-Timer, der dann mit dem Senden der proaktiven Nachricht abgeschlossen wird.
 - Der Aufruf der Methode zum Fortsetzen der Unterhaltung des Adapters erstellt einen neuen Durchgang, der vom Bot initiiert wird.
-- Dieser Durchgang weist seinen eigenen Durchgangskontext auf, aus dem wir die Zustandsinformationen abrufen.
+- Dieser Turn bzw. Durchgang weist einen eigenen [Turn-Kontext](bot-builder-concept-activity-processing.md#turn-context) auf, aus dem wir die Zustandsinformationen abrufen.
 - Wir verwenden diesen Kontext, um die proaktive Nachricht an den Benutzer zu senden.
 
 

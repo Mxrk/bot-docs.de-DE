@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 04/11/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 679109cad2f7b0c0c5826a47884b98e1149cb380
-ms.sourcegitcommit: f95702d27abbd242c902eeb218d55a72df56ce56
+ms.openlocfilehash: 32486cb024dfe852a7478ccba4a0eedc476431b0
+ms.sourcegitcommit: ee63d9dc1944a6843368bdabf5878950229f61d0
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39304637"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42795029"
 ---
 # <a name="conversation-flow"></a>Konversationsablauf
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
@@ -52,7 +52,7 @@ The EchoBot sample in the BotBuilder SDK is a single-turn bot. Here are other ex
 
 ![Wetterbot mit Einzeldurchlauf](./media/concept-conversation/weather-single-turn.png)
 
-Ein Wetterbot arbeitet nur mit einem Durchlauf und gibt dem Benutzer nur einen Wetterbericht, ohne erneut nach der Stadt oder dem Datum zu fragen. Die gesamte Logik für die Anzeige des Wetterberichts basiert auf der Nachricht, die der Bot gerade erhalten hat. In jedem Durchlauf einer Konversation erhält der Bot einen Durchlaufkontext, mit dem er bestimmen kann, was als nächstes zu tun ist und wie die Konversation abläuft. 
+Ein Wetterbot arbeitet nur mit einem Durchlauf und gibt dem Benutzer nur einen Wetterbericht, ohne erneut nach der Stadt oder dem Datum zu fragen. Die gesamte Logik für die Anzeige des Wetterberichts basiert auf der Nachricht, die der Bot gerade erhalten hat. In jedem Durchlauf bzw. Turn einer Konversation erhält der Bot einen [Turn-Kontext](bot-builder-concept-activity-processing.md#turn-context), mit dem er bestimmen kann, was als Nächstes zu tun ist und wie die Konversation abläuft. 
 
 ## <a name="multiple-turns"></a>Mehrfachdurchläufe
 
@@ -84,7 +84,7 @@ Sie können Ihren Bot so gestalten, dass er mehr als eine Art von Aufgabe übern
 
 ### <a name="recognize-intent"></a>Erkennen der Absicht
 
-Das Bot Builder SDK beinhaltet _Erkennungen_, die jede eingehende Nachricht verarbeiten, um die Absicht zu bestimmen, sodass Ihr Bot den entsprechenden Konversationsablauf initiieren kann. Vor dem _Empfangsrückruf_ analysieren die Erkennungen den Nachrichteninhalt des Benutzers, um die Absicht zu bestimmen, und geben diese an den Bot zurück, indem sie das Durchlaufkontextobjekt innerhalb des Empfangsrückrufs verwenden, das als **Top Intent** im Durchlaufkontextobjekt gespeichert ist. 
+Das Bot Builder SDK beinhaltet _Erkennungen_, die jede eingehende Nachricht verarbeiten, um die Absicht zu bestimmen, sodass Ihr Bot den entsprechenden Konversationsablauf initiieren kann. Vor dem _Empfangsrückruf_ analysieren die Erkennungen den Nachrichteninhalt des Benutzers, um die Absicht zu bestimmen, und geben diese an den Bot zurück, indem sie das Turn-Kontextobjekt innerhalb des Empfangsrückrufs verwenden, das als **am höchsten eingestufte Absicht** im [Turn-Kontextobjekt](bot-builder-concept-activity-processing.md#turn-context) gespeichert ist. 
 
 Die Erkennung, die die **Top Intent** bestimmt, kann einfach reguläre Ausdrücke, Language Understanding (LUIS) oder eine andere Logik verwenden, die Sie als Middleware entwickeln. Im Folgenden finden Sie einige Beispiele für Erkennungen:
    

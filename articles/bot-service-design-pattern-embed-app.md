@@ -6,13 +6,13 @@ ms.author: mateusv
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 12/13/2017
-ms.openlocfilehash: 3264388cf253bb949eabe3be04fdaebabdc36b99
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.date: 08/15/2018
+ms.openlocfilehash: 68d2d4f7a19aecfcb2c630e5e9e55ca5b8a21d89
+ms.sourcegitcommit: e8c513d3af5f0c514cadcbcd0a737a7393405afa
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301845"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42756424"
 ---
 # <a name="embed-a-bot-in-an-app"></a>Einbetten eines Bots in eine App
 
@@ -42,9 +42,7 @@ Andere Arten von Apps können mithilfe der [Direct Line-API][directLineAPI] mit 
 
 In diesem Beispiel zur Erstellung einer mobilen App, die einen Bot ausführt, wird <a href="https://www.xamarin.com/" target="_blank">Xamarin</a> verwendet. Dabei handelt es sich um ein beliebtes Tool zum Erstellen plattformübergeifender mobiler Anwendungen. 
 
-Erstellen Sie zunächst eine einfache Webansichtskomponente, und nutzen Sie sie zum Hosten eines <a href="https://github.com/Microsoft/BotFramework-WebChat" target="_blank">Webchat-Steuerelements</a>. Fügen Sie anschließend über das Azure-Portal [TODO](~/bot-service-manage-channels.md)den Webchatkanal hinzu. 
-
-![Konfigurationseinstellungen des Bots](~/media/bot-service-design-pattern-embed-app/webchat-channel.png)
+Erstellen Sie zunächst eine einfache Webansichtskomponente, und nutzen Sie sie zum Hosten eines <a href="https://github.com/Microsoft/BotFramework-WebChat" target="_blank">Webchat-Steuerelements</a>. Fügen Sie dann im Azure-Portal den Webchatkanal hinzu. 
 
 Geben Sie als Nächstes die registrierte Webchat-URL als Quelle für das Webansichts-Steuerelement in der Xamarin-App an:
 

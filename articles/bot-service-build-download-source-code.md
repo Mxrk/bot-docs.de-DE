@@ -1,5 +1,5 @@
 ---
-title: Herunterladen und erneutes Bereitstellen des Quellcodes für einen Botdienst | Microsoft-Dokumentation
+title: Herunterladen und erneutes Bereitstellen des Bot-Quellcodes | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie einen Botdienst herunterladen und veröffentlichen.
 keywords: Herunterladen von Quellcode, erneutes Bereitstellen, Bereitstellen, ZIP-Datei, Veröffentlichen
 author: v-ducvo
@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 03/08/2018
-ms.openlocfilehash: 6d76388712ffeff94c56ba89b4bf4f4831caf45c
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: b77e096d28f51f605db9c49d36e796553f9293ef
+ms.sourcegitcommit: 1abc32353c20acd103e0383121db21b705e5eec3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303320"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42756453"
 ---
-# <a name="download-and-redeploy-bot-service-source-code"></a>Herunterladen und erneutes Bereitstellen des Quellcodes für einen Botdienst
+# <a name="download-and-redeploy-bot-source-code"></a>Herunterladen und erneutes Bereitstellen des Bot-Quellcodes
 
 Mit Bot Service können Sie das gesamte Quellprojekt für Ihren Bot herunterladen. Dadurch können Sie mit einer IDE Ihrer Wahl lokal an Ihren Bot arbeiten. Nachdem Sie alle Änderungen vorgenommen haben, können Sie diese zurück in Azure veröffentlichen. 
 

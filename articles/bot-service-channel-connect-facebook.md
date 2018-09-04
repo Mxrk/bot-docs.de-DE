@@ -7,21 +7,19 @@ ms.author: RobStand
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 12/13/2017
-ms.openlocfilehash: 0a9ad7d51234b417d5d0f27dbcffe4ce839ba94a
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.date: 08/16/2018
+ms.openlocfilehash: 7fbff06966ac64260244e8af375aaa6f8f945fcd
+ms.sourcegitcommit: e8c513d3af5f0c514cadcbcd0a737a7393405afa
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301207"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42756384"
 ---
 # <a name="connect-a-bot-to-facebook-messenger"></a>Verbinden eines Bots mit Facebook Messenger
 
 Weitere Informationen zum Entwickeln für Facebook Messenger finden Sie in der [Dokumentation zur Messenger-Plattform](https://developers.facebook.com/docs/messenger-platform). Sie können auch die [Pre-Launch Guidelines](https://developers.facebook.com/docs/messenger-platform/product-overview/launch#app_public) (Hinweise vor dem Start), [Quick Start](https://developers.facebook.com/docs/messenger-platform/guides/quick-start) (Schnellstart) und das [setup guide](https://developers.facebook.com/docs/messenger-platform/guides/setup) (Installationshandbuch) von Facebook lesen.
 
 Um einen Bot für die Kommunikation über Facebook Messenger zu konfigurieren, aktivieren Sie Facebook Messenger auf einer Facebook-Seite, und verbinden Sie dann den Bot mit der App.
-
-[!INCLUDE [Channel Inspector intro](~/includes/snippet-channel-inspector.md)]
 
 > [!NOTE]
 > Die Facebook-Benutzeroberfläche kann je nach der von Ihnen verwendeten Version variieren.
@@ -72,7 +70,7 @@ Klicken Sie auf **Set up Webhooks** (Webhooks einrichten), um Messagingereigniss
 
 ## <a name="provide-webhook-callback-url-and-verify-token"></a>Angeben der Webhook-Rückruf-URL und Überprüfen des Tokens
 
-Navigieren Sie zurück zum [Bot Framework-Portal](https://dev.botframework.com/). Öffnen Sie den Bot, und klicken Sie auf die Registerkarte **Kanäle** und dann auf **Facebook Messenger**.
+Öffnen Sie im [Azure-Portal](https://portal.azure.com/) den Bot, klicken Sie auf die Registerkarte **Kanäle** und dann auf **Facebook Messenger**.
 
 * Kopieren Sie die Werte in **Rückruf-URL** und **Token überprüfen** aus dem Portal.
 
@@ -93,7 +91,7 @@ Navigieren Sie zurück zum [Bot Framework-Portal](https://dev.botframework.com/)
 
 ## <a name="provide-facebook-credentials"></a>Angeben von Facebook-Anmeldeinformationen
 
-Fügen Sie im Bot Framework-Portal die Werte für **Seiten-ID**, **App-ID**, **App-Geheimnis** und **Seitenzugriffstoken** ein, die Sie zuvor in Facebook Messenger kopiert haben.
+Fügen Sie im Azure-Portal die Werte für **Facebook-App-ID**, **Facebook-App-Geheimnis**, **Seiten-ID** und **Seitenzugriffstoken** ein, die Sie zuvor in Facebook Messenger kopiert haben. Sie können den gleichen Bot auf mehreren Facebook-Seiten verwenden, indem Sie zusätzliche Seiten-IDs und Zugriffstoken hinzufügen.
 
 ![Eingeben von Anmeldeinformationen](~/media/channels/fb-credentials2.png)
 
@@ -110,3 +108,6 @@ Nachdem der Bot fertiggestellt wurde, führt Facebook einen eigenen [Überprüfu
 
 Nach der erfolgreichen Überprüfung legen Sie die App auf dem App-Dashboard unter „App-Prüfung“ als öffentlich fest.
 Stellen Sie sicher, dass die Facebook-Seite, der dieser Bot zugeordnet ist, öffentlich ist. Der Status wird in den Seiteneinstellungen angezeigt.
+
+> [!NOTE]
+> Sie können auch Facebook Workplace verwenden. Erstellen Sie zum Aktivieren des Tools eine [benutzerdefinierte Integration](https://developers.facebook.com/docs/workplace/custom-integrations-new) für Ihren Workplace, und verwenden Sie die zugehörigen Werte für App-ID, App-Geheimnis und Zugriffstoken. Verwenden Sie anstelle einer herkömmlichen pageID die Zahlen, die nach dem Namen der Integration auf der Info-Seite angezeigt werden. Die Webhooks können mit den in Azure angezeigten Anmeldeinformationen verbunden werden.

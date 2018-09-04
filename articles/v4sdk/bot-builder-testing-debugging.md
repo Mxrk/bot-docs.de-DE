@@ -1,5 +1,5 @@
 ---
-title: Testen und Debuggen Ihres Bots | Microsoft-Dokumentation
+title: Richtlinien für das Testen und Debuggen | Microsoft-Dokumentation
 description: Verstehen Sie, wie Sie Ihren Bot testen und debuggen.
 keywords: Testprinzipien, Modellelemente, häufig gestellte Fragen, Testebenen
 author: ivorb
@@ -9,14 +9,16 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 04/09/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: ea1c458e98f67f76c56fdd70595307a0e0252c1d
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: caa424ed0ea0944805836739ed48a7a61f78d21c
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39298755"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42905259"
 ---
-# <a name="testing-and-debugging-your-bot"></a>Testen und Debuggen Ihres Bots
+# <a name="testing-and-debugging-guidelines"></a>Richtlinien für das Testen und Debuggen
+
+[!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
 Bots sind komplexe Apps, bei denen viele verschiedene Komponenten zusammenarbeiten. Wie bei jeder komplexen App kann dies zu einigen interessanten Fehlern führen oder bei Ihrem Bot ein anderes Verhalten als das erwartete verursachen.
 

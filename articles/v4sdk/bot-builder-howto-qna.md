@@ -1,5 +1,5 @@
 ---
-title: Verwenden von QnA Maker | Microsoft Docs
+title: Verwenden von QnA Maker zum Beantworten von Fragen | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie QnA Maker in Ihrem Bot verwenden können.
 keywords: Fragen und Antworten, QnA, häufig gestellte Fragen, FAQ, Middleware
 author: ivorb
@@ -9,16 +9,18 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 03/13/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 78bc2c849a2c1900da33c7419693a7ff84c43cb0
-ms.sourcegitcommit: dcbc8ad992a3e242a11ebcdf0ee99714d919a877
+ms.openlocfilehash: 7dd973e2b5a151e754925e6f19c6e4f82507f745
+ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39352949"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42906174"
 ---
-# <a name="how-to-use-qna-maker"></a>Verwenden von QnA Maker
+# <a name="use-qna-maker-to-answer-questions"></a>Verwenden von QnA Maker zum Beantworten von Fragen
 
-Um Ihrem Bot Unterstützung für einfache Fragen und Antworten hinzuzufügen, können Sie den [QnA Maker](https://qnamaker.ai/)-Dienst verwenden.
+
+Um Ihrem Bot Unterstützung für einfache Fragen und Antworten hinzuzufügen, können Sie den [QnA Maker](https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/home)-Dienst verwenden.
+
 
 Eine der Grundvoraussetzungen beim Schreiben Ihres eigenen QnA Maker-Diensts ist es, ihn mit Fragen und Antworten zu versehen. In vielen Fällen sind die Fragen und Antworten bereits in Inhalten wie FAQs oder anderer Dokumentation enthalten. In anderen Fällen möchten Sie Ihre Antworten auf Fragen auf eine natürlichere, verständlichere Art und Weise anpassen. 
 
@@ -59,7 +61,7 @@ Bevor wir zur Programmierung kommen, stellen Sie sicher, dass Sie über die Pake
 
 # <a name="javascripttabjs"></a>[JavaScript](#tab/js)
 
-Jeder dieser Dienste kann Ihrem Bot mit dem botbuilder-ai-Paket hinzugefügt werden. Sie können Ihrem Projekt dieses Paket über npm hinzufügen:
+Jeder dieser Dienste kann Ihrem Bot mit dem Paket „botbuilder-ai“ hinzugefügt werden. Sie können Ihrem Projekt dieses Paket über npm hinzufügen:
 
 * `npm install --save botbuilder@preview`
 * `npm install --save botbuilder-ai@preview`
