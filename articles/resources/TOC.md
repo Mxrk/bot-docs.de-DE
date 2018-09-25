@@ -1,3 +1,12 @@
+# Unternehmensvorlage
+## [Einführung](../v4sdk/bot-builder-enterprise-template-overview.md)
+## [Übersicht](../v4sdk/bot-builder-enterprise-template-overview-detail.md)
+## [Erstellen eines Projekts](../v4sdk/bot-builder-enterprise-template-create-project.md)
+## [Anpassen der Vorlage](../v4sdk/bot-builder-enterprise-template-customize.md)
+## [Bereitstellen der Vorlage](../v4sdk/bot-builder-enterprise-template-deployment.md)
+## [Analyse](../v4sdk/bot-builder-enterprise-template-powerbi.md)
+# Benutzerdefinierter Assistent
+## [Übersicht](../v4sdk/bot-builder-custom-assistant-introduction.md)
 # [HÄUFIG GESTELLTE FRAGEN](../bot-service-resources-bot-framework-faq.md)
 # [Erhalten von Support](../bot-service-resources-links-help.md)
 # [Anleitung zu Bezeichnern](../bot-service-resources-identifiers-guide.md)
