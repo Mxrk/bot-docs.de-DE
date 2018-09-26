@@ -5,8 +5,8 @@
 ## [Anpassen der Vorlage](../v4sdk/bot-builder-enterprise-template-customize.md)
 ## [Bereitstellen der Vorlage](../v4sdk/bot-builder-enterprise-template-deployment.md)
 ## [Analyse](../v4sdk/bot-builder-enterprise-template-powerbi.md)
-# Benutzerdefinierter Assistent
-## [Übersicht](../v4sdk/bot-builder-custom-assistant-introduction.md)
+# Virtueller Assistent 
+## [Übersicht](../v4sdk/bot-builder-virtual-assistant-introduction.md)
 # [HÄUFIG GESTELLTE FRAGEN](../bot-service-resources-bot-framework-faq.md)
 # [Erhalten von Support](../bot-service-resources-links-help.md)
 # [Anleitung zu Bezeichnern](../bot-service-resources-identifiers-guide.md)
