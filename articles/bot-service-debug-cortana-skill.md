@@ -7,14 +7,17 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 05/01/18
-ms.openlocfilehash: 25474f821d64ea50442d9777d8f891124eb27573
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+monikerRange: azure-bot-service-3.0
+ms.openlocfilehash: ceeb854ace1388b6e0435aacc3acf9027763ee73
+ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301821"
+ms.lasthandoff: 09/23/2018
+ms.locfileid: "46707966"
 ---
 # <a name="test-a-cortana-skill"></a>Testen einer Cortana-Funktion
+
+[!INCLUDE [pre-release-label](includes/pre-release-label-v3.md)]
  
 Wenn Sie mithilfe des Bot Builder SDK eine Cortana-Funktion erstellt haben, können Sie diese testen, indem Sie sie über Cortana aufrufen. Die folgenden Anweisungen führen Sie durch die erforderlichen Schritte zum Testen Ihrer Cortana-Funktion.
 
@@ -82,8 +85,7 @@ Im Artikel zum [Debuggen von Cortana-Funktionen][Cortana-TestBestPractice] finde
 Nachdem Sie Ihre Cortana-Funktion getestet und sichergestellt haben, dass sie erwartungsgemäß funktioniert, können Sie sie für eine Gruppe von Beta-Testern bereitstellen oder veröffentlichen. Weitere Informationen finden Sie unter [Veröffentlichen von Cortana-Funktionen][Cortana-Publish].
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
-* [Das Cortana-Funktionskit][CortanaGetStarted]
-* [Featurevorschau mit dem Kanalinspektor](bot-service-channel-inspector.md)
+* [Cortana Skills Kit][CortanaGetStarted]
 
 [CortanaGetStarted]: /cortana/getstarted
 

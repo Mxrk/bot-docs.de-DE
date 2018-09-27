@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 09/7/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 804081e52a03a27da418f549f0fadb6dc8bca52b
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: ebe95791d795b0117da34cc0352847c5f27f837c
+ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42905674"
+ms.lasthandoff: 09/23/2018
+ms.locfileid: "46707296"
 ---
 # <a name="create-messages"></a>Erstellen von Nachrichten
 
@@ -68,8 +68,6 @@ session.send(customMessage);
 Wenn Sie nicht über das `session`-Objekt im Bereich verfügen, können Sie mit der `bot.send`-Methode eine formatierte Nachricht an den Benutzer senden.
 
 Mithilfe der `textFormat`-Eigenschaft einer Nachricht kann das Format des Texts angegeben werden. Die `textFormat`-Eigenschaft kann auf **plain**, **markdown** oder **xml** festgelegt werden. Der Standardwert für `textFormat` ist **markdown**. 
-
-Eine Liste der üblicherweise unterstützten Textformatierungen finden Sie unter [Textformatierung](../bot-service-channel-inspector.md#text-formatting). Um sicherzustellen, dass die Features, die Sie verwenden möchten, vom Zielkanal unterstützt werden, zeigen Sie die Features mit der [Kanalprüfung](../bot-service-channel-inspector.md) in der Vorschau an.
 
 ## <a name="message-property"></a>Nachrichteneigenschaft
 

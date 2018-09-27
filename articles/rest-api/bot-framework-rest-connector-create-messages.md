@@ -7,12 +7,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
-ms.openlocfilehash: 2fbff9c6d7fe1e06fa87e5b2695056dbc1414570
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 62088ecdf2f8402ec5456eea758f5db994de0cf9
+ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39304392"
+ms.lasthandoff: 09/23/2018
+ms.locfileid: "46707316"
 ---
 # <a name="create-messages"></a>Erstellen von Nachrichten
 
@@ -23,8 +23,6 @@ Ihr Bot sendet [Activity][Activity]-Objekte des Typs **message**, um Benutzern I
 Der Nachrichtentext kann als **reiner Text**, **Markdown** oder im **xml-Format** formatiert werden. Das Standardformat für die `textFormat`-Eigenschaft ist **Markdown**, und Text wird unter Verwendung der Markdown-Formatierungsstandards interpretiert. Der Unterstützungsgrad für Textformate variiert je nach Kanal. Um zu sehen, ob ein Feature, das Sie verwenden möchten, auf dem von Ihnen ausgewählten Kanal unterstützt wird, sehen Sie sich das Feature mit der [Kanalprüfung][ChannelInspector] an. 
 
 Mit der `textFormat`-Eigenschaft des [Activity][Activity]-Objekts kann das Format des Texts angegeben werden. Legen Sie z. B. zum Erstellen einer einfachen Nachricht, die nur reinen Text enthält, die `textFormat`-Eigenschaft des [Activity][Activity]-Objekts auf **plain**, den Inhalt der `text`-Eigenschaft auf den Inhalt der Nachricht und die `locale`-Eigenschaft auf das Gebietsschema des Absenders fest. 
-
-Eine Liste der üblicherweise unterstützten Textformatierungen finden Sie unter [Textformatierung](../bot-service-channel-inspector.md#text-formatting).
 
 ## <a name="attachments"></a>Attachments
 
@@ -56,7 +54,7 @@ Mit der `suggestedActions`-Eigenschaft des [Activity][Activity]-Objekts können 
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-- [Featurevorschau mit der Kanalprüfung][ChannelInspector]
+- [Funktionsvorschau mit Channel Inspector][ChannelInspector]
 - [Übersicht über Aktivitäten](bot-framework-rest-connector-activities.md)
 - [Senden und Empfangen von Nachrichten](bot-framework-rest-connector-send-and-receive-messages.md)
 - [Hinzufügen von Medienanlagen zu Nachrichten](bot-framework-rest-connector-add-media-attachments.md)

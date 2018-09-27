@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 5/16/17
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 07f4ad7d53c456de53be196977458a3d8b03c6f0
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: 87ab8d3ceb872cdb0342458b24a9756ccb710fb6
+ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42906194"
+ms.lasthandoff: 09/23/2018
+ms.locfileid: "46706986"
 ---
 # <a name="extract-intents-and-entities-using-luisgen"></a>Extrahieren von Absichten und Entitäten mit LUISGen
 
@@ -23,7 +23,7 @@ ms.locfileid: "42906194"
 Neben dem Erkennen von Absichten können mit einer LUIS-App auch Entitäten extrahiert werden, bei denen es sich um wichtige Wörter für die Erfüllung der Anforderung eines Benutzers handelt. Im Beispiel mit der Reservierung für ein Restaurant kann die LUIS-App aus der Nachricht des Benutzers ggf. die Anzahl von Personen, das Datum der Reservierung oder den Standort des Restaurants extrahieren. 
 
 
-Sie können das [LUISGen-Tool](https://github.com/Microsoft/botbuilder-tools/tree/master/LUISGen) zum Generieren von Klassen verwenden, die Ihnen das Extrahieren von Entitäten im Code Ihres Bots für LUIS erleichtern.
+Sie können das [LUISGen-Tool](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUISGen) zum Generieren von Klassen verwenden, die Ihnen das Extrahieren von Entitäten im Code Ihres Bots für LUIS erleichtern.
 
 Installieren Sie über eine Node.js-Befehlszeile `luisgen` unter dem globalen Pfad.
 ```
