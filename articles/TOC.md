@@ -4,16 +4,13 @@
 # Schnellstart
 ## [Erstellen eines Bots mit Azure Bot Service](~/bot-service-quickstart.md)
 ## Lokales Erstellen eines Bots
-### [.NET](dotnet/bot-builder-dotnet-quickstart.md)
 ### [.NET](dotnet/bot-builder-dotnet-sdk-quickstart.md)
-### [Node.js](nodejs/bot-builder-nodejs-quickstart.md)
 ### [JavaScript](javascript/bot-builder-javascript-quickstart.md)
 # Lernprogramme
 ## [Verwenden von LUIS- und QnA-Diensten mit dem Dispatch-Tool](v4sdk/bot-builder-tutorial-dispatch.md)
-## [Erstellen von Bots mit der Azure CLI](bot-builder-tools-az-cli.md)
+## [Hinzufügen von Authentifizierung zum Bot](bot-builder-tutorial-authentication.md)
 # Beispiele
-## [GitHub-Repository mit Beispielen](bot-builder-samples.md)
-## [Node.js](~/nodejs/bot-builder-nodejs-samples.md)
+## [Repository mit Beispielen](https://github.com/Microsoft/BotBuilder-Samples/blob/master/readme.md)
 # Konzepte
 ## [Funktionsweise von Bots](v4sdk/bot-builder-basics.md)
 ## [Dialogbibliothek](v4sdk/bot-builder-concept-dialog.md)
@@ -50,7 +47,7 @@
 ### [Dauerhaftes Speichern von Daten in Dialogen](v4sdk/bot-builder-tutorial-persist-user-inputs.md)
 ### [Verwenden von LUIS für Sprachverständnis](v4sdk/bot-builder-howto-v4-luis.md)
 ### [Verwenden von QnA Maker zum Beantworten von Fragen](v4sdk/bot-builder-howto-qna.md)
-### [Hinzufügen von Authentifizierung zum Bot](bot-builder-tutorial-authentication.md)
+### [Hinzufügen von Authentifizierung zum Bot](v4sdk/bot-builder-authentication.md)
 ### [Herunterladen und erneutes Bereitstellen des Botcodes](bot-service-build-download-source-code.md)
 ### [Festlegen der kontinuierlichen Bereitstellung](bot-service-build-continuous-deployment.md)
 ### [Bereitstellen Ihres lokalen Bots in Azure](bot-builder-howto-deploy-azure.md)
