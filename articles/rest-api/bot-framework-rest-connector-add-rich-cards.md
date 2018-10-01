@@ -58,7 +58,7 @@ Zum Verarbeiten von Ereignissen in Rich Cards verwenden Sie [CardAction][CardAct
 > [!NOTE]
 > Schaltflächen innerhalb von Adaptive Cards werden nicht mit `CardAction`-Objekten, sondern unter Verwendung des von <a href="http://adaptivecards.io" target="_blank">Adaptive Cards</a> definierten Schemas erstellt. Ein Beispiel, das zeigt, wie Sie Schaltflächen zu einer Adaptive Card hinzufügen, finden Sie unter [Hinzufügen einer Adaptive Card zu einer Nachricht](#adaptive-card).
 
-Diese Tabelle listet die gültigen Werte für die `type` Eigenschaft eine [CardAction] [ CardAction] Objekt aus, und beschreibt den erwarteten Inhalt der `value` -Eigenschaft für jeden Typ:
+Diese Tabelle listet die gültigen Werte für die `type` Eigenschaft eine [CardAction][CardAction] Objekt aus, und beschreibt den erwarteten Inhalt der `value` -Eigenschaft für jeden Typ:
 
 | type | value | 
 |----|----|
