@@ -254,7 +254,7 @@ bot.dialog('orderDinner', [
 
 Die meisten, wenn nicht all diese Aktionen, unterbrechen den normalen Konversationsablauf. Viele sind störend und sollten mit Vorsicht behandelt werden. Beispielsweise wird mit `triggerAction`, `cancelAction` oder `endConversationAction` der Dialogstapel gelöscht. Wenn der Benutzer den Fehler gemacht hat, eine dieser Aktionen auszulösen, muss er die Aufgabe neu starten. Um sicherzustellen, dass der Benutzer diese Aktionen wirklich auslösen wollte, können Sie eine `confirmPrompt`-Option zu diesen Aktionen hinzufügen. Mit `confirmPrompt` wird der Benutzer gefragt, ob wer die aktuelle Aufgabe wirklich abbrechen oder beenden möchte. So kann der Benutzer seine Meinung ändern und den Vorgang fortsetzen.
 
-Der Codeausschnitt unten zeigt eine [cancelAction] [ cancelAction] mit einem [confirmPrompt](http://docs.botframework.com/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.itriggeractionoptions#confirmprompt) um sicherzustellen, dass der Benutzer den Bestellvorgang wirklich abbrechen möchte.
+Der Codeausschnitt unten zeigt eine [cancelAction][cancelAction] mit einem [confirmPrompt](http://docs.botframework.com/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.itriggeractionoptions#confirmprompt) um sicherzustellen, dass der Benutzer den Bestellvorgang wirklich abbrechen möchte.
 
 ```javascript
 // Order dinner.
