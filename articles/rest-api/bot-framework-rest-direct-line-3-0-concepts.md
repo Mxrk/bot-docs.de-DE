@@ -6,13 +6,13 @@ ms.author: kamrani
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 12/13/2017
-ms.openlocfilehash: ba5939faf95546b854703978bf7f512e7665eb3b
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.date: 09/28/2018
+ms.openlocfilehash: 3e9756f08690820950d0f6d0b8128521cb94f60b
+ms.sourcegitcommit: d4afc924b0e1907c4d6f7a6fc5ac1fe521aeef7e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39304101"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47447375"
 ---
 # <a name="key-concepts-in-direct-line-api-30"></a>Schlüsselkonzepte in Direct Line API 3.0
 
@@ -46,16 +46,20 @@ Bot Framework stellt Clientbibliotheken bereit, die den Zugriff auf Direct Line 
 
 Alternativ zur Verwendung der C#- oder Node.js-Bibliotheken können Sie Ihre eigene Clientbibliothek in der Sprache Ihrer Wahl erstellen, indem Sie die <a href="https://docs.botframework.com/en-us/restapi/directline3/swagger.json" target="_blank">Direct Line API 3.0-Swagger-Datei</a> verwenden.
 
+::: moniker range="azure-bot-service-3.0"
+
 ### <a name="sample-code"></a>Beispielcode
 
-Das <a href="https://github.com/Microsoft/BotBuilder-Samples" target="_blank">BotBuilder-Samples</a>-GitHub-Repository enthält mehrere Beispiele, die zeigen, wie Sie Direct Line API 3.0 mit C# und Node.js verwenden.
+Das <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples" target="_blank">BotBuilder-Samples</a>-GitHub-Repository enthält mehrere Beispiele, die zeigen, wie Sie Direct Line API 3.0 mit C# und Node.js verwenden.
 
 | Beispiel | Sprache | BESCHREIBUNG |
 |----|----|----|
-| <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-DirectLine" target="_blank">Beispiel für einen Direct Line-Bot</a> | C# | Ein Beispielbot und ein benutzerdefinierter Client, die über die Direct Line-API miteinander kommunizieren. |
-| <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-DirectLineWebSockets" target="_blank">Beispiel für einen Direct Line-Bot (mithilfe von Client-WebSockets)</a> | C# | Ein Beispielbot und ein benutzerdefinierter Client, die über die Direct Line-API und WebSockets miteinander kommunizieren. |
-| <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/core-DirectLine" target="_blank">Beispiel für einen Direct Line-Bot</a> | JavaScript | Ein Beispielbot und ein benutzerdefinierter Client, die über die Direct Line-API miteinander kommunizieren. |
-| <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/core-DirectLineWebSockets" target="_blank">Beispiel für einen Direct Line-Bot (mithilfe von Client-WebSockets)</a> | JavaScript | Ein Beispielbot und ein benutzerdefinierter Client, die über die Direct Line-API und WebSockets miteinander kommunizieren. |
+| <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples/CSharp/core-DirectLine" target="_blank">Beispiel für einen Direct Line-Bot</a> | C# | Ein Beispielbot und ein benutzerdefinierter Client, die über die Direct Line-API miteinander kommunizieren. |
+| <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples/CSharp/core-DirectLineWebSockets" target="_blank">Beispiel für einen Direct Line-Bot (mithilfe von Client-WebSockets)</a> | C# | Ein Beispielbot und ein benutzerdefinierter Client, die über die Direct Line-API und WebSockets miteinander kommunizieren. |
+| <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples/Node/core-DirectLine" target="_blank">Beispiel für einen Direct Line-Bot</a> | JavaScript | Ein Beispielbot und ein benutzerdefinierter Client, die über die Direct Line-API miteinander kommunizieren. |
+| <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples/Node/core-DirectLineWebSockets" target="_blank">Beispiel für einen Direct Line-Bot (mithilfe von Client-WebSockets)</a> | JavaScript | Ein Beispielbot und ein benutzerdefinierter Client, die über die Direct Line-API und WebSockets miteinander kommunizieren. |
+
+::: moniker-end
 
 ### <a name="web-chat-control"></a>Webchat-Steuerelement 
 

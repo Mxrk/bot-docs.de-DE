@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: fc260f34f28e406dc88dd5b688d84cd79c7e9449
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: f95335149fa2c896d905834832089ffbfa960bf2
+ms.sourcegitcommit: d4afc924b0e1907c4d6f7a6fc5ac1fe521aeef7e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42905952"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47447389"
 ---
 # <a name="recognize-intents-and-entities-with-luis"></a>Erkennen von Absichten und Entitäten mit LUIS 
 
@@ -25,9 +25,7 @@ In diesem Artikel wird das Beispiel eines Bots für das Aufzeichnen von Notizen 
 
 1. Wählen Sie im [Azure-Portal](https://portal.azure.com) auf dem Menüblatt die Option **Neue Ressource erstellen** aus, und klicken Sie dann auf **Alle anzeigen**.
 
-<!-- Start with the steps in [Create a bot with Bot Service](../bot-service-quickstart.md) to start creating a new bot service.  -->
-
-    ![Create new resource](../media/bot-builder-dotnet-use-luis/bot-service-creation.png)
+    ![Neue Ressource erstellen](../media/bot-builder-dotnet-use-luis/bot-service-creation.png)
 
 2. Suchen Sie im Suchfeld nach **Web-App-Bot**. 
 

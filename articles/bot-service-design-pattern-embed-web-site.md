@@ -7,12 +7,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
-ms.openlocfilehash: 6aae4e9f6cb6a4e892b8036eafb9489dfaedbb36
-ms.sourcegitcommit: ee63d9dc1944a6843368bdabf5878950229f61d0
+ms.openlocfilehash: a19145c446c74468cef3ae5d9abf6e90e91196ff
+ms.sourcegitcommit: f0b22c6286e44578c11c9f15d22b542c199f0024
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42795096"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47403977"
 ---
 # <a name="embed-a-bot-in-a-website"></a>Einbetten eines Bots in eine Website
 
@@ -30,7 +30,7 @@ Da das Skype-Websteuerelement einfach als Front-End für Skype fungiert, hat der
 
 ## <a name="open-source-web-control"></a>Open Source-Websteuerelement
 
-Das <a href="https://github.com/Microsoft/BotFramework-WebChat" target="_blank">Open Source-Webchat-Steuerelement</a> basiert auf ReactJS und nutzt die [Direct Line-API][directLineAPI] für die Kommunikation mit Bot Framework. Das Webchat-Steuerelement bietet eine leere Canvas zum Implementieren des Webchats sowie vollständige Kontrolle über das Verhalten und die bereitgestellte Benutzeroberfläche. 
+Das <a href="https://aka.ms/BotFramework-WebChat" target="_blank">Open Source-Webchat-Steuerelement</a> basiert auf ReactJS und nutzt die [Direct Line-API][directLineAPI] für die Kommunikation mit Bot Framework. Das Webchat-Steuerelement bietet eine leere Canvas zum Implementieren des Webchats sowie vollständige Kontrolle über das Verhalten und die bereitgestellte Benutzeroberfläche. 
 
 Über den *Backchannelmechanismus* kann die Webseite, auf der das Steuerelement gehostet wird, direkt und für den Benutzer unbemerkt mit dem Bot kommunizieren. Diese Funktion ermöglicht eine Reihe nützlicher Szenarien: 
 
@@ -46,7 +46,7 @@ Das <a href="https://github.com/Microsoft/BotFramework-WebChat" target="_blank">
 
 ## <a name="sample-code"></a>Beispielcode
 
-Das <a href="https://github.com/Microsoft/BotFramework-WebChat" target="_blank">Open Source-Webchat-Steuerelement</a> ist auf GitHub verfügbar. Weitere Informationen dazu, wie Sie den Backchannelmechanismus mithilfe des Open Source-Webchat-Steuerelements und des Bot Builder SDK für Node.js implementieren können, finden Sie unter [Verwenden des Backchannelmechanismus](~/nodejs/bot-builder-nodejs-backchannel.md).
+Das <a href="https://aka.ms/BotFramework-WebChat" target="_blank">Open Source-Webchat-Steuerelement</a> ist auf GitHub verfügbar. Weitere Informationen dazu, wie Sie den Backchannelmechanismus mithilfe des Open Source-Webchat-Steuerelements und des Bot Builder SDK für Node.js implementieren können, finden Sie unter [Verwenden des Backchannelmechanismus](~/nodejs/bot-builder-nodejs-backchannel.md).
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 

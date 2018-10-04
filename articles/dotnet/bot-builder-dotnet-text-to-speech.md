@@ -8,14 +8,14 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: a8bc0b68b3dfa63ba4e91103c57d4fac60ddca79
-ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
+ms.openlocfilehash: 55663bb493808d5efce2f25699f9df5aca4db968
+ms.sourcegitcommit: d4afc924b0e1907c4d6f7a6fc5ac1fe521aeef7e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39574996"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47447335"
 ---
-# <a name="add-speech-to-messages"></a>Hinzufügen von Spracheingabe zu Nachrichten
+# <a name="add-speech-to-messages"></a>Hinzufügen von Sprache zu Nachrichten
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
@@ -50,7 +50,7 @@ Wenn Sie eine der integrierten Eingabeaufforderungen verwenden, können Sie die 
 
 ## <a id="ssml"></a> Speech Synthesis Markup Language (SSML)
 
-Um den von Ihrem Bot zu sprechenden Text anzugeben, können Sie entweder eine Nur-Text-Zeichenfolge oder eine als Speech Synthesis Markup Language (SSML) formatierte Zeichenfolge verwenden. Bei SSML handelt es sich um eine XML-basierte Markupsprache, mit der Sie verschiedene Eigenschaften der Sprache Ihres Bots steuern können, wie z. B. Stimme, Geschwindigkeit, Lautstärke, Aussprache, Tonhöhe und mehr. Ausführliche Informationen zu SSML finden Sie unter <a href="https://msdn.microsoft.com/en-us/library/hh378377(v=office.14).aspx" target="_blank">Referenz zu Speech Synthesis Markup Language</a>.
+Um den von Ihrem Bot zu sprechenden Text anzugeben, können Sie entweder eine Nur-Text-Zeichenfolge oder eine als Speech Synthesis Markup Language (SSML) formatierte Zeichenfolge verwenden. Bei SSML handelt es sich um eine XML-basierte Markupsprache, mit der Sie verschiedene Eigenschaften der Sprache Ihres Bots steuern können, z.B. Stimme, Geschwindigkeit, Lautstärke, Aussprache, Tonhöhe und mehr. Ausführliche Informationen zu SSML finden Sie unter <a href="https://msdn.microsoft.com/en-us/library/hh378377(v=office.14).aspx" target="_blank">Referenz zu Speech Synthesis Markup Language</a>.
 
 ## <a name="input-hints"></a>Eingabehinweise
 
@@ -58,7 +58,7 @@ Wenn Sie eine Nachricht in einem sprachaktivierten Kanal senden, können Sie ver
 
 ## <a name="sample-code"></a>Beispielcode 
 
-Ein vollständiges Beispiel, das die Erstellung eines sprachfähigen Bots mit dem Bot Builder SDK für .NET veranschaulicht, finden Sie in GitHub im <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/demo-RollerSkill" target="_blank">RollerSkill-Beispiel</a>.
+Ein vollständiges Beispiel, das die Erstellung eines sprachfähigen Bots mit dem Bot Builder SDK für .NET veranschaulicht, finden Sie in GitHub im <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples/CSharp" target="_blank">RollerSkill-Beispiel</a>.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
