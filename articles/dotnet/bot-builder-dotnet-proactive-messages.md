@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: f5cc520704c4bebef6250195fd3e6cbdc3b0be3f
-ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
+ms.openlocfilehash: c00913c4e6fa7133dad734e69167d2723257f75a
+ms.sourcegitcommit: 6c2426c43cd2212bdea1ecbbf8ed245145b3c30d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39574956"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48852305"
 ---
 # <a name="send-proactive-messages"></a>Senden von proaktiven Nachrichten
 
@@ -176,7 +176,7 @@ public class SurveyDialog : IDialog<object>
 
 ## <a name="sample-code"></a>Beispielcode
 
-Ein vollständiges Beispiel, das zeigt, wie Sie proaktive Nachrichten mit dem Bot Builder SDK für .NET senden können, finden Sie in GitHub im <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-proactiveMessages" target="_blank">Beispiel für proaktive Nachrichten</a>. Im Beispiel für proaktive Nachrichten zeigt <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-proactiveMessages/simpleSendMessage" target="_blank">simpleSendMessage</a>, wie eine proaktive Ad-hoc-Nachricht gesendet wird, und <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-proactiveMessages/startNewDialog" target="_blank">startNewDialog</a> zeigt, wie Sie eine dialogbasierte proaktive Nachricht senden. 
+Ein vollständiges Beispiel, das zeigt, wie Sie proaktive Nachrichten mit dem Bot Builder SDK für .NET senden können, finden Sie in GitHub im <a href="https://aka.ms/proactive-messaging-cs-v3 " target="_blank">Beispiel für proaktive Nachrichten</a>. Im Beispiel für proaktive Nachrichten zeigt <a href="https://aka.ms/proactive-sendmessage-cs-v3 " target="_blank">simpleSendMessage</a>, wie eine proaktive Ad-hoc-Nachricht gesendet wird, und <a href="https://aka.ms/proactive-newdialog-cs-v3 " target="_blank">startNewDialog</a> zeigt, wie Sie eine dialogbasierte proaktive Nachricht senden. 
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
