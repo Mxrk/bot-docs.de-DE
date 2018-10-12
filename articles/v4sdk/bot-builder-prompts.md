@@ -7,26 +7,26 @@ ms.author: v-ducvo
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 4/10/2018
+ms.date: 9/25/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 0b238ed510fd1d6fda82734af373f344b0dc28e3
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: 27066f76db29a82b4ab9dd75bf5eee01dcce3116
+ms.sourcegitcommit: 3cb288cf2f09eaede317e1bc8d6255becf1aec61
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42905364"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47389709"
 ---
 # <a name="prompt-users-for-input-using-the-dialogs-library"></a>Auffordern von Benutzern zur Eingabe mithilfe der Dialogbibliothek
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-Bots sammeln ihre Informationen häufig, indem sie dem Benutzer Fragen stellen. Sie können dem Benutzer einfach eine Standardnachricht senden, indem Sie ihn mithilfe der _send activity_-Methode des [Turn](bot-builder-concept-activity-processing.md#turn-context)-Kontextobjekts zur Eingabe einer Zeichenfolge auffordern. Das Bot Builder SDK enthält jedoch eine **Dialogbibliothek**, mit der Sie nach verschiedenen Typen von Informationen fragen können. In diesem Thema wird erläutert, wie ein Benutzer mit **Eingabeaufforderungen** um eine Eingabe gebeten wird.
+Das Sammeln von Informationen durch das Stellen von Fragen ist eine der Hauptvorgehensweisen, mit denen ein Bot mit Benutzern interagiert. Dies ist auch direkt möglich, indem die _send activity_-Methode des [turn context](bot-builder-concept-activity-processing.md#turn-context)-Objekts verwendet wird und dann die nächste eingehende Nachricht als Antwort verarbeitet wird. Über das Bot Builder SDK wird aber eine Bibliothek mit **Dialogen** bereitgestellt. Sie enthält Methoden, die zur Vereinfachung des Stellens von Fragen konzipiert sind und mit denen sichergestellt wird, dass die Antwort mit einem bestimmten Datentyp übereinstimmt oder benutzerdefinierte Validierungsregeln erfüllt. In diesem Thema wird ausführlich beschrieben, wie Sie dies erreichen, indem Sie **Eingabeaufforderungen** nutzen, um einen Benutzer zur Eingabe aufzufordern.
 
 In diesem Artikel wird beschrieben, wie Eingabeaufforderungen in einem Dialogfeld verwendet werden. Informationen zur Verwendung von Dialogen im Allgemeinen finden Sie im Thema zur [Verwendung von Dialogen zum Verwalten eines einfachen Konversationsflusses](bot-builder-dialog-manage-conversation-flow.md).
 
 ## <a name="prompt-types"></a>Eingabeaufforderungstypen
 
-Die Dialogfeldbibliothek bietet eine Vielzahl verschiedener Arten von Eingabeaufforderungen, die eine jeweils andere Art von Antwort anfordern.
+Die Dialogbibliothek enthält viele verschiedene Eingabeaufforderungen, die jeweils zum Anfordern einer anderen Art von Antwort verwendet werden.
 
 | Prompt | BESCHREIBUNG |
 |:----|:----|
@@ -39,7 +39,7 @@ Die Dialogfeldbibliothek bietet eine Vielzahl verschiedener Arten von Eingabeauf
 
 ## <a name="add-references-to-prompt-library"></a>Hinzufügen von Verweisen zur Eingabeaufforderungsbibliothek
 
-Sie können die **Dialogfelder**bibliothek abrufen, indem Sie Ihrem Bot das Paket **dialogs** hinzufügen. Dialoge werden im Thema zur [Verwendung von Dialogen zum Verwalten eines einfachen Konversationsflusses](bot-builder-dialog-manage-conversation-flow.md) ausführlich behandelt. Wir verwenden aber Dialoge für unsere Eingabeaufforderungen.
+Sie können die Bibliothek mit den **Dialogen** abrufen, indem Sie Ihrem Bot das Paket **botbuilder-dialogs** hinzufügen. Dialoge werden im Thema zur [Verwendung von Dialogen zum Verwalten eines einfachen Konversationsflusses](bot-builder-dialog-manage-conversation-flow.md) ausführlich behandelt. Wir verwenden aber Dialoge für unsere Eingabeaufforderungen.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -51,23 +51,82 @@ Fügen Sie dann einen Verweis auf die Bibliothek aus Ihrem Botcode hinzu.
 using Microsoft.Bot.Builder.Dialogs;
 ```
 
-Sie können ein Dialogfeld als eine Klasse oder inline als Eigenschaft in Ihrer Botcodedatei definieren.
+Sie müssen den Konversationsdialogzustand über Accessoren einrichten. Wir gehen auf den Code hier nicht näher ein. Weitere Informationen finden Sie im Artikel [Verwalten des Konversations- und Benutzerzustands](bot-builder-howto-v4-state.md).
 
-Der Code in diesem Artikel wurde für ein Dialogfeld geschrieben, das als eine Klasse definiert ist.
-In den folgenden Beispielen wird davon ausgegangen, dass Sie Code zum Konstruktor des Dialogfelds hinzufügen.
-
-Der Hauptfluss des Dialogfelds ist seine Sammlung von Schritten. Ihm muss eine ID zugewiesen werden. Ihr Bot verwendet diese ID, um das Dialogfeld abzurufen. Daher wird empfohlen, diese als eine Konstante bereitzustellen.
+Definieren Sie in Ihren Botoptionen in **Startup.cs** zuerst Ihre Zustandsobjekte, und fügen Sie dann das Singleton hinzu, um die Accessorklasse für den Botkonstruktor bereitzustellen. Mit der Klasse für `BotAccessor` werden einfach die Konversation und der Benutzerzustand sowie die jeweiligen Accessoren für diese Komponenten gespeichert. Die vollständige Klassendefinition ist im Beispiel unter dem Link am Ende dieses Artikels angegeben. 
 
 ```cs
-public class MyDialog : DialogSet
-{
-    public const string Name = "mainDialog";
-
-    public MyDialog()
+    services.AddBot<MultiTurnPromptsBot>(options =>
     {
-        // Define your dialog's prompts and steps here.
+        InitCredentialProvider(options);
+
+        // Create and add conversation state.
+        var convoState = new ConversationState(dataStore);
+        options.State.Add(convoState);
+
+        // Create and add user state.
+        var userState = new UserState(dataStore);
+        options.State.Add(userState);
+    });
+
+    services.AddSingleton(sp =>
+    {
+        // We need to grab the conversationState we added on the options in the previous step
+        var options = sp.GetRequiredService<IOptions<BotFrameworkOptions>>().Value;
+        if (options == null)
+        {
+            throw new InvalidOperationException("BotFrameworkOptions must be configured prior to setting up the State Accessors");
+        }
+
+        var conversationState = options.State.OfType<ConversationState>().FirstOrDefault();
+        if (conversationState == null)
+        {
+            throw new InvalidOperationException("ConversationState must be defined and added before adding conversation-scoped state accessors.");
+        }
+
+        var userState = options.State.OfType<UserState>().FirstOrDefault();
+        if (userState == null)
+        {
+            throw new InvalidOperationException("UserState must be defined and added before adding user-scoped state accessors.");
+        }
+
+        // The dialogs will need a state store accessor. Creating it here once (on-demand) allows the dependency injection
+        // to hand it to our IBot class that is create per-request.
+        var accessors = new BotAccessors(conversationState, userState)
+        {
+            ConversationDialogState = conversationState.CreateProperty<DialogState>("DialogState"),
+            UserProfile = userState.CreateProperty<UserProfile>("UserProfile"),
+        };
+
+        return accessors;
+    });
+```
+
+Definieren Sie dann in Ihrem Botcode die folgenden Objekte für den Dialogsatz.
+
+```cs
+    private readonly BotAccessors _accessors;
+
+    /// <summary>
+    /// The <see cref="DialogSet"/> that contains all the Dialogs that can be used at runtime.
+    /// </summary>
+    private DialogSet _dialogs;
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="MultiTurnPromptsBot"/> class.
+    /// </summary>
+    /// <param name="accessors">A class containing <see cref="IStatePropertyAccessor{T}"/> used to manage state.</param>
+    public MultiTurnPromptsBot(BotAccessors accessors)
+    {
+        _accessors = accessors ?? throw new ArgumentNullException(nameof(accessors));
+
+        // The DialogSet needs a DialogState accessor, it will call it when it has a turn context.
+        _dialogs = new DialogSet(accessors.ConversationDialogState);
+
+        // ...
+        // other constructor items
+        // ...
     }
-}
 ```
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
@@ -75,7 +134,7 @@ public class MyDialog : DialogSet
 Installieren Sie das Paket für die Dialogfelder von npm:
 
 ```cmd
-npm install --save botbuilder-dialogs@preview
+npm install --save botbuilder-dialogs
 ```
 
 Um **Dialogfelder** in Ihrem Bot zu verwenden, schließen Sie es in den Botcode ein.
@@ -83,82 +142,100 @@ Um **Dialogfelder** in Ihrem Bot zu verwenden, schließen Sie es in den Botcode 
 Fügen Sie Folgendes in der Datei „app.js“ hinzu.
 
 ```javascript
-const {DialogSet} = require("botbuilder-dialogs");
-const dialogs = new DialogSet();
+// Import components from the dialogs library.
+const { DialogSet } = require("botbuilder-dialogs");
+// Import components from the main Bot Builder library.
+const { ConversationState, MemoryStorage } = require('botbuilder');
+
+// Set up a memory storage system to store information.
+const storage = new MemoryStorage();
+// We'll use ConversationState to track the state of the dialogs.
+const conversationState = new ConversationState(storage);
+// Create a property used to track state.
+const dialogState = conversationState.createProperty('dialogState');
+
+// Create a dialog set to control our prompts, store the state in dialogState
+const dialogs = new DialogSet(dialogState);
 ```
 
 ---
 
 ## <a name="prompt-the-user"></a>Auffordern des Benutzers zu einer Eingabe
 
-Um einen Benutzer zur Eingabe aufzufordern, können Sie Ihrem Dialogfeld eine Eingabeaufforderung hinzufügen. Sie können z.B. eine Aufforderung vom Typ **TextPrompt** definieren und dieser eine Dialogfeld-ID **TextPrompt** zuweisen:
+Definieren Sie zum Auffordern eines Benutzer zu einer Eingabe eine Eingabeaufforderung, indem Sie eine der integrierten Klassen verwenden, z.B. **TextPrompt**. Fügen Sie diese dann Ihrem Dialogsatz hinzu, und weisen Sie eine Dialog-ID dafür zu.
 
-Sobald ein Eingabeaufforderungs-Dialogfeld hinzugefügt wurde, können Sie dieses in einem einfachen zweistufigen Wasserfalldialogfeld oder mehrere Eingabeaufforderungen zusammen in einem mehrstufigen Wasserfall verwenden. Ein *Wasserfall*-Dialogfeld ist einfach eine Möglichkeit, eine Abfolge von Schritten zu definieren. Weitere Informationen finden Sie im Abschnitt zum [Verwenden von Dialogen](bot-builder-dialog-manage-conversation-flow.md#using-dialogs-to-guide-the-user-through-steps) unter [Verwalten eines einfachen Konversationsflusses mit Dialogen](bot-builder-dialog-manage-conversation-flow.md).
+Nutzen Sie eine Eingabeaufforderung nach dem Hinzufügen in einem Wasserfalldialog mit zwei Schritten. Ein Dialog vom Typ *Wasserfall* ist eine Möglichkeit zum Definieren einer Folge von Schritten. Mehrere Eingabeaufforderungen können verkettet werden, um Konversationen mit mehreren Schritten zu erstellen. Weitere Informationen finden Sie im Abschnitt zum [Verwenden von Dialogen](bot-builder-dialog-manage-conversation-flow.md#using-dialogs-to-guide-the-user-through-steps) unter [Verwalten eines einfachen Konversationsflusses mit Dialogen](bot-builder-dialog-manage-conversation-flow.md).
 
-Im ersten Durchgang fordert das Dialogfeld den Benutzer zur Eingabe seines Namens auf, im zweiten Durchgang verarbeitet das Dialogfeld die Benutzereingaben als Antwort auf die Eingabeaufforderung.
-
-Beispielsweise fordert das folgende Dialogfeld den Benutzer zur Eingabe seines Namens auf begrüßt ihn dann mit seinem Namen:
+Beispielsweise fordert der folgende Dialog den Benutzer zur Eingabe seines Namens auf und nutzt anschließend die Antwort, um ihn zu begrüßen. Im ersten Schritt wird im Dialog der Name des Benutzers abgefragt. Die Antwort des Benutzers wird als Parameter an die Funktion für den zweiten Schritt übergeben, in dem die Eingabe verarbeitet und die personalisierte Begrüßung gesendet wird.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 Jede Eingabeaufforderung, die Sie in Ihrem Dialogfeld verwenden, erhält auch einen Namen, der vom Dialogfeld oder Ihrem Bot verwendet wird, um auf die Eingabeaufforderung zuzugreifen. In allen diesen Beispielen werden die Eingabeaufforderungs-IDs als Konstanten bereitgestellt.
 
-Ein Aufruf der Methode **Prompt** oder **End** des Dialogfeldkontexts signalisiert dem Dialogfeld das Ende des Schritts. Das Dialogfeld wird ohne diese Anweisungen nicht ordnungsgemäß ausgeführt.
+Fügen Sie in Ihrem Botkonstruktor Definitionen für Ihren Wasserfalldialog mit zwei Schritten sowie die Eingabeaufforderung hinzu, die für den Dialog genutzt werden kann. Hier werden sie als unabhängige Funktionen hinzugefügt, aber sie können auch als „Inline-Lambda“ definiert werden, falls dies bevorzugt wird.
 
 ```csharp
-/// <summary>Defines a simple greeting dialog that asks for the user's name.</summary>
-public class MyDialog : DialogSet
+ public MultiTurnPromptsBot(BotAccessors accessors)
 {
-    /// <summary>The ID of the main dialog in the set.</summary>
-    public const string Name = "mainDialog";
+    _accessors = accessors ?? throw new ArgumentNullException(nameof(accessors));
 
-    /// <summary>Defines the IDs of the prompts in the set.</summary>
-    public struct Inputs
-    {
-        /// <summary>The ID of the text prompt.</summary>
-        public const string Text = "textPrompt";
-    }
+    // The DialogSet needs a DialogState accessor, it will call it when it has a turn context.
+    _dialogs = new DialogSet(accessors.ConversationDialogState);
 
-    /// <summary>Defines the prompts and steps of the dialog.</summary>
-    public MyDialog()
+    // This array defines how the Waterfall will execute.
+    var waterfallSteps = new WaterfallStep[]
     {
-        Add(Inputs.Text, new TextPrompt());
-        Add(Name, new WaterfallStep[]
-        {
-            // Each step takes in a dialog context, arguments, and the next delegate.
-            async (dc, args, next) =>
-            {
-                // Prompt for the user's name.
-                await dc.Prompt(Inputs.Text, "What is your name?");
-            },
-            async(dc, args, next) =>
-            {
-                var user = (string)args["Text"];
-                await dc.Context.SendActivity($"Hi {user}!");
-                await dc.End();
-            }
-        });
-    }
+        NameStepAsync,
+        SayHiAsync,
+    };
+
+    _dialogs.Add(new WaterfallDialog("details", waterfallSteps));
+    _dialogs.Add(new TextPrompt("name"));
 }
+```
+
+Anschließend können Sie die zwei Wasserfallschritte in Ihrem Bot definieren. Für die Texteingabeaufforderung geben Sie die oben definierte *name*-ID von `TextPrompt` an. Beachten Sie, dass die Methodennamen mit denen des obigen `WaterfallStep[]`-Elements übereinstimmen. Weitere hier angegebene Beispiele enthalten diesen Code nicht. Sie sollten aber wissen, dass Sie den Methodennamen für weitere Schritte in diesem `WaterfallStep[]`-Element in der richtigen Reihenfolge hinzufügen müssen.
+
+```cs
+    private static async Task<DialogTurnResult> NameStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
+    {
+        // WaterfallStep always finishes with the end of the Waterfall or with another dialog; here it is a Prompt Dialog.
+        // Running a prompt here means the next WaterfallStep will be run when the users response is received.
+        return await stepContext.PromptAsync("name", new PromptOptions { Prompt = MessageFactory.Text("Please enter your name.") }, cancellationToken);
+    }
+
+    private static async Task<DialogTurnResult> SayHiAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
+    {
+        await stepContext.Context.SendActivityAsync($"Hi {stepContext.Result}");
+
+        return await stepContext.EndDialogAsync(cancellationToken);
+    }
 ```
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
+Importieren Sie die TextPrompt-Klasse in Ihre App.
+
 ```javascript
-const {TextPrompt} = require("botbuilder-dialogs");
+const { TextPrompt } = require("botbuilder-dialogs");
 ```
+
+Erstellen Sie die neue Eingabeaufforderung, und fügen Sie sie dem Dialogsatz hinzu.
 
 ```javascript
 // Greet user:
 // Ask for the user name and then greet them by name.
-dialogs.add('textPrompt', new TextPrompt());
+dialogs.add(new TextPrompt('textPrompt'));
 dialogs.add('greetings', [
-    async function (dc){
-        await dc.prompt('textPrompt', 'What is your name?');
+    async function (step){
+        // the results of this prompt will be passed to the next step
+        return await step.prompt('textPrompt', 'What is your name?');
     },
-    async function(dc, userName){
-        await dc.context.sendActivity(`Hi ${userName}!`);
-        await dc.end();
+    async function(step) {
+        // step.result is the result of the prompt defined above
+        const userName = step.result;
+        await step.context.sendActivity(`Hi ${userName}!`);
+        return await step.endDialog();
     }
 ]);
 ```
@@ -170,52 +247,35 @@ dialogs.add('greetings', [
 
 ## <a name="reusable-prompts"></a>Wiederverwendbare Eingabeaufforderungen
 
-Eine Eingabeaufforderung kann mit dem gleichen Typ von Eingabeaufforderung wiederverwendet werden, um unterschiedliche Informationen abzufragen. Im obigen Beispielcode wurde z.B. eine Texteingabeaufforderung definiert und verwendet, um den Benutzer zur Eingabe seines Namens aufzufordern. Wenn Sie möchten, können Sie z.B. die gleiche Eingabeaufforderung verwenden, um den Benutzer auch nach einer anderen Textzeichenfolge zu fragen, etwa „Wo arbeiten Sie?“.
+Eine Eingabeaufforderung kann wiederverwendet werden, um andere Fragen zu stellen, solange die Antworten den gleichen Typ aufweisen. Im obigen Beispielcode wurde z.B. eine Texteingabeaufforderung definiert und verwendet, um den Benutzer zur Eingabe seines Namens aufzufordern. Sie können diese Eingabeaufforderung auch verwenden, um den Benutzer nach einer anderen Textzeichenfolge zu fragen, z.B.: „Wo arbeiten Sie?“
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
+Im Beispiel ist die ID für unsere Texteingabeaufforderung (*name*) nicht hilfreich, was die Eindeutigkeit des Codes betrifft. Es ist aber ein gutes Beispiel dafür, dass Sie die ID für Ihre Eingabeaufforderung beliebig wählen können.
+
+Unsere Methoden enthalten nun einen dritten Schritt, in dem gefragt wird, wo der Benutzer arbeitet.
+
 ```cs
-/// <summary>Defines a simple greeting dialog that asks for the user's name and place of work.</summary>
-public class MyDialog : DialogSet
-{
-    /// <summary>The ID of the main dialog in the set.</summary>
-    public const string Name = "mainDialog";
-
-    /// <summary>Defines the IDs of the prompts in the set.</summary>
-    public struct Inputs
+    private static async Task<DialogTurnResult> NameStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
     {
-        /// <summary>The ID of the text prompt.</summary>
-        public const string Text = "textPrompt";
+        // WaterfallStep always finishes with the end of the Waterfall or with another dialog; here it is a Prompt Dialog.
+        // Running a prompt here means the next WaterfallStep will be run when the users response is received.
+        return await stepContext.PromptAsync("name", new PromptOptions { Prompt = MessageFactory.Text("Please enter your name.") }, cancellationToken);
     }
 
-    /// <summary>Defines the prompts and steps of the dialog.</summary>
-    public MyDialog()
+    private static async Task<DialogTurnResult> WorkAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
     {
-        Add(Inputs.Text, new TextPrompt());
-        Add(Name, new WaterfallStep[]
-        {
-            async (dc, args, next) =>
-            {
-                // Prompt for the user's name.
-                await dc.Prompt(Inputs.Text, "What is your name?");
-            },
-            async(dc, args, next) =>
-            {
-                var user = (string)args["Text"];
+        await stepContext.Context.SendActivityAsync($"Hi {stepContext.Result}!");
 
-                // Ask them where they work.
-                await dc.Prompt(Inputs.Text, $"Hi {user}! Where do you work?");
-            },
-            async(dc, args, next) =>
-            {
-                var workplace = (string)args["Text"];
-
-                await dc.Context.SendActivity($"{workplace} is a cool place!");
-                await dc.End();
-            }
-        });
+        return await stepContext.PromptAsync("name", new PromptOptions { Prompt = MessageFactory.Text("Where do you work?") }, cancellationToken);
     }
-}
+
+    private static async Task<DialogTurnResult> SayHiAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
+    {
+        await stepContext.Context.SendActivityAsync($"{stepContext.Result} is a cool place!");
+
+        return await stepContext.EndDialogAsync(cancellationToken);
+    }
 ```
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
@@ -224,299 +284,161 @@ public class MyDialog : DialogSet
 // Greet user:
 // Ask for the user name and then greet them by name.
 // Ask them where they work.
-dialogs.add('textPrompt', new botbuilder_dialogs.TextPrompt());
+dialogs.add(new TextPrompt('textPrompt'));
 dialogs.add('greetings',[
-    async function (dc){
-        await dc.prompt('textPrompt', 'What is your name?');
+    async function (step){
+        // Use the textPrompt to ask for a name.
+        return await step.prompt('textPrompt', 'What is your name?');
     },
-    async function(dc, userName){
-        await dc.context.sendActivity(`Hi ${userName}!`);
+    async function (step){
+        const userName = step.result;
+        await step.context.sendActivity(`Hi ${ userName }!`);
 
-        // Ask them where they work.
-        await dc.prompt('textPrompt', 'Where do you work?');
+        // Now, reuse the same prompt to ask them where they work.
+        return await step.prompt('textPrompt', 'Where do you work?');
     },
-    async function(dc, workPlace){
-        await dc.context.sendActivity(`${workPlace} is a cool place!`);
+    async function(step) {
+        const workPlace = step.result;
+        await step.context.sendActivity(`${ workPlace } is a cool place!`);
 
-        await dc.end();
+        return await step.endDialog();
     }
 ]);
 ```
 
 ---
 
-Wenn Sie die Eingabeaufforderung mit dem erwarteten Wert koppeln möchten, nach dem die Eingabeaufforderung fragt, können Sie jeder Eingabeaufforderung eine eindeutige *DialogId* zuweisen. Dann wird ein Dialogfeld mit einer eindeutigen ID hinzugefügt. Durch Verwenden unterschiedlicher IDs können Sie auch mehrere **Eingabeaufforderungs**-Dialogfelder des gleichen Typs erstellen. Beispielsweise könnten Sie zwei **TextPrompt**-Dialogfelder für das Beispiel oben erstellen:
+Wenn Sie mehrere unterschiedliche Eingabeaufforderungen benötigen, sollten Sie jede Eingabeaufforderung mit einer eindeutigen *dialogId* versehen. Für jeden Dialog bzw. jede Eingabeaufforderung, der bzw. die einem Dialogsatz hinzugefügt wird, ist eine eindeutige ID erforderlich. Sie können auch mehrere **Eingabeaufforderung**-Dialoge des gleichen Typs erstellen. Beispielsweise könnten Sie zwei **TextPrompt**-Dialogfelder für das Beispiel oben erstellen:
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```cs
-/// <summary>The ID of the main dialog in the set.</summary>
-public const string Name = "mainDialog";
-
-/// <summary>Defines the IDs of the prompts in the set.</summary>
-public struct Inputs
-{
-    /// <summary>The ID of the name prompt.</summary>
-    public const string Name = "namePrompt";
-
-    /// <summary>The ID of the work prompt.</summary>
-    public const string Work = "workPrompt";
-}
-
-/// <summary>Defines the prompts and steps of the dialog.</summary>
-public MyDialog()
-{
-    Add(Inputs.Name, new TextPrompt());
-    Add(Inputs.Work, new TextPrompt());
-    Add(Name, new WaterfallStep[]
-    {
-        async (dc, args, next) =>
-        {
-            // Prompt for the user's name.
-            await dc.Prompt(Inputs.Name, "What is your name?");
-        },
-        async(dc, args, next) =>
-        {
-            var user = (string)args["Text"];
-
-            // Ask them where they work.
-            await dc.Prompt(Inputs.Work, $"Hi {user}! Where do you work?");
-        },
-        async(dc, args, next) =>
-        {
-            var workplace = (string)args["Text"];
-
-            await dc.Context.SendActivity($"{workplace} is a cool place!");
-            await dc.End();
-        }
-    });
-}
+_dialogs.Add(new WaterfallDialog("details", waterfallSteps));
+_dialogs.Add(new TextPrompt("name"));
+_dialogs.Add(new TextPrompt("workplace"));
 ```
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
-dialogs.add('namePrompt', new TextPrompt());
-dialogs.add('workPlacePrompt', new TextPrompt());
+dialogs.add(new TextPrompt('namePrompt'));
+dialogs.add(new TextPrompt('workPlacePrompt'));
 ```
 
 ---
 
-Aus Gründen der Wiederverwendbarkeit von Code würde das Definieren einer einzelnen `textPrompt`-Eingabeaufforderung für alle diese Eingabeaufforderungen funktionieren, weil sie eine Textzeichenfolge als Antwort anfordern. Die Möglichkeit, Dialogfelder zu benennen, ist jedoch nützlich, wenn Sie die Eingabe der Eingabeaufforderung überprüfen müssen. In diesem Fall können die Eingabeaufforderungen **TextPrompt** verwenden, aber jede einzelne sucht nach einem anderen Satz von Werten. Werfen wir einen Blick darauf, wie Sie Antworten auf eine Eingabeaufforderung mit einer `NumberPrompt`-Eingabeaufforderung überprüfen können.
+Mit Blick auf die Wiederverwendbarkeit des Codes muss für alle diese Eingabeaufforderungen nur ein `TextPrompt`-Element definiert werden, da jeweils ein Text als Antwort erwartet wird. Die Möglichkeit zur Benennung von Dialogen ist praktisch, wenn Sie auf die Eingabe der Eingabeaufforderungen unterschiedliche Validierungsregeln anwenden müssen. Wir sehen uns nun an, wie Sie Antworten für eine Eingabeaufforderung mit einem `NumberPrompt`-Element überprüfen können.
 
 ## <a name="specify-prompt-options"></a>Angeben von Eingabeaufforderungsoptionen
 
 Wenn Sie eine Eingabeaufforderung in einem Dialogfeldschritt verwenden, können Sie auch Eingabeaufforderungsoptionen angeben, z.B. eine Zeichenfolge für eine erneute Eingabeaufforderung.
 
-Die Angabe einer erneuten Eingabeaufforderung ist dann sinnvoll, wenn die Benutzereingabe eine Eingabeaufforderung nicht erfüllen kann, entweder weil sie in einem Format vorliegt, das die Eingabeaufforderung nicht analysieren kann, z.B. „morgen“ für eine Zahleneingabeaufforderung, oder weil die Eingabe ein Überprüfungskriterium nicht erfüllt.
+Die Angabe einer erneuten Eingabeaufforderung ist dann sinnvoll, wenn die Benutzereingabe eine Eingabeaufforderung nicht erfüllen kann, entweder weil sie in einem Format vorliegt, das die Eingabeaufforderung nicht analysieren kann, z.B. „morgen“ für eine Zahleneingabeaufforderung, oder weil die Eingabe ein Überprüfungskriterium nicht erfüllt. Die Zahleneingabeaufforderung kann eine Vielzahl von Eingaben interpretieren, z.B. „12“ oder „ein Viertel“ sowie „12“ und „0,25“.
 
-> [!TIP]
-> Wenn Sie eine Zahleneingabeaufforderung erstellen, müssen Sie die Eingabekultur angeben, die verwendet wird. Die Zahleneingabeaufforderung kann eine Vielzahl von Eingaben interpretieren, z.B. „12“ oder „ein Viertel“ sowie „12“ und „0,25“. Die Eingabekultur unterstützt die Eingabeaufforderung dabei, die Eingabe des Benutzers richtig interpretieren zu können.
+„local“ ist ein optionaler Parameter für bestimmte Eingabeaufforderungen, z.B. **NumberPrompt**. Dies kann dazu beitragen, dass die Eingabeaufforderung die Eingabe präziser analysieren kann, aber die Verwendung ist nicht obligatorisch.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-Eingabekulturen werden in einer zusätzlichen Bibliothek definiert.
+Mit dem folgende Code wird dem vorhandenen Dialogsatz **_dialogs** eine Zahleneingabeaufforderung hinzugefügt.
 
 ```csharp
-using Microsoft.Bot.Builder.Dialogs;
-using Microsoft.Recognizers.Text;
-```
-
-Der folgende Code würde einer vorhandenen Dialogfeldsammlung **dialogs** eine Zahleneingabeaufforderung hinzufügen.
-
-```csharp
-dialogs.Add("numberPrompt", new NumberPrompt<int>(Culture.English));
+_dialogs.Add(new NumberPrompt<int>("age"));
 ```
 
 In einem Dialogfeldschritt würde der folgende Code den Benutzer zur Eingabe auffordern und eine erneute Eingabeaufforderung bereitstellen, die verwendet wird, wenn die Eingabe nicht als Zahl interpretiert werden kann.
 
 ```csharp
-await dc.Prompt("numberPrompt", "How many people are in your party?", new PromptOptions()
-{
-    RetryPromptString = "Sorry, please specify the number of people in your party."
-});
+return await stepContext.PromptAsync(
+    "age",
+    new PromptOptions {
+        Prompt = MessageFactory.Text("Please enter your age."),
+        RetryPrompt = MessageFactory.Text("I didn't get that. Please enter a valid age."),
+    },
+    cancellationToken);
 ```
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
-const {NumberPrompt} = require("botbuilder-dialogs");
-```
+// Import the NumberPrompt class from the dialog library.
+const { NumberPrompt } = require("botbuilder-dialogs");
 
-```javascript
+// Add a NumberPrompt to our dialog set and give it the ID numberPrompt.
+dialogs.add(new NumberPrompt('numberPrompt'));
+
+// Call the numberPrompt dialog with the (optional) retryPrompt parameter.
 await dc.prompt('numberPrompt', 'How many people in your party?', { retryPrompt: `Sorry, please specify the number of people in your party.` })
-```
-
-```javascript
-dialogs.add('numberPrompt', new NumberPrompt());
 ```
 
 ---
 
-Insbesondere die Auswahleingabeaufforderung erfordert einige zusätzliche Informationen: die Liste der Optionen, die für den Benutzer verfügbar sind.
+Die Auswahleingabeaufforderung verfügt über einen weiteren erforderlichen Parameter: die Liste mit den Auswahlmöglichkeiten für den Benutzer.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-Dieses Beispiel verwendet Typen aus den folgenden Namespaces.
+Wenn wir die **ChoicePrompt**-Eingabeaufforderung verwenden, um den Benutzer zu bitten, zwischen mehreren Optionen zu wählen, müssen wir die Eingabeaufforderung mit dieser Sammlung von Optionen versehen. Diese werden in einem **PromptOptions**-Objekt bereitgestellt. Hier verwenden wir die **ChoiceFactory**, um eine Liste mit Optionen in ein geeignetes Format zu konvertieren.
 
 ```csharp
-using Microsoft.Bot.Builder.Core.Extensions;
-using Microsoft.Bot.Builder.Dialogs;
-using Microsoft.Bot.Builder.Prompts.Choices;
-using Microsoft.Bot.Schema;
-using Microsoft.Recognizers.Text;
-using System.Collections.Generic;
-```
-
-
-Wenn wir die **ChoicePrompt**-Eingabeaufforderung verwenden, um den Benutzer zu bitten, zwischen mehreren Optionen auszuwählen, müssen wir die Eingabeaufforderung mit dieser Sammlung von Optionen versehen, die in einem **ChoicePromptOptions**-Objekt bereitgestellt werden. Hier verwenden wir die **ChoiceFactory**, um eine Liste mit Optionen in ein geeignetes Format zu konvertieren.
-
-Wir verwenden zudem eine **SuggestedActions**-Aktivität als erneute Eingabeaufforderung und Möglichkeit, die Eingabeoptionen erneut für den Benutzer bereitzustellen.
-
-
-```csharp
-/// <summary>Defines a dialog that asks for a choice of color.</summary>
-public class MyDialog : DialogSet
+private static async Task<DialogTurnResult> FavoriteColorAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
 {
-    /// <summary>The ID of the main dialog in the set.</summary>
-    public const string Name = "mainDialog";
+    await stepContext.Context.SendActivityAsync($"Hi {stepContext.Result}!");
 
-    /// <summary>Defines the IDs of the prompts in the set.</summary>
-    public struct Inputs
-    {
-        /// <summary>The ID of the color prompt.</summary>
-        public const string Color = "colorPrompt";
-    }
-
-    /// <summary>The available colors to choose from.</summary>
-    public List<string> Colors = new List<string> { "Green", "Blue" };
-
-    /// <summary>Defines the prompts and steps of the dialog.</summary>
-    public MyDialog()
-    {
-        Add(Inputs.Color, new ChoicePrompt(Culture.English));
-        Add(Name, new WaterfallStep[]
-        {
-            async (dc, args, next) =>
-            {
-                // Prompt for a color. A choice prompt requires that you specify choice options.
-                await dc.Prompt(Inputs.Color, "Please make a choice.", new ChoicePromptOptions()
-                {
-                    Choices = ChoiceFactory.ToChoices(Colors),
-                    RetryPromptActivity =
-                        MessageFactory.SuggestedActions(Colors, "Please choose a color.") as Activity
-                });
-            },
-            async(dc, args, next) =>
-            {
-                var color = (FoundChoice)args["Value"];
-
-                await dc.Context.SendActivity($"You chose {color.Value}.");
-                await dc.End();
-            }
-        });
-    }
+    return await stepContext.PromptAsync(
+        "color",
+        new PromptOptions {
+            Prompt = MessageFactory.Text("What's your favorite color?"),
+            Choices = ChoiceFactory.ToChoices(new List<string> { "blue", "green", "red" }),
+        },
+        cancellationToken);
 }
 ```
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
-const {ChoicePrompt} = require("botbuilder-dialogs");
+// Import the ChoicePrompt class into your app from the dialogs library.
+const { ChoicePrompt } = require("botbuilder-dialogs");
 ```
 
 ```javascript
-dialogs.add('choicePrompt', new ChoicePrompt());
+// Add a ChoicePrompt to the dialog set and give it an ID of choicePrompt.
+dialogs.add(new ChoicePrompt('choicePrompt'));
 ```
 
 ```javascript
-// A choice prompt requires that you specify choice options.
-const list = ['green', 'blue'];
-await dc.prompt('choicePrompt', 'Please make a choice', list, {retryPrompt: 'Please choose a color.'});
+// Call the choicePrompt into action, passing in an array of options.
+const list = ['green', 'blue', 'red', 'yellow'];
+await dc.prompt('choicePrompt', 'Please make a choice', list, { retryPrompt: 'Please choose a color.' });
 ```
 
 ---
 
 ## <a name="validate-a-prompt-response"></a>Überprüfen der Antwort auf eine Eingabeaufforderung
 
-Sie können die Antwort auf eine Eingabeaufforderung vor der Rückgabe des gültigen Werts an den nächsten Schritt des **Wasserfalls** überprüfen. Um beispielsweise eine **NumberPrompt**-Eingabeaufforderung in einem Bereich von Zahlen zwischen **6** und **20** zu überprüfen, können Sie Überprüfungslogik verwenden, die dem folgenden Beispiel ähnelt:
+Sie können die Antwort auf eine Eingabeaufforderung vor der Rückgabe des Werts an den nächsten Schritt des **Wasserfalls** überprüfen. Um beispielsweise eine **NumberPrompt**-Eingabeaufforderung in einem Bereich von Zahlen zwischen **6** und **20** zu überprüfen, fügen Sie eine Validierungsfunktion ein, die in etwa wie folgt aussieht:
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-```cs
-using Microsoft.Bot.Builder.Dialogs;
-using Microsoft.Recognizers.Text;
-using PromptStatus = Microsoft.Bot.Builder.Prompts.PromptStatus;
-```
+Änderung beim Hinzufügen der Eingabeaufforderung zum Dialogsatz zur Einbindung der Validierungsfunktion
 
 ```cs
-/// <summary>Defines a dialog that asks for the number of people in a party.</summary>
-public class MyDialog : DialogSet
+_dialogs.Add(new NumberPrompt<int>("partySize", PartySizeValidatorAsync));
+```
+
+Die Validierung wird dann als eigene Methode definiert, bei der „true“ oder „false“ angegeben wird (je nachdem, ob die Validierung bestanden wurde). Wenn „false“ zurückgegeben wird, erhält der Benutzer erneut eine Eingabeaufforderung.
+
+```cs
+private Task<bool> PartySizeValidatorAsync(PromptValidatorContext<int> promptContext, CancellationToken cancellationToken)
 {
-    /// <summary>The ID of the main dialog in the set.</summary>
-    public const string Name = "mainDialog";
+    var result = promptContext.Recognized.Value;
 
-    /// <summary>Defines the IDs of the prompts in the set.</summary>
-    public struct Inputs
+    if (result < 6 || result > 20)
     {
-        /// <summary>The ID of the party size prompt.</summary>
-        public const string Size = "parytySize";
+        return Task.FromResult(false);
     }
 
-    /// <summary>Defines the prompts and steps of the dialog.</summary>
-    public MyDialog()
-    {
-        // Include a validation function for the party size prompt.
-        Add(Inputs.Size, new NumberPrompt<int>(Culture.English, async (context, result) =>
-        {
-            if (result.Value < 6 || result.Value > 20)
-            {
-                result.Status = PromptStatus.OutOfRange;
-            }
-        }));
-        Add(Name, new WaterfallStep[]
-        {
-            async (dc, args, next) =>
-            {
-                // Prompt for the party size.
-                await dc.Prompt(Inputs.Size, "How many people are in your party?", new PromptOptions()
-                {
-                    RetryPromptString = "Please specify party size between 6 and 20."
-                });
-            },
-            async(dc, args, next) =>
-            {
-                var size = (int)args["Value"];
-
-                await dc.Context.SendActivity($"Okay, {size} people!");
-                await dc.End();
-            }
-        });
-    }
+    return Task.FromResult(true);
 }
-```
-
-Die Überprüfung kann auch in einer eigenen privaten Methode gekapselt und auf diese Weise hinzugefügt werden.
-
-```cs
-/// <summary>Validates input for the partySize prompt.</summary>
-/// <param name="context">The context object for the current turn of the bot.</param>
-/// <param name="result">The recognition result from the prompt.</param>
-/// <returns>An updated recognition result.</returns>
-private static async Task PartySizeValidator(ITurnContext context, Int32Result result)
-{
-    if (result.Value < 6 || result.Value > 20)
-    {
-        result.Status = PromptStatus.OutOfRange;
-    }
-}
-```
-
-Geben Sie in Ihrem Dialogfeld die Methode zum Überprüfen der Eingabe an.
-
-```cs
-// Include a validation function for the party size prompt.
-Add(Inputs.Size, new NumberPrompt<int>(Culture.English, PartySizeValidator));
 ```
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
@@ -524,20 +446,24 @@ Add(Inputs.Size, new NumberPrompt<int>(Culture.English, PartySizeValidator));
 ```javascript
 // Customized prompts with validations
 // A number prompt with validation for valid party size within a range.
-dialogs.add('partySizePrompt', new botbuilder_dialogs.NumberPrompt( async (context, value) => {
-    try {
-        if(value < 6 ){
-            throw new Error('Party size too small.');
+dialogs.add(new NumberPrompt('partySizePrompt', async (promptContext) => {
+    // Check to make sure a value was recognized.
+    if (promptContext.recognized.succeeded) {
+        const value = promptContext.recognized.value;
+        try {
+            if (value < 6 ) {
+                throw new Error('Party size too small.');
+            } else if (value > 20) {
+                throw new Error('Party size too big.')
+            } else {
+                return true; // Indicate that this is a valid value.
+            }
+        } catch (err) {
+            await promptContext.context.sendActivity(`${ err.message } <br/>Please provide a valid number between 6 and 20.`);
+            return false; // Indicate that this is invalid.
         }
-        else if(value > 20){
-            throw new Error('Party size too big.')
-        }
-        else {
-            return value; // Return the valid value
-        }
-    } catch (err) {
-        await context.sendActivity(`${err.message} <br/>Please provide a valid number between 6 and 20.`);
-        return undefined;
+    } else {
+        return false;
     }
 }));
 ```
@@ -549,76 +475,61 @@ Wenn Sie eine **DatetimePrompt**-Antwort für ein Datum und eine Uhrzeit in der 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```cs
-using Microsoft.Bot.Builder;
-using Microsoft.Bot.Builder.Dialogs;
-using Microsoft.Recognizers.Text;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using DateTimeResult = Microsoft.Bot.Builder.Prompts.DateTimeResult;
-using PromptStatus = Microsoft.Bot.Builder.Prompts.PromptStatus;
-```
-
-```cs
-/// <summary>Validates input for the reservationTime prompt.</summary>
-/// <param name="context">The context object for the current turn of the bot.</param>
-/// <param name="result">The recognition result from the prompt.</param>
-/// <returns>An updated recognition result.</returns>
-private static async Task TimeValidator(ITurnContext context, DateTimeResult result)
-{
-    if (result.Resolution.Count == 0)
+    private Task<bool> DateTimeValidatorAsync(PromptValidatorContext<IList<DateTimeResolution>> prompt, CancellationToken cancellationToken)
     {
-        await context.SendActivity("Sorry, I did not recognize the time that you entered.");
-        result.Status = PromptStatus.NotRecognized;
-    }
+        if (prompt.Recognized.Succeeded)
+        {
+            var resolution = prompt.Recognized.Value.First();
 
-    // Find any recognized time that is not in the past.
-    var now = DateTime.Now;
-    DateTime time = default(DateTime);
-    var resolution = result.Resolution.FirstOrDefault(
-        res => DateTime.TryParse(res.Value, out time) && time > now);
+            // Verify that the Timex received is within the desired bounds, compared to today.
+            var now = DateTime.Now;
+            DateTime.TryParse(resolution.Value, out var time);
 
-    if (resolution != null)
-    {
-        // If found, keep only that result.
-        result.Resolution.Clear();
-        result.Resolution.Add(resolution);
+            if (time < now)
+            {
+                return Task.FromResult(false);
+            }
+
+            return Task.FromResult(true);
+        }
+
+        return Task.FromResult(false);
     }
-    else
-    {
-        // Otherwise, flag the input as out of range.
-        await context.SendActivity("Please enter a time in the future, such as \"tomorrow at 9am\"");
-        result.Status = PromptStatus.OutOfRange;
-    }
-}
 ```
 
 ```csharp
-Add(Inputs.Time, new DateTimePrompt(Culture.English, TimeValidator));
+_dialogs.Add(new DateTimePrompt("date", DateTimeValidatorAsync));
 ```
 
-Weitere Beispiele finden Sie in unserem [Beispielrepository](https://github.com/Microsoft/botbuilder-dotnet).
+Weitere Beispiele finden Sie in unserem [Beispielrepository](https://aka.ms/bot-samples-readme).
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```JavaScript
 // A date and time prompt with validation for date/time in the future.
-dialogs.add('dateTimePrompt', new botbuilder_dialogs.DatetimePrompt( async (context, values) => {
-    try {
-        if (values.length < 0) { throw new Error('missing time') }
-        if (values[0].type !== 'datetime') { throw new Error('unsupported type') }
-        const value = new Date(values[0].value);
-        if (value.getTime() < new Date().getTime()) { throw new Error('in the past') }
-        return value;
-    } catch (err) {
-        await context.sendActivity(`Please enter a valid time in the future like "tomorrow at 9am".`);
-        return undefined;
+dialogs.add(new atetimePrompt('dateTimePrompt', async (promptContext) => {
+    if (promptContext.recognized.succeeded) {
+        const values = promptContext.recognized.value;
+        try {
+            if (values.length < 0) { throw new Error('missing time') }
+            if (values[0].type !== 'date') { throw new Error('unsupported type') }
+            const value = new Date(values[0].value);
+            if (value.getTime() < new Date().getTime()) { throw new Error('in the past') }
+
+            // update the return value of the prompt to be a real date object
+            promptContext.recognized.value = value;
+            return true; // indicate valid 
+        } catch (err) {
+            await promptContext.context.sendActivity(`Please enter a valid time in the future like "tomorrow at 9am".`);
+            return false; // indicate invalid
+        }
+    } else {
+        return false;
     }
 }));
 ```
 
-Weitere Beispiele finden Sie in unserem [Beispielrepository](https://github.com/Microsoft/botbuilder-js).
+Weitere Beispiele finden Sie in unserem [Beispielrepository](https://aka.ms/bot-samples-readme).
 
 ---
 
@@ -631,8 +542,10 @@ Sie können ähnliche Verfahren verwenden, um Antworten auf Eingabeaufforderunge
 
 Wenn Benutzer zu einer Eingabe aufgefordert werden, bestehen mehrere Optionen für die Verarbeitung dieser Eingabe. Beispielsweise können Sie die Eingabe nutzen und verwerfen, Sie können sie in einer globalen Variablen speichern, Sie können sie in einem flüchtigen oder speicherinternen Speichercontainer speichern, Sie können sie in einer Datei speichern, oder Sie können sie in einer externen Datenbank speichern. Weitere Informationen zum Speichern von Benutzerdaten finden Sie unter [Verwalten von Benutzerdaten](bot-builder-howto-v4-state.md).
 
+## <a name="additional-resources"></a>Zusätzliche Ressourcen
+
+Ein vollständiges Beispiel, in dem einige dieser Eingabeaufforderungen verwendet werden, finden Sie unter dem Eingabeaufforderungs-Bot mit mehreren Durchläufen für [C#](https://aka.ms/cs-multi-prompts-sample) oder [JavaScript](https://aka.ms/js-multi-prompts-sample).
+
 ## <a name="next-steps"></a>Nächste Schritte
 
 Da Sie jetzt wissen, wie ein Benutzer zu einer Eingabe aufgefordert wird, können Sie den Botcode und die Benutzeroberfläche verbessern, indem Sie verschiedene Gesprächsflüsse über Dialogfelder verwalten.
-
-
