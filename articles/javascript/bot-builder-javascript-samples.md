@@ -6,26 +6,21 @@ ms.author: jonathanfingold
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 05/04/2018
+ms.date: 09/13/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 8dc8ed9c57bf09b9f8f0809102d12de888917305
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: da8a38e3959359ad683544f0fe605c8300cdffb2
+ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303200"
+ms.lasthandoff: 09/23/2018
+ms.locfileid: "46707696"
 ---
 # <a name="javascript-samples-for-bot-builder-sdk"></a>JavaScript-Beispiele für das Bot Builder SDK
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-In diesen Beispielen werden aufgabenorientierte Bots veranschaulicht, die zeigen, wie Sie die Features im Bot Builder SDK für JavaScript nutzen. Sie können die Beispiele dazu verwenden, schnell in die Erstellung großartiger Bots mit umfangreichen Funktionen einzusteigen. 
+Die Beispiele im Repository für Bot Builder-Beispiele veranschaulichen aufgabenorientierte Bots, die zeigen, wie Sie die Features im SDK für JavaScript nutzen. Sie können die Beispiele dazu verwenden, schnell in die Erstellung großartiger Bots mit umfangreichen Funktionen einzusteigen. Die [Infodatei](https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md) enthält eine Beispielliste und zusätzliche Informationen.
 
-Hinweis: Das SDK v4 wird aktiv entwickelt und sollte daher nur zum Experimentieren verwendet werden.
-
-Klonen Sie mithilfe von Git das GitHub-Repository [botbuilder-js](https://github.com/Microsoft/botbuilder-js), um die Beispiele abzurufen.
-
+Klonen Sie mithilfe von Git das GitHub-Repository [botbuilder-samples](https://github.com/Microsoft/botbuilder-samples), um die Beispiele abzurufen.
 ```cmd
-git clone https://github.com/Microsoft/botbuilder-js.git
-cd samples
+git clone https://github.com/Microsoft/botbuilder-dotnet.git
 ```
-Die mit dem Bot Builder SDK für JavaScript erstellten Beispiel-Bots befinden sich im Verzeichnis **samples**.

@@ -7,13 +7,13 @@ ms.author: v-ducvo
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 03/08/2018
-ms.openlocfilehash: bdb287e26c31a784bf6f53ad1601d586781c5ef3
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.date: 09/21/2018
+ms.openlocfilehash: 00342b624c43b8eea5bbc2bdd828703eafa5ef63
+ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302533"
+ms.lasthandoff: 09/23/2018
+ms.locfileid: "46707856"
 ---
 # <a name="edit-a-bot-with-online-code-editor"></a>Bearbeiten eines Bots mit dem Onlinecode-Editor
 
@@ -21,11 +21,11 @@ Sie können den Onlinecode-Editor verwenden, um Ihren Bot ohne eine IDE zu erste
 
 ## <a name="edit-bot-source-code-in-online-code-editor"></a>Bearbeiten des Botquellcodes im Onlinecode-Editor
 
-Die folgenden Anleitungen zeigen, wie Sie den Quellcode des jeweiligen Bottyps im Onlinecode-Editor bearbeiten.
+Führen Sie die folgenden Anweisungen aus, um den Quellcode des jeweiligen Bottyps im Onlinecode-Editor zu bearbeiten.
 
 ### <a name="web-app-bot"></a>Web-App-Bot
-1. Melden Sie sich im [Azure-Portal](http://portal.azure.com) an, und öffnen Sie das Blatt für den Bot.
-2. Klicken Sie im Abschnitt **BOTVERWALTUNG** auf **Erstellen**.
+1. Melden Sie sich im [Azure-Portal](http://portal.azure.com), und öffnen Sie das Blatt für den Bot.
+2. Klicken Sie im Abschnitt **Botverwaltung** auf **Erstellen**.
 3. Klicken Sie auf **Onlinecode-Editor öffnen**. Daraufhin wird der Code des Bots in einem neuen Browserfenster geöffnet. 
 
    ![Open online code editor (Onlinecode-Editor öffnen)](~/media/azure-bot-build/open-online-code-editor.png)
@@ -38,16 +38,14 @@ Die folgenden Anleitungen zeigen, wie Sie den Quellcode des jeweiligen Bottyps i
 
    ![Node.js-Dateistruktur](~/media/azure-bot-build/node-wwwroot-structure.png)
 
-4. Nehmen Sie Änderungen am Code vor. Für C#-Bots können Sie beispielsweise mit der Datei **Dialogs/EchoDialog.cs** beginnen. Beginnen Sie für Node.js-Bots mit der Datei **App.js**.
+4. Nehmen Sie Änderungen am Code vor. Für C#-Bots können Sie beispielsweise eine CS-Datei verwenden. Beginnen Sie für Node.js-Bots mit der Datei „App.js“.
 
    > [!NOTE]
    > Sie können zwar Codeänderungen an aktuellen Quelldateien im Projekt vornehmen, es ist jedoch nicht möglich, neue Quelldateien mit dem Onlinecode-Editor zu erstellen. Um dem Bot neue Quelldateien hinzuzufügen, müssen Sie das [Quellprojekt herunterladen](bot-service-build-download-source-code.md), Ihre Dateien hinzufügen und die Änderungen wieder in Azure veröffentlichen.
 
-5. Speichern Sie die Änderungen. Für C#-Bots im Rahmen eines **Verbrauchsplans** und alle Node.js-Bots wird der Bot automatisch aktualisiert, sobald der Quellcode durch Klicken auf die Schaltfläche **Speichern** gespeichert wird. 
+5. C#-Bots mit einem **Verbrauchstarif** sowie alle Node.js-Bots werden automatisch gespeichert. 
 
-   ![Node.js-Dateistruktur](~/media/azure-bot-build/node-save-file.png)
-
-   Für C#-Bots im Rahmen eines **App Service**-Plans öffnen Sie das Blatt **Konsole**, und senden Sie den Befehl **build.cmd**. 
+6. Für C#-Bots im Rahmen eines **App Service**-Plans öffnen Sie das Blatt **Konsole**, und senden Sie den Befehl **build.cmd**. 
 
    ![Erstellen eines Projekts in der Konsole](~/media/azure-bot-build/cs-console-build-cmd.png)
  
@@ -55,12 +53,12 @@ Die folgenden Anleitungen zeigen, wie Sie den Quellcode des jeweiligen Bottyps i
    > Wenn dieser Befehl nicht erstellt werden kann, versuchen Sie, den App-Dienst Ihres Bots neu zu starten, und versuchen Sie es erneut. Um Ihren App-Dienst neu zu starten, klicken Sie auf dem Blatt Ihres Bots auf **Alle App Service-Einstellungen** und dann auf die Schaltfläche **Neu starten**.
    > ![Neustarten einer Web-App](~/media/azure-bot-build/open-online-code-editor-restart-appservice.png)
 
-6. Wechseln Sie zurück zum Azure-Portal, und klicken Sie auf **Im Webchat testen**, um Ihre Änderungen zu testen. Wenn der Webchat für diesen Bot bereits geöffnet ist, klicken Sie auf **Neu starten**, um die neuen Änderungen anzusehen.
+7. Wechseln Sie zurück zum Azure-Portal, und klicken Sie auf **Im Webchat testen**, um Ihre Änderungen zu testen. Wenn der Webchat für diesen Bot bereits geöffnet ist, klicken Sie auf **Neu starten**, um die neuen Änderungen anzusehen.
 
 ### <a name="functions-bot"></a>Functions-Bot
 
-1. Melden Sie sich im [Azure-Portal](http://portal.azure.com) an, und öffnen Sie das Blatt für den Bot.
-2. Klicken Sie im Abschnitt **BOTVERWALTUNG** auf **Erstellen**.
+1. Melden Sie sich im [Azure-Portal](http://portal.azure.com), und öffnen Sie das Blatt für den Bot.
+2. Klicken Sie im Abschnitt **Botverwaltung** auf **Erstellen**.
 3. Klicken Sie auf **Diesen Bot in Azure Functions öffnen**. Daraufhin wird der Bot mit der <a href="http://go.microsoft.com/fwlink/?linkID=747839" target="_blank">Azure Functions</a>-Benutzeroberfläche geöffnet. 
 4. Nehmen Sie Änderungen am Code vor. Aktualisieren Sie beispielsweise den Functions-Nachrichtencode. Der Screenshot unten zeigt den Nachrichtencode für einen Node.js-Functions-Bot.
 

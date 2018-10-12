@@ -8,12 +8,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
-ms.openlocfilehash: b560f9f43fc596bc8062676136819922d227d37b
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: b5a9d20c058fe425d727bf2e39597e7dd29ec077
+ms.sourcegitcommit: 3cb288cf2f09eaede317e1bc8d6255becf1aec61
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301267"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47389629"
 ---
 # <a name="connect-a-bot-to-web-chat"></a>Verbinden eines Bots mit dem Webchat
 Wenn Sie [einen Bot mit dem Botdienst](bot-service-quickstart.md) erstellen, wird der Webchatkanal automatisch für Sie konfiguriert. Der Webchatkanal enthält das Webchat-Steuerelement. Mit diesem können Benutzer direkt auf der Webseite mit Ihrem Bot interagieren.
@@ -52,14 +52,14 @@ So tauschen Sie Ihr Geheimnis gegen ein Token ein und erstellen den Einbettungsc
 
 2. Die Antwort auf Ihre **GET**-Anforderung enthält das Token (in Anführungszeichen eingeschlossen), mit dem eine Konversation gestartet werden kann. Hierzu muss das Webchat-Steuerelement innerhalb eines **iframe**-Tags gerendert werden. Ein Token ist nur für eine Konversation gültig. Wenn Sie eine weitere Konversation starten möchten, müssen Sie ein neues Token erstellen.
 
-3. Ändern Sie im `iframe` **Einbettungscode**, den Sie aus dem Webchatkanal im Bot Framework-Portal kopiert haben (s. [Schritt 1](#step-1) oben) den `s=`-Parameter in `t=`, und ersetzen Sie „YOUR_SECRET_HERE“ durch Ihr Token. 
+3. Ändern Sie im **Einbettungscode** `iframe`, den Sie aus dem Webchatkanal im Bot Framework-Portal kopiert haben (siehe [Abrufen des geheimen Botschlüssels](#step-1) oben) den `s=`-Parameter in `t=`, und ersetzen Sie „YOUR_SECRET_HERE“ durch Ihr Token.
 
 > [!NOTE]
 > Tokens werden automatisch verlängert, bevor sie ablaufen. 
 
 ##### <a name="example-request"></a>Beispielanforderung
 
-```requestGET https://webchat.botframework.com/api/tokens Authorization: BotConnector YOUR_SECRET_HERE
+GET-Anforderung https://webchat.botframework.com/api/tokens Autorisierung: BotConnector YOUR_SECRET_HERE
 ```
 
 ##### Example response 
@@ -109,7 +109,7 @@ Verwenden Sie diese Option, wenn Sie es anderen Entwicklern ermöglichen möchte
 
 So betten Sie den Bot durch die Angabe des Geheimnisses innerhalb des `iframe`-Tags in Ihre Website ein:
 
-1. Kopieren Sie den `iframe` **Einbettungscode** aus dem Webchatkanal innerhalb des Bot Framework-Portals (s. [Schritt 1](#step-1) oben).
+1. Kopieren Sie den **Einbettungscode** `iframe` aus dem Webchatkanal innerhalb des Bot Framework-Portals (siehe [Abrufen des geheimen Botschlüssels](#step-1) oben).
 
 2. Ersetzen Sie im **Einbettungscode** „YOUR_SECRET_HERE“ durch den Wert des **geheimen Schlüssels**, den Sie von der gleichen Seite kopiert haben.
 

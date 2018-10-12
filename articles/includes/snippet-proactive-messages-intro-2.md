@@ -1,7 +1,22 @@
-Eine **proaktive Ad-hoc-Nachricht** ist der einfachste Typ von proaktiven Nachrichten. Der Bot streut die Nachricht einfach immer dann in die Konversation ein, wenn diese ausgelöst wird, ohne Rücksicht darauf, ob der Benutzer derzeit in einer anderen Konversation mit dem Bot aktiv ist und wird nicht versuchen, die Unterhaltung zu verändern. 
+Eine **proaktive Ad-hoc-Nachricht** ist der einfachste Typ von proaktiven Nachrichten.
+Der Bot streut die Nachricht einfach immer dann in die Konversation ein, wenn diese ausgelöst wird, ohne Rücksicht darauf, ob der Benutzer derzeit in einer anderen Konversation mit dem Bot aktiv ist und wird nicht versuchen, die Unterhaltung zu verändern.
 
-Eine **dialogbasierte proaktive Nachricht** ist komplexer als eine proaktive Ad-hoc-Nachricht. Bevor diese Art von proaktiven Nachrichten in die Konversation eingefügt werden kann, muss der Bot den Kontext der vorhandenen Konversation identifizieren und entscheiden, wie (oder ob) die Konversation fortgesetzt wird, nachdem die Nachricht unterbricht. 
+Ziehen Sie zur reibungsloseren Verarbeitung von Benachrichtigungen andere Möglichkeiten zum Integrieren der Benachrichtigung in den Konversationsablauf in Betracht. Legen Sie beispielsweise ein Flag im Konversationsstatus fest, oder fügen Sie die Benachrichtigung zu einer Warteschlange hinzu.
 
-Betrachten Sie beispielsweise einen Bot, der eine Umfrage zu einem bestimmten Zeitpunkt initiieren soll. Wenn dieser Zeitpunkt erreicht ist, beendet der Bot die vorhandene Konversation mit dem Benutzer und leitet den Benutzer zu einer `SurveyDialog`-Klasse um. Die `SurveyDialog`-Klasse wird an oberster Stelle des Dialogfeldstapels hinzugefügt und übernimmt die Steuerung der Konversation. Wenn der Benutzer alle erforderlichen Aufgaben für die `SurveyDialog`-Klasse fertiggestellt hat, wird die `SurveyDialog`-Klasse geschlossen und übergibt die Steuerung wieder an den vorherigen Dialog, wo der Benutzer mit dem vorherigen Konversationsthema fortfahren kann.
+<!--Snip
+A **dialog-based proactive message** is more complex than an ad hoc proactive message. 
+Before it can inject this type of proactive message into the conversation, 
+the bot must identify the context of the existing conversation and decide how (or if)
+it will resume that conversation after the message interrupts. 
 
-Eine dialogbasierte proaktive Nachricht ist mehr als nur eine einfache Benachrichtigung. Durch das Senden der Benachrichtigung ändert der Bot das Thema der vorhandenen Konversation. Dieser muss dann entscheiden, ob diese Konversation zu einem späteren Zeitpunkt fortgesetzt oder vollständig verworfen wird, indem der Dialogfeldstapel zurückgesetzt wird. 
+For example, consider a bot that needs to initiate a survey at a given point in time. 
+When that time arrives, the bot stops the existing conversation with the user and 
+redirects the user to a `SurveyDialog`. 
+The `SurveyDialog` is added to the top of the dialog stack and takes control of the conversation. 
+When the user finishes all required tasks at the `SurveyDialog`, the `SurveyDialog` closes,
+ returning control to the previous dialog, where the user can continue with the prior topic of conversation.
+
+A dialog-based proactive message is more than just simple notification. 
+In sending the notification, the bot changes the topic of the existing conversation. 
+It then must decide whether to resume that conversation later, or to abandon that conversation altogether by resetting the dialog stack. 
+/Snip-->

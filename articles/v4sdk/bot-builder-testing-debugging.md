@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 04/09/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: caa424ed0ea0944805836739ed48a7a61f78d21c
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: 4195ae016513c809e4677879e0abe1b2bf8d799e
+ms.sourcegitcommit: 3cb288cf2f09eaede317e1bc8d6255becf1aec61
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42905259"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47389779"
 ---
 # <a name="testing-and-debugging-guidelines"></a>Richtlinien für das Testen und Debuggen
 
@@ -50,7 +50,7 @@ Zur Unterstützung bei dieser Herangehensweise wird eine Reihe von Tools bereitg
 
 ### <a name="level-2-use-a-direct-line-client"></a>Ebene 2: Verwenden eines Direct Line-Clients
 
-Nachdem Sie sich vergewissert haben, dass Ihr Bot wunschgemäß funktioniert, besteht der nächste Schritt darin, ihn mit einem Kanal zu verbinden. Zu diesem Zweck können Sie Ihren Bot auf einem Stagingserver bereitstellen und einen eigenen [Direct Line-Client](bot-builder-howto-direct-line.md) für die Verbindung mit Ihrem Bot erstellen.
+Nachdem Sie sich vergewissert haben, dass Ihr Bot wunschgemäß funktioniert, besteht der nächste Schritt darin, ihn mit einem Kanal zu verbinden. Zu diesem Zweck können Sie Ihren Bot auf einem Stagingserver bereitstellen und einen eigenen <!--IBTODO [Direct Line client](bot-builder-howto-direct-line.md)-->Direct Line-Client für die Verbindung mit Ihrem Bot erstellen.
 
 Durch das Erstellen eines eigenen Clients können Sie die interne Funktionsweise des Kanals definieren und spezifisch testen, wie Ihr Bot auf den Austausch bestimmter Aktivitäten reagiert. Sobald die Verbindung mit Ihrem Client besteht, führen Sie die Tests aus, um den Botzustand einzurichten und Ihre Features zu überprüfen. Wenn Ihr Bot ein Feature wie Spracherkennung nutzt, können Sie diese Funktionalität mithilfe dieser Kanäle überprüfen.
 
@@ -64,7 +64,7 @@ Dazu gibt es sehr unterschiedliche Möglichkeiten, von der einzelnen Verwendung 
 
 ### <a name="other-testing"></a>Andere Tests
 
-Verschiedene Arten von Tests können zusätzlich zu den oben genannten Ebenen oder aus verschiedenen Blickwinkeln durchgeführt werden, z.B. Belastungstests, Leistungstests oder eine Profilerstellung für die Aktivität Ihres Bots. Visual Studio bietet dazu lokale Methoden sowie eine [Suite von Tools](https://www.visualstudio.com/team-services/testing-tools/) zum Testen Ihrer App, und das [Azure-Portal](https://portal.azure.com) bietet einen Einblick in die Leistung Ihres Bots.
+Verschiedene Arten von Tests können zusätzlich zu den oben genannten Ebenen oder aus verschiedenen Blickwinkeln durchgeführt werden, z.B. Belastungstests, Leistungstests oder eine Profilerstellung für die Aktivität Ihres Bots. Visual Studio bietet dazu lokale Methoden sowie eine [Suite von Tools](https://azure.microsoft.com/en-us/solutions/dev-test/) zum Testen Ihrer App, und das [Azure-Portal](https://portal.azure.com) bietet einen Einblick in die Leistung Ihres Bots.
 
 ## <a name="debugging"></a>Debuggen
 
@@ -74,7 +74,17 @@ Bots folgen einem ereignisgesteuerten Programmierparadigma, das möglicherweise 
 
 **Grundlegendes zu Botaktivitäten mit dem Emulator**
 
-Der Bot behandelt unterschiedliche Typen von [Aktivitäten](bot-builder-concept-activity-processing.md) neben der normalen _Nachrichtenaktivität_. Über den [Emulator](../bot-service-debug-emulator.md) erfahren Sie, um welche Aktivitäten es sich handelt, wann sie stattfinden und welche Informationen sie enthalten. Ein Verständnis dieser Aktivitäten hilft Ihnen dabei, Ihren Bot effizienter zu schreiben, und ermöglicht Ihnen, zu überprüfen, ob die gesendeten und empfangenen Aktivitäten des Bots Ihren Erwartungen entsprechen.
+Der Bot behandelt unterschiedliche Typen von [Aktivitäten](bot-builder-basics.md#the-activity-processing-stack) neben der normalen _Nachrichtenaktivität_. Über den [Emulator](../bot-service-debug-emulator.md) erfahren Sie, um welche Aktivitäten es sich handelt, wann sie stattfinden und welche Informationen sie enthalten. Ein Verständnis dieser Aktivitäten hilft Ihnen dabei, Ihren Bot effizienter zu schreiben, und ermöglicht Ihnen, zu überprüfen, ob die gesendeten und empfangenen Aktivitäten des Bots Ihren Erwartungen entsprechen.
+
+**Speichern und Abrufen von Benutzerinteraktionen mit Transkripts**
+
+Über Azure-Blob-Transkriptspeicher wird eine spezielle Ressource bereitgestellt, mit der Sie Transkripts, die Interaktionen zwischen Ihren Benutzern und Ihrem Bot enthalten, [speichern und abrufen](bot-builder-howto-v4-storage.md) können.  
+
+Außerdem können Sie nach dem Speichern der Benutzereingabeinteraktionen den „_Speicher-Explorer_“ von Azure verwenden, um Daten, die in den Transkripts im Blob-Transkriptspeicher enthalten sind, manuell anzuzeigen. Im folgenden Beispiel wird der „_Speicher-Explorer_“ über die Einstellungen für „_mynewtestblobstorage_“ geöffnet. Wählen Sie Folgendes, um eine gespeicherte Benutzereingabe zu öffnen: Blobcontainer > ChannelId > TranscriptId > ConversationId.
+
+![Examine_stored_transcript_text](./media/examine_transcript_text_in_azure.png)
+
+Die gespeicherte Benutzereingabe der Konversation wird im JSON-Format geöffnet. Die Benutzereingabe wird zusammen mit dem Schlüssel „_text:_“ aufbewahrt.
 
 **Funktionsweise von Middleware**
 
@@ -84,7 +94,7 @@ Wenn Sie mehrere Middlewareelemente verwenden, kann der Delegat die Ausführung 
 
 Das Nichtaufrufen des Delegats `next()` wird als [Kurzschlussweiterleitung](bot-builder-concept-middleware.md#short-circuiting) bezeichnet. Dies geschieht, wenn die Middleware die aktuelle Aktivität erfüllt und festlegt, dass es nicht erforderlich ist, die Ausführung zu übergeben. 
 
-Das Verständnis, wann und warum Middleware einen Kurzschluss ausführt, kann einen Hinweis darauf bieten, welche Middleware in Ihrer Pipeline zuerst eingesetzt werden soll. Außerdem ist eine klare Erwartung besonders wichtig für integrierte Middleware, die durch das SDK oder andere Entwickler bereitgestellt wird. Es kann hilfreich sein, zuerst [eigene Middleware zu erstellen](bot-builder-create-middleware.md), um vor dem Einstieg in die integrierte Middleware ein wenig zu experimentieren.
+Das Verständnis, wann und warum Middleware einen Kurzschluss ausführt, kann einen Hinweis darauf bieten, welche Middleware in Ihrer Pipeline zuerst eingesetzt werden soll. Außerdem ist eine klare Erwartung besonders wichtig für integrierte Middleware, die durch das SDK oder andere Entwickler bereitgestellt wird. Es kann hilfreich sein, zuerst eigene Middleware zu erstellen, um vor dem Einstieg in die integrierte Middleware ein wenig zu experimentieren.
 
 [QnA Maker](bot-builder-howto-qna.md) behandelt beispielweise bestimmte Interaktionen und schließt die Pipeline dann kurz. Dies kann beim Erlernen seiner Verwendung verwirrend sein.
 

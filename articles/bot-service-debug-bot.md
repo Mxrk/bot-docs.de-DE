@@ -8,12 +8,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 07/13/2018
-ms.openlocfilehash: 5e7fc6fa4fbce9b13d74d5dc7877de44840c51e6
-ms.sourcegitcommit: dcbc8ad992a3e242a11ebcdf0ee99714d919a877
+ms.openlocfilehash: 73cf6cedecd9acaef828bd41f4fccdaad2ae5731
+ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39352879"
+ms.lasthandoff: 09/23/2018
+ms.locfileid: "46707166"
 ---
 # <a name="debug-a-bot-service-bot"></a>Debuggen eines Bot Service-Bots
 
@@ -27,7 +27,7 @@ Führen Sie die Schritte in diesem Abschnitt aus, um einen in JavaScript geschri
 
 Bevor Sie Ihren JavaScript-Bot debuggen können, müssen Sie die folgenden Aufgaben ausführen.
 
-- Laden Sie den Quellcode für Ihren Bot (aus Azure) herunter, wie es unter [Herunterladen von Bot-Quellcode](bot-service-build-download-source-code.md?#download-bot-source-code) beschrieben ist.
+- Laden Sie den Quellcode für Ihren Bot (aus Azure) herunter, wie es unter [Herunterladen und erneutes Bereitstellen des Bot-Quellcodes](bot-service-build-download-source-code.md) beschrieben ist.
 - Laden Sie den [Bot Framework-Emulator](https://github.com/Microsoft/BotFramework-Emulator/releases) herunter, und installieren Sie ihn.
 - Laden Sie einen Code-Editor wie <a href="https://code.visualstudio.com" target="_blank">Visual Studio Code</a> herunter, und installieren Sie ihn.
 
@@ -72,7 +72,7 @@ Führen Sie die Schritte in diesem Abschnitt aus, um einen in C# geschriebenen B
 
 Bevor Sie Ihren C#-Bot der Web-App debuggen können, müssen Sie die folgenden Aufgaben ausführen.
 
-- Laden Sie den Quellcode für Ihren Bot (aus Azure) herunter, wie es unter [Herunterladen von Bot-Quellcode](bot-service-build-download-source-code.md?#download-bot-source-code) beschrieben ist.
+- Laden Sie den Quellcode für Ihren Bot (aus Azure) herunter, wie es unter [Herunterladen und erneutes Bereitstellen des Bot-Quellcodes](bot-service-build-download-source-code.md) beschrieben ist.
 - Laden Sie den [Bot Framework-Emulator](https://github.com/Microsoft/BotFramework-Emulator/releases) herunter, und installieren Sie ihn.
 - Laden Sie <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> (Community Edition oder höher) herunter, und installieren Sie das Programm.
 
@@ -146,13 +146,6 @@ Nachdem Sie den Emulator mit Ihrem Bot verbunden haben, senden Sie eine Nachrich
 Außerdem können Sie Protokolldetails im Konsolenfenster anzeigen.
 
 ![Konsolenfenster](~/media/bot-service-debug-bot/csharp-azureservice-debug-debughostlogging.png)
-
-::: moniker-end
-::: moniker range="azure-bot-service-4.0" 
-
-## <a id="debug-csharp-serverless"></a> Debuggen eines C\#-Functions-Bots mit Verbrauchsplan
-
-Functions-Bot für Bot Builder SDK V4 ist bald verfügbar.
 
 ::: moniker-end
 

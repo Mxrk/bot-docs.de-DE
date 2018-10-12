@@ -7,12 +7,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
-ms.openlocfilehash: 3d098afd70bef9cf1a3b3fab87455e96ffd9c292
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 07fb6e9630996a61932da99b0575d43f4604141e
+ms.sourcegitcommit: 3cb288cf2f09eaede317e1bc8d6255becf1aec61
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39298725"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47389429"
 ---
 # <a name="application-insights-keys"></a>Application Insights-Schlüssel
 
@@ -30,7 +30,7 @@ In diesem Thema erfahren Sie, wie Sie diese Application Insights-Schlüssel erst
 ## <a name="instrumentation-key"></a>Instrumentierungsschlüssel
 
 Gehen Sie wie folgt vor, um den Instrumentierungsschlüssel abzurufen:
-1. Erstellen Sie unter [portal.azure.com](http://portal.azure.com) im Abschnitt „Überwachen“ eine neue **Application Insights**-Ressource (oder verwenden Sie eine vorhandene).
+1. Erstellen Sie im [Azure-Portal](http://portal.azure.com) im Abschnitt „Überwachen“ eine neue **Application Insights**-Ressource (oder verwenden Sie eine vorhandene).
 ![Screenshot des Portals mit Application Insights](~/media/portal-app-insights-add-new.png)
 
 2. Klicken Sie in der Liste der Application Insights-Ressourcen auf die Application Insights-Ressource, die Sie gerade erstellt haben.

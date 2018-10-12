@@ -7,12 +7,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/17
-ms.openlocfilehash: a64edda73832f4d3fff49b08b5eaf6792c021ece
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 5373b18ce5c11dae4e971cb1a70307ae2901ad36
+ms.sourcegitcommit: 3cb288cf2f09eaede317e1bc8d6255becf1aec61
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303336"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47389659"
 ---
 # <a name="troubleshooting-bot-framework-authentication"></a>Problembehandlung bei der Bot Framework-Authentifizierung
 
@@ -25,10 +25,10 @@ Dieser Leitfaden hilft Ihnen bei der Behebung von Authentifizierungsproblemen mi
 
 Die Botsicherheit wird mit der **Microsoft-App-ID** und dem **Microsoft-App-Kennwort** konfiguriert, die Sie beim Registrieren Ihres Bot bei Bot Framework erhalten. Diese Werte sind normalerweise in der Konfigurationsdatei des Bots angegeben und werden zum Abrufen von Zugriffstoken vom Microsoft-Kontodienst verwendet. 
 
-[Registrieren Sie Ihren Bot](~/bot-service-quickstart-registration.md) (falls noch nicht geschehen), um eine **Microsoft-App-ID** und ein **Microsoft-App-Kennwort** zu erhalten, die vom Bot zur Authentifizierung verwendet werden können. 
+[Stellen Sie Ihren Bot in Azure bereit](~/bot-builder-howto-deploy-azure.md) (falls noch nicht geschehen), um eine **Microsoft-App-ID** und ein **Microsoft-App-Kennwort** zu erhalten, die vom Bot zur Authentifizierung verwendet werden können. 
 
 > [!NOTE]
-> Wie Sie **AppID** und **AppPassword** für Ihren Bot finden, ist unter [MicrosoftAppID und MicrosoftAppPassword](bot-service-manage-overview.md#microsoftappid-and-microsoftapppassword) beschrieben.
+> Unter [MicrosoftAppID und MicrosoftAppPassword](bot-service-manage-overview.md#microsoftappid-and-microsoftapppassword) wird beschrieben, wie Sie die Werte für **AppID** und **AppPassword** für einen bereits bereitgestellten Bot finden.
 
 ## <a name="step-1-disable-security-and-test-on-localhost"></a>Schritt 1: Deaktivieren der Sicherheit und Testen auf Localhost
 

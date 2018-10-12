@@ -6,13 +6,13 @@ ms.author: kamrani
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 05/03/2018
-ms.openlocfilehash: 7aff56dfc60d9d5cce42a5b6a2624c1364ff1b72
-ms.sourcegitcommit: 44f100a588ffda19c275b118f4f97029f12d1449
+ms.date: 09/13/2018
+ms.openlocfilehash: 9f80fc551cac2f1994b0d398cd640d2ad3d78e61
+ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/26/2018
-ms.locfileid: "42928378"
+ms.lasthandoff: 09/23/2018
+ms.locfileid: "46707376"
 ---
 # <a name="bot-builder-sdk-for-net-samples"></a>Beispiele zum Bot Builder SDK für .NET
 
@@ -92,17 +92,12 @@ Beispiel | BESCHREIBUNG
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-In diesen Beispielen werden aufgabenorientierte Bots veranschaulicht, die zeigen, wie Sie die Features im Bot Builder SDK v4 für .NET nutzen. Sie können die Beispiele dazu verwenden, schnell in die Erstellung großartiger Bots mit umfangreichen Funktionen einzusteigen. 
+Die Beispiele im Repository für Bot Builder-Beispiele veranschaulichen aufgabenorientierte Bots, die zeigen, wie Sie die Features im SDK für .NET nutzen. Sie können die Beispiele dazu verwenden, schnell in die Erstellung großartiger Bots mit umfangreichen Funktionen einzusteigen. Die [Infodatei](https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md) enthält eine Beispielliste und zusätzliche Informationen.
 
-Hinweis: Das SDK V4 wird aktiv entwickelt und sollte daher nur zum Experimentieren verwendet werden. 
-
-Klonen Sie mit mithilfe von Git das GitHub-Repository [botbuilder-dotnet](https://github.com/Microsoft/botbuilder-dotnet), um die Beispiele abzurufen.
+Klonen Sie mithilfe von Git das GitHub-Repository [botbuilder-samples](https://github.com/Microsoft/botbuilder-samples), um die Beispiele abzurufen.
 ```cmd
 git clone https://github.com/Microsoft/botbuilder-dotnet.git
-cd botbuilder-dotnet\samples-final
 ```
-Die mit dem Bot Builder SDK erstellten Beispiel-Bots befinden sich im **samples-final**-Verzeichnis.
-
 
 ::: moniker-end
 

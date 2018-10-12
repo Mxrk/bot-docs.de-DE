@@ -2,20 +2,20 @@
 title: Language Understanding | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie Ihren Bots mit Microsoft Cognitive Services künstliche Intelligenz hinzufügen können, um sie benutzerfreundlicher und ansprechender zu gestalten.
 keywords: LUIS, Absicht, Erkennung, Dispatch-Tool, QnA, QnA Maker
-author: DeniseMak
-ms.author: v-demak
+author: ivorb
+ms.author: v-ivorb
 manager: rstand
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 03/22/2018
+ms.date: 09/19/2018
 ms.reviewer: ''
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 70e703e8c3d7251856e70b3d3601e0d62cb98882
-ms.sourcegitcommit: ee63d9dc1944a6843368bdabf5878950229f61d0
+ms.openlocfilehash: af79bb40e3d24557fd898fa0a0ca2ef7b0286af4
+ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42795066"
+ms.lasthandoff: 09/23/2018
+ms.locfileid: "46707546"
 ---
 # <a name="language-understanding"></a>Language Understanding
 
@@ -40,7 +40,7 @@ Betrachten Sie zum Beispiel die zahlreichen Möglichkeiten, wie ein Benutzer ein
 
 Diese Äußerungen können unterschiedliche Strukturen aufweisen und verschiedene Synonyme für „Flug“ enthalten, an die Sie nicht gedacht haben. In Ihrem Bot kann es eine Herausforderung sein, die Programmlogik zu schreiben, die alle Äußerungen berücksichtigt und sie dennoch von anderen Absichten unterscheidet, die dieselben Wörter enthalten. Darüber hinaus muss Ihr Bot *Entitäten* extrahieren, die weitere wichtige Wörter (z.B. Orte und Zeiten) sind. LUIS vereinfacht diesen Vorgang durch Identifizieren von Absichten und Entitäten im Kontext.
 
-Wenn Sie Ihren Bot für die Eingabe in natürlicher Sprache entwerfen, bestimmen Sie, welche Absichten und Entitäten Ihr Bot erkennen muss, und überlegen sich, wie diese mit Aktionen verbunden werden, die Ihr Bot ausführt. In <a href="https://www.luis.ai" target="_blank">LUIS</a> definieren Sie benutzerdefinierte Absichten und Entitäten und geben ihr Verhalten an, indem Sie Beispiele für jede Absicht bereitstellen und die Entitäten damit kennzeichnen.
+Wenn Sie Ihren Bot für die Eingabe in natürlicher Sprache entwerfen, bestimmen Sie, welche Absichten und Entitäten Ihr Bot erkennen muss, und überlegen sich, wie diese mit Aktionen verbunden werden, die Ihr Bot ausführt. In [luis.ai](https://www.luis.ai) definieren Sie benutzerdefinierte Absichten und Entitäten und geben ihr Verhalten an, indem Sie Beispiele für jede Absicht bereitstellen und die Entitäten damit kennzeichnen.
 
 Ihr Bot verwendet die Absicht, die von LUIS erkannt wurde, um das Unterhaltungsthema zu bestimmen oder einen Gesprächsfluss zu beginnen. Wenn ein Benutzer z.B. sagt „Ich möchte einen Flug buchten“, erkennt Ihr Bot die BookFlight-Absicht und ruft den Gesprächsfluss zum Starten einer Suche nach Flügen auf. LUIS erkennt Entitäten wie den Zielort und das Abreisedatum, sowohl in der ursprünglichen Äußerung, die die Absicht auslöst, als auch später im Gesprächsfluss. Sobald der Bot über alle Informationen verfügt, die er benötigt, kann er der Absicht des Benutzers nachkommen.
 
@@ -48,23 +48,19 @@ Ihr Bot verwendet die Absicht, die von LUIS erkannt wurde, um das Unterhaltungst
 
 ### <a name="recognize-intent-in-common-scenarios"></a>Erkennen der Absicht in gängigen Szenarien
 
-Um Entwicklungszeit einzusparen, bietet LUIS vorab trainierte Sprachmodelle, die gängige Äußerungen für gängige Kategorien von Bots erkennen. <!-- Consider if you'll use prebuilt or custom intents and entities: -->
+Um Entwicklungszeit einzusparen, bietet LUIS vorab trainierte Sprachmodelle, die gängige Äußerungen für gängige Kategorien von Bots erkennen. 
 
-* **Vordefinierte Domänen** sind vorab trainierte, gebrauchsfertige Sammlungen von Absichten und Entitäten, die für gängige Szenarien wie Termine, Erinnerungen, Verwaltung, Fitness, Unterhaltung, Kommunikation, Reservierungen und vieles mehr gut zusammen funktionieren. Die vordefinierte Domäne **Utilities** (Hilfsprogramme) unterstützt Ihren Bot bei allgemeinen Aufgaben wie Stornieren, Bestätigungen, Hilfe, Wiederholen und Beenden. Sehen Sie sich das Beispiel „Reminders“ (Erinnerungen) für [C#]( https://github.com/Microsoft/botbuilder-dotnet/tree/master/samples-final/8.AspNetCore-LUIS-Bot) oder [JavaScript](https://github.com/Microsoft/botbuilder-js/tree/master/samples/luis-bot-es6) an, das zeigt, wie eine vordefinierte Domäne in Ihrem Bot verwendet wird, und werfen Sie einen Blick auf die [vordefinierten Domänen](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/luis-how-to-use-prebuilt-domains), die LUIS bietet.
-* **Vordefinierte Entitäten** helfen Ihrem Bot dabei, gängige Arten von Informationen wie Datum, Uhrzeit, Zahlen, Temperatur, Währung, Geografie und Alter zu erkennen.
+**Vordefinierte Domänen** sind vorab trainierte, gebrauchsfertige Sammlungen von Absichten und Entitäten, die für gängige Szenarien wie Termine, Erinnerungen, Verwaltung, Fitness, Unterhaltung, Kommunikation, Reservierungen und vieles mehr gut zusammen funktionieren. Die vordefinierte Domäne **Utilities** (Hilfsprogramme) unterstützt Ihren Bot bei allgemeinen Aufgaben wie Stornieren, Bestätigungen, Hilfe, Wiederholen und Beenden. Sehen Sie sich die [vordefinierten Domänen](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/luis-how-to-use-prebuilt-domains) von LUIS an.
 
-Unter [Extrahieren typisierter LUIS-Ergebnisse][luis-v4-typed-entities] finden Sie ein Beispiel, das LUIS verwendet, um Datumsangaben zu extrahieren. Unter [Verwenden vordefinierter Entitäten](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/pre-builtentities) finden Sie Hintergrundinformationen zu den Typen, die von LUIS erkannt werden.
-
-<!-- TODO: Link to Bot Framework design guidance about LUIS apps, when this is ready -->
+**Vordefinierte Entitäten** helfen Ihrem Bot dabei, gängige Arten von Informationen wie Datum, Uhrzeit, Zahlen, Temperatur, Währung, Geografie und Alter zu erkennen. Unter [Verwenden vordefinierter Entitäten](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/pre-builtentities) finden Sie Hintergrundinformationen zu den Typen, die von LUIS erkannt werden.
 
 ## <a name="how-your-bot-gets-messages-from-luis"></a>Abrufen von Nachrichten aus LUIS durch den Bot
-Jedes Mal, wenn Ihr in LUIS integrierter Bot eine Äußerung empfängt, sendet er diese an die LUIS-App, die eine JSON-Antwort zurückgibt, die die Absichten und Entitäten enthält. Das Bot Builder-SDK stellt Funktionen (als [Middleware](bot-builder-concept-middleware.md) implementiert) für die automatische Verarbeitung der Antworten von LUIS sowie für die Übergabe an Ihren Bot bereit. Sie können den [Turn-Kontext](bot-builder-concept-activity-processing.md#turn-context) im _Turn-Handler_ Ihres Bots verwenden, um den Konversationsfluss basierend auf der Absicht in der LUIS-Antwort zu steuern. 
+
+Nachdem Sie LUIS eingerichtet und eine Verbindung damit hergestellt haben, kann Ihr Bot die Nachricht an Ihre LUIS-App senden, die eine JSON-Antwort mit den Absichten und Entitäten zurückgibt. Anschließend können Sie den [Durchlaufkontext](bot-builder-concept-activity-processing.md#turn-context) im _Durchlaufhandler_ Ihres Bots verwenden, um den Konversationsfluss basierend auf der Absicht in der LUIS-Antwort zu steuern. 
 
 ![Übergeben von Absichten und Entitäten an Ihren Bot](./media/cognitive-services-add-bot-language/cognitive-services-luis-message-flow-bot-code.png)
 
-Im Folgenden finden Sie die ersten Schritte für die Integration einer LUIS-App in einen Bot:
-
-* [Verwenden von LUIS für den Gesprächsfluss][luis-v4-how-to]
+Informationen zum Einstieg in die Nutzung einer LUIS-App mit Ihrem Bot finden Sie unter [Verwenden von LUIS für Language Understanding][luis-v4-how-to].
 
 ## <a name="best-practices-for-language-understanding"></a>Bewährte Methoden für Language Understanding
 
@@ -86,12 +82,12 @@ Die `None`-Absicht ist hilfreich, wenn Sie die Erkennungsergebnisse verbessern m
 
 ### <a name="review-the-utterances-that-luis-app-receives"></a>Überprüfen der Äußerungen, die die LUIS-App empfängt
 
-LUIS-Apps bieten ein Feature zur Verbesserung der App-Leistung, indem sie Nachrichten überprüfen, die Benutzer an sie gesendet haben. Eine schrittweise exemplarische Vorgehensweise finden Sie unter [Überprüfen vorgeschlagener Äußerungen](https://docs.microsoft.com/azure/cognitive-services/LUIS/label-suggested-utterances).
+LUIS-Apps bieten ein Feature zur Verbesserung der App-Leistung, indem sie Nachrichten überprüfen, die Benutzer an sie gesendet haben. Eine exemplarische Schritt-für-Schritt-Vorgehensweise finden Sie unter [Überprüfen von Endpunktäußerungen](https://docs.microsoft.com/azure/cognitive-services/LUIS/label-suggested-utterances).
 
 
 ## <a name="integrate-multiple-luis-apps-and-qna-services-with-the-dispatch-tool"></a>Integrieren mehrerer LUIS-Apps and QnA-Dienste mit dem Dispatch-Tool
 
-<!-- 1. Modular. 2. Better performance for classification --> Wenn Sie einen Mehrzweckbot erstellen, der mehrere Unterhaltungsthemen versteht, können Sie damit beginnen, Dienste für jede Funktion separat zu entwickeln und diese dann zusammen integrieren. Diese Dienste können LUIS-Apps (Language Understanding) und QnAMaker-Dienste umfassen. Hier sind einige Beispielszenarien, in denen ein Bot mehrere LUIS-Apps, mehrere QnAMaker-Dienste oder eine Kombination aus beiden kombinieren kann:
+Wenn Sie einen Mehrzweckbot erstellen, der mehrere Konversationsthemen versteht, können Sie damit beginnen, Dienste für jede Funktion separat zu entwickeln und diese dann zu integrieren. Diese Dienste können LUIS-Apps (Language Understanding) und QnAMaker-Dienste umfassen. Hier sind einige Beispielszenarien, in denen ein Bot mehrere LUIS-Apps, mehrere QnAMaker-Dienste oder eine Kombination aus beiden kombinieren kann:
 
 * Ein persönlicher Assistentenbot ermöglicht dem Benutzer, eine Vielzahl von Befehlen aufzurufen. Jede Kategorie von Befehlen bildet eine „Fertigkeit“, die separat entwickelt werden kann, und für jede Fertigkeit ist eine LUIS-App vorhanden.
 * Ein Bot durchsucht viele Wissensdatenbanken, um Antworten auf häufig gestellte Fragen (FAQs) zu finden.
@@ -99,31 +95,11 @@ LUIS-Apps bieten ein Feature zur Verbesserung der App-Leistung, indem sie Nachri
 
 ### <a name="the-dispatch-tool"></a>Das Dispatch-Tool
 
-Das Dispatch-Tool hilft Ihnen, mehrere LUIS-Apps und QnAMaker-Dienste in Ihren Bot zu integrieren, indem es eine *Dispatch-App* erstellt, also eine neue LUIS-App, die Nachrichten an die entsprechenden LUIS- und QnAMaker-Dienste weiterleitet. Ein schrittweises Tutorial, das mehrere LUIS-Apps und QnAMaker-Dienste in einem Bot kombiniert, finden Sie im [Dispatch-Tutorial](./bot-builder-tutorial-dispatch.md).
+Das Dispatch-Tool hilft Ihnen, mehrere LUIS-Apps und QnAMaker-Dienste in Ihren Bot zu integrieren, indem es eine *Dispatch-App* erstellt, also eine neue LUIS-App, die Nachrichten an die entsprechenden LUIS- und QnAMaker-Dienste weiterleitet. Eine Schritt-für-Schritt-Anleitung, in der mehrere LUIS-Apps und QnAMaker-Dienste in einem Bot kombiniert werden, finden Sie im [Dispatch-Tutorial](./bot-builder-tutorial-dispatch.md).
 
 ## <a name="use-luis-to-improve-speech-recognition"></a>Verwenden von LUIS zur Verbesserung der Spracherkennung
 
-Für einen Bot, mit dem Benutzer sprechen, kann die Integration in LUIS Ihrem Bot helfen, Wörter zu identifizieren, die bei der Umwandlung von Sprache in Text ggf. missverstanden werden können.  In einem Schachszenario könnte ein Benutzer z.B. „Move knight to A7“ (Springer auf A7) sagen. Ohne Kontext für die Absicht des Benutzers wird die Äußerung ggf. als „Move night 287“ erkannt. Indem Sie Entitäten erstellen, die Schachfiguren und Koordinaten darstellen und sie in Äußerungen bezeichnen, stellen Sie einen Kontext für die Spracherkennung zur Verfügung, um sie zu identifizieren. Sie können [ Spracherkennungspriming][speechrecognitionpriming] mit Bot Framework-Kanälen aktivieren, die in die Bing-Spracheingabe integriert sind, z.B. Web Chat, Bot Framework Emulator und Cortana.  
+Für einen Bot, mit dem Benutzer sprechen, kann die Integration in LUIS Ihrem Bot helfen, Wörter zu identifizieren, die bei der Umwandlung von Sprache in Text ggf. missverstanden werden können.  In einem Schachszenario könnte ein Benutzer z.B. „Move knight to A7“ (Springer auf A7) sagen. Ohne Kontext für die Absicht des Benutzers wird die Äußerung ggf. als „Move night 287“ erkannt. Indem Sie Entitäten erstellen, die Schachfiguren und Koordinaten darstellen und sie in Äußerungen bezeichnen, stellen Sie einen Kontext für die Spracherkennung zur Verfügung, um sie zu identifizieren. Sie können das [Spracherkennungspriming][speechrecognitionpriming] mit Bot Framework-Kanälen aktivieren, die in die Bing-Spracheingabe integriert sind, z.B. Web Chat, Bot Framework Emulator und Cortana.  
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
-
-* [Sprachverständnis](~/bot-service-concept-intelligence.md#language-understanding)
-* <a href="https://www.luis.ai" target="_blank">LUIS-Website</a>
-
-<!-- Links -->
-[luis_home]: https://docs.microsoft.com/en-us/azure/cognitive-services/luis/home
-[middleware]: bot-builder-concept-middleware.md
-<!-- TODO: this link is a placeholder, need to find existing speech priming article -->
-[speechrecognitionpriming]: ../bot-service-channel-connect-webchat-speech.md
-
-[luis-v4-typed-entities]: bot-builder-howto-v4-luisgen.md
-[luis-v4-how-to]: bot-builder-howto-v4-luis.md
-[luis-v4-cs-quickstart]: https://github.com/Microsoft/botbuilder-dotnet/wiki/Using-LUIS-and-QnA-Maker
-[luis-v4-js-quickstart]: https://github.com/Microsoft/botbuilder-js/wiki/Using-LUIS-and-QnA-Maker
-
-## <a name="next-steps"></a>Nächste Schritte
-
-Cognitive Services bietet Möglichkeiten, Ihren Bot mit Intelligenz auszustatten.
-
-> [!div class="nextstepaction"]
-> [Cognitive Services für Bots](../bot-service-concept-intelligence.md)
+Weitere Informationen finden Sie in der Dokumentation zu [Cognitive Services](https://docs.microsoft.com/en-us/azure/cognitive-services/).

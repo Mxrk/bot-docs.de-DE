@@ -1,8 +1,8 @@
 # <a name="implement-channel-specific-functionality"></a>Implementieren von kanalspezifischer Funktionalität
 
-Einige Kanäle bieten Funktionen, die nicht implementiert werden können, indem nur [Nachrichtentext und Anlagen](../dotnet/bot-builder-dotnet-create-messages.md) verwendet werden. Um kanalspezifische Funktionen zu implementieren, können Sie native Metadaten an einen Kanal in der `ChannelData`-Eigenschaft des `Activity`-Objekts übergeben. Zum Beispiel kann Ihr Bot die Eigenschaft `ChannelData` verwenden, um Telegram anzuweisen, einen Sticker zu senden, oder um Office 365 anzuweisen, eine E-Mail zu senden.
+Einige Kanäle stellen Funktionen bereit, die nicht implementiert werden können, indem nur Nachrichtentext und Anlagen verwendet werden. Um kanalspezifische Funktionen zu implementieren, können Sie native Metadaten an einen Kanal in der _channel data_-Eigenschaft des Aktivitätsobjekts übergeben. Beispielsweise kann Ihr Bot die „channel data“-Eigenschaft verwenden, um Telegram anzuweisen, einen Sticker zu senden, oder um Office 365 anzuweisen, eine E-Mail zu senden.
 
-Dieser Artikel beschreibt, wie Sie die Eigenschaft `ChannelData` einer Nachrichtenaktivität verwenden, um diese kanalspezifische Funktionalität zu implementieren:
+In diesem Artikel wird beschrieben, wie Sie die „channel data“-Eigenschaft einer Nachrichtenaktivität verwenden, um diese kanalspezifische Funktionalität zu implementieren:
 
 | Kanal | Funktionalität |
 |----|----|
@@ -10,40 +10,55 @@ Dieser Artikel beschreibt, wie Sie die Eigenschaft `ChannelData` einer Nachricht
 | Puffer | Senden originalgetreuer Slack-Nachrichten |
 | Facebook | Natives Senden von Facebook-Benachrichtigungen |
 | Telegram | Ausführen von Telegram-spezifischen Aktionen, z.B. Freigeben einer Sprachnachricht oder eines Stickers |
-| Kik | Senden und Empfangen nativer Kik-Nachrichten | 
+| Kik | Senden und Empfangen nativer Kik-Nachrichten |
 
 > [!NOTE]
-> Der Wert der `ChannelData`-Eigenschaft eines `Activity`-Objekts ist ein JSON-Objekt. Deswegen zeigen die Beispiele in diesem Artikel das erwartete Format der JSON-Eigenschaft `channelData` in verschiedenen Szenarien. Verwenden Sie die (.NET-)Klasse `JObject`, um ein JSON-Objekt mit .NET zu erstellen. 
+> Der Wert der „channel data“-Eigenschaft eines Aktivitätsobjekts ist ein JSON-Objekt.
+> Deswegen zeigen die Beispiele in diesem Artikel das erwartete Format der JSON-Eigenschaft `channelData` in verschiedenen Szenarien.
+> Verwenden Sie die (.NET-)Klasse `JObject`, um ein JSON-Objekt mit .NET zu erstellen.
 
 ## <a name="create-a-custom-email-message"></a>Erstellen einer benutzerdefinierten E-Mail-Nachricht
 
-Um eine E-Mail-Nachricht zu erstellen, legen Sie die `ChannelData`-Eigenschaft des `Activity`-Objekts auf ein JSON-Objekt fest, das diese Eigenschaften enthält: 
+Um eine E-Mail-Nachricht zu erstellen, legen Sie die „channel data“-Eigenschaft des Aktivitätsobjekts auf ein JSON-Objekt fest, das diese Eigenschaften enthält:
 
 | Eigenschaft | BESCHREIBUNG |
 |----|----|
+| bccRecipients | Eine durch ein Semikolon (;) getrennte Zeichenfolge von E-Mail-Adressen, die in das Feld „Bcc“ (Blind Carbon Copy) der Nachricht eingefügt werden sollen. |
+| ccRecipients | Eine durch ein Semikolon (;) getrennte Zeichenfolge von E-Mail-Adressen, die in das Feld „Cc“ (Carbon Copy) der Nachricht eingefügt werden sollen. |
 | htmlBody | Ein HTML-Dokument, das den E-Mail-Nachrichtentext angibt. Weitere Informationen zu den unterstützten HTML-Elementen und -Attributen finden Sie in der Dokumentation des Kanals. |
 | importance | Die Wichtigkeit der E-Mail. Gültige Werte sind **Hoch**, **Normal** und **Niedrig**. Der Standardwert ist **Normal**. |
 | subject | Der E-Mail-Betreff. Weitere Informationen zu Feldanforderungen finden Sie in der Dokumentation des Kanals. |
+| toRecipients | Eine durch ein Semikolon (;) getrennte Zeichenfolge von E-Mail-Adressen, die in das Feld „An“ der Nachricht eingefügt werden sollen. |
 
 > [!NOTE]
-> Nachrichten, die Ihr Bot von Benutzern über den E-Mail-Kanal erhält, enthalten ggf. eine `ChannelData`-Eigenschaft, die mit einem JSON-Objekt wie dem oben beschriebenen gefüllt ist.
+> Nachrichten, die Ihr Bot von Benutzern über den E-Mail-Kanal erhält, enthalten ggf. eine „channel data“-Eigenschaft, die mit einem JSON-Objekt wie dem oben beschriebenen gefüllt ist.
 
 Dieser Codeausschnitt zeigt ein Beispiel für die `channelData`-Eigenschaft für eine benutzerdefinierte E-Mail-Nachricht.
 
 ```json
 "channelData": {
-    "htmlBody" : "<html><body style=\"font-family: Calibri; font-size: 11pt;\">This is the email body!</body></html>",
-    "subject":"This is the email subject",
-    "importance":"high"
+    "type": "message",
+    "locale": "en-Us",
+    "channelID": "email",
+    "from": { "id": "mybot@mydomain.com", "name": "My bot"},
+    "recipient": { "id": "joe@otherdomain.com", "name": "Joe Doe"},
+    "conversation": { "id": "123123123123", "topic": "awesome chat" },
+    "channelData":
+    {
+        "htmlBody": "<html><body style = /"font-family: Calibri; font-size: 11pt;/" >This is more than awesome.</body></html>",
+        "subject": "Super awesome message subject",
+        "importance": "high",
+        "ccRecipients": "Yasemin@adatum.com;Temel@adventure-works.com"
+    }
 }
 ```
 
 ## <a name="create-a-full-fidelity-slack-message"></a>Erstellen einer originalgetreuen Slack-Nachricht
 
-Um eine originalgetreue Slack-Nachricht zu erstellen, setzen Sie die `ChannelData`-Eigenschaft des `Activity`-Objekts auf ein JSON-Objekt, das <a href="https://api.slack.com/docs/messages" target="_blank">Slack-Nachrichten</a>, <a href="https://api.slack.com/docs/message-attachments" target="_blank">Slack-Anlagen</a> und/oder <a href="https://api.slack.com/docs/message-buttons" target="_blank">Slack-Schaltflächen</a> festlegt. 
+Um eine originalgetreue Slack-Nachricht zu erstellen, setzen Sie die „channel data“-Eigenschaft des Aktivitätsobjekts auf ein JSON-Objekt, das <a href="https://api.slack.com/docs/messages" target="_blank">Slack-Nachrichten</a>, <a href="https://api.slack.com/docs/message-attachments" target="_blank">Slack-Anlagen</a> und/oder <a href="https://api.slack.com/docs/message-buttons" target="_blank">Slack-Schaltflächen</a> festlegt.
 
 > [!NOTE]
-> Um Schaltflächen in Slack-Nachrichten zu unterstützen, müssen Sie **interaktive Nachrichten** aktivieren, wenn Sie [ Ihren Bot](../bot-service-manage-channels.md) mit dem Slack-Kanal verbinden.
+> Um Schaltflächen in Slack-Nachrichten zu unterstützen, müssen Sie **interaktive Nachrichten** aktivieren, wenn Sie [Ihren Bot mit dem Slack-Kanal verbinden](../bot-service-manage-channels.md).
 
 Dieser Codeausschnitt zeigt ein Beispiel für die `channelData`-Eigenschaft für eine benutzerdefinierte Slack-Nachricht.
 
@@ -100,7 +115,8 @@ Dieser Codeausschnitt zeigt ein Beispiel für die `channelData`-Eigenschaft für
 }
 ```
 
-Wenn ein Benutzer auf eine Schaltfläche in einer Slack-Nachricht klickt, erhält der Bot eine Antwortnachricht, in der die `ChannelData`-Eigenschaft mit einem JSON-Objekt `payload` gefüllt ist. Das `payload`-Objekt gibt den Inhalt der ursprünglichen Nachricht an und identifiziert die angeklickte Schaltfläche sowie den Benutzer, der diese angeklickt hat. 
+Wenn ein Benutzer auf eine Schaltfläche in einer Slack-Nachricht klickt, erhält der Bot eine Antwortnachricht, in der die „channel data“-Eigenschaft mit einem JSON-Objekt vom Typ `payload` gefüllt ist.
+Das `payload`-Objekt gibt den Inhalt der ursprünglichen Nachricht an und identifiziert die angeklickte Schaltfläche sowie den Benutzer, der diese angeklickt hat.
 
 Dieser Codeausschnitt zeigt ein Beispiel für die `channelData`-Eigenschaft in der Nachricht, die ein Bot empfängt, wenn ein Benutzer auf eine Schaltfläche in der Slack-Nachricht klickt.
 
@@ -120,8 +136,8 @@ Dieser Codeausschnitt zeigt ein Beispiel für die `channelData`-Eigenschaft in d
 }
 ```
 
-Ihr Bot kann auf diese Nachricht [normal](../dotnet/bot-builder-dotnet-connector.md#create-reply) antworten oder seine Antwort direkt an den Endpunkt posten, der durch die `response_url`-Eigenschaft des `payload`-Objekts angegeben ist.
-Weitere Informationen dazu, wann und wie Sie eine Antwort an `response_url` posten können, finden Sie im Artikel zu <a href="https://api.slack.com/docs/message-buttons" target="_blank">Slack-Schaltflächen</a>. 
+Ihr Bot kann auf diese Nachricht normal antworten oder seine Antwort direkt an den Endpunkt posten, der durch die `response_url`-Eigenschaft des `payload`-Objekts angegeben ist.
+Weitere Informationen dazu, wann und wie Sie eine Antwort an `response_url` posten können, finden Sie im Artikel zu <a href="https://api.slack.com/docs/message-buttons" target="_blank">Slack-Schaltflächen</a>.
 
 Sie können mit dem folgenden Code dynamische Schaltflächen erstellen:
 ```cs
@@ -242,7 +258,7 @@ private async Task DemoMenuAsync(IDialogContext context)
 
 ## <a name="create-a-facebook-notification"></a>Erstellen einer Facebook-Benachrichtigung
 
-Um eine Facebook-Nachricht zu erstellen, legen Sie die `ChannelData`-Eigenschaft des `Activity`-Objekts auf ein JSON-Objekt fest, das diese Eigenschaften angibt: 
+Um eine Facebook-Nachricht zu erstellen, legen Sie die „channel data“-Eigenschaft des Aktivitätsobjekts auf ein JSON-Objekt fest, das diese Eigenschaften angibt:
 
 | Eigenschaft | BESCHREIBUNG |
 |----|----|
@@ -269,7 +285,7 @@ Dieser Codeausschnitt zeigt ein Beispiel der `channelData`-Eigenschaft für eine
 
 ## <a name="create-a-telegram-message"></a>Erstellen einer Telegram-Nachricht
 
-Um eine Nachricht zu erstellen, die Telegram-spezifische Aktionen implementiert, z.B. die Freigabe einer Sprachnotiz oder eines Stickers, setzen Sie die `ChannelData`-Eigenschaft des `Activity`-Objekts auf ein JSON-Objekt, das diese Eigenschaften angibt: 
+Um eine Nachricht zu erstellen, die Telegram-spezifische Aktionen implementiert, z.B. die Freigabe einer Sprachnotiz oder eines Stickers, legen Sie die „channel data“-Eigenschaft des Aktivitätsobjekts auf ein JSON-Objekt fest, das diese Eigenschaften angibt: 
 
 | Eigenschaft | BESCHREIBUNG |
 |----|----|
@@ -343,7 +359,7 @@ Dieser Codeausschnitt zeigt ein Beispiel für eine `channelData`-Eigenschaft, di
 
 ## <a name="create-a-native-kik-message"></a>Erstellen einer nativen Kik-Nachricht
 
-Um eine native Kik-Nachricht zu erstellen, legen Sie die `ChannelData`-Eigenschaft des `Activity`-Objekts auf ein JSON-Objekt fest, das diese Eigenschaft angibt: 
+Um eine native Kik-Nachricht zu erstellen, legen Sie die „channel data“-Eigenschaft des Aktivitätsobjekts auf ein JSON-Objekt fest, das diese Eigenschaft angibt:
 
 | Eigenschaft | BESCHREIBUNG |
 |----|----|
@@ -374,9 +390,8 @@ Dieser Codeausschnitt zeigt ein Beispiel für die `channelData`-Eigenschaft für
     ]
 }
 ```
- 
+
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-- [Übersicht über Aktivitäten](../dotnet/bot-builder-dotnet-activities.md)
-- [Erstellen von Nachrichten](../dotnet/bot-builder-dotnet-create-messages.md)
-- <a href="https://docs.botframework.com/en-us/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html" target="_blank">Activity-Klasse</a>
+- [Entitäten und Aktivitätstypen](../bot-service-activities-entities.md)
+- [Bot Framework-Aktivitätsschema](https://github.com/Microsoft/BotBuilder/blob/hub/specs/botframework-activity/botframework-activity.md)

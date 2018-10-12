@@ -1,21 +1,18 @@
 ---
-title: Zustand und Speicher | Microsoft-Dokumentation
-description: Hier erfahren Sie mehr über Status-Manager, Unterhaltungsstatus und Benutzerstatus innerhalb des Bot Builder-SDK.
-keywords: LUIS, Unterhaltungsstatus, Benutzerstatus, Speicher, Statusverwaltung
-author: DeniseMak
-ms.author: v-demak
-manager: kamrani
-ms.topic: article
-ms.prod: bot-framework
-ms.date: 02/15/2018
-monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: e25ecec3aec1cdebe3b9eae4bff0d3c434cb610b
-ms.sourcegitcommit: 1abc32353c20acd103e0383121db21b705e5eec3
+redirect_url: /bot-framework/bot-builder-howto-v4-state
+ms.openlocfilehash: e5da105e32ae748383d376f90afd9aebbf4c7aa5
+ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42756452"
+ms.lasthandoff: 09/23/2018
+ms.locfileid: "46708116"
 ---
+<a name="--"></a><!--
+---
+Titel: Zustand und Speicher | Microsoft-Dokumentation Beschreibung: Hier erfahren Sie mehr über Status-Manager, Unterhaltungsstatus und Benutzerstatus innerhalb des Bot Builder SDK.
+Schlüsselwörter: LUIS, Unterhaltungsstatus, Benutzerstatus, Speicher, Status verwalten Autor: DeniseMak ms.author: v-demak manager: kamrani ms.topic: article ms.prod: bot-framework ms.date: 02/15/2018 monikerRange: 'azure-bot-service-4.0'
+---
+
 # <a name="state-and-storage"></a>Zustand und Speicher
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
@@ -37,30 +34,32 @@ You can also store *user state* that persists after a conversation ends. For exa
 <!-- You should generally avoid saving state using a global variable or function closures.
 Doing so will create issues when you want to scale out your bot. Instead, use the conversation state and user state middleware that the BotBuilder SDK provides --> 
 
+<!--
+## Types of underlying storage
 
-## <a name="types-of-underlying-storage"></a>Typen zugrunde liegenden Speichers
+The SDK provides bot state manager middleware to persist conversation and user state. State can be accessed using the bot's context. This state manager can use Azure Table Storage, file storage, or memory storage as the underlying data storage. You can also create your own storage components for your bot.
 
-Das SDK stellt eine Botstatus-Manager-Middleware bereit, um die Unterhaltung und den Benutzerstatus zu erhalten. Auf den Status kann über den Kontext des Bot zugegriffen werden. Dieser Status-Manager kann Azure Table Storage, Datei- und Arbeitsspeicher als zugrunde liegenden Datenspeicher verwenden. Sie können für Ihren Bot auch Ihre eigenen Speicherkomponenten erstellen.
-
-Mit Azure Table Storage erstellte Bots können statusfrei sein und über mehrere Serverknoten hinweg skaliert werden.
+Bots built using Azure Table Storage can be designed to be stateless and scalable across multiple compute nodes.
 
 > [!NOTE] 
-> Datei-und Arbeitsspeicher lassen sich nicht über Knoten hinweg skalieren.
+> File and memory storage won't scale across nodes.
 
-## <a name="writing-directly-to-storage"></a>Direktes Schreiben in den Speicher
+## Writing directly to storage
 
-Sie können das Bot Builder SDK auch verwenden, um Daten direkt aus dem Speicher zu lesen und in den Speicher zu schreiben, ohne Middleware oder den Botkontext zu verwenden. Dies ist ggf. für Daten geeignet, die Ihr Bot verwendet, die aus einer Quelle außerhalb des Unterhaltungsflusses Ihres Bots stammen.
+You can also use the Bot Builder SDK to read and write data directly to storage, without using middleware or without using the bot context. This can be appropriate to data that your bot uses, that comes from a source outside your bot's conversation flow.
 
-Angenommen, Ihr Bot erlaubt dem Benutzer, nach dem Wetterbericht zu fragen, und Ihr Bot ruft den Wetterbericht für ein bestimmtes Datum ab, indem er ihn aus einer externen Datenbank liest. Der Inhalt der Wetterdatenbank ist nicht von Benutzerinformationen oder dem Unterhaltungskontext abhängig, sodass Sie ihn direkt aus dem Speicher lesen können, anstatt den Status-Manager zu verwenden.  Weitere Informationen finden Sie unter [Direktes Schreiben in den Speicher](bot-builder-howto-v4-storage.md).
+For example, let's say your bot allows the user to ask for the weather report, and your bot retrieves the weather report for a specified date, by reading it from an external database. The content of the weather database isn't dependent on user information or the conversation context, so you could just read it directly from storage instead of using the state manager.  See [How to write directly to storage](bot-builder-howto-v4-storage.md) for an example.
 
-## <a name="next-steps"></a>Nächste Schritte
+## Next steps
 
-Als Nächstes geht es um das Verarbeiten von Aktivitäten und die entsprechenden Reaktionen.
+Next, lets get into how activities are processed, in depth, and how we respond to them.
 
 > [!div class="nextstepaction"]
-> [Aktivitätsverarbeitung](bot-builder-concept-activity-processing.md)
+> [Activity Processing](bot-builder-concept-activity-processing.md)
 
-## <a name="additional-resources"></a>Zusätzliche Ressourcen
+## Additional resources
 
-- [Speichern des Status](bot-builder-howto-v4-state.md)
-- [Direktes Schreiben in den Speicher](bot-builder-howto-v4-storage.md)
+- [How to save state](bot-builder-howto-v4-state.md)
+- [How to write directly to storage](bot-builder-howto-v4-storage.md)
+
+-->

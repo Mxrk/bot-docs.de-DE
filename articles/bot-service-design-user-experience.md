@@ -7,13 +7,13 @@ ms.author: mateusv
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 08/27/2018
-ms.openlocfilehash: 0bf58773cfbb6c58773cc5c63b735a0099ad569e
-ms.sourcegitcommit: 86ddf3ebe6cc3385d1c4d30b971ac9c3e1fc5a77
+ms.date: 09/20/2018
+ms.openlocfilehash: 94882202eca48a4c662f0ffa32a80065953f13fa
+ms.sourcegitcommit: 3cb288cf2f09eaede317e1bc8d6255becf1aec61
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43056014"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47389789"
 ---
 # <a name="design-the-user-experience"></a>Entwerfen der Benutzeroberfläche
 
@@ -33,20 +33,21 @@ Microsoft Bot Service-Karten sind programmierbare Objekte, die standardisierte S
 
 | Kartentyp | Beispiel | BESCHREIBUNG |
 | ---- | ---- | ---- |
-| AdaptiveCard | ![AdaptiveCard-Bild](~/media/adaptive-card.png) | Ein offenes Format für den Kartenaustausch, das als JSON-Objekt gerendert wird. Wird in der Regel für die Bereitstellung von Karten auf mehreren Kanälen verwendet. Karten passen sich an den jeweiligen Hostkanal an. |
-| AnimationCard | ![AnimationCard-Bild](~/media/animation-card1.png) | Eine Karte, die animierte GIFs oder kurze Videos abspielen kann. |
-| AudioCard | ![AudioCard-Bild](~/media/audio-card.png) | Eine Karte, die eine Audiodatei abspielen kann. |
-| HeroCard | ![HeroCard-Bild](~/media/hero-card1.png) | Eine Karte, die ein einzelnes großes Bild, mindestens eine Schaltflächen sowie Text enthält. Wird in der Regel verwendet, um eine potenzielle Benutzerauswahl optisch hervorzuheben. |
-| ThumbnailCard | ![ThumbnailCard-Bild](~/media/thumbnail-card.png) | Eine Karte, die ein Miniaturbild, mindestens eine Schaltfläche sowie Text enthält. Wird in der Regel verwendet, um Schaltflächen für eine potenzielle Benutzerauswahl optisch hervorzuheben. |
-| ReceiptCard | ![ReceiptCard-Bild](~/media/receipt-card1.png) | Eine Karte, über die ein Bot Rechnungen für Benutzer ausstellen kann. Sie enthält in der Regel eine Liste der Elemente, die in der Rechnung enthalten sein sollen, Steuer- und Gesamtbeträge sowie anderen Text. |
-| SignInCard | ![SignInCard-Bild](~/media/sign-in-card.png) | Eine Karte, über die ein Bot den Benutzer auffordern kann, sich anzumelden. Sie enthält in der Regel Text und mindestens eine Schaltfläche, auf die der Benutzer klicken kann, um den Anmeldevorgang zu initiieren. |
-| SuggestedAction | ![Bild der SuggestedAction-Karte](~/media/suggested-actions.png) | Zeigt dem Benutzer verschiedene CardActions an, aus denen dieser auswählen kann. Diese Karte wird nicht mehr angezeigt, wenn eine der vorgeschlagenen Aktionen ausgewählt wird. |
-| VideoCard | ![VideoCard-Bild](~/media/video-card.png) | Eine Karte, die Videos abspielen kann. Wird in der Regel verwendet, um eine URL zu öffnen und ein verfügbares Video zu streamen. |
-| CardCarousel | ![CardCarousel-Bild](~/media/card-carousel.png) | Eine Sammlung von Karten, durch die horizontal gescrollt werden und aus denen der Benutzer auswählen kann.|
+| AdaptiveCard | ![AdaptiveCard-Bild](./media/adaptive-card.png) | Ein offenes Format für den Kartenaustausch, das als JSON-Objekt gerendert wird. Wird in der Regel für die Bereitstellung von Karten auf mehreren Kanälen verwendet. Karten passen sich an den jeweiligen Hostkanal an. |
+| AnimationCard | ![AnimationCard-Bild](./media/animation-card1.png) | Eine Karte, die animierte GIFs oder kurze Videos abspielen kann. |
+| AudioCard | ![AudioCard-Bild](./media/audio-card.png) | Eine Karte, die eine Audiodatei abspielen kann. |
+| HeroCard | ![HeroCard-Bild](./media/hero-card1.png) | Eine Karte, die ein einzelnes großes Bild, mindestens eine Schaltflächen sowie Text enthält. Wird in der Regel verwendet, um eine potenzielle Benutzerauswahl optisch hervorzuheben. |
+| ThumbnailCard | ![ThumbnailCard-Bild](./media/thumbnail-card.png) | Eine Karte, die ein Miniaturbild, mindestens eine Schaltfläche sowie Text enthält. Wird in der Regel verwendet, um Schaltflächen für eine potenzielle Benutzerauswahl optisch hervorzuheben. |
+| ReceiptCard | ![ReceiptCard-Bild](./media/receipt-card1.png) | Eine Karte, über die ein Bot Rechnungen für Benutzer ausstellen kann. Sie enthält in der Regel eine Liste der Elemente, die in der Rechnung enthalten sein sollen, Steuer- und Gesamtbeträge sowie anderen Text. |
+| SignInCard | ![SignInCard-Bild](./media/sign-in-card.png) | Eine Karte, über die ein Bot den Benutzer auffordern kann, sich anzumelden. Sie enthält in der Regel Text und mindestens eine Schaltfläche, auf die der Benutzer klicken kann, um den Anmeldevorgang zu initiieren. |
+| SuggestedAction | ![Bild der SuggestedAction-Karte](./media/suggested-actions.png) | Zeigt dem Benutzer verschiedene CardActions an, aus denen dieser auswählen kann. Diese Karte wird nicht mehr angezeigt, wenn eine der vorgeschlagenen Aktionen ausgewählt wird. |
+| VideoCard | ![VideoCard-Bild](./media/video-card.png) | Eine Karte, die Videos abspielen kann. Wird in der Regel verwendet, um eine URL zu öffnen und ein verfügbares Video zu streamen. |
+| CardCarousel | ![CardCarousel-Bild](./media/card-carousel.png) | Eine Sammlung von Karten, durch die horizontal gescrollt werden und aus denen der Benutzer auswählen kann.|
 
 Durch Karten müssen Sie nur einmal einen Bot entwerfen, der dann auf verschiedenen Kanälen eingesetzt werden kann. Allerdings werden nicht alle Kartentypen auf allen verfügbaren Kanälen unterstützt. 
 
-Weitere Informationen zum Hinzufügen von Karten zu Ihrem Bot finden Sie in den Abschnitten [Add rich card media attachments (Hinzufügen von Rich Card-Medienanlagen)](v4sdk/bot-builder-howto-add-media-attachments.md) und [Add suggested actions to messages (Hinzufügen von vorgeschlagenen Aktionen zu Nachrichten)](v4sdk/bot-builder-howto-add-suggested-actions.md).
+Weitere Informationen zum Hinzufügen von Karten zu Ihrem Bot finden Sie in den Abschnitten [Add rich card media attachments (Hinzufügen von Rich Card-Medienanlagen)](v4sdk/bot-builder-howto-add-media-attachments.md) und [Add suggested actions to messages (Hinzufügen von vorgeschlagenen Aktionen zu Nachrichten)](v4sdk/bot-builder-howto-add-suggested-actions.md). Unter folgenden Links finden Sie darüber hinaus Beispielcode: Karten: [C#](https://aka.ms/bot-cards-sample-code-cs)/[JS](https://aka.ms/bot-cards-sample-code-js), adaptive Karten: [C#](https://aka.ms/bot-adaptive-cards-sample-code)/[JS](https://aka.ms/bot-adaptive-cards-js-sample-code), Anlagen: [C#](https://aka.ms/bot-attachments-sample-code)/[JS](https://aka.ms/bot-attachments-js-sample-code), vorgeschlagene Aktionen: [C#](https://aka.ms/bot-suggested-actions-code)/[JS](https://aka.ms/bot-suggested-actions-js-code)
+
 
 
 Sie können für Ihren Bot auch die üblichen Benutzeroberflächenelemente verwenden, da auch diese viele nützliche Funktionen bieten. Wie [zuvor](~/bot-service-design-principles.md#designing-a-bot) bereits erwähnt sollte Ihr Bot so konzipiert sein, dass er ein Problem eines Benutzers auf die schnellste und einfachste Weise löst. Sie sollten nicht als erstes Funktionen zum Verstehen natürlicher Sprache integrieren, da dies häufig unnötig ist und den Vorgang verkompliziert.
@@ -85,7 +86,7 @@ In anderen Szenarios kann es sein, dass ein Benutzer **einfache Anforderungen ei
 
 Wenn Sie diese APIs verwenden, kann Ihr Bot die wichtigsten Komponenten des vom Benutzer eingegeben Texts extrahieren und so ermitteln, welche Absichten dieser hat. Wenn Sie Funktionen zum Verstehen natürlicher Sprache in Ihren Bot implementieren, sollten Sie im Hinblick auf die in der Benutzereingabe enthaltenen Details realistisch sein. 
 
-![Beispieleingaben](~/media/bot-service-design-user-experience/buy-house.png)
+![Beispieleingaben](./media/bot-service-design-user-experience/buy-house.png)
 
 > [!TIP]
 > Wenn Sie Sprachmodelle erstellen, sollten Sie nicht davon ausgehen, dass Benutzer bereits in ihrer ersten Abfrage alle erforderlichen Informationen angeben. Konzipieren Sie Ihren Bot so, dass dieser genau die Informationen anfordert, die er benötigt, indem er dem Benutzer genaue Fragen stellt, ggf. sogar mehrere. 

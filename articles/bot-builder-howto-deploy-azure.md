@@ -7,23 +7,22 @@ ms.author: v-ivorb
 manager: kamrani
 ms.topic: get-started-article
 ms.prod: bot-framework
-ms.date: 05/14/2018
-ms.openlocfilehash: f3e5ed5b14ffb81c597b10aeac45854464bad8b0
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.date: 09/19/2018
+ms.openlocfilehash: 1503d5e349839de6f3403ad9b769c7eb0ae41e78
+ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42905592"
+ms.lasthandoff: 09/23/2018
+ms.locfileid: "46706966"
 ---
 # <a name="deploy-your-bot-to-azure"></a>Bereitstellen Ihres Bots in Azure
 
-[!INCLUDE [pre-release-label](./includes/pre-release-label-v3.md)]
+[!INCLUDE [pre-release-label](./includes/pre-release-label.md)]
 
-Nachdem Sie Ihren Bot erstellt und lokal überprüft haben, können Sie ihn in Azure pushen, um ihn von überall aus zugänglich zu machen. Zu diesem Zweck stellen Sie den Bot zunächst in einem App Service in Azure bereit und konfigurieren ihn dann mit dem Azure Bot Service über das Element Botkanalregistrierung.
+Nachdem Sie Ihren Bot erstellt und lokal überprüft haben, können Sie ihn in Azure pushen, um ihn von überall aus zugänglich zu machen. Für einen C#-Bot können Sie Visual Studio oder die Azure CLI nutzen, um Ihren Bot in Azure zu veröffentlichen. 
 
 ## <a name="publish-from-visual-studio"></a>Veröffentlichen mit Visual Studio
-
-Verwenden Sie Visual Studio, um Ihre Ressourcen in Azure zu erstellen und Ihren Code zu veröffentlichen.
+Zuerst stellen Sie den Bot in Azure über Visual Studio in einer App Service-Instanz bereit. Anschließend konfigurieren Sie Ihren Bot mit dem Azure Bot Service, indem Sie die Botkanalregistrierung verwenden.
 
 Klicken Sie im Fenster des Projektmappen-Explorers mit der rechten Maustaste auf den Knoten Ihres Projekts, und wählen Sie „Veröffentlichen“ aus.
 
@@ -127,13 +126,16 @@ Damit sich Ihr Bot beim Azure Bot Service authentifizieren kann, müssen Sie zwe
 ## <a name="test-your-bot-in-production"></a>Testen Ihres Bots in der Produktion
 An diesem Punkt können Sie Ihren Bot aus Azure unter Verwendung des integrierten Webchatclients testen.
 
-1. Navigieren Sie im Portal zurück zu Ihrer Ressourcengruppe.
+1. Navigieren Sie im Azure-Portal zurück zu Ihrer Ressourcengruppe.
 
-2. Öffnen Sie die Botregistrierung.
+2. Öffnen Sie Ihren Bot.
 
-3. Wählen Sie unter „Botverwaltung“ die Option „Testen“ in Webchat aus.
+3. Wählen Sie unter **Botverwaltung** die Option **Testen im Webchat**.
 
 ![Testen in Webchat](media/azure-bot-quickstarts/getting-started-test-webchat.png)
 
 4. Geben Sie eine Nachricht wie `Hi` ein, und drücken Sie die EINGABETASTE. Der Bot gibt `Turn 1: You sent Hi` zurück.
 
+## <a name="next-steps"></a>Nächste Schritte
+> [!div class="nextstepaction"]
+> [Einrichten von Continuous Deployment](bot-service-build-continuous-deployment.md)
