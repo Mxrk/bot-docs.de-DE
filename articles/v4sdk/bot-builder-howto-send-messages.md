@@ -9,18 +9,18 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 08/23/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 075e9b3a41462bfbb1398bd72840cc7e50d3cfca
-ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
+ms.openlocfilehash: 5b7faaae63bdc084dac570cb33ebbc755ccbcc19
+ms.sourcegitcommit: aef7d80ceb9c3ec1cfb40131709a714c42960965
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/23/2018
-ms.locfileid: "46707516"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49383115"
 ---
 # <a name="send-text-and-spoken-messages"></a>Senden von SMS und gesprochenen Nachrichten
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-Die primäre Art und Weise, wie Ihr Bot mit Benutzern kommuniziert und seinerseits Kommunikation empfängt, erfolgt über **Nachrichten**aktivitäten. Einige Nachrichten bestehen einfach aus Nur-Text, während andere reichhaltigere Inhalte wie Karten oder Anlagen enthalten können. Der turn-Handler Ihres Bots empfängt Nachrichten vom Benutzer, und Sie können Antworten an den Benutzer von dort aus senden. Das [Turn-Kontextobjekt](bot-builder-concept-activity-processing.md#turn-context) stellt Methoden bereit, mit denen Nachrichten zurück an den Benutzer gesendet werden können. Weitere Informationen zur Aktivitätsverarbeitung im Allgemeinen finden Sie unter [Aktivitätsverarbeitung](bot-builder-concept-activity-processing.md).
+Die primäre Art und Weise, wie Ihr Bot mit Benutzern kommuniziert und seinerseits Kommunikation empfängt, erfolgt über **Nachrichten**aktivitäten. Einige Nachrichten bestehen einfach aus Nur-Text, während andere reichhaltigere Inhalte wie Karten oder Anlagen enthalten können. Der turn-Handler Ihres Bots empfängt Nachrichten vom Benutzer, und Sie können Antworten an den Benutzer von dort aus senden. Das turn-Kontextobjekt stellt Methoden zum Senden von Nachrichten zurück an den Benutzer bereit. Weitere Informationen zur Aktivitätsverarbeitung im Allgemeinen finden Sie unter [Aktivitätsverarbeitung](~/v4sdk/bot-builder-basics.md#the-activity-processing-stack).
 
 Dieser Artikel beschreibt, wie einfache Text- und Sprachnachrichten gesendet werden. Informationen zum Senden umfangreicherer Inhalte finden Sie unter [Hinzufügen von Rich-Media-Anlagen](bot-builder-howto-add-media-attachments.md). Informationen zum Verwenden von Eingabeaufforderungsobjekten finden Sie unter [Auffordern von Benutzern zur Eingabe](bot-builder-prompts.md).
 
