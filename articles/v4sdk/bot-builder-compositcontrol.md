@@ -1,20 +1,21 @@
 ---
 title: Erstellen eines integrierten Dialogsatzes | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie Ihre Botlogik mithilfe des Dialogcontainers im Bot Builder SDK für Node.js und C# modularisieren können.
+description: Erfahren Sie, wie Sie Ihre Botlogik mithilfe des Dialogfeldcontainers im Bot Builder SDK für Node.js und C# modularisieren können.
 keywords: zusammengesetztes Steuerelement, modulare Botlogik
 author: v-ducvo
 ms.author: v-ducvo
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 10/08/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 3c6209c5f9eac1cd58ed5c9584875b2aff2a1f0c
-ms.sourcegitcommit: a9270702536eb34dedf5128bf57889c1ffcd7f4c
+ms.openlocfilehash: 0fdb80e45b343faa0eac50db045637e1ee61186e
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49088902"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49999789"
 ---
 # <a name="create-an-integrated-set-of-dialogs"></a>Erstellen eines integrierten Dialogsatzes
 
@@ -56,7 +57,7 @@ npm install --save botbuilder-dialogs
 
 ## <a name="managing-state"></a>Verwalten des Zustands
 
-Es gibt viele Möglichkeiten, um die Zustandsverwaltung für einen Bot einzurichten, der zusammengesetzte Dialoge verwendet. In diesem Bot gibt jeder Komponentendialog ein Objekt als Dialogergebnis zurück. Im aufrufenden Kontext werden die zurückgegebenen Werte verwaltet. Weitere Informationen zur Zustandsverwaltung finden Sie unter [Verwalten des Konversations- und Benutzerzustands](bot-builder-howto-v4-state.md).
+Es gibt viele Möglichkeiten, um Zustandsverwaltung für einen Bot einzurichten, der zusammengesetzte Dialogfelder verwendet. In diesem Bot gibt jeder Komponentendialog ein Objekt als Dialogergebnis zurück. Im aufrufenden Kontext werden die zurückgegebenen Werte verwaltet. Weitere Informationen zur Zustandsverwaltung finden Sie unter [Speichern des Zustands mit Unterhaltungs- und Benutzereigenschaften](bot-builder-howto-v4-state.md).
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -232,19 +233,19 @@ const myBot = new MyBot(conversationState, userState);
 
 ## <a name="define-the-check-in-component-dialog"></a>Definieren des Dialogs für das Einchecken
 
-Zunächst starten wir mit einem einfachen Dialog für das Einchecken, bei dem der Benutzer nach seinem Namen und dem gewünschten Zimmertyp gefragt wird. Wir erstellen eine `CheckInDialog`-Klasse, mit der `ComponentDialog` erweitert wird. Diese Klasse verfügt über einen Konstruktor, mit dem der Name des Stammdialogs definiert wird. Wir definieren ihn als Wasserfalldialog mit drei Schritten.
+Zunächst starten wir mit einem einfachen Eincheckdialogfeld, das den Benutzer nach seinem Namen und dem gewünschten Zimmertyp fragt. Wir erstellen eine `CheckInDialog`-Klasse, mit der `ComponentDialog` erweitert wird. Diese Klasse verfügt über einen Konstruktor, mit dem der Name des Stammdialogs definiert wird. Wir definieren ihn als Wasserfalldialog mit drei Schritten.
 
 Dies sind die Schritte für den Dialog zum Einchecken.
 
 1. Fragen nach dem Namen des Gasts.
 1. Fragen nach dem gewünschten Zimmertyp.
-1. Senden einer Bestätigungsnachricht und Beenden des Dialogs.
+1. Senden einer Bestätigungsnachricht und Beenden des Dialogfelds.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 Fügen Sie Ihrem Projekt eine `CheckInDialog`-Klasse hinzu, indem Sie den unten angegebenen Code verwenden.
 
-Im gesamten Dialog kann in ein lokales Zustandsobjekt geschrieben werden, auf das über die `Values`-Eigenschaft des Schrittkontexts zugegriffen werden kann. Nachdem der Dialog abgeschlossen wurde, wird das lokale Zustandsobjekt verworfen. Daher geben wir einen Wert aus dem Dialog zurück, der die Informationen zum Gast enthält.
+Im gesamten Dialog kann in ein lokales Zustandsobjekt geschrieben werden, auf das über die `Values`-Eigenschaft des Schrittkontexts zugegriffen werden kann. Nachdem das Dialogfeld abgeschlossen wurde, wird das lokale Zustandsobjekt verworfen. Daher geben wir einen Wert aus dem Dialog zurück, der die Informationen zum Gast enthält.
 
 ```csharp
 using System.Threading;
@@ -331,7 +332,7 @@ public class CheckInDialog : ComponentDialog
 
 Erstellen Sie die Datei **checkInDialog.js**, und fügen Sie sie einer `CheckInDialog`-Klasse hinzu, mit der `ComponentDialog` erweitert wird.
 
-Im gesamten Dialog kann in ein lokales Zustandsobjekt geschrieben werden, auf das über die `values`-Eigenschaft des Schrittkontexts zugegriffen werden kann. Nachdem der Dialog abgeschlossen wurde, wird das lokale Zustandsobjekt verworfen. Daher geben wir einen Wert aus dem Dialog zurück, der die Informationen zum Gast enthält.
+Im gesamten Dialog kann in ein lokales Zustandsobjekt geschrieben werden, auf das über die `values`-Eigenschaft des Schrittkontexts zugegriffen werden kann. Nachdem das Dialogfeld abgeschlossen wurde, wird das lokale Zustandsobjekt verworfen. Daher geben wir einen Wert aus dem Dialog zurück, der die Informationen zum Gast enthält.
 
 ```JavaScript
 const { ComponentDialog, TextPrompt, WaterfallDialog } = require('botbuilder-dialogs');
@@ -377,18 +378,18 @@ exports.CheckInDialog = CheckInDialog;
 
 ## <a name="define-the-reserve-table-and-wake-up-component-dialogs"></a>Definieren der Komponentendialoge für Tischreservierung und Weckruf
 
-Ein Vorteil der Verwendung eines Komponentendialogs ist die Möglichkeit, unterschiedliche Dialoge zusammen zu verwenden. Da jedes `DialogSet`-Objekt eine exklusive Sammlung von `dialogs` verwaltet, kann das Freigeben von oder Angeben von Querverweisen für `dialogs` nicht auf einfache Weise ausgeführt werden. Hier kommt der Komponentendialog ins Spiel. Sie können komplexe bzw. komplizierte Aspekte des Konversationsflusses in Komponentendialogen kapseln, um die Verwaltung und Wartung von Dialogen zu vereinfachen. Wir erstellen nun die anderen beiden Komponentendialoge: einen mit der Frage, welchen Tisch der Benutzer für das Abendessen reservieren möchte, und einen zum Erstellen eines Weckrufs. Wir verwenden wieder eine separate Klasse für jeden Dialog, und mit jedem Dialog wird das Hauptelement `ComponentDialog` erweitert.
+Ein Vorteil der Verwendung eines Komponentendialogs ist die Möglichkeit, unterschiedliche Dialoge zusammen zu verwenden. Da jedes `DialogSet`-Objekt eine exklusive Sammlung von `dialogs` verwaltet, kann das Freigeben von oder Angeben von Querverweisen für `dialogs` nicht auf einfache Weise ausgeführt werden. Hier kommt das Komponentendialogfeld ins Spiel. Sie können komplexe bzw. komplizierte Aspekte des Konversationsflusses in Komponentendialogen kapseln, um die Verwaltung und Wartung von Dialogen zu vereinfachen. Wir erstellen nun die anderen beiden Komponentendialoge: einen mit der Frage, welchen Tisch der Benutzer für das Abendessen reservieren möchte, und einen zum Erstellen eines Weckrufs. Wir verwenden wieder eine separate Klasse für jeden Dialog, und mit jedem Dialog wird das Hauptelement `ComponentDialog` erweitert.
 
 Wir entwerfen die Dialoge so, dass Gastinformationen in den Dialogoptionen akzeptiert werden, wenn sie gestartet werden.
 
 Dies sind die Schritte für den Dialog zum Reservieren eines Tischs:
 
-1. Fragen nach dem zu reservierenden Tisch
+1. Fragen nach dem zu reservierenden Tisch.
 1. Senden einer Bestätigungsnachricht und Abschließen des Dialogs, Zurückgeben der Tischnummer
 
 Dies sind die Schritte für den Dialog zum Festlegen der Weckzeit:
 
-1. Fragen nach der gewünschten Weckzeit, die festgelegt werden soll
+1. Fragen nach der gewünschten Weckzeit, die festgelegt werden soll.
 1. Senden einer Bestätigungsnachricht und Abschließen des Dialogs, Zurückgeben der Weckzeit
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
@@ -643,8 +644,8 @@ exports.SetAlarmDialog = SetAlarmDialog;
 
 Nachdem wir die drei Komponentendialoge definiert haben, können wir sie im Bot einsetzen.
 
-- Alle drei Dialoge werden dem Hauptdialogsatz unseres Bots hinzugefügt.
-- Wenn eine neue Konversation gestartet wird, ist kein aktiver Dialog vorhanden, und die on-turn-Logik des Bots übernimmt die Steuerung.
+- Alle drei Dialogfelder werden dem Hauptdialogfeldsatz unseres Bots hinzugefügt.
+- Wenn eine neue Unterhaltung gestartet wird, gibt es kein aktives Dialogfeld, und die on-turn-Logik des Bots übernimmt die Steuerung.
 - Falls wir nicht über Gastinformationen zum Benutzer verfügen, starten wir den Dialog für das Einchecken.
 - Nachdem wir die Gastinformationen erhalten haben, übernimmt der Hauptdialog, und der Benutzer kann den Dialog für die Tischreservierung oder das Festlegen der Weckzeit wiederholt starten.
 
@@ -972,7 +973,7 @@ async onTurn(turnContext) {
 
 ---
 
-Wie Sie sehen können, werden die Komponentendialoge dem Hauptdialog des Bots auf ähnliche Weise hinzugefügt, wie dies bei [Eingabeaufforderungen](bot-builder-prompts.md) für einen Dialog der Fall ist. Sie können dem Hauptdialog beliebig viele untergeordnete Dialoge hinzufügen. Jedes Modul fügt zusätzliche Funktionen und Dienste hinzu, die der Bot Ihren Benutzern anbieten kann.
+Wie Sie sehen können, werden die Komponentendialoge dem Hauptdialog des Bots auf ähnliche Weise hinzugefügt, wie dies bei [Eingabeaufforderungen](bot-builder-prompts.md) für einen Dialog der Fall ist. Sie können dem Hauptdialogfeld beliebig viele untergeordnete Dialogfelder wie gewünscht hinzufügen. Jedes Modul fügt zusätzliche Funktionen und Dienste hinzu, die der Bot Ihren Benutzern anbieten kann.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

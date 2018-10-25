@@ -6,14 +6,15 @@ author: ivorb
 ms.author: v-ivorb
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 09/26/2018
-ms.openlocfilehash: ee7a7a9f1b4c06f8ad762f750099383e218d98f2
-ms.sourcegitcommit: b8bd66fa955217cc00b6650f5d591b2b73c3254b
+ms.openlocfilehash: afb1c4a0e766df7ac2d122b3c7ca4e7959871dbb
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326427"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997277"
 ---
 # <a name="download-and-redeploy-bot-code"></a>Herunterladen und erneutes Bereitstellen des Botcodes
 Mit Azure Bot Service können Sie das gesamte Quellprojekt für Ihren Bot herunterladen, damit Sie lokal in einer IDE Ihrer Wahl arbeiten können. Nachdem Sie die Aktualisierung des Codes abgeschlossen haben, können Sie Ihre Änderungen wieder im Azure-Portal veröffentlichen. Wir zeigen Ihnen, wie Sie Code mit dem Azure-Portal und der `az`-CLI herunterladen. Außerdem wird beschrieben, wie Sie Ihren aktualisierten Botcode mit Visual Studio und der `az`-Cli erneut bereitstellen. Sie können die Methode auswählen, die für Sie am besten geeignet ist.
