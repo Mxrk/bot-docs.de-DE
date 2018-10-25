@@ -5,15 +5,16 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 03/13/2018
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 96f21f02e74c8f7d78a699c37eb8324b4d36139e
-ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
+ms.openlocfilehash: b03003d4822c657f9b606de36087ddf4d5cbee7a
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39574676"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997648"
 ---
 # <a name="add-suggested-actions-to-messages"></a>Hinzufügen von vorgeschlagenen Aktionen zu Nachrichten
 
@@ -41,9 +42,9 @@ Wenn der Benutzer auf eine der vorgeschlagenen Aktionen tippt, empfängt der Bot
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-- [Preview features with the Channel Inspector (Featurevorschau mit dem Kanalinspektor)][inspector]
-- [Activities overview (Übersicht über Aktivitäten)](bot-builder-dotnet-activities.md)
-- [Create messages (Erstellen von Nachrichten)](bot-builder-dotnet-create-messages.md)
+- [Funktionsvorschau mit Channel Inspector][inspector]
+- [Übersicht über Aktivitäten](bot-builder-dotnet-activities.md)
+- [Erstellen von Nachrichten](bot-builder-dotnet-create-messages.md)
 - <a href="https://docs.botframework.com/en-us/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html" target="_blank">Activity-Klasse</a>
 - <a href="/dotnet/api/microsoft.bot.connector.imessageactivity" target="_blank">IMessageActivity-Schnittstelle</a>
 - <a href="/dotnet/api/microsoft.bot.connector.cardaction" target="_blank">CardAction-Klasse</a>

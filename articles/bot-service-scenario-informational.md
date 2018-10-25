@@ -5,15 +5,15 @@ author: BrianRandell
 ms.author: v-brra
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 43eb8e25e2a17e1d6b1d30e767dd15569fcad78b
-ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
+ms.openlocfilehash: 22902f1f590661c0973d7f0427b13ee45f0d7227
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39574866"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998987"
 ---
 # <a name="information-bot-scenario"></a>Szenario für einen Informationsbot
 
@@ -57,7 +57,7 @@ QnA Maker von Cognitive Services hilft Ihnen bei der Bereitstellung einer Datenq
 Azure Search ist ein Cloudsuchdienst für Apps, mit dem Ihre Suchindizes schnell einsatzbereit sind. Die Ausführung erfolgt auf Microsoft Azure und kann entsprechend der Nutzungsanforderungen problemlos hoch- und herunterskaliert werden kann. Sie können Suchergebnisse mit Geschäftszielen verbinden und haben dabei umfassende Kontrolle über die Suchrelevanz und können in Ihren Datenbanken verborgene Daten zugänglich machen.
 
 ### <a name="application-insights"></a>Application Insights
-Mit Application Insights können Sie nützliche Erkenntnisse mit Application Performance Management (APM) und Sofortanalysen sammeln. Sie erhalten ohne großen Konfigurationsaufwand eine umfassende Leistungsüberwachung, leistungsstarke Warnungen und einfach zu bedienende Dashboards, damit die Verfügbarkeit und Leistung Ihres Bots Ihren Erwartungen entspricht. Sie können schnell ermitteln, ob ein Problem besteht, und anschließend eine Ursachenanalyse durchführen, um das Problem zu lokalisieren und zu beheben.
+Mit Application Insights können Sie nützliche Erkenntnisse mit Application Performance Management (APM) und Sofortanalysen sammeln. Sie erhalten eine umfangreiche Überwachung der Leistung, leistungsstarke Warnungen und einfach zu bedienende Dashboards ohne großen Konfigurationsaufwand, damit die Verfügbarkeit und Leistung Ihres Bots Ihren Erwartungen entspricht. Sie können schnell ermitteln, ob ein Problem besteht, und anschließend eine Ursachenanalyse durchführen, um das Problem zu lokalisieren und zu beheben.
 
 ## <a name="next-steps"></a>Nächste Schritte
 Als Nächstes lernen Sie das Bot-Szenario für das Internet der Dinge kennen.

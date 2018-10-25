@@ -6,14 +6,15 @@ author: v-ducvo
 ms.author: rstand
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: abs
 ms.date: 12/13/2017
-ms.openlocfilehash: f64dddedc0215e1277a9570201b14e53fb031d9b
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: c1d8adef58c688b3678af7a80964021292d0b1d0
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302264"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997607"
 ---
 # <a name="manage-a-bot"></a>Verwalten eines Bots
 
@@ -36,7 +37,7 @@ Auf dem Blatt **Übersicht** finden Sie detaillierte Informationen über Ihren B
 | **Build** | Die Registerkarte „Build“ bietet Optionen zum Vornehmen von Änderungen an Ihrem Bot. Diese Option ist für **Nur für die Registrierung vorgesehene Bots** nicht verfügbar. |
 | **Testen in Webchat** | Nutzen Sie die integrierte Webchatsteuerung, um Ihren Bot schnell zu testen. |
 | **Analyse** | Wenn die Analyse für Ihren Bot aktiviert ist, können Sie die Analysedaten anzeigen, die Application Insights für Ihren Bot gesammelt hat. |
-| **Kanäle** | Konfigurieren Sie die Kanäle, die Ihr Bot für die Kommunikation mit Benutzern verwendet. |
+| **Channels** | Konfigurieren Sie die Kanäle, die Ihr Bot für die Kommunikation mit Benutzern verwendet. |
 | **Einstellungen** | Verwalten Sie verschiedene Botprofileinstellungen wie Anzeigename, Analyse und Messagingendpunkt. |
 | **Sprachvorbereitung** | Verwalten Sie die Verbindungen zwischen Ihrer LUIS-App und dem Bing-Spracheingabedienst. |
 | **Botdienst – Preise** | Verwalten Sie den Tarif für den Botdienst. |
