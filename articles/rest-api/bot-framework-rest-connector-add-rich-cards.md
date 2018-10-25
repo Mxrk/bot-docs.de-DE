@@ -5,14 +5,15 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: 04f70777003ef5298de264f5ee8685b3a5005395
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: e38bb7ca93c5fc4174d67d1c5ebb0655eef68653
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303328"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997912"
 ---
 # <a name="add-rich-card-attachments-to-messages"></a>Hinzufügen von Rich Card-Anlagen zu Nachrichten
 > [!div class="op_single_selector"]
@@ -53,24 +54,24 @@ Zum Verarbeiten von Ereignissen in Rich Cards verwenden Sie [CardAction][CardAct
 | type | Zeichenfolge | Typ der Aktion (einer der in der folgenden Tabelle angegebenen Werte) |
 | title | Zeichenfolge | Titel der Schaltfläche |
 | image | Zeichenfolge | Bild-URL für die Schaltfläche |
-| value | Zeichenfolge | Wert, der zum Ausführen von des angegebenen Aktionstyps erforderlich ist |
+| value | Zeichenfolge | Wert, der zum Ausführen des angegebenen Aktionstyps erforderlich ist |
 
 > [!NOTE]
-> Schaltflächen innerhalb von Adaptive Cards werden nicht mit `CardAction`-Objekten, sondern unter Verwendung des von <a href="http://adaptivecards.io" target="_blank">Adaptive Cards</a> definierten Schemas erstellt. Ein Beispiel, das zeigt, wie Sie Schaltflächen zu einer Adaptive Card hinzufügen, finden Sie unter [Hinzufügen einer Adaptive Card zu einer Nachricht](#adaptive-card).
+> Schaltflächen auf adaptiven Karten werden nicht mit `CardAction`-Objekten, sondern mit dem von <a href="http://adaptivecards.io" target="_blank">adaptiven Karten</a> definierten Schema erstellt. Ein Beispiel, das zeigt, wie Sie Schaltflächen zu einer Adaptive Card hinzufügen, finden Sie unter [Hinzufügen einer Adaptive Card zu einer Nachricht](#adaptive-card).
 
 Diese Tabelle listet die gültigen Werte für die `type` Eigenschaft eine [CardAction][CardAction] Objekt aus, und beschreibt den erwarteten Inhalt der `value` -Eigenschaft für jeden Typ:
 
 | type | value | 
 |----|----|
-| openUrl | URL, die im integrierten Browser geöffnet werden soll |
-| imBack | Text der Nachricht, die an den Bot gesendet werden soll (vom Benutzer, der auf die Schaltfläche geklickt oder auf die Karte getippt hat). Diese Nachricht (vom Benutzer an den Bot) ist für alle Teilnehmer der Konversation über die Clientanwendung sichtbar, auf der die Konversation gehostet wird. |
-| postBack | Text der Nachricht, die an den Bot gesendet werden soll (vom Benutzer, der auf die Schaltfläche geklickt oder auf die Karte getippt hat). Einige Clientanwendungen zeigen diesen Text unter Umständen im Nachrichtenfeed an, wo er für alle Teilnehmer der Konversation sichtbar ist. |
-| Aufruf | Ziel für einen Telefonanruf, im folgenden Format: **tel:123123123123** |
-| playAudio | URL der Audiodaten, die wiedergegeben werden sollen |
-| playVideo | URL des Videos, das wiedergegeben werden soll |
-| showImage | URL des Bilds, das angezeigt werden soll |
-| downloadFile | URL der Datei, die heruntergeladen werden soll |
-| signin | URL des OAuth-Flows, der initiiert werden soll |
+| openUrl | Die URL, die im integrierten Browser geöffnet werden soll. |
+| imBack | Der Text der Nachricht, die an den Bot gesendet werden soll (vom Benutzer, der auf die Schaltfläche geklickt oder auf die Karte getippt hat). Diese Nachricht (vom Benutzer an den Bot) ist für alle Unterhaltungsteilnehmer über die Clientanwendung sichtbar, auf der die Unterhaltung gehostet wird. |
+| postBack | Der Text der Nachricht, die an den Bot gesendet werden soll (vom Benutzer, der auf die Schaltfläche geklickt oder auf die Karte getippt hat). Einige Clientanwendungen zeigen diesen Text ggf. im Nachrichtenfeed an, wo er für alle Teilnehmer der Unterhaltung sichtbar ist. |
+| Aufruf | Ziel für einen Telefonanruf, im folgenden Format: **tel:123123123123**. |
+| playAudio | Die URL der Audiodatei, die wiedergegeben werden soll. |
+| playVideo | Die URL des Videos, das wiedergegeben werden soll. |
+| showImage | Die URL des Bilds, das angezeigt werden soll. |
+| downloadFile | Die URL der Datei, die heruntergeladen werden soll. |
+| signin | Die URL des OAuth-Flusses, der initiiert werden soll. |
 
 ## <a name="add-a-hero-card-to-a-message"></a>Hinzufügen einer Hero Card zu einer Nachricht
 
@@ -146,7 +147,7 @@ Content-Type: application/json
 
 ## <a id="adaptive-card"></a> Hinzufügen einer Adaptive Card zu einer Nachricht
 
-Die Adaptive Card kann eine beliebige Kombination von Text, Sprache, Bildern, Schaltflächen und Eingabefeldern enthalten. Adaptive Cards werden mit dem in <a href="http://adaptivecards.io" target="_blank">Adaptive Cards</a> angegebenen JSON-Format erstellt, das Ihnen die vollständige Kontrolle über Inhalt und Format der Karte gibt. 
+Adaptive Karten können eine beliebige Kombination von Text, Sprache, Bildern, Schaltflächen und Eingabefeldern enthalten. Adaptive Cards werden mit dem in <a href="http://adaptivecards.io" target="_blank">Adaptive Cards</a> angegebenen JSON-Format erstellt, das Ihnen die vollständige Kontrolle über Inhalt und Format der Karte gibt. 
 
 Nutzen Sie die Informationen auf der <a href="http://adaptivecards.io" target="_blank">Adaptive Cards</a>-Website, um das Adaptive Card-Schema zu verstehen, Adaptive Card-Elemente zu untersuchen und sich JSON-Beispiele anzuschauen, die verwendet werden können, um Karten mit unterschiedlichem Aufbau und unterschiedlicher Komplexität zu erstellen. Darüber hinaus können Sie die interaktive Schnellansicht verwenden, um Adaptive Card-Nutzlasten zu entwerfen und die Kartenausgabe in der Vorschau anzeigen.
 
@@ -247,7 +248,7 @@ Content-Type: application/json
 
 Die daraus resultierende Karte enthält drei Textblöcke, ein Eingabefeld (Auswahlliste) und drei Schaltflächen:
 
-![Adaptive Card-Kalendererinnerung](../media/adaptive-card-reminder.png)
+![Adaptive Karte für eine Kalendererinnerung](../media/adaptive-card-reminder.png)
 
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen

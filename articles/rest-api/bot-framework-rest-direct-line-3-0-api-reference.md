@@ -5,14 +5,15 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: 2e47591b04a91ce02cfeb6bd6485080426d201b5
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: d69f1f658520790ff429ecd25a190319e321164d
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301864"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998107"
 ---
 # <a name="api-reference---direct-line-api-30"></a>Referenz zur Direct Line-API 3.0
 

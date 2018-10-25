@@ -5,14 +5,15 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: abs
 ms.date: 12/13/2017
-ms.openlocfilehash: 980ee1c6e4e54ff3f74ccfa618b0aeff7b507815
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 38b26ed5a50409de64518562faabf532f45c857e
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303048"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49999147"
 ---
 # <a name="publish-a-bot-to-bot-service"></a>Veröffentlichen eines Bots in Bot Service
 
@@ -42,7 +43,7 @@ Führen Sie die folgenden Schritte aus, um die Veröffentlichung aus Visual Stud
 
 Sie haben jetzt die Veröffentlichung für dieses Projekt konfiguriert. Um den lokalen Quellcode in Bot Service zu veröffentlichen, klicken Sie mit der rechten Maustaste auf das Projekt, klicken Sie auf **Veröffentlichen...**, und klicken Sie dann auf die Schaltfläche **Veröffentlichen**. 
 
-## <a name="set-up-continuous-deployment"></a>Einrichten von Continuous Deployment
+## <a name="set-up-continuous-deployment"></a>Einrichten der fortlaufenden Bereitstellung
 
 Standardmäßig ermöglicht Bot Service Ihnen die Entwicklung Ihres Bots direkt im Browser mit dem Azure-Editor, ohne dass ein lokaler Editor oder eine lokale Quellcodeverwaltung erforderlich ist. Der Azure-Editor ermöglicht jedoch keine Verwaltung von Dateien innerhalb Ihrer Anwendung (z.B. das Hinzufügen, Umbenennen oder Löschen von Dateien). Wenn Sie die Möglichkeit zur Verwaltung von Dateien in Ihrer Anwendung haben möchten, können Sie Continuous Deployment einrichten und die integrierte Entwicklungsumgebung (IDE) sowie das Quellcodeverwaltungssystem Ihrer Wahl (z.B. Visual Studio Team, GitHub, Bitbucket) verwenden. Bei konfiguriertem Continuous Deployment werden alle Codeänderungen, für die Sie ein Commit zur Quellcodeverwaltung durchführen, automatisch in Azure bereitgestellt. Nachdem Sie Continuous Deployment konfiguriert haben, können Sie [Ihren Bot lokal debuggen](bot-service-debug-bot.md).
 
@@ -81,7 +82,7 @@ Wählen Sie die Bereitstellungsquelle für Ihren Bot aus, und stellen Sie eine V
 3. Klicken Sie auf **Konfigurieren**, wählen Sie die Bereitstellungsquelle aus, die dem Quellcodeverwaltungssystem entspricht, in dem Sie zuvor das leere Repository erstellt haben, und führen Sie die Schritte zum Herstellen einer Verbindung aus.   
 
 
-## <a name="disable-continuous-deployment"></a>Deaktivieren von Continuous Deployment 
+## <a name="disable-continuous-deployment"></a>Deaktivieren der fortlaufenden Bereitstellung 
 
 Wenn Sie Continuous Deployment deaktivieren, ist der Quellcodeverwaltungsdienst weiter funktionsfähig, aber von Ihnen eingecheckte Änderungen werden nicht automatisch in Azure veröffentlicht. Zum Deaktivieren von Continuous Deployment führen Sie die folgenden Schritte aus:
 

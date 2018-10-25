@@ -5,21 +5,22 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: 1557941d4e5413108ea3ce788f7d5d684252b657
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: b0d5ca6893d70a73bc005a949ef6cc2518d3862f
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39298749"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50000027"
 ---
 # <a name="manage-state-data"></a>Verwalten von Zustandsdaten
 
 Der Bot State-Dienst ermöglicht Ihren Bots, Daten zu speichern und abzurufen, die einem Benutzer, einer Konversation oder einem bestimmten Benutzer innerhalb des Kontexts einer bestimmten Konversation zugeordnet sind. Sie können bis zu 32 KB an Daten für jeden Benutzer bzw. jede Konversation auf einem Kanal und jeden Benutzer im Kontext einer Konversation auf einem Kanal speichern. Zustandsdaten können für viele Zwecke verwendet werden, z.B. zum Bestimmen, wo eine frühere Konversation unterbrochen wurde, oder einfach zur Begrüßung eines zurückkehrenden Benutzers mit seinem Namen. Wenn Sie die Einstellungen eines Benutzers speichern, können Sie diese Informationen zum Anpassen der Konversation beim nächsten Chat verwenden. Sie können beispielsweise den Benutzer auf einen Nachrichtenartikel zu einem Thema, das ihn interessiert, aufmerksam machen oder einen Benutzer benachrichtigen, wenn ein Termin verfügbar wird. 
 
 > [!IMPORTANT]
-> Die Bot Framework-Zustandsdienst-API wird nicht für Produktionsumgebungen empfohlen und kann in einem zukünftigen Release veraltet sein. Es wird empfohlen, Ihren Botcode zu aktualisieren, um den In-Memory-Speicher für Testzwecke zu nutzen, oder eine der **Azure-Erweiterungen** für Produktionsbots zu verwenden. Weitere Informationen finden Sie im Thema **Verwalten von Zustandsdaten** für die Implementierung unter [.NET](~/dotnet/bot-builder-dotnet-state.md) bzw. [Node](~/nodejs/bot-builder-nodejs-state.md).
+> Die Bot Framework-Zustandsdienst-API wird nicht für Produktionsumgebungen empfohlen und kann in einem zukünftigen Release veraltet sein. Es wird empfohlen, dass Sie Ihren Bot-Code aktualisieren, um den In-Memory-Speicher für Testzwecke zu nutzen, oder eine der **Azure-Erweiterungen** für Produktions-Bots verwenden. Weitere Informationen finden Sie im Thema **Verwalten von Zustandsdaten** für die Implementierung unter [.NET](~/dotnet/bot-builder-dotnet-state.md) bzw. [Node](~/nodejs/bot-builder-nodejs-state.md).
 
 ## <a id="concurrency"></a> Datenparallelität
 

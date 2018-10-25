@@ -5,15 +5,16 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 34a4cb3623c4265b062eb66ebfb2180551ac1985
-ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
+ms.openlocfilehash: 3b01a0e672b2c020462289384ddf68aafedf5314
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39574566"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997257"
 ---
 # <a name="key-concepts-in-the-bot-builder-sdk-for-net"></a>Wichtige Konzepte im Bot Builder SDK für .NET
 
@@ -47,7 +48,7 @@ Im Bot Builder SDK für .NET können Sie mit der [Builder][builderLibrary]-Bibli
 
 Sie können [FormFlow](bot-builder-dotnet-formflow.md) im Bot Builder SDK für .NET verwenden, um die Erstellung eines Bots, der Informationen vom Benutzer sammelt, zu optimieren. Beispielsweise muss ein Bot, der Sandwichbestellungen entgegennimmt, verschiedene Angaben vom Benutzer sammeln, z.B. die Brotsorte, die Auswahl des Belags, die Größe usw. Mit grundlegenden Richtlinien kann FormFlow die erforderlichen Dialoge zum Verwalten einer geführten Konversation wie dieser automatisch generieren.
 
-## <a name="state"></a>State (Zustand)
+## <a name="state"></a>Zustand
 
 [!INCLUDE [State concept overview](../includes/snippet-dotnet-concept-state.md)]
 

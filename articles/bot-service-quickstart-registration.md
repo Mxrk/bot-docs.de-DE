@@ -5,15 +5,16 @@ author: v-ducvo
 ms.author: v-ducvo
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: abs
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: dc8b2723119a03e533f19dbf36446b7dbe0957df
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: dfc90f4c4c6e3ad00899569f667b5d3d88dcf042
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42906134"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49999957"
 ---
 # <a name="register-a-bot-with-bot-service"></a>Registrieren eines Bots bei Bot Service
 
@@ -49,7 +50,7 @@ Gehen Sie wie folgt vor, um eine **Bot Channels Registration** zu erstellen:
    |         <strong>Abonnement</strong>          |        Ihr Abonnement        |                                                                                Wählen Sie das Azure-Abonnement aus, das Sie verwenden möchten.                                                                                 |
    |        <strong>Ressourcengruppe</strong>         |         myResourceGroup         |                                 Sie können eine neue [Ressourcengruppe](/azure/azure-resource-manager/resource-group-overview#resource-groups) erstellen oder eine vorhandene Ressourcengruppe auswählen.                                  |
    |                    Standort                    |             USA (Westen)             |                                                        Wählen Sie einen Standort in der Nähe des Standorts, an dem Ihr Bot bereitgestellt wird, oder in der Nähe anderer Dienste aus, auf die Ihr Bot zugreift.                                                         |
-   |         <strong>Tarif</strong>          |               F0                |             Wählen Sie einen Tarif. Sie können den Tarif jederzeit ändern. Weitere Informationen finden Sie unter [Bot Service – Preise](https://azure.microsoft.com/en-us/pricing/details/bot-service/).              |
+   |         <strong>Preisstufe</strong>          |               F0                |             Wählen Sie einen Tarif. Sie können den Tarif jederzeit ändern. Weitere Informationen finden Sie unter [Bot Service – Preise](https://azure.microsoft.com/en-us/pricing/details/bot-service/).              |
    |      <strong>Messaging-Endpunkt</strong>       |               URL               |                                                                               Geben Sie die URL für den Messaging-Endpunkt Ihres Bots ein.                                                                                |
    |     <strong>Application Insights</strong>      |               Andererseits                | Entscheiden Sie, ob Sie [Application Insights](bot-service-manage-analytics.md) <strong>aktivieren</strong> oder <strong>deaktivieren</strong> möchten. Wenn Sie <strong>Ein</strong> auswählen, müssen Sie auch einen regionalen Standort angeben. |
    | <strong>Microsoft-App-ID und Kennwort</strong> | Automatisch erstellte App-ID mit Kennwort |              Verwenden Sie diese Option, wenn Sie manuell eine Microsoft-App-ID und ein Kennwort eingeben müssen. Andernfalls werden beim Erstellen des Bots eine neue Microsoft-App-ID und ein Kennwort für Sie erstellt.               |

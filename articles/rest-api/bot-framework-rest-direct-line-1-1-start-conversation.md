@@ -5,21 +5,22 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: 36645ce3811c77a3ca7ed697eeae63027fa1644a
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: da81182d80ebac0d5aaba5a2660899d87c7e2b40
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302509"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50000217"
 ---
 # <a name="start-a-conversation"></a>Starten einer Unterhaltung
 
 > [!IMPORTANT]
 > Dieser Artikel beschreibt, wie Sie eine Unterhaltung mit Direct Line API v1.1 starten. Wenn Sie eine neue Verbindung zwischen Ihrer Clientanwendung und dem Bot erstellen, verwenden Sie stattdessen [Direct Line API 3.0](bot-framework-rest-direct-line-3-0-start-conversation.md).
 
-Direct Line-Unterhaltungen werden explizit von Clients geöffnet und können solange ausgeführt werden, wie Bot und Client daran teilnehmen und gültige Anmeldeinformationen haben. Solange die Unterhaltung geöffnet ist, können der Bot und der Client Nachrichten senden. Mehr als ein Client kann eine Verbindung zu einer bestimmten Unterhaltung herstellen, und jeder Client kann im Namen mehrerer Benutzer teilnehmen.
+Direct Line-Unterhaltungen werden explizit von Clients geöffnet und können solange ausgeführt werden, wie Bot und Client daran teilnehmen und gültige Anmeldeinformationen haben. Solange die Unterhaltung geöffnet ist, können der Bot und der Client Nachrichten senden. Es können mehrere Clients eine Verbindung mit einer bestimmten Unterhaltung herstellen, und jeder Client kann im Namen mehrerer Benutzer teilnehmen.
 
 ## <a name="open-a-new-conversation"></a>Öffnen einer neuen Unterhaltung
 
@@ -30,7 +31,7 @@ POST https://directline.botframework.com/api/conversations
 Authorization: Bearer SECRET_OR_TOKEN
 ```
 
-Die folgenden Codeausschnitte enthalten ein Beispiel für die Anforderung zum und die Antwort auf das Starten einer Unterhaltung.
+Die folgenden Codeausschnitte enthalten ein Beispiel für die Anforderung zum Starten einer Unterhaltung und die Antwort darauf.
 
 ### <a name="request"></a>Anforderung
 

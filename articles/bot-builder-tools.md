@@ -6,15 +6,16 @@ author: ivorb
 ms.author: v-ivorb
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: tools
 ms.date: 09/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: c9bb7db964b891216ac5a169a57e0897ac98a6b2
-ms.sourcegitcommit: f0b22c6286e44578c11c9f15d22b542c199f0024
+ms.openlocfilehash: ef57cdf6a202679f9fc3a83e3e44640b43adb67f
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404036"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998359"
 ---
 # <a name="bot-builder-tools"></a>Bot Builder-Tools
 
@@ -24,23 +25,23 @@ Mit Bot Builder-[Tools][cliTools] wird der End-to-End-Workflow für die Bot-Entw
 - Sehen Sie sich zunächst die [Entwurfsrichtlinien](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-design-principles) für Bots an, um sich mit den bewährten Methoden vertraut zu machen.
 - Erstellen Sie simulierte Konversationen, indem Sie das [Chatdown](#create-mock-conversations-using-chatdown)-Tool verwenden.
 
-[Entwickeln](#build)
+[Build](#build)
 - Führen Sie einen Bootstrap-Vorgang für Language Understanding mit [LUDown](#bootstrap-language-understanding-with-ludown) durch.
 - Verfolgen Sie Dienstverweise mit [MSBot](#keep-track-of-service-references-using-bot-file).
 - Erstellen und verwalten Sie LUIS-Anwendungen mit der [LUIS CLI](#create-and-manage-luis-applications-using-luis-cli).
 - Erstellen Sie eine QnA Maker-Wissensdatenbank, indem Sie die [QnA Maker CLI](#create-qna-maker-kb-using-qna-maker-cli) verwenden.
 - Erstellen Sie ein Dispatchmodell mit der [Dispatch CLI](#create-dipsatch-model-using-dispatch-cli).
 
-[Testen](#test)
+[Test](#test)
 - Testen Sie Ihren Bot per [Bot Framework Emulator V4](https://aka.ms/bot-framework-emulator-v4-overview).
 
 [Veröffentlichen](#publish)
 - Sie können Bots erstellen, herunterladen und für Azure Bot Service veröffentlichen, indem Sie die [Azure CLI][azureCli] verwenden.
 
-[Verbinden](#configure-channels)
+[Herstellen einer Verbindung](#configure-channels)
 - Stellen Sie für Ihren Bot eine Verbindung mit Azure Bot Service-Kanälen her, indem Sie die [Azure CLI][azureCli] verwenden.
 
-## <a name="plan"></a>Planen
+## <a name="plan"></a>Plan
 
 ### <a name="create-mock-conversations-using-chatdown"></a>Erstellen von simulierten Konversationen mit Chatdown
 
@@ -246,7 +247,7 @@ dispatch create -b <YOUR-BOT-FILE> | msbot connect dispatch --stdin
 ```
 Weitere Informationen finden Sie unter [Dispatch CLI][dispatchCli].
 
-## <a name="test"></a>Testen
+## <a name="test"></a>Test
 
 [Bot Framework Emulator](https://github.com/Microsoft/BotFramework-Emulator/releases) ist eine Desktopanwendung, mit der Botentwickler ihre Bots auf localhost oder per Remoteausführung über einen Tunnel testen und debuggen können.
 
@@ -279,7 +280,7 @@ Bei einem bereits vorhandenen Bot:
 az bot show [options] --msbot | msbot connect bot --stdin
 ```
 
-| Option                            | Beschreibung                                   |
+| Option                            | BESCHREIBUNG                                   |
 |-----------------------------------|-----------------------------------------------|
 | --kind -k [Erforderlich]              | Die Art des Bots.  Zulässige Werte: function, registration, webapp.|
 | --name -n [Erforderlich]              | Der Ressourcenname des Bots. |
@@ -287,7 +288,7 @@ az bot show [options] --msbot | msbot connect bot --stdin
 | --location -l                     | Der Standort. Sie können den standardmäßig verwendeten Standort mit `az configure --defaults location=<location>` konfigurieren.  Standard: westus.|
 | --msbot                           | Die Ausgabe wird im JSON-kompatiblen Format mit einer BOT-Datei angezeigt.  Zulässige Werte: false, true.|
 | --password -p                     | Das MSA-Kennwort für den Bot aus dem Entwicklerportal. |
-| --resource-group -g               | Der Name der Ressourcengruppe. Sie können die Standardgruppe mit `az configure --defaults group=<name>` konfigurieren.  Standard: build2018. |
+| --resource-group -g               | Name der Ressourcengruppe Sie können die Standardgruppe mit `az configure --defaults group=<name>` konfigurieren.  Standard: build2018. |
 | --tags                            | Satz mit Tags, die dem Bot hinzugefügt werden sollen. |
 
 

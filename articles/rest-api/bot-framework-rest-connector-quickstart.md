@@ -5,20 +5,21 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: 3baf5bde772e67084a6046a8d2a8e7d631b245f6
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 57babac9594118c12805ff9023cf7086e526a273
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301741"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997938"
 ---
 # <a name="create-a-bot-with-the-bot-connector-service"></a>Erstellen eines Bots mit dem Bot Connector-Dienst
 > [!div class="op_single_selector"]
 > - [.NET](../dotnet/bot-builder-dotnet-quickstart.md)
 > - [Node.js](../nodejs/bot-builder-nodejs-quickstart.md)
-> - [Bot-Dienst](../bot-service-quickstart.md)
+> - [Bot Service](../bot-service-quickstart.md)
 > - [REST](../rest-api/bot-framework-rest-connector-quickstart.md)
 
 Der Bot Connector-Dienst ermöglicht es Ihrem Bot, Nachrichten mit im <a href="https://dev.botframework.com/" target="_blank">Bot Framework-Portal</a> konfigurierten Kanälen auszutauschen, indem die Branchenstandards REST und JSON gegenüber HTTPS bevorzugt werden. In diesem Tutorial erhalten Sie Anweisungen zum Abrufen eines Zugriffstokens aus Bot Framework und zum Verwenden des Bot Connector-Dienst zum Austauschen von Nachrichten zwischen Benutzern.

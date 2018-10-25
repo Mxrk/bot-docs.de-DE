@@ -5,15 +5,15 @@ author: BrianRandell
 ms.author: v-brra
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 15745bc25013df2fd18b0a2045ae2314d6c361e2
-ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
+ms.openlocfilehash: f880bc9a424fd9905f7e4ced25e97e2c37155072
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39574856"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49996827"
 ---
 # <a name="commerce-bot-scenario"></a>Szenario für einen gewerblichen Bot
 
@@ -51,7 +51,7 @@ Azure Active Directory (Azure AD) ist der mehrinstanzenfähige cloudbasierte Ve
 Als Mitglied der Technologiefamilie Cognitive Services stellt LUIS (Language Understanding) die Leistungsfähigkeit von Machine Learning in Ihren Apps bereit. Derzeit unterstützt LUIS mehrere Sprachen, durch die Ihr Bot verstehen kann, was eine Person wünscht. Beim Integrieren von LUIS geben Sie Absichten an und Definieren die Entitäten, die von Ihrem Bot verstanden werden. Anschließend bringen Sie Ihrem Bot bei, diese Absichten und Entitäten zu verstehen, indem Sie ihn mit Beispieläußerungen trainieren. Sie können die Integration mithilfe von Ausdruckslisten und Funktionen für reguläre Ausdrücke optimieren, damit Ihr Bot so dynamisch wie möglich Ihren speziellen Konversationsanforderungen entspricht.
 
 ### <a name="application-insights"></a>Application Insights
-Mit Application Insights können Sie nützliche Erkenntnisse mit Application Performance Management (APM) und Sofortanalysen sammeln. Sie erhalten ohne großen Konfigurationsaufwand eine umfassende Leistungsüberwachung, leistungsstarke Warnungen und einfach zu bedienende Dashboards, damit die Verfügbarkeit und Leistung Ihres Bots Ihren Erwartungen entspricht. Sie können schnell ermitteln, ob ein Problem besteht, und anschließend eine Ursachenanalyse durchführen, um das Problem zu lokalisieren und zu beheben.
+Mit Application Insights können Sie nützliche Erkenntnisse mit Application Performance Management (APM) und Sofortanalysen sammeln. Sie erhalten eine umfangreiche Überwachung der Leistung, leistungsstarke Warnungen und einfach zu bedienende Dashboards ohne großen Konfigurationsaufwand, damit die Verfügbarkeit und Leistung Ihres Bots Ihren Erwartungen entspricht. Sie können schnell ermitteln, ob ein Problem besteht, und anschließend eine Ursachenanalyse durchführen, um das Problem zu lokalisieren und zu beheben.
 
 ## <a name="next-steps"></a>Nächste Schritte
 Lernen Sie als Nächstes das Szenario für einen Bot für Cortana-Funktionen kennen.

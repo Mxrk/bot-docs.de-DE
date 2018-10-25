@@ -5,14 +5,15 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: 66c6bc20013ff2de82e29af76e9c99898c8b13d9
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: cee7e79190d967590296ccbcfec7a112f2ae8588
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303216"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998582"
 ---
 # <a name="add-input-hints-to-messages"></a>Hinzufügen von Eingabehinweisen zu Nachrichten
 > [!div class="op_single_selector"]
@@ -92,7 +93,7 @@ Content-Type: application/json
  
 Um anzugeben, dass Ihr Bot nicht für den Empfang einer Eingabe vom Benutzer bereit ist, legen Sie im [Activity][Activity]-Objekt, das Ihre Nachricht darstellt, die Eigenschaft `inputHint` auf **ignoringInput** fest. Bei vielen Kanälen wird dadurch das Eingabefeld des Clients deaktiviert und das Mikrofon geschlossen. 
 
-Das folgende Beispiel zeigt eine Anforderung, die eine Nachricht sendet, und gibt an, dass der Bot eine Eingabe ignoriert. In dieser Beispielanforderung stellt `https://smba.trafficmanager.net/apis` den Basis-URI dar. Der Basis-URI für Anforderungen, die Ihr Bot ausgibt, kann ein anderer sein. Weitere Informationen zum Festlegen des Basis-URI finden Sie unter [API-Referenz](bot-framework-rest-connector-api-reference.md#base-uri).
+Das folgende Beispiel zeigt eine Anforderung, die eine Nachricht sendet, und gibt an, dass der Bot eine Eingabe ignoriert. In dieser Beispielanforderung stellt `https://smba.trafficmanager.net/apis` den Basis-URI dar. Der Basis-URI für Anforderungen, die Ihr Bot ausgibt, kann ein anderer sein. Weitere Informationen zum Festlegen des Basis-URI finden Sie in der [API-Referenz](bot-framework-rest-connector-api-reference.md#base-uri).
 
 ```http
 POST https://smba.trafficmanager.net/apis/v3/conversations/abcd1234/activities/5d5cdc723

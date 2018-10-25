@@ -5,15 +5,16 @@ author: MalarGit
 ms.author: malarch
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/17
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 35aca6f5f50602d0a90c41997eff2e8b1d2cdb4e
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: 6ceeca9adc9cad9e60a73c1c7c91bea43b97fdd9
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42905612"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997919"
 ---
 # <a name="build-a-real-time-media-bot-for-skype"></a>Erstellen eines Echtzeit-Medienbots für Skype
 
@@ -34,7 +35,7 @@ Die Nutzung der Echtzeit-Medienplattform erfordert die folgenden Dienstkonfigura
 
 * Azure Bot Service benötigt ein von einer anerkannten Zertifizierungsstelle ausgestelltes Zertifikat. Der Zertifikatfingerabdruck muss in der Clouddienstkonfiguration des Bots gespeichert und bei Dienststart gelesen werden.
 
-* Ein öffentlicher <a href="/azure/cloud-services/cloud-services-enable-communication-role-instances#instance-input-endpoint">Instanzeingabeendpunkt</a> muss bereitgestellt werden. Dadurch wird jeder Instanz eines virtuellen Computers (VM) im Dienst des Bots ein eindeutiger öffentlicher Port zugewiesen. Dieser Port wird von der Echtzeit-Medienplattform für die Kommunikation mit der Cloud für Skype-Anrufe verwendet.
+* Ein öffentlicher <a href="/azure/cloud-services/cloud-services-enable-communication-role-instances#instance-input-endpoint">Instanzeingabeendpunkt</a> muss bereitgestellt werden. Dadurch wird jeder Instanz eines virtuellen Computers (VM) im Dienst des Bots ein eindeutiger öffentlicher Port zugewiesen. Dieser Port wird von der Echtzeit-Medienplattform für die Kommunikation mit der Cloud für Skype-Anrufe verwendet.
   ```xml
   <InstanceInputEndpoint name="InstanceMediaControlEndpoint" protocol="tcp" localPort="20100">
     <AllocatePublicPortFrom>
@@ -65,12 +66,12 @@ Die Nutzung der Echtzeit-Medienplattform erfordert die folgenden Dienstkonfigura
   </NetworkConfiguration>
   ```
 
-* Beim Starten der Dienstinstanz muss das Skript `MediaPlatformStartupScript.bat` (Teil des Nuget-Pakets) als Startaufgabe mit erhöhten Rechten ausgeführt werden. Die Ausführung des Skripts muss abgeschlossen sein, bevor die Initialisierungsmethode der Plattform aufgerufen wird. 
+* Beim Starten der Dienstinstanz muss das Skript `MediaPlatformStartupScript.bat` (Teil des Nuget-Pakets) als Startaufgabe mit erhöhten Rechten ausgeführt werden. Die Ausführung des Skripts muss abgeschlossen sein, bevor die Initialisierungsmethode der Plattform aufgerufen wird. 
 
 ```xml
 <Startup>
-<Task commandLine="MediaPlatformStartupScript.bat" executionContext="elevated" taskType="simple" />      
-</Startup> 
+<Task commandLine="MediaPlatformStartupScript.bat" executionContext="elevated" taskType="simple" />      
+</Startup> 
 ```
 
 ## <a name="initialize-the-media-platform-on-service-startup"></a>Initialisieren der Medienplattform bei Dienststart
@@ -237,25 +238,25 @@ private Task OnIncomingCallReceived(RealTimeMediaIncomingCallEvent incomingCallE
 `OnAnswerAppHostedMediaCompleted` wird ausgelöst, wenn die Aktion `AnswerAppHostedMedia` abgeschlossen ist. Die Eigenschaft `Outcome` in `AnswerAppHostedMediaOutcomeEvent` zeigt an, ob der Vorgang erfolgreich war. Wenn die Anrufverbindung nicht hergestellt werden kann, muss der Bot die AudioSocket- und VideoSocket-Objekte löschen, die er für den Anruf erstellt hat.
 
 ## <a name="receive-audio-media"></a>Empfangen von Audiomedien
-Wenn `AudioSocket` so erstellt wurde, dass Audio empfangen werden kann, wird das Ereignis `AudioMediaReceived` jedes Mal aufgerufen, wenn ein Audioframe empfangen wird. Der Bot sollte dieses Ereignis etwa 50 Mal pro Sekunde verarbeiten, unabhängig davon, welcher Peer Audioinhalte empfängt (da Komfortrauschpuffer lokal generiert werden, wenn kein Audio vom Peer empfangen wird). Jedes Audioinhaltspaket wird in einem `AudioMediaBuffer`-Objekt übermittelt. Dieses Objekt enthält einen Zeiger auf einen nativen vom Heap zugewiesenen Speicherpuffer mit dem dekodierten Audioinhalt. 
+Wenn `AudioSocket` so erstellt wurde, dass Audio empfangen werden kann, wird das Ereignis `AudioMediaReceived` jedes Mal aufgerufen, wenn ein Audioframe empfangen wird. Der Bot sollte dieses Ereignis etwa 50 Mal pro Sekunde verarbeiten, unabhängig davon, welcher Peer Audioinhalte empfängt (da Komfortrauschpuffer lokal generiert werden, wenn kein Audio vom Peer empfangen wird). Jedes Audioinhaltspaket wird in einem `AudioMediaBuffer`-Objekt übermittelt. Dieses Objekt enthält einen Zeiger auf einen nativen vom Heap zugewiesenen Speicherpuffer mit dem dekodierten Audioinhalt. 
 
 ```cs
 void OnAudioMediaReceived(
-            object sender,
-            AudioMediaReceivedEventArgs args)
+            object sender,
+            AudioMediaReceivedEventArgs args)
 {
-   var buffer = args.Buffer;
+   var buffer = args.Buffer;
 
    // native heap-allocated memory containing decoded content
-   IntPtr rawData = buffer.Data;            
+   IntPtr rawData = buffer.Data;            
 }
 ```
 
-Die Reaktion des Ereignishandlers muss schnell erfolgen. Es wird empfohlen, dass die Anwendung `AudioMediaBuffer` in eine Warteschlange einreiht, damit die Verarbeitung asynchron erfolgt. `OnAudioMediaReceived`-Ereignisse werden von der Echtzeit-Medienplattform serialisiert, d.h. das nächste Ereignis wird erst ausgelöst, wenn das aktuelle zurückgegeben wurde. Sobald ein `AudioMediaBuffer` verbraucht wurde, muss die Anwendung die Dispose-Methode des Puffers aufrufen, damit der zugrunde liegende nicht verwaltete Speicher von der Medienplattform zurückgenommen werden kann. 
+Die Reaktion des Ereignishandlers muss schnell erfolgen. Es wird empfohlen, dass die Anwendung `AudioMediaBuffer` in eine Warteschlange einreiht, damit die Verarbeitung asynchron erfolgt. `OnAudioMediaReceived`-Ereignisse werden von der Echtzeit-Medienplattform serialisiert, d.h. das nächste Ereignis wird erst ausgelöst, wenn das aktuelle zurückgegeben wurde. Sobald ein `AudioMediaBuffer` verbraucht wurde, muss die Anwendung die Dispose-Methode des Puffers aufrufen, damit der zugrunde liegende nicht verwaltete Speicher von der Medienplattform zurückgenommen werden kann. 
 
 ```cs
-   // release/dispose buffer when done 
-   buffer.Dispose();
+   // release/dispose buffer when done 
+   buffer.Dispose();
 ```
 
 > [!IMPORTANT]
@@ -269,15 +270,15 @@ Wenn `AudioSocket` für das Senden von Medien konfiguriert ist, muss sich der Bo
 
 ```cs
 void AudioSocket_OnSendStatusChanged(
-             object sender,
-             AudioSendStatusChangedEventArgs args)
+             object sender,
+             AudioSendStatusChangedEventArgs args)
 {
     switch (args.MediaSendStatus)
     {
     case MediaSendStatus.Active:
-        // notify bot to begin sending audio 
+        // notify bot to begin sending audio 
         break;
-     
+     
     case MediaSendStatus.Inactive:
         // notify bot to stop sending audio
         break;
@@ -294,19 +295,19 @@ Während mehrere `VideoFormat`-Eigenschaften für das Senden von Videos unterst�
 
 ```cs
 void VideoSocket_OnSendStatusChanged(
-            object sender,
-            VideoSendStatusChangedEventArgs args)
+            object sender,
+            VideoSendStatusChangedEventArgs args)
 {
     VideoFormat preferredVideoFormat;
 
     switch (args.MediaSendStatus)
     {
     case MediaSendStatus.Active:
-        // notify bot to begin sending audio 
+        // notify bot to begin sending audio 
         // bot is recommended to use this format for sourcing video content.
         preferredVideoFormat = args.PreferredVideoSourceFormat;
         break;
-     
+     
     case MediaSendStatus.Inactive:
         // notify bot to stop sending audio
         break;

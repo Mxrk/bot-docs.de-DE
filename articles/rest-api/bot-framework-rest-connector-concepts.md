@@ -5,21 +5,22 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: 0bd98805023bc8f968ece591967ab2f4196531d4
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 20ae641a23399f5ee10aed9b31c4521f355903cf
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39303245"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998952"
 ---
 # <a name="key-concepts"></a>Wichtige Begriffe
 
 Sie können den Bot Connector-Dienst und den Bot State-Dienst verwenden, um mit Benutzern über mehrere Kanäle hinweg (Skype, E-Mail, Slack und vieles mehr) zu kommunizieren. Dieser Artikel bietet eine Einführung in Schlüsselkonzepte im Bot Connector- und Bot State-Dienst.
 
 > [!IMPORTANT]
-> Die Bot Framework State-Dienst-API wird nicht für Produktionsumgebungen empfohlen und kann in einem zukünftigen Release veraltet sein. Es wird empfohlen, dass Sie Ihren Botcode aktualisieren, um den In-Memory-Speicher für Testzwecke zu nutzen, oder verwenden Sie eine der **Azure-Erweiterungen** für Produktionsbots. Weitere Informationen finden Sie im Thema **Verwalten von Zustandsdaten** für [.NET](~/dotnet/bot-builder-dotnet-state.md) bzw. unter [Node](~/nodejs/bot-builder-nodejs-state.md)-Implementierung.
+> Die Bot Framework State-Dienst-API wird nicht für Produktionsumgebungen empfohlen und kann in einem zukünftigen Release veraltet sein. Es wird empfohlen, dass Sie Ihren Bot-Code aktualisieren, um den In-Memory-Speicher für Testzwecke zu nutzen, oder eine der **Azure-Erweiterungen** für Produktions-Bots verwenden. Weitere Informationen finden Sie im Thema **Verwalten von Zustandsdaten** für [.NET](~/dotnet/bot-builder-dotnet-state.md) bzw. unter [Node](~/nodejs/bot-builder-nodejs-state.md)-Implementierung.
 
 ## <a name="bot-connector-service"></a>Bot Connector-Dienst
 
@@ -41,9 +42,9 @@ Sowohl der Bot Connector-Dienst als auch der Bot State-Dienst ermöglichen die A
 
 ## <a name="client-libraries"></a>Clientbibliotheken
 
-Das Bot Framework stellt Clientbibliotheken bereit, die zum Erstellen von Bots in C# oder Node.js verwendet werden können. 
+Das Bot-Framework stellt Clientbibliotheken bereit, die zum Erstellen von Bots in C# oder Node.js verwendet werden können. 
 
-- Um einen Bot mit C# zu erstellen, verwenden Sie das [Bot Builder-SDK für C#](../dotnet/bot-builder-dotnet-overview.md). 
+- Um einen Bot mit C# zu erstellen, verwenden Sie das [Bot Builder SDK für C#](../dotnet/bot-builder-dotnet-overview.md). 
 - Um einen Bot mit Node.js zu erstellen, verwenden Sie das [Bot Builder-SDK für Node.js](../nodejs/index.md). 
 
 Zusätzlich zur Modellierung des Bot Connector- und des Bot State-Diensts bietet jedes Bot Builder-SDK auch ein leistungsstarkes System zur Erstellung von Dialogen, die Konversationslogik, integrierte Eingabeaufforderungen für einfache Dinge wie Ja/Nein, Zeichenfolgen, Zahlen und Aufzählungen, integrierte Unterstützung für leistungsstarke KI-Frameworks wie <a href="https://www.luis.ai/" target="_blank">LUIS</a> und vieles mehr einschließen. 

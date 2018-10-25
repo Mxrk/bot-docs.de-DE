@@ -5,14 +5,15 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 03/07/2018
-ms.openlocfilehash: 0406d489f7d1e27131b4b01411e86850ca4a17b8
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 06e2289dd0176364467d34846ffa7716483f6578
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39298620"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50000407"
 ---
 # <a name="bot-framework----activity"></a>Bot Framework – Aktivität
 
@@ -970,7 +971,7 @@ Das Feld `to` enthält die IDs der Kanalkonten, denen die vorgeschlagenen Aktion
 
 `R7711`: Wenn das Feld `to` ungültige IDs enthält, SOLLTEN diese Werte ignoriert werden.
 
-#### <a name="actions"></a>Actions
+#### <a name="actions"></a>Aktionen
 
 Das Feld `actions` enthält eine flache Liste von Aktionen, die angezeigt werden sollen. Der Wert jedes Elements der Liste `actions` ist ein komplexes Objekt vom Typ `cardAction`.
 

@@ -4,15 +4,16 @@ description: Erfahren Sie, wie Sie mit dem Bot Builder SDK für Node.js einen sp
 author: DeniseMak
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: c213c1155b1eef5f5c776ba42a221d95b74f99a5
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: e728a3999c484d19a78f03bd8eb7b8bd8833c39f
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42906078"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998037"
 ---
 # <a name="build-a-speech-enabled-bot-with-cortana-skills"></a>Erstellen eines sprachaktivierten Bots mit Cortana-Funktionen
 

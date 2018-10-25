@@ -5,14 +5,15 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: 60d96297ea4bdc6ba920b4f8f990fabb0af8b8d9
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: d0b7b3250a62a995113bc9c7e087e2e62af0f413
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39298609"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997067"
 ---
 # <a name="send-and-receive-messages"></a>Senden und Empfangen von Nachrichten
 
@@ -92,7 +93,7 @@ Legen Sie den Text der Anforderung auf ein [Aktivitätsobjekt][Activity] fest, d
 > [!NOTE]
 > In Bot Framework ist die Anzahl der Nachrichten, die ein Bot senden kann, nicht eingeschränkt. Die meisten Kanäle erzwingen jedoch Drosselungslimits, damit Bots nicht eine große Anzahl von Nachrichten innerhalb kurzer Zeit senden. Wenn die Bots mehrere Nachrichten in schneller Folge senden, kann der Kanal darüber hinaus die Nachrichten nicht immer in der richtigen Reihenfolge rendern.
 
-## <a name="start-a-conversation"></a>Starten einer Konversation
+## <a name="start-a-conversation"></a>Starten einer Unterhaltung
 
 Zu bestimmten Zeiten muss der Bot eine Konversation mit einem oder mehreren Benutzern initiieren. Um eine Konversation mit einem Benutzer in einem Kanal zu starten, muss Ihr Bot dessen Kontoinformationen und die Kontoinformationen des Benutzers in diesem Kanal kennen. 
 
