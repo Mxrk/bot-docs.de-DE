@@ -7,12 +7,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
-ms.openlocfilehash: 07fb6e9630996a61932da99b0575d43f4604141e
-ms.sourcegitcommit: 3cb288cf2f09eaede317e1bc8d6255becf1aec61
+ms.openlocfilehash: 1ce24216cfd59259ff4869d4898fb3ad3bbf41c2
+ms.sourcegitcommit: abde9e0468b722892f94caf2029fae165f96092f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47389429"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48875687"
 ---
 # <a name="application-insights-keys"></a>Application Insights-Schlüssel
 
@@ -38,6 +38,7 @@ Gehen Sie wie folgt vor, um den Instrumentierungsschlüssel abzurufen:
 3. Klicken Sie auf **Overview**.
 
 4. Erweitern Sie den Block **Zusammenfassung**, und suchen Sie nach **Instrumentierungsschlüssel**. 
+![Screenshot des Portals mit Übersicht](~/media/portal-app-insights-instrumentation-key-dropdown.png)
 ![Screenshot des Portals mit Instrumentierungsschlüssel](~/media/portal-app-insights-instrumentation-key.png)
 
 5. Kopieren Sie den **Instrumentierungsschlüssel**, und fügen Sie ihn in das Feld **Application Insights-Instrumentierungsschlüssel** der Einstellungen für Ihren Bot ein.

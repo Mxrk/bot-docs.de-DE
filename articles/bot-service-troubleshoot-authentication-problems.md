@@ -7,12 +7,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/17
-ms.openlocfilehash: 5373b18ce5c11dae4e971cb1a70307ae2901ad36
-ms.sourcegitcommit: 3cb288cf2f09eaede317e1bc8d6255becf1aec61
+ms.openlocfilehash: 9e86ea0fb677105be920e031979980baf479e42f
+ms.sourcegitcommit: abde9e0468b722892f94caf2029fae165f96092f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47389659"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48875727"
 ---
 # <a name="troubleshooting-bot-framework-authentication"></a>Problembehandlung bei der Bot Framework-Authentifizierung
 
@@ -41,7 +41,9 @@ In diesem Schritt prüfen Sie, ob Ihr Bot bei deaktivierter Sicherheit auf Local
 
 Zum Deaktivieren der Sicherheit für Ihren Bot bearbeiten Sie dessen Konfigurationseinstellungen, und entfernen Sie die Werte für App-ID und Kennwort. 
 
-Wenn Sie das Bot Builder SDK für .NET verwenden, bearbeiten Sie die folgenden Einstellungen in der Datei „Web.config“:
+::: moniker range="azure-bot-service-3.0"
+
+Wenn Sie das Bot Builder SDK für .NET verwenden, bearbeiten Sie die folgenden Einstellungen in der Datei „Web.config“: 
 
 ```xml
 <appSettings>
@@ -58,6 +60,32 @@ var connector = new builder.ChatConnector({
   appPassword: null
 });
 ```
+
+::: moniker-end
+
+::: moniker range="azure-bot-service-4.0"
+
+Wenn Sie das Bot Builder SDK für .NET verwenden, bearbeiten Sie die Einstellungen in der Datei `appsettings.config`:
+
+```xml
+<appSettings>
+  <add key="MicrosoftAppId" value="" />
+  <add key="MicrosoftAppPassword" value="" />
+</appSettings>
+```
+
+Wenn Sie das Bot Builder SDK für Node.js verwenden, bearbeiten Sie die folgenden Werte (oder aktualisieren Sie die entsprechenden Umgebungsvariablen):
+
+```javascript
+const adapter = new BotFrameworkAdapter({
+    appId: null,
+    appPassword: null
+});
+```
+
+Wenn Sie die Datei `.bot` für die Konfiguration verwenden, können Sie `appId` und `appPassword` zu `""` aktualisieren.
+
+::: moniker-end
 
 ### <a name="test-your-bot-on-localhost"></a>Testen Ihres Bots auf Localhost 
 
@@ -115,7 +143,7 @@ An diesem Punkt haben Sie sichergestellt, dass Ihr Bot bei deaktivierter Sicherh
 
 Die Sicherheit Ihres Bots basiert auf Microsoft-Diensten, selbst wenn Ihr Bot nur auf Localhost ausgeführt wird. Zum Aktivieren der Sicherheit für Ihren Bot bearbeiten Sie dessen Konfigurationseinstellungen, und geben Sie für App-ID und Kennwort die Werte ein, die Sie in [Schritt 2](#step-2) geprüft haben.
 
-Wenn Sie das Bot Builder SDK für .NET verwenden, tragen Sie die folgenden Einstellungen in die Datei „Web.config“ ein:
+Wenn Sie das Bot Builder SDK für .NET verwenden, tragen Sie die folgenden Einstellungen in die Datei `.bot` oder `appsettings.config` ein:
 
 ```xml
 <appSettings>
