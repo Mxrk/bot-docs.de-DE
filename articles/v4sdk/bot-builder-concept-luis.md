@@ -6,16 +6,17 @@ author: ivorb
 ms.author: v-ivorb
 manager: rstand
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: cognitive-services
 ms.date: 09/19/2018
 ms.reviewer: ''
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: af79bb40e3d24557fd898fa0a0ca2ef7b0286af4
-ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
+ms.openlocfilehash: bb280f3c43348a1293345bc698e83608694946b1
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/23/2018
-ms.locfileid: "46707546"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50000317"
 ---
 # <a name="language-understanding"></a>Language Understanding
 
@@ -56,11 +57,11 @@ Um Entwicklungszeit einzusparen, bietet LUIS vorab trainierte Sprachmodelle, die
 
 ## <a name="how-your-bot-gets-messages-from-luis"></a>Abrufen von Nachrichten aus LUIS durch den Bot
 
-Nachdem Sie LUIS eingerichtet und eine Verbindung damit hergestellt haben, kann Ihr Bot die Nachricht an Ihre LUIS-App senden, die eine JSON-Antwort mit den Absichten und Entitäten zurückgibt. Anschließend können Sie den [Durchlaufkontext](bot-builder-concept-activity-processing.md#turn-context) im _Durchlaufhandler_ Ihres Bots verwenden, um den Konversationsfluss basierend auf der Absicht in der LUIS-Antwort zu steuern. 
+Nachdem Sie LUIS eingerichtet und eine Verbindung damit hergestellt haben, kann Ihr Bot die Nachricht an Ihre LUIS-App senden, die eine JSON-Antwort mit den Absichten und Entitäten zurückgibt. Anschließend können Sie den [Durchlaufkontext](~/v4sdk/bot-builder-basics.md#defining-a-turn) im _Durchlaufhandler_ Ihres Bots verwenden, um den Konversationsfluss basierend auf der Absicht in der LUIS-Antwort zu steuern. 
 
 ![Übergeben von Absichten und Entitäten an Ihren Bot](./media/cognitive-services-add-bot-language/cognitive-services-luis-message-flow-bot-code.png)
 
-Informationen zum Einstieg in die Nutzung einer LUIS-App mit Ihrem Bot finden Sie unter [Verwenden von LUIS für Language Understanding][luis-v4-how-to].
+Informationen zum Einstieg in die Nutzung einer LUIS-App mit Ihrem Bot finden Sie unter [Verwenden von LUIS für Language Understanding](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-howto-v4-luis?view=azure-bot-service-4.0).
 
 ## <a name="best-practices-for-language-understanding"></a>Bewährte Methoden für Language Understanding
 
@@ -99,7 +100,7 @@ Das Dispatch-Tool hilft Ihnen, mehrere LUIS-Apps und QnAMaker-Dienste in Ihren B
 
 ## <a name="use-luis-to-improve-speech-recognition"></a>Verwenden von LUIS zur Verbesserung der Spracherkennung
 
-Für einen Bot, mit dem Benutzer sprechen, kann die Integration in LUIS Ihrem Bot helfen, Wörter zu identifizieren, die bei der Umwandlung von Sprache in Text ggf. missverstanden werden können.  In einem Schachszenario könnte ein Benutzer z.B. „Move knight to A7“ (Springer auf A7) sagen. Ohne Kontext für die Absicht des Benutzers wird die Äußerung ggf. als „Move night 287“ erkannt. Indem Sie Entitäten erstellen, die Schachfiguren und Koordinaten darstellen und sie in Äußerungen bezeichnen, stellen Sie einen Kontext für die Spracherkennung zur Verfügung, um sie zu identifizieren. Sie können das [Spracherkennungspriming][speechrecognitionpriming] mit Bot Framework-Kanälen aktivieren, die in die Bing-Spracheingabe integriert sind, z.B. Web Chat, Bot Framework Emulator und Cortana.  
+Für einen Bot, mit dem Benutzer sprechen, kann die Integration in LUIS Ihrem Bot helfen, Wörter zu identifizieren, die bei der Umwandlung von Sprache in Text ggf. missverstanden werden können.  In einem Schachszenario könnte ein Benutzer z.B. „Move knight to A7“ (Springer auf A7) sagen. Ohne Kontext für die Absicht des Benutzers wird die Äußerung ggf. als „Move night 287“ erkannt. Indem Sie Entitäten erstellen, die Schachfiguren und Koordinaten darstellen und sie in Äußerungen bezeichnen, stellen Sie einen Kontext für die Spracherkennung zur Verfügung, um sie zu identifizieren. Sie können [ Spracherkennungspriming](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-manage-speech-priming?view=azure-bot-service-4.0) mit Bot Framework-Kanälen aktivieren, die in die Bing-Spracheingabe integriert sind, z.B. Web Chat, Bot Framework Emulator und Cortana.  
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 Weitere Informationen finden Sie in der Dokumentation zu [Cognitive Services](https://docs.microsoft.com/en-us/azure/cognitive-services/).

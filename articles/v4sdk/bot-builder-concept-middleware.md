@@ -9,12 +9,12 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 05/24/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 38f1bced73251eea11be86a76963aeaf1ec0f718
-ms.sourcegitcommit: 3cb288cf2f09eaede317e1bc8d6255becf1aec61
+ms.openlocfilehash: 20f5387e7c1ea40e6b9848a1071e542dcd1cacaa
+ms.sourcegitcommit: aef7d80ceb9c3ec1cfb40131709a714c42960965
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47389699"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49383165"
 ---
 # <a name="middleware"></a>Middleware
 
@@ -24,7 +24,7 @@ Middleware ist lediglich eine Klasse zwischen dem Adapter und der Bot-Logik, die
 
 Der Adapter verarbeitet und leitet eingehende Aktivitäten durch die Bot-Middlewarepipeline zur Logik Ihres Bots und wieder zurück. Während jede Aktivität den Bot durchläuft, kann jede Middleware die Aktivität überprüfen und beeinflussen, sowohl bevor als auch nachdem die Bot-Logik ausgeführt wurde.
 
-Bevor Sie mit Middleware arbeiten, ist es wichtig, dass Sie [Bots im Allgemeinen](~/v4sdk/bot-builder-basics.md) und [wie sie Aktivitäten verarbeiten](~/v4sdk/bot-builder-concept-activity-processing.md) verstehen.
+Bevor Sie mit Middleware arbeiten, ist es wichtig, dass Sie [Bots im Allgemeinen](~/v4sdk/bot-builder-basics.md) und [wie sie Aktivitäten verarbeiten](~/v4sdk/bot-builder-basics.md#the-activity-processing-stack) verstehen.
 
 ## <a name="uses-for-middleware"></a>Verwendungsmöglichkeiten für Middleware
 Dies ist eine häufig gestellte Frage: „Wann sollte ich Aktionen als Middleware implementieren und nicht meine normale Botlogik verwenden?“ Mit Middleware haben Sie zusätzliche Möglichkeiten zum Interagieren mit dem Konversationsfluss Ihrer Benutzer – sowohl vor als auch nach der Verarbeitung jedes _Durchlaufs_ der Konversation. Darüber hinaus können Sie mit Middleware auch Informationen zur Konversation speichern und abrufen und bei Bedarf weitere Verarbeitungslogik aufrufen. Unten sind einige häufige Szenarien angegeben, die zeigen, wann Middleware hilfreich sein kann.
@@ -33,7 +33,7 @@ Dies ist eine häufig gestellte Frage: „Wann sollte ich Aktionen als Middlewar
 Es gibt viele Situationen, in denen Ihr Bot jede Aktivität bzw. jede Aktivität eines bestimmten Typs behandeln sollte. Angenommen, Sie möchten jedes MessageActivity-Objekt protokollieren, das der Bot empfängt, oder eine Fallbackantwort bereitstellen, wenn der Bot keine andere Antwort für diesen Durchlauf generiert hat. Die Middleware ist ein guter Ausgangspunkt hierfür, da sie sowohl vor als auch nach der Ausführung der restlichen Bot-Logik agieren kann.
 
 ### <a name="modifying-or-enhancing-the-turn-context"></a>Ändern und Erweitern des Turn-Kontexts
-Bestimmte Konversationen können erfolgreicher sein, wenn der Bot über mehr Informationen verfügt, als in der Aktivität bereitgestellt werden. In diesem Fall kann Middleware auf die bisher verfügbaren Informationen zum Konversationszustand zugreifen, eine externe Datenquelle abfragen und diese an das [Turn](bot-builder-concept-activity-processing.md#turn-context)-Kontextobjekt anfügen, bevor die Ausführung an die Bot-Logik übergeben wird. 
+Bestimmte Konversationen können erfolgreicher sein, wenn der Bot über mehr Informationen verfügt, als in der Aktivität bereitgestellt werden. In diesem Fall kann Middleware auf die bisher verfügbaren Informationen zum Konversationszustand zugreifen, eine externe Datenquelle abfragen und diese an das [Turn](~/v4sdk/bot-builder-basics.md#defining-a-turn)-Kontextobjekt anfügen, bevor die Ausführung an die Bot-Logik übergeben wird. 
 
 Im SDK ist das Protokollieren der Middleware definiert, mit der ein- und ausgehende Aktivitäten aufgezeichnet werden können, aber Sie können auch Ihre eigene Middleware definieren.
 
@@ -65,7 +65,7 @@ Die ersten Schritte in Ihrer Pipeline sollten wahrscheinlich die sein, die sich 
 Die letzten Schritte in Ihrer Middleware-Pipeline sollten sich auf Bot-spezifische Middleware beziehen. Also Middleware, die Sie implementieren, um jede Nachricht an den Bot zu verarbeiten. Wenn Ihre Middleware Zustandsinformationen oder andere Informationen im Kontext des Bots verwendet, fügen Sie sie nach der Middleware, die den Zustand oder Kontext ändert, der Middleware-Pipeline hinzu.
 
 ## <a name="short-circuiting"></a>Kurzschlüsse
-_Kurzschlüsse_ sind ein wichtiges Konzept bei der Middleware (und bei [Antworthandlern](./bot-builder-concept-activity-processing.md#response-event-handlers)). Wenn die Ausführung durch die nachfolgenden Ebenen fortgesetzt werden soll, ist eine Middleware (oder ein Antworthandler) erforderlich, um die Ausführung durch Aufrufen des _next_-Delegaten zu übergeben.  Wenn der next-Delegat in der Middleware (oder dem Antworthandler) aufgerufen wird, tritt für die zugeordnete Pipeline ein Kurzschluss auf, und die nachfolgenden Ebenen werden nicht ausgeführt. Dies bedeutet, dass die gesamte Botlogik sowie jegliche Middleware im weiteren Verlauf der Pipeline übersprungen wird. Es besteht ein feiner Unterschied dazwischen, ob der Kurzschluss eines Durchlaufs von Ihrer Middleware oder von Ihrem Antworthandler ausgeht.
+_Kurzschlüsse_ sind ein wichtiges Konzept bei der Middleware (und bei [Antworthandlern](bot-builder-basics.md#response-event-handlers)). Wenn die Ausführung durch die nachfolgenden Ebenen fortgesetzt werden soll, ist eine Middleware (oder ein Antworthandler) erforderlich, um die Ausführung durch Aufrufen des _next_-Delegaten zu übergeben.  Wenn der next-Delegat in der Middleware (oder dem Antworthandler) aufgerufen wird, tritt für die zugeordnete Pipeline ein Kurzschluss auf, und die nachfolgenden Ebenen werden nicht ausgeführt. Dies bedeutet, dass die gesamte Botlogik sowie jegliche Middleware im weiteren Verlauf der Pipeline übersprungen wird. Es besteht ein feiner Unterschied dazwischen, ob der Kurzschluss eines Durchlaufs von Ihrer Middleware oder von Ihrem Antworthandler ausgeht.
 
 Wenn der Kurschluss eines Durchlaufs von der Middleware ausgeht, wird Ihr Handler für den Botdurchlauf nicht aufgerufen, aber der gesamte Middleware-Code, der in der Pipeline vor diesem Punkt ausgeführt wurde, wird trotzdem bis zum Ende ausgeführt. 
 

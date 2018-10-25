@@ -7,32 +7,33 @@ ms.author: kamrani
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 12/13/2017
-ms.openlocfilehash: b5a9d20c058fe425d727bf2e39597e7dd29ec077
-ms.sourcegitcommit: 3cb288cf2f09eaede317e1bc8d6255becf1aec61
+ms.date: 10/10/2018
+ms.openlocfilehash: 6e81b51243afc15714653aed7b9ca6513314071c
+ms.sourcegitcommit: 54ed5000c67a5b59e23b667547565dd96c7302f9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47389629"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49315156"
 ---
 # <a name="connect-a-bot-to-web-chat"></a>Verbinden eines Bots mit dem Webchat
+
+[!INCLUDE pre-release-label]
+
 Wenn Sie [einen Bot mit dem Botdienst](bot-service-quickstart.md) erstellen, wird der Webchatkanal automatisch für Sie konfiguriert. Der Webchatkanal enthält das Webchat-Steuerelement. Mit diesem können Benutzer direkt auf der Webseite mit Ihrem Bot interagieren.
 
-![Webchatbeispiel](~/media/bot-service-channel-webchat/webchat-sample.png)
+![Webchatbeispiel](./media/bot-service-channel-webchat/create-a-bot.png)
 
 Der Webchatkanal im Bot Framework-Portal enthält alles Notwendige zum Einbetten des Webchat-Steuerelements in eine Webseite. Zur Nutzung des Webchat-Steuerelements müssen Sie nur den geheimen Schlüssel des Bots abrufen und das Steuerelement in eine Webseite einbetten.
-
-[!INCLUDE [Channel Inspector intro](~/includes/snippet-channel-inspector.md)]
 
 ## <a id="step-1"></a> Abrufen des geheimen Botschlüssels
 
 1. Öffnen Sie Ihren Bot im [Azure-Portal](http://portal.azure.com), und klicken Sie auf das Blatt **Kanäle**.
 
 2. Klicken Sie in der Zeile für den **Webchatkanal** auf **Bearbeiten**.  
-![Webchatkanal](~/media/bot-service-channel-webchat/bot-service-channel-list.png)
+![Webchatkanal](./media/bot-service-channel-webchat/bot-service-channel-list.png)
 
 3. Klicken Sie unter **Secret keys** (Geheime Schlüssel) unter dem ersten Schlüssel auf **Anzeigen**.  
-![Geheimer Schlüssel](~/media/bot-service-channel-webchat/secret-key.png)
+![Geheimer Schlüssel](./media/bot-service-channel-webchat/secret-key.png)
 
 4. Kopieren Sie den **geheimen Schlüssel** und den **Einbettungscode**.
 
@@ -127,8 +128,8 @@ Sie können die Größe des Webchat-Steuerelements ändern, indem Sie das `style
 <iframe style="height:480px; width:402px" src="... SEE ABOVE ..."></iframe>
 ```
 
-![Chatsteuerelement-Client](~/media/chatwidget-client.png)
+![Chatsteuerelement-Client](./media/chatwidget-client.png)
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-Sie können den Quellcode für das Webchat-Steuerelement auf GitHub [herunterladen](https://github.com/Microsoft/BotFramework-WebChat).
+Sie können den Quellcode für das Webchat-Steuerelement auf GitHub [herunterladen](https://aka.ms/BotFramework-WebChat-V4).

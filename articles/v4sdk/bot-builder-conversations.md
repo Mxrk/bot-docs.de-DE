@@ -9,19 +9,19 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 09/01/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 65d6edf123dac2e237ddde4fbe8b37c6913434ae
-ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
+ms.openlocfilehash: 55145b4728d325bd258cc2cd95f3a265aaa50b0a
+ms.sourcegitcommit: b8bd66fa955217cc00b6650f5d591b2b73c3254b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/23/2018
-ms.locfileid: "46706956"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326457"
 ---
-# <a name="conversation-flow"></a>Konversationsfluss
+# <a name="conversation-flow"></a>Konversationsablauf
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-Bei der Gestaltung des Konversationsflusses eines Bots muss entschieden werden, wie ein Bot reagiert, wenn der Benutzer etwas zu ihm sagt. Ein Bot erkennt zunächst die Aufgabe oder das Gesprächsthema anhand einer Nachricht des Benutzers. Um die Aufgabe oder das Thema (als *Absicht* bezeichnet) zu bestimmen, kann der Bot nach Wörtern oder Mustern im Nachrichtentext des Benutzers suchen, oder er kann Dienste wie [Language Understanding](bot-builder-concept-luis.md) und [QnA Maker](https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/overview/overview) nutzen.
+Bei der Gestaltung des Konversationsablaufs eines Bots muss entschieden werden, wie ein Bot reagiert, wenn der Benutzer etwas zu ihm sagt. Ein Bot erkennt zunächst die Aufgabe oder das Gesprächsthema anhand einer Nachricht des Benutzers. Um die Aufgabe oder das Thema (als *Absicht* bezeichnet) zu bestimmen, kann der Bot nach Wörtern oder Mustern im Nachrichtentext des Benutzers suchen, oder er kann Dienste wie [Language Understanding](bot-builder-concept-luis.md) und [QnA Maker](https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/overview/overview) nutzen.
 
-Sobald der Bot die Absicht des Benutzers erkannt hat, kann er, je nach Szenario, die Anforderung des Benutzers mit einer einzigen Antwort erfüllen und das Gespräch in einem Durchlauf abschließen, oder es sind ggf. mehrere Durchläufe erforderlich. Für Konversationsflüsse mit mehreren Durchläufen ermöglicht das Bot Builder SDK die [Zustandsverwaltung](./bot-builder-howto-v4-state.md) zur Verfolgung einer Konversation, [Eingabeaufforderungen](bot-builder-prompts.md) zur Anforderung von Informationen und [Dialoge](bot-builder-dialog-manage-conversation-flow.md) zur Kapselung von Konversationsflüssen.
+Sobald der Bot die Absicht des Benutzers erkannt hat, kann er, je nach Szenario, die Anforderung des Benutzers mit einer einzigen Antwort erfüllen und das Gespräch in einem Durchlauf abschließen, oder es sind ggf. mehrere Durchläufe erforderlich. Für Konversationsabläufe mit mehreren Durchläufen ermöglicht das Bot Builder SDK die [Zustandsverwaltung](./bot-builder-howto-v4-state.md) zur Verfolgung einer Konversation, [Eingabeaufforderungen](bot-builder-prompts.md) zur Anforderung von Informationen und [Dialoge](bot-builder-dialog-manage-conversation-flow.md) zur Kapselung von Konversationsflüssen.
 
 In einem komplexen Bot mit mehreren Subsystemen kann es vorkommen, dass Sie mehrere Dienste zum Erkennen der Absicht verwenden – jeweils einen für jede Unterkomponente des Bot. Das [Dispatch-Tool](bot-builder-tutorial-dispatch.md) liefert die Ergebnisse mehrerer Dienste zentral an einem Ort, wenn Sie Konversationssubsysteme zu einem Bot zusammenfassen.
 
@@ -38,7 +38,7 @@ A bot communicates with a user on a channel by receiving activities from, and se
 
 ## <a name="single-turn-conversation"></a>Konversation mit Einzeldurchlauf
 
-Der einfachste Konversationsfluss ist ein Einzeldurchlauf. In einem Konversationsfluss mit Einzeldurchlauf beendet der Bot seine Aufgabe in einem Durchlauf. Dieser besteht aus einer Nachricht vom Benutzer und einer Antwort vom Bot.
+Der einfachste Konversationsablauf ist ein Einzeldurchlauf. In einem Konversationsablauf mit Einzeldurchlauf beendet der Bot seine Aufgabe in einem Durchlauf. Dieser besteht aus einer Nachricht vom Benutzer und einer Antwort vom Bot.
 
 <!-- The following isn't always true, it's a generalization -->
 
@@ -50,7 +50,7 @@ Für einen Wetterbot wird unter Umständen nur ein Durchlauf verwendet, und der 
 
 ## <a name="multiple-turns"></a>Mehrfachdurchläufe
 
-Die meisten Konversationstypen können nicht in einem einzigen Durchlauf abgeschlossen werden, sodass ein Bot auch einen Konversationsfluss mit mehreren Durchläufen haben kann. Einige Szenarien, die mehrere Konversationsdurchläufe erfordern, sind:
+Die meisten Konversationstypen können nicht in einem einzigen Durchlauf abgeschlossen werden, sodass ein Bot auch einen Konversationsablauf mit mehreren Durchläufen haben kann. Einige Szenarien, die mehrere Konversationsdurchläufe erfordern, sind:
 
 * Ein Bot, der den Benutzer nach zusätzlichen Informationen fragt, die er benötigt, um eine Aufgabe zu erledigen. Der Bot muss verfolgen, ob er alle Parameter für die Erfüllung der Aufgabe hat.
 * Ein Bot, der den Benutzer durch Schritte in einem Prozess führt, wie z.B. das Aufgeben einer Bestellung. Der Bot muss verfolgen, an welcher Stelle sich der Benutzer in der Abfolge der Schritte befindet.
@@ -81,11 +81,11 @@ Für eine Erkennung können reguläre Ausdrücke, Language Understanding oder ei
 * Eine benutzerdefinierte Erkennung, für die reguläre Ausdrücke verwendet werden, um nach Befehlen zu suchen.
 * Eine benutzerdefinierte Erkennung, für die ein Dienst zum Übersetzen der Eingabe verwendet wird.
 
-### <a name="consider-how-to-interrupt-conversation-flow-or-change-topics"></a>Unterbrechen des Konversationsflusses oder Ändern von Themen
+### <a name="consider-how-to-interrupt-conversation-flow-or-change-topics"></a>Unterbrechen des Konversationsablaufs oder Ändern von Themen
 
 Eine Möglichkeit, den Überblick zu behalten, an welcher Stellen Sie sich in der Konversation befinden, besteht darin, den [Konversationszustand](bot-builder-howto-v4-state.md) zu verwenden, um Informationen über das gerade aktive Thema zu speichern oder darüber, welche Schritte in einer Abfolge abgeschlossen wurden.
 
-Wenn ein Bot komplexer wird, können Sie auch eine Abfolge von Konversationsflüssen in einem Stapel erstellen, z.B. wird der Bot den neuen Auftragsablauf aufrufen und dann den Ablauf für die Produktsuche. Der Benutzer wählt anschließend ein Produkt aus und bestätigt, sodass die Produktsuche und danach die Bestellung abgeschlossen wird.
+Wenn ein Bot komplexer wird, können Sie auch eine Abfolge von Konversationsabläufen in einem Stapel erstellen, z.B. wird der Bot den neuen Auftragsablauf aufrufen und dann den Ablauf für die Produktsuche. Der Benutzer wählt anschließend ein Produkt aus und bestätigt, sodass die Produktsuche und danach die Bestellung abgeschlossen wird.
 
 Konversationen folgen aber selten einem solch linearen, logischen Pfad. Benutzer kommunizieren nicht in „Stapeln“, sondern tendieren stattdessen dazu, häufig ihre Meinung zu ändern. Betrachten Sie das folgende Beispiel:
 

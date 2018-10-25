@@ -6,21 +6,22 @@ author: v-ducvo
 ms.author: v-ducvo
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 9/25/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 27066f76db29a82b4ab9dd75bf5eee01dcce3116
-ms.sourcegitcommit: 3cb288cf2f09eaede317e1bc8d6255becf1aec61
+ms.openlocfilehash: bd1fe8516cddaf2b75d3c11b469e372265b59be3
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47389709"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997627"
 ---
 # <a name="prompt-users-for-input-using-the-dialogs-library"></a>Auffordern von Benutzern zur Eingabe mithilfe der Dialogbibliothek
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-Das Sammeln von Informationen durch das Stellen von Fragen ist eine der Hauptvorgehensweisen, mit denen ein Bot mit Benutzern interagiert. Dies ist auch direkt möglich, indem die _send activity_-Methode des [turn context](bot-builder-concept-activity-processing.md#turn-context)-Objekts verwendet wird und dann die nächste eingehende Nachricht als Antwort verarbeitet wird. Über das Bot Builder SDK wird aber eine Bibliothek mit **Dialogen** bereitgestellt. Sie enthält Methoden, die zur Vereinfachung des Stellens von Fragen konzipiert sind und mit denen sichergestellt wird, dass die Antwort mit einem bestimmten Datentyp übereinstimmt oder benutzerdefinierte Validierungsregeln erfüllt. In diesem Thema wird ausführlich beschrieben, wie Sie dies erreichen, indem Sie **Eingabeaufforderungen** nutzen, um einen Benutzer zur Eingabe aufzufordern.
+Das Sammeln von Informationen durch das Stellen von Fragen ist eine der Hauptvorgehensweisen, mit denen ein Bot mit Benutzern interagiert. Dies ist auch direkt möglich, indem die _send activity_-Methode des [turn context](~/v4sdk/bot-builder-basics.md#defining-a-turn)-Objekts verwendet wird und dann die nächste eingehende Nachricht als Antwort verarbeitet wird. Über das Bot Builder SDK wird aber eine Bibliothek mit **Dialogen** bereitgestellt. Sie enthält Methoden, die zur Vereinfachung des Stellens von Fragen konzipiert sind und mit denen sichergestellt wird, dass die Antwort mit einem bestimmten Datentyp übereinstimmt oder benutzerdefinierte Validierungsregeln erfüllt. In diesem Thema wird ausführlich beschrieben, wie Sie dies erreichen, indem Sie **Eingabeaufforderungen** nutzen, um einen Benutzer zur Eingabe aufzufordern.
 
 In diesem Artikel wird beschrieben, wie Eingabeaufforderungen in einem Dialogfeld verwendet werden. Informationen zur Verwendung von Dialogen im Allgemeinen finden Sie im Thema zur [Verwendung von Dialogen zum Verwalten eines einfachen Konversationsflusses](bot-builder-dialog-manage-conversation-flow.md).
 
@@ -131,32 +132,43 @@ Definieren Sie dann in Ihrem Botcode die folgenden Objekte für den Dialogsatz.
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-Installieren Sie das Paket für die Dialogfelder von npm:
+Erstellen Sie einen JavaScript-Bot mit der Echo-Vorlage. Weitere Informationen finden Sie in der [JavaScript-Schnellstartanleitung](../javascript/bot-builder-javascript-quickstart.md).
+
+Installieren Sie das Paket mit den Dialogen über npm:
 
 ```cmd
 npm install --save botbuilder-dialogs
 ```
 
-Um **Dialogfelder** in Ihrem Bot zu verwenden, schließen Sie es in den Botcode ein.
+Um **Dialoge** in Ihrem Bot zu verwenden, schließen Sie sie in den Botcode ein.
 
-Fügen Sie Folgendes in der Datei „app.js“ hinzu.
+1. Fügen Sie in der Datei **bot.js** Folgendes hinzu:
 
-```javascript
-// Import components from the dialogs library.
-const { DialogSet } = require("botbuilder-dialogs");
-// Import components from the main Bot Builder library.
-const { ConversationState, MemoryStorage } = require('botbuilder');
+    ```javascript
+    // Import components from the dialogs library.
+    const { DialogSet, TextPrompt, WaterfallDialog } = require("botbuilder-dialogs");
 
-// Set up a memory storage system to store information.
-const storage = new MemoryStorage();
-// We'll use ConversationState to track the state of the dialogs.
-const conversationState = new ConversationState(storage);
-// Create a property used to track state.
-const dialogState = conversationState.createProperty('dialogState');
+    // Name for the dialog state property accessor.
+    const DIALOG_STATE_PROPERTY = 'dialogState';
 
-// Create a dialog set to control our prompts, store the state in dialogState
-const dialogs = new DialogSet(dialogState);
-```
+    // Define the names for the prompts and dialogs for the dialog set.
+    const TEXT_PROMPT = 'textPrompt';
+    const MAIN_DIALOG = 'mainDialog';
+    ```
+
+    Der _Dialogsatz_ enthält die Dialoge für diesen Bot, und wir verwenden die _Texteingabeaufforderung_, um den Benutzer zur Eingabe aufzufordern. Wir benötigen auch einen Dialog-Zustandseigenschaftenaccessor, der vom Dialogsatz zum Nachverfolgen seines Zustands verwendet werden kann.
+
+1. Aktualisieren Sie den Konstruktorcode Ihres Bots. Wir fügen hierzu in Kürze mehr hinzu.
+
+    ```javascript
+      constructor(conversationState) {
+        // Track the conversation state object.
+        this.conversationState = conversationState;
+
+        // Create a state property accessor for the dialog set.
+        this.dialogState = conversationState.createProperty(DIALOG_STATE_PROPERTY);
+    }
+    ```
 
 ---
 
@@ -214,36 +226,54 @@ Anschließend können Sie die zwei Wasserfallschritte in Ihrem Bot definieren. F
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-Importieren Sie die TextPrompt-Klasse in Ihre App.
+1. Erstellen Sie im Botkonstruktor den Dialogsatz, und fügen Sie eine Texteingabeaufforderung und einen Wasserfalldialog hinzu.
 
-```javascript
-const { TextPrompt } = require("botbuilder-dialogs");
-```
+    ```javascript
+    // Create the dialog set, and add the prompt and the waterfall dialog.
+    this.dialogs = new DialogSet(this.dialogState)
+        .add(new TextPrompt(TEXT_PROMPT))
+        .add(new WaterfallDialog(MAIN_DIALOG, [
+            async (step) => {
+                // The results of this prompt will be passed to the next step.
+                return await step.prompt(TEXT_PROMPT, 'What is your name?');
+            },
+            async (step) => {
+                // The result property contains the result from the previous step.
+                const userName = step.result;
+                await step.context.sendActivity(`Hi ${userName}!`);
+                return await step.endDialog();
+            }
+        ]));
+    ```
 
-Erstellen Sie die neue Eingabeaufforderung, und fügen Sie sie dem Dialogsatz hinzu.
+1. Aktualisieren Sie den Turn-Handler des Bots, um den Dialog auszuführen.
 
-```javascript
-// Greet user:
-// Ask for the user name and then greet them by name.
-dialogs.add(new TextPrompt('textPrompt'));
-dialogs.add('greetings', [
-    async function (step){
-        // the results of this prompt will be passed to the next step
-        return await step.prompt('textPrompt', 'What is your name?');
-    },
-    async function(step) {
-        // step.result is the result of the prompt defined above
-        const userName = step.result;
-        await step.context.sendActivity(`Hi ${userName}!`);
-        return await step.endDialog();
+    ```javascript
+    async onTurn(turnContext) {
+        // See https://aka.ms/about-bot-activity-message to learn more about the message and other activity types.
+        if (turnContext.activity.type === ActivityTypes.Message) {
+            // Create a dialog context for the dialog set.
+            const dc = await this.dialogs.createContext(turnContext);
+            // Continue the dialog if it's active.
+            await dc.continueDialog();
+            if (!turnContext.responded) {
+                // Otherwise, start the dialog.
+                await dc.beginDialog(MAIN_DIALOG);
+            }
+        } else {
+            // Send a default message for activity types that we don't handle.
+            await turnContext.sendActivity(`[${turnContext.activity.type} event detected]`);
+        }
+        // Save state changes
+        await this.conversationState.saveChanges(turnContext);
+        }
     }
-]);
-```
+    ```
 
 ---
 
 > [!NOTE]
-> Um ein Dialogfeld zu starten, rufen Sie einen Dialogfeldkontext ab und verwenden dessen _begin_-Methode. Weitere Informationen finden Sie im Thema zur [Verwendung von Dialogen zum Verwalten eines einfachen Konversationsflusses](./bot-builder-dialog-manage-conversation-flow.md).
+> Um einen Dialog zu starten, rufen Sie einen Dialogkontext ab und verwenden dessen _begin dialog_-Methode. Weitere Informationen finden Sie im Thema zur [Verwendung von Dialogen zum Verwalten eines einfachen Konversationsflusses](./bot-builder-dialog-manage-conversation-flow.md).
 
 ## <a name="reusable-prompts"></a>Wiederverwendbare Eingabeaufforderungen
 
@@ -280,30 +310,29 @@ Unsere Methoden enthalten nun einen dritten Schritt, in dem gefragt wird, wo der
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
+Ändern Sie im Konstruktor des Bots den Wasserfall so, dass eine zweite Frage gestellt wird.
+
 ```javascript
-// Greet user:
-// Ask for the user name and then greet them by name.
-// Ask them where they work.
-dialogs.add(new TextPrompt('textPrompt'));
-dialogs.add('greetings',[
-    async function (step){
-        // Use the textPrompt to ask for a name.
-        return await step.prompt('textPrompt', 'What is your name?');
+// Create the dialog set, and add the prompt and the waterfall dialog.
+this.dialogs = new DialogSet(this.dialogState)
+    .add(new TextPrompt(TEXT_PROMPT))
+    .add(new WaterfallDialog(MAIN_DIALOG, [
+    async (step) => {
+        // Ask the user for their name.
+        return await step.prompt(TEXT_PROMPT, 'What is your name?');
     },
-    async function (step){
+    async (step) => {
+        // Acknowledge their response and ask for their place of work.
         const userName = step.result;
-        await step.context.sendActivity(`Hi ${ userName }!`);
-
-        // Now, reuse the same prompt to ask them where they work.
-        return await step.prompt('textPrompt', 'Where do you work?');
+        return await step.prompt(TEXT_PROMPT, `Hi ${userName}; where do you work?`);
     },
-    async function(step) {
+    async (step) => {
+        // Acknowledge their response and exit the dialog.
         const workPlace = step.result;
-        await step.context.sendActivity(`${ workPlace } is a cool place!`);
-
+        await step.context.sendActivity(`${workPlace} is a cool place!`);
         return await step.endDialog();
     }
-]);
+    ]));
 ```
 
 ---
@@ -320,10 +349,20 @@ _dialogs.Add(new TextPrompt("workplace"));
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
+Ersetzen Sie beispielsweise:
+
 ```javascript
-dialogs.add(new TextPrompt('namePrompt'));
-dialogs.add(new TextPrompt('workPlacePrompt'));
+.add(new TextPrompt(TEXT_PROMPT))
 ```
+
+Durch Folgendes:
+
+```javascript
+.add(new TextPrompt('namePrompt'))
+.add(new TextPrompt('workPlacePrompt'))
+```
+
+Aktualisieren Sie anschließend die entsprechenden Wasserfallschritte, damit diese Eingabeaufforderungen mit ihren jeweiligen Namen verwendet werden.
 
 ---
 
@@ -335,7 +374,7 @@ Wenn Sie eine Eingabeaufforderung in einem Dialogfeldschritt verwenden, können 
 
 Die Angabe einer erneuten Eingabeaufforderung ist dann sinnvoll, wenn die Benutzereingabe eine Eingabeaufforderung nicht erfüllen kann, entweder weil sie in einem Format vorliegt, das die Eingabeaufforderung nicht analysieren kann, z.B. „morgen“ für eine Zahleneingabeaufforderung, oder weil die Eingabe ein Überprüfungskriterium nicht erfüllt. Die Zahleneingabeaufforderung kann eine Vielzahl von Eingaben interpretieren, z.B. „12“ oder „ein Viertel“ sowie „12“ und „0,25“.
 
-„local“ ist ein optionaler Parameter für bestimmte Eingabeaufforderungen, z.B. **NumberPrompt**. Dies kann dazu beitragen, dass die Eingabeaufforderung die Eingabe präziser analysieren kann, aber die Verwendung ist nicht obligatorisch.
+„locale“ ist ein optionaler Parameter für bestimmte Eingabeaufforderungen, z.B. **NumberPrompt**. Dies kann dazu beitragen, dass die Eingabeaufforderung die Eingabe präziser analysieren kann, aber die Verwendung ist nicht obligatorisch.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -359,15 +398,33 @@ return await stepContext.PromptAsync(
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
+Importieren Sie die `NumberPrompt`-Klasse aus der Dialogbibliothek.
+
 ```javascript
-// Import the NumberPrompt class from the dialog library.
 const { NumberPrompt } = require("botbuilder-dialogs");
+```
 
-// Add a NumberPrompt to our dialog set and give it the ID numberPrompt.
-dialogs.add(new NumberPrompt('numberPrompt'));
+Verwenden Sie die Zahleneingabeaufforderung in Ihrem Wasserfalldialog, und geben Sie dafür sowohl die erste Zeichenfolge als auch die Zeichenfolgen für die nachfolgenden Wiederholungen an.
 
-// Call the numberPrompt dialog with the (optional) retryPrompt parameter.
-await dc.prompt('numberPrompt', 'How many people in your party?', { retryPrompt: `Sorry, please specify the number of people in your party.` })
+```javascript
+// Create the dialog set, and add the prompt and the waterfall dialog.
+this.dialogs = new DialogSet(this.dialogState)
+    .add(new NumberPrompt('partySize'))
+    .add(new WaterfallDialog(MAIN_DIALOG, [
+    async (step) => {
+        // Ask the user for their party size.
+        return await step.prompt('partySize', {
+            prompt: 'How many people in your party?',
+            retryPrompt: 'Sorry, please specify the number of people in your party.'
+        });
+    },
+    async (step) => {
+        // Acknowledge their response and exit the dialog.
+        const partySize = step.result;
+        await step.context.sendActivity(`That's a party of ${partySize}, thanks.`);
+        return await step.endDialog();
+    }
+]));
 ```
 
 ---
@@ -395,20 +452,35 @@ private static async Task<DialogTurnResult> FavoriteColorAsync(WaterfallStepCont
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
+Importieren Sie die `NumberPrompt`-Klasse aus der Dialogbibliothek.
+
 ```javascript
-// Import the ChoicePrompt class into your app from the dialogs library.
 const { ChoicePrompt } = require("botbuilder-dialogs");
 ```
 
-```javascript
-// Add a ChoicePrompt to the dialog set and give it an ID of choicePrompt.
-dialogs.add(new ChoicePrompt('choicePrompt'));
-```
+Verwenden Sie die Auswahleingabeaufforderung in Ihrem Wasserfalldialog, und geben Sie die verfügbaren Auswahlmöglichkeiten an.
 
 ```javascript
-// Call the choicePrompt into action, passing in an array of options.
+// Create the dialog set, and add the prompt and the waterfall dialog.
 const list = ['green', 'blue', 'red', 'yellow'];
-await dc.prompt('choicePrompt', 'Please make a choice', list, { retryPrompt: 'Please choose a color.' });
+this.dialogs = new DialogSet(this.dialogState)
+    .add(new ChoicePrompt('choicePrompt'))
+    .add(new WaterfallDialog(MAIN_DIALOG, [
+    async (step) => {
+        // Ask the user for their party size.
+        return await step.prompt('choicePrompt', {
+            prompt: 'Please choose a color:',
+            retryPrompt: 'Sorry, please choose a color from the list.',
+            choices: list
+        });
+    },
+    async (step) => {
+        // Acknowledge their response and exit the dialog.
+        const choice = step.result;
+        await step.context.sendActivity(`That's ${choice.value}, thanks.`);
+        return await step.endDialog();
+    }
+]));
 ```
 
 ---
@@ -443,29 +515,46 @@ private Task<bool> PartySizeValidatorAsync(PromptValidatorContext<int> promptCon
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
+Fügen Sie eine Validierungsmethode hinzu, wenn Sie die Eingabeaufforderung erstellen.
+
 ```javascript
-// Customized prompts with validations
-// A number prompt with validation for valid party size within a range.
-dialogs.add(new NumberPrompt('partySizePrompt', async (promptContext) => {
-    // Check to make sure a value was recognized.
-    if (promptContext.recognized.succeeded) {
-        const value = promptContext.recognized.value;
-        try {
-            if (value < 6 ) {
-                throw new Error('Party size too small.');
-            } else if (value > 20) {
-                throw new Error('Party size too big.')
-            } else {
-                return true; // Indicate that this is a valid value.
+// Create the dialog set, and add the prompt and the waterfall dialog.
+this.dialogs = new DialogSet(this.dialogState)
+    .add(new NumberPrompt('partySizePrompt', async (promptContext) =>                                                 {
+        // Check to make sure a value was recognized.
+        if (promptContext.recognized.succeeded) {
+            const value = promptContext.recognized.value;
+            try {
+                if (value < 6) {
+                    throw new Error('Party size too small.');
+                } else if (value > 20) {
+                    throw new Error('Party size too big.')
+                } else {
+                    return true; // Indicate that this is a valid value.
+                }
+            } catch (err) {
+                await promptContext.context.sendActivity(`${err.message} <br/>Please provide a valid number between 6 and 20.`);
+                return false; // Indicate that this is invalid.
             }
-        } catch (err) {
-            await promptContext.context.sendActivity(`${ err.message } <br/>Please provide a valid number between 6 and 20.`);
-            return false; // Indicate that this is invalid.
+        } else {
+            return false;
         }
-    } else {
-        return false;
-    }
-}));
+    }))
+    .add(new WaterfallDialog(MAIN_DIALOG, [
+        async (step) => {
+            // Ask the user for their party size.
+            return await step.prompt('partySizePrompt', {
+                prompt: 'How large is your party?',
+                retryPrompt: 'Sorry, please specify a size between 6 and 20.'
+            });
+        },
+        async (step) => {
+            // Acknowledge their response and exit the dialog.
+            const size = step.result;
+            await step.context.sendActivity(`That's a party of ${size}, thanks.`);
+            return await step.endDialog();
+        }
+    ]));
 ```
 
 ---
@@ -505,28 +594,43 @@ Weitere Beispiele finden Sie in unserem [Beispielrepository](https://aka.ms/bot-
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
+```javascript
+const { DateTimePrompt } = require("botbuilder-dialogs");
+```
+
 ```JavaScript
-// A date and time prompt with validation for date/time in the future.
-dialogs.add(new atetimePrompt('dateTimePrompt', async (promptContext) => {
-    if (promptContext.recognized.succeeded) {
-        const values = promptContext.recognized.value;
+// Create the dialog set, and add the prompt and the waterfall dialog.
+this.dialogs = new DialogSet(this.dialogState)
+    .add(new DateTimePrompt('dateTimePrompt', async (promptContext) => {
         try {
-            if (values.length < 0) { throw new Error('missing time') }
-            if (values[0].type !== 'date') { throw new Error('unsupported type') }
+            if (!promptContext.recognized.succeeded) { throw new Error('Value not recognized.') }
+            const values = promptContext.recognized.value;
+            if (!Array.isArray(values) || values.length < 0) { throw new Error('Value missing.'); }
+            if ((values[0].type !== 'datetime') && (values[0].type !== 'date')) { throw new Error('Unsupported type.'); }
+            const now = new Date();
             const value = new Date(values[0].value);
-            if (value.getTime() < new Date().getTime()) { throw new Error('in the past') }
+            if (value.getTime() < now.getTime()) { throw new Error('Value in the past.') }
 
             // update the return value of the prompt to be a real date object
-            promptContext.recognized.value = value;
-            return true; // indicate valid 
+            promptContext.recognized.value = [value];
+            return true; // indicate valid
         } catch (err) {
-            await promptContext.context.sendActivity(`Please enter a valid time in the future like "tomorrow at 9am".`);
+            await promptContext.context.sendActivity(`${err} Please specify a date or a date and time in the future, like tomorrow at 9am.`);
             return false; // indicate invalid
         }
-    } else {
-        return false;
-    }
-}));
+    }))
+    .add(new WaterfallDialog(MAIN_DIALOG, [
+        async (step) => {
+            // Ask the user for their party size.
+            return await step.prompt('dateTimePrompt', 'When would you like to schedule that for?');
+        },
+        async (step) => {
+            // Acknowledge their response and exit the dialog.
+            const time = step.result;
+            await step.context.sendActivity(`That's ${time}, thanks.`);
+            return await step.endDialog();
+        }
+    ]));
 ```
 
 Weitere Beispiele finden Sie in unserem [Beispielrepository](https://aka.ms/bot-samples-readme).
@@ -549,3 +653,6 @@ Ein vollständiges Beispiel, in dem einige dieser Eingabeaufforderungen verwende
 ## <a name="next-steps"></a>Nächste Schritte
 
 Da Sie jetzt wissen, wie ein Benutzer zu einer Eingabe aufgefordert wird, können Sie den Botcode und die Benutzeroberfläche verbessern, indem Sie verschiedene Gesprächsflüsse über Dialogfelder verwalten.
+
+> [!div class="nextstepaction"]
+> [Verwalten eines einfachen Konversationsflusses mit Dialogen](bot-builder-dialog-manage-conversation-flow.md)

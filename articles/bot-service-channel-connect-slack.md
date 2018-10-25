@@ -6,14 +6,15 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: 56fe0af4d34e6e0aa4bc420112c541a410aa1301
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: f69cfa4c67a1f628d835f0d96903065b8b033d32
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301893"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50000127"
 ---
 # <a name="connect-a-bot-to-slack"></a>Verbinden eines Bots mit Slack
 
@@ -21,7 +22,7 @@ Sie können Ihren Bot so konfigurieren, dass er mit Personen kommuniziert, die d
 
 ## <a name="create-a-slack-application-for-your-bot"></a>Erstellen einer Slack-Anwendung für Ihren Bot
 
-Melden Sie sich bei Slack an, und [erstellen Sie eine Slack-Anwendung](https://api.slack.com/applications/new).
+Melden Sie bei [Slack](https://slack.com/signin) an, und navigieren Sie zum Kanal für die [Erstellung einer Slack-Anwendung](https://api.slack.com/apps).
 
 ![Einrichten des Bots](~/media/channels/slack-NewApp.png)
 
@@ -29,7 +30,7 @@ Melden Sie sich bei Slack an, und [erstellen Sie eine Slack-Anwendung](https://a
 
 Geben Sie einen App-Namen ein, und wählen Sie ein Slack-Entwicklungsteam aus. Wenn Sie noch kein Mitglied eines Slack-Entwicklungsteams sind, [erstellen Sie eines, oder treten Sie einem bei](https://slack.com/).
 
-![App erstellen](~/media/channels/slack-CreateApp.png)
+![Erstellen einer App](~/media/channels/slack-CreateApp.png)
 
 Klicken Sie auf **Create app** (App erstellen). Slack erstellt Ihre App und generiert eine Client-ID sowie das Clientgeheimnis.
 
@@ -63,23 +64,23 @@ Klicken Sie auf **Add Bot User** (Bot-Benutzer hinzufügen), um Ihre Einstellung
 Abonnieren Sie anhand der folgenden Schritte sechs spezielle Bot-Ereignisse. Durch das Abonnieren von Bot-Ereignissen wird Ihre App über Benutzeraktivitäten unter der URL, die Sie angeben, benachrichtigt.
 
 > [!TIP]
-> Ihr Bot-Handle ist eine Eigenschaft Ihres Bots. Um einen Bot-Handle zu finden, rufen Sie [https://dev.botframework.com/bots](https://dev.botframework.com/bots) auf, wählen Sie einen Bot, und klicken Sie auf **SETTINGS** (EINSTELLUNGEN).
+> Ihr Bot-Handle ist der Name Ihres Bots. Um den Handle eines Bots zu ermitteln, können Sie unter [https://dev.botframework.com/bots](https://dev.botframework.com/bots) einen Bot auswählen und den Namen des Bots notieren.
 
 1. Klicken Sie auf die Registerkarte **Event Subscriptions** (Ereignisabonnements).
 2. Wählen Sie für **Enable Events** (Ereignisse aktivieren) **On** (Ein) aus.
-3. Geben Sie unter **Request URL** (Anforderungs-URL) die folgende URL ein, ersetzen Sie `{YourBotHandle}` jedoch durch Ihren Bot-Handle.
+3. Geben Sie unter **Request URL** (Anforderungs-URL) die folgende URL ein, ersetzen Sie `{YourBotHandle}` jedoch durch Ihren Bot-Handle. In diesem Tutorial wird testChannels als Bot-Handle verwendet.
         `https://slack.botframework.com/api/Events/{YourBotHandle}`
-4. Klicken Sie unter **Subscribe to Bot Events** (Bot-Ereignisse abonnieren) auf **Add Bot User Event** (Bot-Benutzerereignis hinzufügen).
-5. Klicken Sie in der Liste der Ereignisse auf **Add Bot User Event** (Bot-Benutzerereignis hinzufügen), und wählen Sie die folgenden sechs Ereignistypen aus:
+4. Klicken Sie unter **Subscribe to Workspace Events** (Arbeitsbereichsereignisse abonnieren) auf **Add Workspace Event** (Arbeitsbereichsereignis hinzufügen).
+5. Wählen Sie in der Liste mit den Ereignissen diese sechs Ereignistypen aus:
     * `member_joined_channel`
     * `member_left_channel`
     * `message.channels`
     * `message.groups`
     * `message.im`
     * `message.mpim`
-6. Klicken Sie auf **Änderungen speichern**.
 
-![Abonnieren von Ereignissen](~/media/channels/slack-EnableEvents.png)
+![Abonnieren von Ereignissen](~/media/channels/slack-SubscribeEvents.png)
+6. Klicken Sie auf **Änderungen speichern**.
 
 ## <a name="add-and-configure-interactive-messages-optional"></a>Hinzufügen und Konfigurieren von interaktiven Nachrichten (optional)
 
@@ -87,7 +88,7 @@ Wenn Ihr Bot Slack-spezifische Funktionen wie Schaltflächen verwendet, gehen Si
 
 1. Klicken Sie auf die Registerkarte **Interactive Components** (Interaktive Komponenten) und dann auf **Enable Interactive Components** (Interaktive Komponenten aktivieren).
 2. Geben Sie `https://slack.botframework.com/api/Actions` als **Request URL** (Anforderungs-URL) ein.
-3. Klicken Sie auf die Schaltfläche **Enable Interactive Messages** (Interaktive Nachrichten aktivieren) und dann auf die Schaltfläche **Save changes** (Änderungen speichern).
+3. Klicken Sie auf die Schaltfläche **Änderungen speichern**.
 
 ![Aktivieren von Nachrichten](~/media/channels/slack-MessageURL.png)
 
@@ -103,7 +104,7 @@ Die Client-ID, das Clientgeheimnis und das Überprüfungstoken für die Konfigur
 Rufen Sie in einem separaten Browserfenster die Bot Framework-Website unter `https://dev.botframework.com/` auf.
 
 1. Klicken Sie auf **My bots** (Meine Bots), und wählen Sie den Bot, für den eine Verbindung mit Slack hergestellt werden soll.
-2. Klicken Sie im Abschnitt **Add a channel** (Kanal hinzufügen) auf das Slack-Symbol.
+2. Klicken Sie im Abschnitt **Channels** (Kanäle) auf das Slack-Symbol.
 3. Fügen Sie auf der Slack-Website im Abschnitt **Enter your Slack credentials** (Slack-Anmeldeinformationen eingeben) die Anmeldeinformationen für die App in die entsprechenden Felder ein.
 4. Die Angabe von **Landing Page URL** (URL der Landing Page) ist optional. Sie können diese auslassen oder ändern.
 5. Klicken Sie auf **Speichern**.
@@ -124,7 +125,7 @@ Um diesen HTML-Code mit Ihrem Bot zu verwenden, ersetzen Sie den href-Wert (begi
 Um die Ersatz-URL abzurufen, gehen Sie wie folgt vor:
 
 1. Klicken Sie unter [https://dev.botframework.com/bots](https://dev.botframework.com/bots) auf Ihren Bot.
-2. Klicken Sie im Eintrag mit dem Namen **Slack** mit der rechten Maustaste auf **CHANNELS** (KANÄLE), und klicken Sie dann auf **Copy link** (Link kopieren). Diese URL ist jetzt in der Zwischenablage gespeichert.
+2. Klicken Sie auf **Channels** (Kanäle), klicken Sie mit der rechten Maustaste auf den Eintrag **Slack**, und klicken Sie dann auf **Copy link** (Link kopieren). Diese URL ist jetzt in der Zwischenablage gespeichert.
 3. Fügen Sie diese URL aus der Zwischenablage in den HTML-Code ein, der für die Slack-Schaltfläche bereitgestellt wird. Diese URL ersetzt den href-Wert, der von Slack für diesen Bot bereitgestellt wird.
 
 Autorisierte Benutzer können auf die Schaltfläche **Add to Slack** (Zu Slack hinzufügen) klicken, die von diesem geänderten HTML-Code bereitgestellt wird, um eine Verbindung mit Ihrem Bot in Slack herzustellen.

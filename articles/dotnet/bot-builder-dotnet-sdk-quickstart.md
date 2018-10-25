@@ -9,12 +9,12 @@ ms.topic: get-started-article
 ms.prod: bot-framework
 ms.date: 09/23/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 5f3a02783242697fccf267bef2d56ed453880c67
-ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
+ms.openlocfilehash: d299e4bdfd503475bf1ec560da2aff1d3a199e47
+ms.sourcegitcommit: b8bd66fa955217cc00b6650f5d591b2b73c3254b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/23/2018
-ms.locfileid: "46707976"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326387"
 ---
 # <a name="create-a-bot-with-the-bot-builder-sdk-for-net"></a>Erstellen eines Bots mit dem Bot Builder SDK für .NET
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
@@ -35,7 +35,7 @@ Erstellen Sie in Visual Studio ein neues Botprojekt.
 ![Visual Studio-Projekt](../media/azure-bot-quickstarts/bot-builder-dotnet-project.png)
 
 > [!TIP] 
-> Aktualisieren Sie ggf. die [NuGet-Pakete](https://docs.microsoft.com/en-us/nuget/quickstart/install-and-use-a-package-in-visual-studio).
+> Ändern Sie den Buildtyp des Projekts, falls erforderlich, in ``.Net Core 2.1``, und aktualisieren Sie ggf. die [NuGet-Pakete](https://docs.microsoft.com/en-us/nuget/quickstart/install-and-use-a-package-in-visual-studio).
 
 Dank der Vorlage enthält Ihr Projekt sämtlichen Code, der zum Erstellen des Bots in dieser Schnellstartanleitung erforderlich ist. Sie müssen tatsächlich keinen zusätzlichen Code schreiben.
 
@@ -53,7 +53,11 @@ Starten Sie im nächste Schritt den Emulator, und stellen Sie dann im Emulator e
 ## <a name="interact-with-your-bot"></a>Interagieren mit Ihrem Bot
 
 Senden Sie eine Nachricht an Ihren Bot. Dieser antwortet daraufhin mit einer Nachricht.
+
 ![Ausgeführter Emulator](../media/emulator-v4/emulator-running.png)
+
+> [!NOTE]
+> Wenn Sie sehen, dass die Nachricht nicht gesendet werden kann, müssen Sie Ihren Computer ggf. neu starten, weil ngrok die erforderlichen Berechtigungen für Ihr System noch nicht erhalten hat (einmaliger Vorgang).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

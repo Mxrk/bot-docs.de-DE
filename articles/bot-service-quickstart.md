@@ -6,14 +6,15 @@ author: v-ducvo
 ms.author: v-ducvo
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: abs
 ms.date: 09/18/2018
-ms.openlocfilehash: e676a9bf2c9dac46d728f8a37d87eae6e56df341
-ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
+ms.openlocfilehash: 43dacff8f3ce1e4c1fbae663ee607a1965c7f782
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/23/2018
-ms.locfileid: "46707686"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50000187"
 ---
 ::: moniker range="azure-bot-service-3.0"
 
@@ -37,7 +38,7 @@ Melden Sie sich beim [Azure-Portal](http://portal.azure.com)an.
 2. Ein neues Blatt mit Informationen über den **Web-App-Bot** wird geöffnet.  
 
 3. Geben Sie auf dem Blatt **Bot Service** die angeforderten Informationen über Ihren Bot wie in der Tabelle unter der Abbildung angegeben an.  <br/>
-   ![Blatt zum Erstellen eines Web-App-Bots](~/media/azure-bot-quickstarts/sdk-create-bot-service-blade.png)
+   ![Blatt zum Erstellen eines Web-App-Bots](./media/azure-bot-quickstarts/sdk-create-bot-service-blade.png)
 
    | Einstellung | Empfohlener Wert | BESCHREIBUNG |
    | ---- | ---- | ---- |
@@ -49,8 +50,8 @@ Melden Sie sich beim [Azure-Portal](http://portal.azure.com)an.
    | **App-Name** | Ein eindeutiger Name | Der eindeutige URL-Name des Bots. Wenn Sie Ihren Bot z.B. *myawesomebot* nennen, lautet die URL Ihres Bots `http://myawesomebot.azurewebsites.net`. Der Name darf ausschließlich alphanumerische Zeichen und den Unterstrich enthalten. Für dieses Feld gilt ein Limit von maximal 35 Zeichen. Der App-Name kann nicht mehr geändert werden, nachdem der Bot erstellt wurde. |
    | **Botvorlage** | Basic | Wählen Sie für diesen Schnellstart **C#** oder **Node.js** und dann die Vorlage **Basic** aus, und klicken Sie auf **Auswählen**. Die Basic-Vorlage erstellt einen Echobot. [Weitere Informationen](bot-service-concept-templates.md) zu den Vorlagen. |
    | **App Service-Plan/Standort** | Ihr App Service-Plan  | Wählen Sie einen Standort für den [App Service-Plan](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/) aus. Sie können in der Liste einen beliebigen Standort auswählen, es ist jedoch oftmals sinnvoll, einen Standort in der Nähe Ihrer Kunden auszuwählen. (Nicht verfügbar für Functions-Bots.) |
-   | **Azure Storage** | Ihr Azure Storage-Konto | Sie können ein neues Datenspeicherkonto erstellen oder ein vorhandenes auswählen. Standardmäßig verwendet der Bot [Table Storage](/azure/storage/common/storage-introduction#table-storage). |
-   | **Application Insights** | Andererseits | Entscheiden Sie, ob Sie [Application Insights](/bot-framework/bot-service-manage-analytics) **aktivieren** oder **deaktivieren** möchten. Bei Auswahl von **Ein** müssen Sie auch einen regionalen Standort angeben. Sie können in der Liste einen beliebigen Standort auswählen, es ist jedoch oftmals sinnvoll, einen Standort in der Nähe Ihrer Kunden auszuwählen. |
+   | **Azure Storage (in englischer Sprache)** | Ihr Azure Storage-Konto | Sie können ein neues Datenspeicherkonto erstellen oder ein vorhandenes auswählen. Standardmäßig verwendet der Bot [Table Storage](/azure/storage/common/storage-introduction#table-storage). |
+   | **Application Insights** | Andererseits | Entscheiden Sie, ob Sie [Application Insights](/bot-framework/bot-service-manage-analytics) **aktivieren** oder **deaktivieren** möchten. Bei Auswahl von **Ein** müssen Sie auch einen regionalen Standort angeben. Beim gewählten Standort kann es sich um einen beliebigen aufgeführten Standort handeln, aber häufig ist es am besten, denselben Standort wie für den Botdienst zu wählen. |
    | **Microsoft-App-ID und Kennwort** | Automatisch erstellte App-ID mit Kennwort | Verwenden Sie diese Option, wenn Sie manuell eine Microsoft-App-ID und ein Kennwort eingeben müssen. Andernfalls werden beim Erstellen des Bots eine neue Microsoft-App-ID und ein Kennwort für Sie erstellt. |
 
    > [!NOTE]
@@ -108,9 +109,9 @@ Melden Sie sich beim [Azure-Portal](http://portal.azure.com)an.
  | **Preisstufe** | F0 | Wählen Sie einen Tarif. Sie können den Tarif jederzeit ändern. Weitere Informationen finden Sie unter [Bot Service – Preise](https://azure.microsoft.com/en-us/pricing/details/bot-service/). |
  | **App-Name** | Ein eindeutiger Name | Der eindeutige URL-Name des Bots. Wenn Sie Ihren Bot z.B. *myawesomebot* nennen, lautet die URL Ihres Bots `http://myawesomebot.azurewebsites.net`. Der Name darf ausschließlich alphanumerische Zeichen und den Unterstrich enthalten. Für dieses Feld gilt ein Limit von maximal 35 Zeichen. Der App-Name kann nicht mehr geändert werden, nachdem der Bot erstellt wurde. |
  | **Botvorlage** | Echobot | Wählen Sie **SDK v4** aus. Wählen Sie für diese Schnellstartanleitung C# oder Node.js, und klicken Sie dann auf **Auswählen**.  
- | **App Service-Plan/Standort** | Ihr App Service-Plan  | Wählen Sie einen Standort für den [App Service-Plan](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/) aus. Sie können in der Liste einen beliebigen Standort auswählen, es ist jedoch oftmals sinnvoll, einen Standort in der Nähe Ihrer Kunden auszuwählen. |
- | **Azure Storage** | Ihr Azure Storage-Konto | Sie können ein neues Datenspeicherkonto erstellen oder ein vorhandenes auswählen. Standardmäßig verwendet der Bot [Table Storage](/azure/storage/common/storage-introduction#table-storage). |
- | **Application Insights** | Andererseits | Entscheiden Sie, ob Sie [Application Insights](/bot-framework/bot-service-manage-analytics) **aktivieren** oder **deaktivieren** möchten. Bei Auswahl von **Ein** müssen Sie auch einen regionalen Standort angeben. Sie können in der Liste einen beliebigen Standort auswählen, es ist jedoch oftmals sinnvoll, einen Standort in der Nähe Ihrer Kunden auszuwählen. |
+ | **App Service-Plan/Standort** | Ihr App Service-Plan  | Wählen Sie einen Standort für den [App Service-Plan](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/) aus. Beim gewählten Standort kann es sich um einen beliebigen aufgeführten Standort handeln, aber häufig ist es am besten, denselben Standort wie für den Botdienst zu wählen. |
+ | **Azure Storage (in englischer Sprache)** | Ihr Azure Storage-Konto | Sie können ein neues Datenspeicherkonto erstellen oder ein vorhandenes auswählen. Standardmäßig verwendet der Bot [Table Storage](/azure/storage/common/storage-introduction#table-storage). |
+ | **Application Insights** | Andererseits | Entscheiden Sie, ob Sie [Application Insights](/bot-framework/bot-service-manage-analytics) **aktivieren** oder **deaktivieren** möchten. Bei Auswahl von **Ein** müssen Sie auch einen regionalen Standort angeben. Beim gewählten Standort kann es sich um einen beliebigen aufgeführten Standort handeln, aber häufig ist es am besten, denselben Standort wie für den Botdienst zu wählen. |
  | **Microsoft-App-ID und Kennwort** | Automatisch erstellte App-ID mit Kennwort | Verwenden Sie diese Option, wenn Sie manuell eine Microsoft-App-ID und ein Kennwort eingeben müssen. Andernfalls werden beim Erstellen des Bots eine neue Microsoft-App-ID und ein Kennwort für Sie erstellt. |
 
 4. Klicken Sie auf **Erstellen**, um den Dienst zu erstellen und den Bot in der Cloud bereitzustellen. Dieser Vorgang kann mehrere Minuten dauern.
@@ -122,7 +123,7 @@ Nachdem Ihr Bot nun erstellt wurde, können Sie ihn im Webchat testen.
 ## <a name="test-the-bot"></a>Testen des Bots
 Klicken Sie im Abschnitt **Botverwaltung** auf **Testen im Webchat**. Azure Bot Service lädt das Webchat-Steuerelement und stellt eine Verbindung mit Ihrem Bot her. 
 
-![Azure-Webchat-Test](~/media/azure-bot-quickstarts/azure-webchat-test.png)
+![Azure-Webchat-Test](./media/azure-bot-quickstarts/azure-webchat-test.png)
 
 Geben Sie eine Nachricht ein, und Ihr Bot sollte antworten.
 

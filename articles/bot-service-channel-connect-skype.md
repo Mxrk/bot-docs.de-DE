@@ -7,25 +7,31 @@ ms.author: RobStand
 manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
-ms.date: 2/1/2018
-ms.openlocfilehash: 5dc4063125855113f813b8873b01df84c90e197e
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.date: 10/11/2018
+ms.openlocfilehash: 6fec83e7e37ba4759e8e305be8c98382f0bedeff
+ms.sourcegitcommit: 54ed5000c67a5b59e23b667547565dd96c7302f9
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301856"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49315076"
 ---
 # <a name="connect-a-bot-to-skype"></a>Verbinden eines Bots mit Skype
 
 Mit Skype bleiben Sie per Sofortnachricht, Telefon und Videoanrufen mit Benutzern verbunden. Erweitern Sie diese Funktion, indem Sie Bots erstellen, die von Benutzern über die Skype-Schnittstelle entdeckt und zur Interaktion verwendet werden können.
 
-Zum Hinzufügen des Skype-Kanals öffnen Sie den Bot im [Azure-Portal](https://portal.azure.com/), klicken Sie auf das Blatt **Kanäle**, und klicken Sie dann auf **Skype**. Dadurch gelangen Sie auf die Einstellungsseite **Skype konfigurieren**. Füllen Sie alle erforderlichen Informationen über Ihren Bot aus, und klicken Sie auf **Speichern**, um die Verbindung mit dem Skype-Kanal herzustellen. Akzeptieren Sie die **Vertragsbedingungen**, und Ihrem Bot wird der Skype-Kanal hinzugefügt.
+Zum Hinzufügen des Skype-Kanals öffnen Sie den Bot im [Azure-Portal](https://portal.azure.com/), klicken Sie auf das Blatt **Kanäle**, und klicken Sie dann auf **Skype**.
 
 ![Hinzufügen eines Skype-Kanals](~/media/channels/skype-addchannel.png)
 
+Dadurch gelangen Sie auf die Einstellungsseite **Skype konfigurieren**.
+
+![Konfigurieren des Skype-Kanals](~/media/channels/skype_configure.png)
+
+Sie müssen die Einstellungen unter **Websteuerelement**, **Nachrichten**, **Anrufen**, **Gruppen** und **Veröffentlichen** konfigurieren. Wir gehen diese Punkte einzeln durch.
+
 ## <a name="web-control"></a>Websteuerelement
 
-Um den Bot in Ihre Website einzubetten, können Sie den Code abrufen, indem Sie auf die Schaltfläche **Get embed code** (Einbettungscode abrufen) im Abschnitt **Websteuerelement** klicken.
+Klicken Sie im Abschnitt **Websteuerelement** auf die Schaltfläche **Get embed code** (Einbettungscode abrufen), um den Bot in Ihre Website einzubetten. Sie werden auf die Seite „Skype für Entwickler“ geleitet. Befolgen Sie die angegebene Anleitung, um den Einbettungscode abzurufen.
 
 ## <a name="messaging"></a>Nachrichten
 
@@ -44,6 +50,8 @@ In diesem Abschnitt wird konfiguriert, ob Ihr Bot einer Gruppe hinzugefügt werd
 In diesem Abschnitt werden die Veröffentlichungseinstellungen Ihres Bots konfiguriert. Alle Felder mit der Bezeichnung * sind Pflichtfelder.
 
 Bots in der **Vorschauversion** sind auf 100 Kontakte beschränkt. Wenn Sie mehr als 100 Kontakte benötigen, übermitteln Sie Ihren Bot zur Überprüfung. Wenn Sie auf **Zur Überprüfung übermitteln** klicken und dies bestätigt wurde, kann Ihr Bot automatisch in Skype gesucht werden. Wenn Ihre Anforderung nicht genehmigt werden kann, werden Sie darüber benachrichtigt, was Sie ändern müssen, bevor sie genehmigt werden kann.
+
+Klicken Sie nach Abschluss der Konfiguration auf **Speichern**, und akzeptieren Sie die **Vertragsbedingungen**. Der Skype-Kanal wird Ihrem Bot jetzt hinzugefügt.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

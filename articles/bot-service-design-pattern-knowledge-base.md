@@ -7,12 +7,12 @@ manager: kamrani
 ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
-ms.openlocfilehash: dd8869c26a87718177462db2508e41aa82810e21
-ms.sourcegitcommit: f0b22c6286e44578c11c9f15d22b542c199f0024
+ms.openlocfilehash: ab7e6a8e6bbb2cf12fca0371f2de561f4fb47fd8
+ms.sourcegitcommit: b8bd66fa955217cc00b6650f5d591b2b73c3254b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404076"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326527"
 ---
 # <a name="design-knowledge-bots"></a>Entwerfen von Wissens-Bots
 
@@ -129,7 +129,7 @@ Bei einigen Wissens-Bots wird möglicherweise QnA Maker verwendet, um grundlegen
 2. Anfängliches Aufrufen von LUIS, und wenn keine Absicht einen bestimmten Schwellenwert erreicht, d.h. eine Absicht vom Typ „None“ ausgelöst wird, Aufrufen von QnA Maker. Alternative: Erstellen einer LUIS-Absicht für QnA Maker und Bereitstellen von QnA-Beispielfragen für das LUIS-Modell, die „QnAIntent“ zugeordnet sind. 
 3. Anfängliches Aufrufen von QnA Maker, und wenn keine Antwort einen bestimmten Schwellenwert erreicht, anschließendes Aufrufen von LUIS. 
 
-Das Bot Builder SDK bietet integrierte Unterstützung für LUIS und QnA Maker. Dadurch können Sie mithilfe von LUIS und/oder QnA Maker Dialoge auslösen oder Fragen automatisch beantworten, ohne benutzerdefinierte Aufrufe der beiden Tools implementieren zu müssen. Weitere Informationen finden Sie unter den [Bot Service-Vorlagen](bot-service-concept-templates.md).
+Das Bot Builder SDK bietet integrierte Unterstützung für LUIS und QnA Maker. Dadurch können Sie mithilfe von LUIS und/oder QnA Maker Dialoge auslösen oder Fragen automatisch beantworten, ohne benutzerdefinierte Aufrufe der beiden Tools implementieren zu müssen. Weitere Informationen finden Sie unter [Integrieren mehrerer LUIS- und QnA-Dienste mit dem Dispatch-Tool](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0).
 
 > [!TIP]
 > Wenn Sie eine Kombination von LUIS, QnA Maker und/oder Azure Search implementieren, testen Sie Eingaben mit jedem der Tools, um den Schwellenwert für die einzelnen Modelle zu bestimmen. LUIS, QnA Maker und Azure Search generieren jeweils Bewertungen anhand verschiedener Kriterien, sodass die mit diesen Tools generierten Bewertungen nicht direkt vergleichbar sind. Darüber hinaus werden Bewertungen in LUIS und QnA Maker normalisiert. Eine bestimmte Bewertung kann in einem LUIS-Modell als „gut“, in einem anderen jedoch ganz anders angesehen werden. 

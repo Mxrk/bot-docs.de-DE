@@ -6,14 +6,15 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 04/30/2018
-ms.openlocfilehash: 6e694ce8b54ebd2405d7496d333c2bb27eb344f1
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: 9e3f2f19c480a9d2fe6df0baea74d449bb584b4f
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39301816"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49999084"
 ---
 # <a name="connect-a-bot-to-cortana"></a>Verbinden eines Bots mit Cortana
 
@@ -32,28 +33,23 @@ Wenn Sie Ihren Bot mit dem Cortana-Kanal verbinden, ist das Registrierungsformul
 | **Funktionssymbol** | Ein Symbol, das beim Aufruf Ihrer Funktion in der Cortana-Canvas angezeigt wird. Dieses wird auch dort verwendet, wo Funktionen auffindbar sind (z.B. im Microsoft Store). (Max. 32 KB, nur PNG).|
 | **Anzeigename** | Der Name Ihrer Cortana-Funktion wird für den Benutzer am oberen Rand der visuellen Benutzeroberfläche angezeigt. (Maximal 30 Zeichen) |
 | **Aufrufname** | Diesen Namen sagen Benutzer beim Aufrufen einer Funktion. Er sollte aus höchstens drei Wörtern bestehen und einfach auszusprechen sein. In den [Richtlinien zum Aufrufnamen][invocation] finden Sie weitere Informationen zur Auswahl dieses Namens.|
-| **Beschreibung** | Eine Beschreibung Ihrer Cortana-Funktion. Diese wird auch dort verwendet, wo Funktionen auffindbar sind (z.B. im Microsoft Store). |
-| **Kurzbeschreibung** | Eine kurze Beschreibung der Funktionalität Ihrer Funktion, die zur Beschreibung der Funktion im Notizbuch von Cortana verwendet wird. |
+
+![Standardeinstellungen](~/media/channels/cortana-defaultsettings.png)
 
 ## <a name="general-bot-information"></a>Allgemeine Bot-Informationen
 
 Wählen Sie die Option unter **Manage user identity through connected services section** (Verwalten der Benutzeridentität im Abschnitt „Verbundene Dienste“) aus, um sie zu aktivieren. Füllen Sie das Formular aus.
 
-Mit einem Sternchen (*) gekennzeichnete Felder müssen ausgefüllt werden. Bots müssen im Bot-Framework veröffentlicht werden, bevor sie mit Cortana verbunden werden können.
+Mit einem Sternchen (*) gekennzeichnete Felder müssen ausgefüllt werden. Ein Bot muss in Azure veröffentlicht werden, bevor er mit Cortana verbunden werden kann.
 
-![Allgemeine Informationen angeben](~/media/channels/cortana-details.png)
+![Verwalten der Benutzeridentität – Teil 1](~/media/channels/cortana-manageidentity-1.png)
+![Verwalten der Benutzeridentität – Teil 2](~/media/channels/cortana-manageidentity-2.png)
 
-### <a name="sign-in-at-invocation"></a>Bei Aufruf anmelden
+### <a name="when-should-cortana-prompt-for-a-user-to-sign-in"></a>Zeitpunkt der Aufforderung eines Benutzers zum Anmelden durch Cortana
 
-Wählen Sie diese Option aus, wenn Cortana den Benutzer anmelden soll, sobald er Ihre Funktion aufruft.
+Wählen Sie **Bei Aufruf anmelden**, wenn Cortana den Benutzer anmelden soll, sobald er Ihre Funktion aufruft.
 
-### <a name="sign-in-when-required"></a>Bei Bedarf anmelden
-
-Wählen Sie diese Option aus, wenn Sie eine SignIn-Karte des Bot-Frameworks zum Anmelden des Benutzers verwenden. In der Regel verwenden Sie diese Option, wenn der Benutzer nur bei Verwendung eines Features angemeldet werden soll, das Authentifizierung erfordert. Wenn Ihre Funktion eine Nachricht mit der SignIn-Karte als Anlage sendet, ignoriert Cortana die SignIn-Karte und führt den Autorisierungsablauf mit den Einstellungen zum Verbinden des Kontos durch.
-
-### <a name="connected-service-icon"></a>Symbol für verbundenen Dienst
-
-Symbol, das angezeigt werden soll, wenn sich der Benutzer bei Ihrer Funktion anmeldet.
+Wählen Sie **Bei Bedarf anmelden**, wenn Sie für die Anmeldung des Benutzers eine Bot Service-Anmeldekarte nutzen. In der Regel verwenden Sie diese Option, wenn der Benutzer nur bei Verwendung eines Features angemeldet werden soll, für das eine Authentifizierung erforderlich ist. Wenn Ihre Funktion eine Nachricht mit der Anmeldekarte als Anlage sendet, ignoriert Cortana die Anmeldekarte und führt den Autorisierungsablauf mit den Einstellungen zum Verbinden des Kontos durch.
 
 ### <a name="account-name"></a>Kontoname
 
@@ -71,13 +67,17 @@ Legen Sie die für den Dienst erforderlichen Bereiche fest (siehe Dokumentation 
 
 Legen Sie diese Option auf `https://login.microsoftonline.com/common/oauth2/v2.0/authorize` fest.
 
+### <a name="token-options"></a>Tokenoptionen
+
+Wählen Sie **POST**aus.
+
 ### <a name="grant-type"></a>Gewährungstyp
 
-Wählen Sie „Autorisierungscode“ aus, um den Codeberechtigungsablauf zu verwenden. Wählen Sie „Implizit“ aus, um den impliziten Ablauf zu verwenden.
+Wählen Sie **Autorisierungscode**, um den Codeberechtigungsablauf zu verwenden, oder **Implizit**, um den impliziten Ablauf zu verwenden.
 
 ### <a name="token-url"></a>Token-URL
 
-Wenn Sie „Autorisierungscode“ auswählen, legen Sie diese auf `https://login.microsoftonline.com/common/oauth2/v2.0/token` fest.
+Legen Sie den Gewährungstyp **Autorisierungscode** auf `https://login.microsoftonline.com/common/oauth2/v2.0/token` fest.
 
 ### <a name="client-secretpassword-for-third-party-services"></a>Geheimer Clientschlüssel/Kennwort für Dienste von Drittanbietern
 
@@ -85,23 +85,23 @@ Kennwort des Bots. Sie haben das Kennwort bei der Registrierung Ihres Bots erhal
 
 ### <a name="client-authentication-scheme"></a>Client-Authentifizierungsschema
 
-Wählen Sie die HTTP-Standardauthentifizierung aus.
+Wählen Sie die HTTP-Standardauthentifizierung (**HTTP Basic**) aus.
 
-### <a name="token-options"></a>Tokenoptionen
+### <a name="internet-access-required-to-authenticate-users"></a>Internet access required to authenticate users (Internetzugriff zum Authentifizieren von Benutzern erforderlich)
 
-Legen Sie POST fest.
+Lassen Sie dieses Kontrollkästchen deaktiviert.
 
 ### <a name="request-user-profile-data-optional"></a>Anfordern von Benutzerprofildaten (optional)
 
-Cortana bietet Zugriff auf verschiedene Arten von Informationen aus Benutzerprofilen, anhand deren Sie den Bot für den Benutzer anpassen können. Beispiel: Wenn eine Funktion auf den Namen und Standort des Benutzers zugreifen kann, ist eine individuelle Antwort wie „Hallo Kamran, ich hoffe, du hast einen angenehmen Tag in Bellevue, Washington, USA.“
+Cortana bietet Zugriff auf verschiedene Arten von Informationen aus Benutzerprofilen, anhand deren Sie den Bot für den Benutzer anpassen können. Beispiel: Wenn eine Funktion auf den Namen und Standort des Benutzers zugreifen kann, ist eine benutzerdefinierte Antwort wie „Hallo Kamran, ich hoffe, du hast einen angenehmen Tag in Bellevue, Washington, USA.“ möglich.
 
-Klicken Sie auf den Link **Add a user profile request** (Benutzerprofilanforderung hinzufügen), und wählen Sie dann in der Dropdownliste die gewünschten Benutzerprofilinformationen aus. Fügen Sie einen Anzeigenamen hinzu, der für den Zugriff auf diese Informationen über den Code Ihres Bots verwendet werden soll.
+Klicken Sie auf **Add a user profile request** (Benutzerprofilanforderung hinzufügen), und wählen Sie dann in der Dropdownliste die gewünschten Benutzerprofilinformationen aus. Fügen Sie einen Anzeigenamen hinzu, der für den Zugriff auf diese Informationen über den Code Ihres Bots verwendet werden soll.
 
-### <a name="save-skill"></a>Funktion speichern
+### <a name="deploy-on-cortana"></a>Deploy on Cortana (Auf Cortana bereitstellen)
 
-Wenn Sie mit dem Ausfüllen des Registrierungsformulars für Ihre Cortana-Funktion fertig sind, klicken Sie auf „Speichern“, um die Verbindung abzuschließen. Dadurch gelangen Sie zurück zum Blatt „Kanäle“ Ihres Bots, auf dem Sie sehen sollten, dass er jetzt mit Cortana verbunden ist.
+Wenn Sie mit dem Ausfüllen des Registrierungsformulars für Ihre Cortana-Funktion fertig sind, klicken Sie auf **Deploy on Cortana** (Auf Cortana bereitstellen), um die Verbindung abzuschließen. Dadurch gelangen Sie zurück zum Blatt „Kanäle“ Ihres Bots, auf dem Sie sehen sollten, dass er jetzt mit Cortana verbunden ist.
 
-Zu diesem Zeitpunkt wurde Ihr Bot in Ihrem Konto bereits automatisch als Cortana-Funktion bereitgestellt.
+Ihr Bot wurde nun als Cortana-Funktion für Ihr Konto bereitgestellt.
 
 ## <a name="next-steps"></a>Nächste Schritte
 

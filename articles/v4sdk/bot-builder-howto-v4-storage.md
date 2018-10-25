@@ -6,15 +6,16 @@ author: DeniseMak
 ms.author: v-demak
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 09/14/18
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 0bbb507484840ab1fb0dc7c209b5d7ca8e9c9cfb
-ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
+ms.openlocfilehash: 9e63390d157c75e1079654549831cf4936c62710
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/23/2018
-ms.locfileid: "46708146"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997987"
 ---
 # <a name="write-directly-to-storage"></a>Direktes Schreiben in den Speicher
 
@@ -32,7 +33,7 @@ Zunächst erstellen Sie einen Bot, der Daten im Arbeitsspeicher liest und schrei
 
 #### <a name="build-a-basic-bot"></a>Erstellen eines einfachen Bots
 
-Die restlichen Abschnitte dieses Themas beruhen auf einem Echobot. Sie können einen Echobot in [C#](../dotnet/bot-builder-dotnet-sdk-quickstart.md) oder [JS](../javascript/bot-builder-javascript-quickstart.md) erstellen. Mithilfe des Bot Framework-Emulators können Sie eine Verbindung mit Ihrem Bot herstellen, mit ihm eine Konversation führen und ihn testen. Das folgende Beispiel fügt jede Nachricht des Benutzers einer Liste hinzu. Die Datenstruktur, die die Liste enthält, wird in Ihrem Speicher gespeichert.
+Die restlichen Abschnitte dieses Themas beruhen auf einem Echobot. Sie können einen Echobot in [C#](../dotnet/bot-builder-dotnet-sdk-quickstart.md) oder [JS](../javascript/bot-builder-javascript-quickstart.md) erstellen. Mithilfe des Bot Framework-Emulators können Sie eine Verbindung mit Ihrem Bot herstellen, mit ihm eine Konversation führen und ihn testen. Im folgenden Beispiel wird jede Nachricht des Benutzers einer Liste hinzugefügt. Die Datenstruktur, die die Liste enthält, wird in Ihrem Speicher gespeichert.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -502,10 +503,11 @@ Jetzt verwenden Sie zwei dieser Schlüssel, damit der Code auf das Blob Storage-
 ```csharp
 using Microsoft.Bot.Builder.Azure;
 ```
-
 Aktualisieren Sie die Zeile des Codes, die _myStorage_ zu Ihrem vorhandenen Blob Storage-Konto verweist.
 
 ```csharp
+
+
 private static readonly AzureBlobStorage _myStorage = new AzureBlobStorage("<your-blob-storage-account-string>", "<your-blob-storage-container-name>");
 ```
 
@@ -544,36 +546,71 @@ Azure-Blob-Transkriptspeicher ist eine spezielle Speicheroption, die Ihnen auf e
 Für Azure-Blob-Transkriptspeicher kann das Blob Storage-Konto verwendet werden, das Sie in den obigen Abschnitten _Erstellen Ihres Blob Storage-Kontos_ und _Hinzufügen der Konfigurationsinformationen_ erstellt haben. Für die folgende Erläuterung haben wir einen neuen Blobcontainer _mybottranscripts_ hinzugefügt. 
 
 ### <a name="implementation"></a>Implementierung 
-Der folgende Code verbindet den Zeiger für den Transkriptspeicher _myTranscripts_ mit Ihrem neuen Azure-Blob-Transkriptspeicherkonto. Eine einzige Zeile zur Verbindung des Zeigers für den Transkriptspeicher _myTranscripts_.
+Der folgende Code verbindet den Zeiger für den Transkriptspeicher _transcriptStore_ mit Ihrem neuen Azure-Blob-Transkriptspeicherkonto. Der Quellcode zum Speichern der hier angezeigten Benutzerkonversationen basiert auf dem Beispiel zum Konversationsverlauf ([Conversation History](https://aka.ms/bot-history-sample-code)). 
 
 ```csharp
+// In Startup.cs
 using Microsoft.Bot.Builder.Azure;
-private readonly AzureBlobTranscriptStore _myTranscripts = new AzureBlobTranscriptStore("<your-blob-storage-account-string>", "<your-blob-storage-account-name>");
+
+// Enable the conversation transcript middleware.
+blobStore = new AzureBlobTranscriptStore(blobStorageConfig.ConnectionString, storageContainer);
+var transcriptMiddleware = new TranscriptLoggerMiddleware(blobStore);
+options.Middleware.Add(transcriptMiddleware);
+
+// In ConversationHistoryBot.cs
+using Microsoft.Bot.Builder;
+using Microsoft.Bot.Builder.Azure;
+using Microsoft.Bot.Connector;
+using Microsoft.Bot.Schema;
+
+private readonly AzureBlobTranscriptStore _transcriptStore;
+
+/// <param name="transcriptStore">Injected via ASP.NET dependency injection.</param>
+public ConversationHistoryBot(AzureBlobTranscriptStore transcriptStore)
+{
+    _transcriptStore = transcriptStore ?? throw new ArgumentNullException(nameof(transcriptStore));
+}
+
 ```
 
 ### <a name="store-user-conversations-in-azure-blob-transcripts"></a>Speichern von Benutzerkonversationen in Azure-Blob-Transkripts
-Sobald ein Blobcontainer zum Speichern von Transkripts verfügbar ist, können Sie beginnen, die Konversationen Ihrer Benutzer mit dem Bot zu speichern. Diese Konversationen können später zum Debuggen verwendet werden, um festzustellen, wie Benutzer mit Ihrem Bot interagieren. Der folgende Code speichert Benutzereingaben im Rahmen einer Konversation zur späteren Prüfung.
+Sobald ein Blobcontainer zum Speichern von Transkripts verfügbar ist, können Sie beginnen, die Konversationen Ihrer Benutzer mit dem Bot zu speichern. Diese Konversationen können später zum Debuggen verwendet werden, um festzustellen, wie Benutzer mit Ihrem Bot interagieren. Mit dem folgenden Code werden Konversationseingaben des Benutzers gespeichert, wenn „activity.text“ die Eingabenachricht _!history_ erhält.
 
 
 ```csharp
 /// <summary>
 /// Every Conversation turn for our EchoBot will call this method. 
 /// </summary>
-/// <param name="context">Turn scoped context containing all the data needed
+/// <param name="turnContext">A <see cref="ITurnContext"/> containing all the data needed
 /// for processing this conversation turn. </param>        
-public async Task OnTurnAsync(ITurnContext context, CancellationToken cancellationToken = default(CancellationToken))
+public async Task OnTurnAsync(ITurnContext turnContext, CancellationToken cancellationToken = default(CancellationToken))
 {
-    var activityType = context.Activity.Type;
-
-    await context.SendActivityAsync($"Activity type: {context.Activity.Type}.");
-
-    // This bot is processing Messages
-    if (activityType == ActivityTypes.Message)
+    var activity = turnContext.Activity;
+    if (activity.Type == ActivityTypes.Message)
     {
-        // save user input into bot transcript storage for later debugging and review.
-        await _myTranscripts.LogActivityAsync(context.Activity);
-```
+        if (activity.Text == "!history")
+        {
+           // Download the activities from the Transcript (blob store) when a request to upload history arrives.
+           var connectorClient = turnContext.TurnState.Get<ConnectorClient>(typeof(IConnectorClient).FullName);
+           // Get all the message type activities from the Transcript.
+           string continuationToken = null;
+           var count = 0;
+           do
+           {
+               var pagedTranscript = await _transcriptStore.GetTranscriptActivitiesAsync(activity.ChannelId, activity.Conversation.Id);
+               var activities = pagedTranscript.Items
+                  .Where(a => a.Type == ActivityTypes.Message)
+                  .Select(ia => (Activity)ia)
+                  .ToList();
+               
+               var transcript = new Transcript(activities);
 
+               await connectorClient.Conversations.SendConversationHistoryAsync(activity.Conversation.Id, transcript, cancellationToken: cancellationToken);
+
+               continuationToken = pagedTranscript.ContinuationToken;
+           }
+           while (continuationToken != null);
+```
 
 ### <a name="find-all-stored-transcripts-for-your-channel"></a>Suchen nach allen gespeicherten Transkripts für Ihren Kanal
 Um zu überprüfen, welche Daten gespeichert wurden, können Sie mit dem folgenden Code programmgesteuert nach den _ConversationIDs_ für alle gespeicherten Transkripts suchen. Wenn Sie den Bot-Emulator zum Testen Ihres Codes verwenden, wird bei Auswahl von _Neu beginnen_ ein neues Transkript mit einer neuen _ConversationID_ gestartet.
@@ -584,7 +621,7 @@ PagedResult<Transcript> pagedResult = null;
 var pageSize = 0;
 do
 {
-    pagedResult = await _myTranscripts.ListTranscriptsAsync("emulator", pagedResult?.ContinuationToken);
+    pagedResult = await _transcriptStore.ListTranscriptsAsync("emulator", pagedResult?.ContinuationToken);
     
     // transcript item contains ChannelId, Created, Id.
     // save the converasationIds (Id) found by "ListTranscriptsAsync" to a local list.
@@ -596,7 +633,6 @@ do
     }
 } while (pagedResult.ContinuationToken != null);
 ```
-
 
 ### <a name="retrieve-user-conversations-from-azure-blob-transcript-storage"></a>Abrufen von Benutzerkonversationen aus dem Azure-Blob-Transkriptspeicher
 Nachdem Botinteraktionstranskripts in Ihrem Azure-Blob-Transkriptspeicher gespeichert wurden, können Sie sie mit der AzureBlobTranscriptStorage-Methode _GetTranscriptActivities_ programmgesteuert zum Testen oder Debuggen abrufen. Der folgende Codeausschnitt ruft alle Transkripts von Benutzereingaben, die in den letzten 24 Stunden empfangen und gespeichert wurden, aus jedem gespeicherten Transkript ab.
@@ -635,7 +671,7 @@ for (int i = 0; i < numTranscripts; i++)
    if (i > 0)
    {
        string thisConversationId = storedTranscripts[i];    
-       await _myTranscripts.DeleteTranscriptAsync("emulator", thisConversationId);
+       await _transcriptStore.DeleteTranscriptAsync("emulator", thisConversationId);
     }
 }
 ```

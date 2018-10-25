@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: bot-framework
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 4e0bde9d05ed49f6674b2d721e07235b26c5cea4
-ms.sourcegitcommit: 67445b42796d90661afc643c6bb6533e9a662cbc
+ms.openlocfilehash: feefa25d0c85c3aa62705b075253372f12e9146e
+ms.sourcegitcommit: b8bd66fa955217cc00b6650f5d591b2b73c3254b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39574756"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326377"
 ---
 # <a name="enterprise-productivity-bot-scenario"></a>Bot für die Unternehmensproduktivität
 
@@ -50,7 +50,7 @@ Der Bot für Unternehmensproduktivität verwendet die folgenden Komponenten:
 Azure Active Directory (Azure AD) ist der mehrinstanzenfähige cloudbasierte Verzeichnis- und Identitätsverwaltungsdienst von Microsoft. Als Botentwickler können Sie sich mit Azure AD vollständig auf das Erstellen Ihres Bots konzentrieren, da Azure AD die schnelle und einfache Integration in eine erstklassige Identitätsverwaltungslösung ermöglicht, die Millionen von Unternehmen auf der ganzen Welt nutzen. Durch das Definieren einer Azure AD-App können Sie steuern, wer auf Ihren Bot und die von ihm freigegebenen Daten zugreifen kann, ohne Ihr eigenes komplexes Authentifizierungs- und Autorisierungssystem zu implementieren.
 
 ### <a name="graph-api-to-office-365"></a>Graph-API für Office 365
-Microsoft Graph macht mehrere APIs von Office 365 und anderen Microsoft Cloud Services über einen einzigen Endpunkt unter https://graph.microsoft.com verfügbar. Mit Microsoft Graph können Sie und der Bot einfacher Abfragen ausführen. Die API macht Daten aus mehreren Microsoft Cloud Services verfügbar, dazu gehören Exchange Online als Teil von Office 365, Azure Active Directory und SharePoint. Sie können mit der API zwischen Entitäten und Beziehungen navigieren. Sie können die API Ihrer Bots mit dem SDK oder REST-Endpunkten sowie die API Ihrer anderen Apps mit nativer Unterstützung für Android, iOS, Ruby, UWP, Xamarin usw. verwenden.
+Microsoft Graph macht mehrere APIs von Office 365 und anderen Microsoft Cloud Services über einen einzigen Endpunkt unter https://graph.microsoft.com verfügbar. Microsoft Graph vereinfacht Ihnen und dem Bot das Ausführen von Abfragen. Die API macht Daten aus mehreren Microsoft Cloud Services verfügbar, dazu gehören Exchange Online als Teil von Office 365, Azure Active Directory und SharePoint. Sie können mit der API zwischen Entitäten und Beziehungen navigieren. Sie können die API Ihrer Bots mit dem SDK oder REST-Endpunkten sowie die API Ihrer anderen Apps mit nativer Unterstützung für Android, iOS, Ruby, UWP, Xamarin usw. verwenden.
 
 ### <a name="dynamics-crm"></a>Dynamics CRM
 Dynamics CRM ist eine Kundeninteraktionsplattform. Mit Bots und CRM-APIs können Sie interaktive Bots erstellen, die auf die in CRM gespeicherten umfangreichen Daten zugreifen können. Die Leistungsfähigkeit von Dynamics CRM steht Ihrem Bot zur Verfügung, um Fälle zu erstellen, den Status zu überprüfen, Suchen in Wissensdatenbanken durchzuführen und vieles mehr.
