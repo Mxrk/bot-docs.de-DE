@@ -5,18 +5,22 @@ author: RobStand
 ms.author: kamrani
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: ac984609acfdd8f85088bd47ccded1f45e953b2c
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: f0985f28fd1744bcfb6bf5cea1c2230254670e01
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302824"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50000207"
 ---
 # <a name="end-a-conversation"></a>Beenden einer Konversation
 
 Entweder ein Client oder ein Bot kann das Ende einer Direct Line-Konversation durch Senden einer **endOfConversation**-[Aktivität](bot-framework-rest-connector-activities.md) signalisieren. 
+
+> [!NOTE] 
+> Das EndOfConversation-Ereignis wird nur im Cortana-Kanal unterstützt, andere Kanäle implementieren diese Funktion nicht. Die einzelnen Kanäle bestimmen, wie auf eine endOfConversation-Aktivität reagiert wird. Beim Entwerfen eines DirectLine-Clients aktualisieren Sie den Client so, dass er sich entsprechend verhält, z.B. einen Fehler generiert, wenn der Bot eine Aktivität an eine Konversation gesendet hat, die bereits beendet wurde.
 
 ## <a name="send-an-endofconversation-activity"></a>Senden einer endOfConversation-Aktivität
 

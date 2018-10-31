@@ -6,15 +6,16 @@ author: ivorb
 ms.author: v-ivorb
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 08/23/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 5b7faaae63bdc084dac570cb33ebbc755ccbcc19
-ms.sourcegitcommit: aef7d80ceb9c3ec1cfb40131709a714c42960965
+ms.openlocfilehash: 2e2c5f54d4ca077ad2b916787613f782779707ac
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49383115"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49996787"
 ---
 # <a name="send-text-and-spoken-messages"></a>Senden von SMS und gesprochenen Nachrichten
 
@@ -30,10 +31,10 @@ Um eine einfache Textnachricht zu senden, geben Sie die Zeichenfolge an, die Sie
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-Verwenden Sie in der Methode **OnTurn** des Bots die Methode **SendActivity** des turn-Kontextobjekts, um eine einzelne Nachrichtenantwort zu senden. Sie können auch die **SendActivities**-Methode des Objekts verwenden, um mehrere Antworten gleichzeitig zu senden.
+Verwenden Sie in der Methode **OnTurn** des Bots die Methode **SendActivityAsync** des turn-Kontextobjekts, um eine einzelne Nachrichtenantwort zu senden. Sie können auch die **SendActivitiesAsync**-Methode des Objekts verwenden, um mehrere Antworten gleichzeitig zu senden.
 
 ```cs
-await context.SendActivity("Greetings from sample message.");
+await context.SendActivityAsync("Greetings from sample message.");
 ```
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
@@ -58,7 +59,7 @@ Bestimmte Kanäle unterstützen sprachaktivierte Bots, sodass diese mit dem Benu
 Verwenden Sie den optionalen **speak**-Parameter, um Text bereitzustellen, der als Teil der Antwort gesprochen wird.
 
 ```cs
-await context.SendActivity(
+await context.SendActivityAsync(
     "This is the text to be displayed.",
     "This is the text to be spoken.");
 ```

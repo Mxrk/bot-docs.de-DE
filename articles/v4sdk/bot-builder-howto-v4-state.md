@@ -6,15 +6,16 @@ author: ivorb
 ms.author: v-ivorb
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 09/18/18
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 21f864ba6f5beba5205e860f4a56697997048dfb
-ms.sourcegitcommit: 6c2426c43cd2212bdea1ecbbf8ed245145b3c30d
+ms.openlocfilehash: 972df2a12ffa7901ed4e4ecf14ce99233293c5a2
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48852295"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997707"
 ---
 # <a name="manage-conversation-and-user-state"></a>Verwalten des Konversations- und Benutzerzustands
 
@@ -58,7 +59,7 @@ public class UserProfile
 Die `TopicState`-Klasse verfügt über ein Flag zum Nachverfolgen der Konversation und verwendet den Konversationszustand, um diese Informationen zu speichern. Die Eingabeaufforderung wird als „askName“ initialisiert, um die Konversation zu starten. Sobald der Bot die Antwort des Benutzers empfängt, wird die Eingabeaufforderung als „askNumber“ neu definiert, um die nächste Konversation zu initiieren. Die `UserProfile`-Klasse verfolgt den Benutzernamen und die Telefonnummer nach und speichert diese Daten im Benutzerzustand.
 
 ### <a name="property-accessors"></a>Eigenschaftenaccessoren
-Die `EchoBotAccessors`-Klasse in unserem Beispiel wird als Singleton erstellt und per Abhängigkeitsinjektion an den `class EchoWithCounterBot : IBot`-Konstruktor übergeben. Der `EchoBotAccessors`-Klassenkonstruktor initialisiert eine neue Instanz der `EchoBotAccessors`-Klasse. Diese Instanz enthält den `ConversationState`, den `UserState` und den zugehörigen `IStatePropertyAccessor`. Das `conversationState`-Objekt speichert den Themenzustand und das `userState`-Objekt, das die Profilinformationen des Benutzers speichert. Die `ConversationState`- und `UserState`-Objekte werden in der Datei „Startup.cs“ erstellt. In den Konversations- und Benutzerzustandsobjekten werden alle Informationen im Konversations- und Benutzerbereich gespeichert. 
+Die `EchoBotAccessors`-Klasse in unserem Beispiel wird als Singleton erstellt und per Abhängigkeitsinjektion an den `class EchoWithCounterBot : IBot`-Konstruktor übergeben. Die `EchoBotAccessors`-Klasse enthält den `ConversationState`, den `UserState` und den zugehörigen `IStatePropertyAccessor`. Das `conversationState`-Objekt speichert den Themenzustand und das `userState`-Objekt, das die Profilinformationen des Benutzers speichert. Die `ConversationState`- und `UserState`-Objekte werden später in der Datei „Startup.cs“ erstellt. In den Konversations- und Benutzerzustandsobjekten werden alle Informationen im Konversations- und Benutzerbereich gespeichert. 
 
 Der Konstruktor wird wie folgt aktualisiert, um `UserState` hinzuzufügen:
 ```csharp
@@ -121,17 +122,17 @@ Erstellen Sie nun die beiden Accessoren mit `TopicState` und `UserProfile`, und 
 services.AddSingleton<EchoBotAccessors>(sp =>
 {
    ...
-    var accessors = new BotAccessors(conversationState, userState)
+    var accessors = new EchoBotAccessors(conversationState, userState)
     {
-        TopicState = conversationState.CreateProperty<TopicState>("TopicState"),
-        UserProfile = userState.CreateProperty<UserProfile>("UserProfile"),
+        TopicState = conversationState.CreateProperty<TopicState>(EchoBotAccessors.TopicStateName),
+        UserProfile = userState.CreateProperty<UserProfile>(EchoBotAccessors.UserProfileName),
      };
 
      return accessors;
  });
 ```
 
-Der Konversationszustand und der Benutzerzustand sind über den `services.AddSingleton`-Codeblock mit einem Singleton verknüpft und werden über einen Zustandsspeicheraccessor in dem mit `var accessors = new BotAccessor(conversationState, userState)` beginnenden Code gespeichert.
+Der Konversationszustand und der Benutzerzustand sind über den `services.AddSingleton`-Codeblock mit einem Singleton verknüpft und werden über einen Zustandsspeicheraccessor in dem mit `var accessors = new EchoBotAccessor(conversationState, userState)` beginnenden Code gespeichert.
 
 ### <a name="use-conversation-and-user-state-properties"></a>Verwenden von Konversations- und Benutzerzustandseigenschaften 
 Ändern Sie im `OnTurnAsync`-Handler der `EchoWithCounterBot : IBot`-Klasse den Code, um zur Eingabe des Benutzernamens und anschließend zur Eingabe der Telefonnummer aufzufordern. Um die aktuelle Konversation nachzuverfolgen, verwenden Sie die im „TopicState“ definierte Prompt-Eigenschaft. Diese Eigenschaft wurde als „askName“ initialisiert. Wenn Sie den Benutzernamen erhalten haben, legen Sie die Eigenschaft auf „askNumber“ und „UserName“ auf den vom Benutzer eingegebenen Namen fest. Nach dem Empfang der Telefonnummer senden Sie eine Bestätigungsnachricht, und zudem legen Sie die Eingabeaufforderung auf „confirmation“ fest, da Sie das Ende der Konversation erreicht haben.

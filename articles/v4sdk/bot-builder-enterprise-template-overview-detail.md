@@ -1,19 +1,19 @@
 ---
 title: Ausführliche Übersicht über die Vorlage für den Bot für Unternehmen | Microsoft-Dokumentation
-description: Hier finden Sie Informationen zu den Designentscheidungen im Zusammenhang mit der Vorlage für den Bot für Unternehmen.
+description: Informationen zu den Designentscheidungen im Zusammenhang mit der Vorlage für den Bot für Unternehmen
 author: darrenj
 ms.author: darrenj
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
 ms.date: 09/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 6f295794ca7d3cc17688337e70df2a52cdb665ed
-ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
+ms.openlocfilehash: 2ee47d472518e54cf07b86648e270e40f8f015c0
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/23/2018
-ms.locfileid: "46708674"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49997227"
 ---
 # <a name="enterprise-template---detailed-overview"></a>Unternehmensvorlage: ausführliche Übersicht
 
@@ -56,7 +56,7 @@ Mithilfe einer Kombination aus einer Middlewarekomponente und einer Wrapperklass
 
 Bei jedem Projekt, das mit der Vorlage für den Bot für Unternehmen erstellt wurde, steht ein exemplarisches Power BI-Dashboard zur Verfügung. Weitere Informationen finden Sie im Abschnitt [Power BI](bot-builder-enterprise-template-powerbi.md).
 
-## <a name="dispatcher"></a>Dispatcher
+## <a name="dispatcher"></a>Verteiler
 
 Die Nutzung von Sprachverständnis (LUIS) und QnAMaker hat sich bereits in den ersten Konversationsumgebungen bewährt. LUIS wurde mit Aufgaben trainiert, die Ihr Bot für einen Endbenutzer erledigen kann, während QnAMaker eher mit allgemeinen Informationen trainiert wurde.
 

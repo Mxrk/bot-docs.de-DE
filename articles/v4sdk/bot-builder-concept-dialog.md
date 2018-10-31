@@ -6,15 +6,16 @@ author: johnataylor
 ms.author: johtaylo
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 9/22/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 2cf5da32b563c310ee201090c938da9ff410a70c
-ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
+ms.openlocfilehash: 45bca42ddce527826d2723bc9a20a3c3e6c5aebe
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/23/2018
-ms.locfileid: "46708698"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998607"
 ---
 # <a name="dialogs-library"></a>Dialogbibliothek
 
@@ -29,7 +30,7 @@ Ein Dialogfeld implementiert drei Hauptfunktionen:
 - ContinueDialog
 - ResumeDialog
 
-Zur Laufzeit wählen Dialoge und die DialogContext-Klasse gemeinsam den geeigneten Dialog für die Aktivität aus. Die DialogContext-Klasse verknüpft den beibehaltenen Dialogstapel, die eingehende Aktivität und die DialogSet-Klasse. Ein DialogSet-Element enthält Dialoge, die der Bot aufrufen kann.
+Zur Laufzeit wählen Dialoge und die DialogContext-Klassen gemeinsam den geeigneten Dialog für die Aktivität aus. Die DialogContext-Klasse verknüpft den beibehaltenen Dialogstapel, die eingehende Aktivität und die DialogSet-Klasse. Ein DialogSet-Element enthält Dialoge, die der Bot aufrufen kann.
 
 Die Schnittstelle von DialogContext gibt die Auffassung von Beginn und Fortsetzung des Dialogs wieder. Das allgemeine Muster für die Anwendung sieht vor, dass ContinueDialog immer zuerst aufgerufen wird. Wenn kein Stapel und daher kein ActiveDialog-Element vorhanden sind, muss die Anwendung den gewählten Dialogfeld durch Aufrufen von „BeginDialog“ in „DialogContext“ beginnen. Dadurch wird der entsprechenden Dialogeintrag aus dem DialogSet-Element mithilfe von Push an den Stapel übertragen (genau genommen wird die Dialog-ID dem Stapel hinzugefügt), und dann wird ein Aufruf von „BeginDialog“ für das angegebene Dialogobjekt delegiert. Wäre ein ActiveDialog-Element vorhanden gewesen, wäre der Aufruf des ContinueDialog-Elements des Dialogs bei der Verarbeitung einfach delegiert worden, sodass dieser Dialog alle zugeordneten gespeicherten Eigenschaften erhalten hätte.
 

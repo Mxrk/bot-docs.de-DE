@@ -5,15 +5,16 @@ author: v-ducvo
 ms.author: v-ducvo
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 783d9e1fb3b90f6ba977440b3eefae5c16a1b8ca
-ms.sourcegitcommit: 2dc75701b169d822c9499e393439161bc87639d2
+ms.openlocfilehash: 5bdb699e242784883f7c1a5dda895a31ff80efb1
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42905835"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49999161"
 ---
 # <a name="request-payment"></a>Anfordern von Zahlungen
 
@@ -101,7 +102,8 @@ HTTP-Rückrufe werden an Ihren Bot gesendet, um anzugeben, dass bestimmte Vorgä
 ### <a name="shipping-address-update-and-shipping-option-update-callbacks"></a>Rückrufe zum Aktualisieren von Versandadresse und Versandoption
 
 Beim Erhalt eines Rückrufs zum Aktualisieren von Versandadresse oder Versandoption werden Ihrem Bot in der `value`-Eigenschaft des Ereignisses die aktuellen Zahlungsdetails vom Kunden bereitgestellt.
-Als Händler sollten Sie diese Rückrufe als statische, gegebene Zahlungseingabedetails behandeln, anhand der Sie einige Zahlungsausgabedetails berechnen, und die fehlschlagen, wenn der durch den Kunden bereitgestellte Eingabestatus aus irgendeinem Grund ungültig ist. Wenn der Bot ermittelt, dass die angegebenen Informationen im aktuellen Status gültig sind, sendet er zusammen mit den unveränderten Zahlungsdetails einfach den HTTP-Statuscode `200 OK`. Alternativ kann der Bot den HTTP-Statuscode `200 OK` mit aktualisierten Zahlungsdetails senden, die angewendet werden müssen, bevor der Auftrag verarbeitet werden kann. In einigen Fällen kann Ihr Bot bestimmen, dass die aktualisierten Informationen ungültig sind und der Auftrag im aktuellen Status nicht verarbeitet werden kann. Beispiel: Die Versandadresse eines Benutzers enthält ein Land, in das der Produktanbieter nicht versendet. In diesem Fall sendet der Bot wahrscheinlich den HTTP-Statuscode `200 OK` und eine Nachricht, mit der die Fehlereigenschaft des Objekts mit den Zahlungsdetails aufgefüllt wird. Das Senden eines HTTP-Statuscodes im Bereich `400` oder `500` führt zu einem allgemeinen Fehler für den Kunden.
+Als Händler sollten Sie diese Rückrufe als statische, gegebene Zahlungseingabedetails behandeln, anhand der Sie einige Zahlungsausgabedetails berechnen, und die fehlschlagen, wenn der durch den Kunden bereitgestellte Eingabestatus aus irgendeinem Grund ungültig ist. 
+Wenn der Bot ermittelt, dass die angegebenen Informationen im aktuellen Status gültig sind, sendet er zusammen mit den unveränderten Zahlungsdetails einfach den HTTP-Statuscode `200 OK`. Alternativ kann der Bot den HTTP-Statuscode `200 OK` mit aktualisierten Zahlungsdetails senden, die angewendet werden müssen, bevor der Auftrag verarbeitet werden kann. In einigen Fällen kann Ihr Bot bestimmen, dass die aktualisierten Informationen ungültig sind und der Auftrag im aktuellen Status nicht verarbeitet werden kann. Beispiel: Die Versandadresse eines Benutzers enthält ein Land, in das der Produktanbieter nicht versendet. In diesem Fall sendet der Bot wahrscheinlich den HTTP-Statuscode `200 OK` und eine Nachricht, mit der die Fehlereigenschaft des Objekts mit den Zahlungsdetails aufgefüllt wird. Das Senden eines HTTP-Statuscodes im Bereich `400` oder `500` führt zu einem allgemeinen Fehler für den Kunden.
 
 ### <a name="payment-complete-callbacks"></a>Rückrufe des Typs „Zahlung vornehmen“
 

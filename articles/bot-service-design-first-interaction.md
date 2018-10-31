@@ -6,14 +6,15 @@ author: matvelloso
 ms.author: mateusv
 manager: kamrani
 ms.topic: article
-ms.prod: bot-framework
+ms.service: bot-service
+ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: d36f043ec3e268b7c56abef7253ddf6274a71a7e
-ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.openlocfilehash: f59a7acbdb7d580aebeef6ffe81d8b15505aed90
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39302520"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49999807"
 ---
 # <a name="design-a-bots-first-user-interaction"></a>Entwerfen der ersten Benutzerinteraktion eines Bots
 
@@ -34,7 +35,7 @@ Betrachten Sie diese beiden Entwürfe:
 
 ![Bot](~/media/bot-service-design-first-interaction/hello2.png)
 
-In der Regel wird nicht empfohlen, den Bot mit einer offenen Frage wie „Wie ich Ihnen helfen?“ zu starten. is generally not recommended. Wenn Ihr Bot hundert verschiedene Optionen umfasst, werden Benutzer die meisten davon wahrscheinlich nicht erraten. Ihr Bot hat ihnen nicht verraten, was er kann – woher sollten sie es also wissen?
+Das Starten des Bots mit einer offenen Frage wie „Wie ich Ihnen helfen?“ wird im Allgemeinen nicht empfohlen. Wenn Ihr Bot hundert verschiedene Optionen umfasst, werden Benutzer die meisten davon wahrscheinlich nicht erraten. Ihr Bot hat ihnen nicht verraten, was er kann – woher sollten sie es also wissen?
 
 Menüs bieten eine einfache Lösung für dieses Problem. Zunächst informiert der Bot den Benutzer über seine Fähigkeiten, indem er die verfügbaren Optionen auflistet. Außerdem ersparen Menüs dem Benutzer viele Eingaben – stattdessen können sie einfach klicken. Schließlich kann das Verwenden von Menüs Ihre natürlichen Sprachmodelle erheblich vereinfachen, indem der Eingabeumfang, den der Bot vom Benutzer erhalten könnte, eingeschränkt wird. 
 

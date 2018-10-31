@@ -1,16 +1,16 @@
 ---
 redirect_url: /bot-framework/bot-builder-howto-v4-state
-ms.openlocfilehash: e5da105e32ae748383d376f90afd9aebbf4c7aa5
-ms.sourcegitcommit: 3bf3dbb1a440b3d83e58499c6a2ac116fe04b2f6
+ms.openlocfilehash: cdbe139f6b901cf812356358deecc61394eae2a5
+ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 09/23/2018
-ms.locfileid: "46708116"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49998897"
 ---
 <a name="--"></a><!--
 ---
 Titel: Zustand und Speicher | Microsoft-Dokumentation Beschreibung: Hier erfahren Sie mehr über Status-Manager, Unterhaltungsstatus und Benutzerstatus innerhalb des Bot Builder SDK.
-Schlüsselwörter: LUIS, Unterhaltungsstatus, Benutzerstatus, Speicher, Status verwalten Autor: DeniseMak ms.author: v-demak manager: kamrani ms.topic: article ms.prod: bot-framework ms.date: 02/15/2018 monikerRange: 'azure-bot-service-4.0'
+Schlüsselwörter: LUIS, Unterhaltungsstatus, Benutzerstatus, Speicher, Status verwalten Autor: DeniseMak ms.author: v-demak manager: kamrani ms.topic: article ms.service: bot-service ms.subservice: sdk ms.date: 02/15/2018 monikerRange: 'azure-bot-service-4.0'
 ---
 
 # <a name="state-and-storage"></a>Zustand und Speicher
