@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: cognitive-services
 ms.date: 10/08/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 3d488cc2bb61ef460ed45707596cb7db9e6c23e8
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 4558a90b7d205d416657450224e2ab4892586b25
+ms.sourcegitcommit: 6ed90a4c90add925a0a865be1127041b7775fd3d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999079"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50234463"
 ---
 # <a name="use-qna-maker-to-answer-questions"></a>Verwenden von QnA Maker zum Beantworten von Fragen
 
@@ -68,7 +68,7 @@ Eine andere Methode zum Beschaffen der Werte für den Zugriff auf die Wissensdat
 3. Führen Sie den folgenden Befehl aus, um Ihre Metadaten herunterzuladen und der Konfigurationsdatei Ihres Bots hinzuzufügen.
 
     ```shell
-    qnamaker get kb --kbId <your-kb-id> --msbot | msbot connect qna --stdin [--secret <your-secret>]
+    qnamaker get kb --kbId <your-kb-id> --msbot | msbot connect qna --stdin [ --secret <your-secret>]
     ```
 Wenn Sie Ihre Konfigurationsdatei verschlüsselt haben, müssen Sie Ihren geheimen Schlüssel angeben, um die Datei zu aktualisieren.
 

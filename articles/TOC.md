@@ -28,7 +28,6 @@
 ### [Internet der Dinge-Bot](bot-service-scenario-internet-things.md)
 # Vorgehensweise
 ## [Entwurf](design/TOC.md)
-## [Verwalten](manage/TOC.md)
 ## Entwickeln
 ### [Senden einer Begrüßungsnachricht an Benutzer](v4sdk/bot-builder-send-welcome-message.md)
 ### [Senden von SMS und gesprochenen Nachrichten](v4sdk/bot-builder-howto-send-messages.md)
@@ -48,13 +47,15 @@
 ### [Verwenden von LUIS für Sprachverständnis](v4sdk/bot-builder-howto-v4-luis.md)
 ### [Verwenden von QnA Maker zum Beantworten von Fragen](v4sdk/bot-builder-howto-qna.md)
 ### [Hinzufügen von Authentifizierung zum Bot](v4sdk/bot-builder-authentication.md)
-### [Herunterladen und erneutes Bereitstellen des Botcodes](bot-service-build-download-source-code.md)
-### [Festlegen der kontinuierlichen Bereitstellung](bot-service-build-continuous-deployment.md)
-### [Bereitstellen Ihres lokalen Bots in Azure](bot-builder-howto-deploy-azure.md)
 ### [Implementieren von kanalspezifischer Funktionalität](v4sdk/bot-builder-channeldata.md)
 ### [.NET](dotnet/TOC.md)
 ### [Node.js](nodejs/TOC.md)
 ## [Debuggen](debug/TOC.md)
+## Bereitstellen
+### [Herunterladen und erneutes Bereitstellen des Botcodes](bot-service-build-download-source-code.md)
+### [Festlegen der kontinuierlichen Bereitstellung](bot-service-build-continuous-deployment.md)
+### [Bereitstellen Ihres lokalen Bots in Azure](bot-builder-howto-deploy-azure.md)
+## [Verwalten](manage/TOC.md)
 # Verweis
 ## [Bot Builder-Tools](bot-builder-tools.md)
 ## [.NET SDK v4](https://aka.ms/dotnetsdk4)
