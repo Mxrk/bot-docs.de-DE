@@ -61,7 +61,7 @@ So tauschen Sie Ihr Geheimnis gegen ein Token ein und erstellen den Einbettungsc
 
 ##### <a name="example-request"></a>Beispielanforderung
 
-GET-Anforderung https://webchat.botframework.com/api/tokens Autorisierung: BotConnector YOUR_SECRET_HERE
+```GET-Anforderung https://webchat.botframework.com/api/tokens Autorisierung: BotConnector YOUR_SECRET_HERE
 ```
 
 ##### Example response 
