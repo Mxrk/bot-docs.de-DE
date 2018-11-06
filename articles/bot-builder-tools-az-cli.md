@@ -7,14 +7,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: tools
-ms.date: 08/31/2018
+ms.date: 10/31/2018
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: b614b11852516ec8dd426d210aacc85a0f39c813
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 8a59c0a8b7ee664cdb38ab9d0cb186114938d73f
+ms.sourcegitcommit: 782b3a2e788c25effd7d150a070bd2819ea92dad
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999417"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50743664"
 ---
 # <a name="create-bots-with-azure-cli"></a>Erstellen von Bots mit der Azure CLI
 
@@ -42,7 +42,7 @@ Sie können jetzt Bots mit der Azure CLI wie jede andere Azure-Ressource verwalt
 >[!TIP]
 > Die Azure-Boterweiterung unterstützt zurzeit nur v3-Bots.
   
-3. Melden Sie sich bei der Azure CLI an, indem Sie den folgenden Befehl ausführen.
+3. Melden Sie sich an der Azure CLI an, indem Sie den folgenden Befehl ausführen.
 
 ```azurecli
 az login
@@ -74,9 +74,11 @@ az bot [command]
 Um einen neuen Bot mithilfe der CLI zu erstellen, müssen Sie eine vorhandene [Ressourcengruppe](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) auswählen oder eine neue Ressourcengruppe erstellen. 
 
 ```azurecli
-az bot create --resource-group "my-resource-group" --name "my-bot-name" --kind "my-resource-type" --version v3 --description "description-of-my-bot"
+az bot create --resource-group "my-resource-group" --name "my-bot-name" --kind "my-resource-type" --version v3 --description "description-of-my-bot" --lang "programming-language"
 ```
-Zulässige Werte für `--kind` sind `function, registration, webapp`, und für `--version` sind die Werte `v3, v4` zulässig.  Nach einer erfolgreichen Anforderung wird die Bestätigungsmeldung angezeigt.
+Zulässige Werte für `--kind` sind `function, registration, webapp`, und für `--version` sind die Werte `v3, v4` zulässig.  Wenn Sie das Argument `--lang` nicht angeben, wird ein .NET-Bot erstellt. Verwenden Sie `Node`, um einen Node-Bot zu erstellen.
+
+Nach einer erfolgreichen Anforderung wird die Bestätigungsmeldung angezeigt.
 ```
 Obtained msa app id and password. Provisioning bot now.
 ```
@@ -91,11 +93,6 @@ Obtained msa app id and password. Provisioning bot now.
 > az account list
 > ```
 
-Standardmäßig wird ein neuer .NET-Bot erstellt. Sie können das Plattform-SDK angeben, indem Sie die Sprache mit dem Argument **--lang** angeben. Das Boterweiterungspaket unterstützt zurzeit die Bot-SDKs von C# und Node.js. Um einen **Node.js-Bot zu erstellen**, gehen Sie beispielsweise folgendermaßen vor:
-
-```azurecli
-az bot create --resource-group "my-resource-group" --name "my-bot-name" --kind "my-resource-type" --description "description-of-my-bot" --lang Node 
-```
 Ihr neuer Echobot wird für Ihre Ressourcengruppe in Azure bereitgestellt. Um ihn zu testen, wählen Sie einfach **In Webchat testen** unter der Botverwaltungsüberschrift der Ansicht „Web-App-Bot“ aus. 
 
 ![Azure-Echobot](media/bot-builder-tools/az-echo-bot.png) 

@@ -1,6 +1,6 @@
 ---
-title: Auffordern von Benutzern zur Eingabe mithilfe der Dialogbibliothek | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie Benutzer mithilfe der Dialogbibliothek im Bot Builder SDK für Node.js zur Eingabe auffordern.
+title: Erfassen von Benutzereingaben mit der Dialogebibliothek | Microsoft-Dokumentation
+description: Erfahren Sie, wie Sie Benutzer mithilfe der Dialogebibliothek im Bot Builder SDK zur Eingabe auffordern.
 keywords: Eingabeaufforderungen, Dialogfelder, AttachmentPrompt, ChoicePrompt, ConfirmPrompt, DatetimePrompt, NumberPrompt, TextPrompt, erneute Eingabeaufforderung, Überprüfung
 author: v-ducvo
 ms.author: v-ducvo
@@ -8,16 +8,16 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 9/25/2018
+ms.date: 10/25/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: bd1fe8516cddaf2b75d3c11b469e372265b59be3
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 9b668ed67c34dcd0f8618852375e684b23e34408
+ms.sourcegitcommit: a496714fb72550a743d738702f4f79e254c69d06
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997627"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50736688"
 ---
-# <a name="prompt-users-for-input-using-the-dialogs-library"></a>Auffordern von Benutzern zur Eingabe mithilfe der Dialogbibliothek
+# <a name="use-dialog-library-to-gather-user-input"></a>Erfassen von Benutzereingaben mit der Dialogebibliothek
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 

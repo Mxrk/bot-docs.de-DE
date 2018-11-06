@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.date: 09/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 32be8e2a4047c3c25dcdf2598eea3a7bbd12fbcc
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 06e91d4b7d320078e83c3523e1326b82ee3fe759
+ms.sourcegitcommit: 49a76dd34d4c93c683cce6c2b8b156ce3f53280e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999027"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50134700"
 ---
 # <a name="enterprise-bot-template---deploying-your-bot"></a>Vorlage für den Bot für Unternehmen: Bereitstellen des Bots
 
@@ -21,6 +21,8 @@ ms.locfileid: "49999027"
 > Dieses Thema gilt für die SDK-Version v4. 
 
 ## <a name="prerequisites"></a>Voraussetzungen
+
+- Stellen Sie sicher, dass Sie [.NET Core](https://www.microsoft.com/net/download) auf die aktuelle Version aktualisiert haben.
 
 - Vergewissern Sie sich, dass der [Knotenpaket-Manager](https://nodejs.org/en/) installiert ist.
 
@@ -40,7 +42,7 @@ az extension add -n botservice
 ## <a name="configuration"></a>Konfiguration
 
 - Rufen Sie Ihren LUIS-Erstellungsschlüssel ab.
-   - Informationen zum korrekten LUIS-Portal für die Region, in der Sie die Bereitstellung durchführen möchten, finden Sie auf [dieser Dokumentationsseite](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-reference-regions). 
+   - Informationen zum korrekten LUIS-Portal für die Region, in der Sie die Bereitstellung durchführen möchten, finden Sie auf [dieser Dokumentationsseite](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-reference-regions). Beachten Sie, dass „www.luis.ai“ auf die US-Region verweist und ein über dieses Portal abgerufener Erstellungsschlüssel für eine Bereitstellung in Europa nicht funktioniert.
    - Klicken Sie nach der Anmeldung in der rechten oberen Ecke auf Ihren Namen.
    - Klicken Sie auf „Einstellungen“, und notieren Sie sich den Erstellungsschlüssel für den nächsten Schritt.
 
@@ -68,13 +70,13 @@ Das Bereitstellungsrezept Ihres neuen Botprojekts ermöglicht es, mit dem Befehl
 
 > Überprüfen Sie nach der Bereitstellung die Tarife für die erstellten Dienste, und passen Sie sie an Ihr Szenario an.
 
-Die Datei „README.md“ in Ihrem erstellten Projekt enthält eine exemplarische Befehlszeile vom Typ „msbot clone services“, die mit dem Namen Ihres erstellten Bots aktualisiert wurde. (Eine generische Version finden Sie weiter unten.) Aktualisieren Sie den Erstellungsschlüssel mit dem Schlüssel aus dem vorherigen Schritt, und wählen Sie den Standort des zu verwendenden Azure-Datencenters aus (beispielsweise „westus“ oder „westeurope“).
-
-> Achten Sie darauf, dass der LUIS-Erstellungsschlüssel, den Sie im vorherigen Schritt abgerufen haben, für die weiter unten angegebene Region gültig ist.
+Die Datei „README.md“ in Ihrem erstellten Projekt enthält eine exemplarische Befehlszeile vom Typ „msbot clone services“, die mit dem Namen Ihres erstellten Bots aktualisiert wurde. (Eine generische Version finden Sie weiter unten.) Aktualisieren Sie den Erstellungsschlüssel mit dem Schlüssel aus dem vorherigen Schritt, und wählen Sie den Standort des zu verwendenden Azure-Datencenters aus (beispielsweise „westus“ oder „westeurope“). Stellen Sie sicher, dass der im vorherigen Schritt abgerufene LUIS-Erstellungsschlüssel für die Region bestimmt ist, die Sie unten angeben (z.B. „westus“ für „luis.ai“ oder „westeurope“ für „eu.luis.ai“).
 
 ```shell
-msbot clone services --name "YOUR_BOT_NAME" --luisAuthoringKey "YOUR_AUTHORING_KEY" --folder "DeploymentScripts\msbotClone" --location "westus"
+msbot clone services --name "YOUR_BOT_NAME" --luisAuthoringKey "YOUR_AUTHORING_KEY" --folder "DeploymentScripts\msbotClone" --location "YOUR_REGION"
 ```
+
+> Bei einigen Benutzern besteht ein bekanntes Problem, bei dem beim Ausführen der Bereitstellung der folgende Fehler auftritt: `ERROR: Unable to provision MSA id automatically. Please pass them in as parameters and try again`. Navigieren Sie in diesem Fall zu https://apps.dev.microsoft.com, und erstellen Sie manuell eine neue Anwendung, indem Sie die ApplicationID und das Kennwort bzw. Geheimnis abrufen. Führen Sie den obigen Befehl „msbot clone services“ aus, aber stellen Sie die beiden neuen Argumente `appId` und `appSecret` bereit, und übergeben Sie die gerade abgerufenen Werte.
 
 Das msbot-Tool zeigt eine Zusammenfassung des Bereitstellungsplans einschließlich Standort und SKU an. Prüfen Sie diese, bevor Sie fortfahren.
 

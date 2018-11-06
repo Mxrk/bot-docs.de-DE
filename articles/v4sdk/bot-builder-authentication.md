@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: abs
 ms.date: 09/27/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 93d32d5d0ac35dead8e9f1c48b526058449fabad
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: aa9b08ff44df8cef5031b5e9dbf260839f0804c3
+ms.sourcegitcommit: 45dca6ed59bc90b2ad0b0de8dd42b00f36a8fe77
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998787"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50217772"
 ---
 # <a name="add-authentication-to-your-bot-via-azure-bot-service"></a>Hinzufügen von Authentifizierung zu Ihrem Bot über Azure Bot Service
 
@@ -296,7 +296,7 @@ Die nächsten beiden Codeausschnitte stammen aus dem `OAuthPrompt`-Element und v
 
 ### <a name="check-for-a-cached-token"></a>Prüfen nach einem zwischengespeicherten Token
 
-In diesem Code führt der Bot zunächst eine schnelle Überprüfung durch, um zu ermitteln, ob Azure Bot Service bereits über ein Token für den Benutzer (der vom aktuellen Aktivitätsabsender identifiziert wird) und den jeweiligen Verbindungsnamen (der in der Konfiguration verwendet wird) verfügt. Entweder Azure Bot Service enthält bereits ein zwischengespeichertes Token oder nicht. Der Aufruf von GetUserTokenAsync führt diese „schnelle Überprüfung“ durch. Wenn Azure Bot Service über ein Token verfügt und dieses zurückgibt, kann es sofort verwendet werden. Wenn Azure Bot Service über kein Token verfügt, gibt diese Methode NULL zurück. In diesem Fall kann der Bot eine angepasste OAuth-Karte senden, über die der Benutzer sich anmelden kann.
+In diesem Code führt der Bot zunächst eine schnelle Überprüfung durch, um zu ermitteln, ob Azure Bot Service bereits über ein Token für den Benutzer (der vom aktuellen Aktivitätsabsender identifiziert wird) und den jeweiligen Verbindungsnamen (der in der Konfiguration verwendet wird) verfügt. Entweder Azure Bot Service enthält bereits ein zwischengespeichertes Token oder nicht. Mit dem Aufruf von GetUserTokenAsync wird diese schnelle Überprüfung durchgeführt. Wenn Azure Bot Service über ein Token verfügt und dieses zurückgibt, kann es sofort verwendet werden. Wenn Azure Bot Service über kein Token verfügt, gibt diese Methode NULL zurück. In diesem Fall kann der Bot eine angepasste OAuth-Karte senden, über die der Benutzer sich anmelden kann.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 

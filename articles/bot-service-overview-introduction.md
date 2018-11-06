@@ -7,13 +7,13 @@ ms.author: kamrani
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
-ms.date: 10/08/2018
-ms.openlocfilehash: 3ca80439a44ac7e715d19f8e47683ac9b5a5721a
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.date: 10/31/2018
+ms.openlocfilehash: 616c3bfd5fcb36c06f4e2acf032ba3cf5fc125d3
+ms.sourcegitcommit: a496714fb72550a743d738702f4f79e254c69d06
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998877"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50736698"
 ---
 ::: moniker range="azure-bot-service-3.0"
 
@@ -89,14 +89,15 @@ Bots sind mit modernen Webanwendungen im Internet vergleichbar, die APIs zum Sen
 Bots sind zu denselben Dingen wie andere Arten von Software in der Lage – Lesen und Schreiben von Dateien, Verwenden von Datenbanken und APIs und Durchführen von regulären Berechnungsaufgaben. Was Bots einzigartig macht, ist die Verwendung von Mechanismen, die in der Regel auf die Kommunikation zwischen Menschen beschränkt sind. 
 
 Bots umfassen in der Regel die folgenden Komponenten:
-* Ein Webserver, in den meisten Fällen einer, der im öffentlichen Internet verfügbar ist
-* Das Bot Builder-SDK und Bot Builder-Tools mit einer Schnittstelle für die Entwicklung von Bots
-* Azure Cognitive Services 
-* Azure Storage
+
+- Ein Webserver, in den meisten Fällen einer, der im öffentlichen Internet verfügbar ist
+- Das Bot Builder-SDK und Bot Builder-Tools mit einer Schnittstelle für die Entwicklung von Bots
+- Azure Cognitive Services
+- Azure Storage
 
 ## <a name="building-a-bot"></a>Erstellen eines Bots 
 
-Azure Bot Service bietet einen integrierten Satz von Tools und Diensten, die diesen Prozess vereinfachen. Wählen Sie Ihre bevorzugte Entwicklungsumgebung oder Befehlszeilentools, um Ihren Bot in C#, JavaScript oder Typescript zu erstellen. (Java und Python sind auch in Kürze verfügbar!) Wir stellen Tools für verschiedene Phasen der Bot-Entwicklung bereit, die Sie für den Einstieg in das Erstellen von Bots verwenden können.
+Azure Bot Service bietet einen integrierten Satz von Tools und Diensten, die diesen Prozess vereinfachen. Wählen Sie Ihre bevorzugte Entwicklungsumgebung oder Befehlszeilentools, um Ihren Bot zu erstellen. Es sind SDKs für C#, JavaScript und TypeScript vorhanden. (SDKs für Java und Python befinden sich derzeit in der Entwicklung.) Wir stellen Tools für unterschiedliche Phasen der Bot-Entwicklung bereit, um Sie beim Entwerfen und Erstellen von Bots zu unterstützen.
 
 ![Botübersicht](media/bot-service-overview.png) 
 

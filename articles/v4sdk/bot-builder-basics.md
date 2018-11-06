@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 9/26/2018
+ms.date: 10/31/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: fde88929c688c25d473ce8242ebfd5d44dc3a22f
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: f86c666b7a8ff754681a7eca7005fc42676705fc
+ms.sourcegitcommit: a496714fb72550a743d738702f4f79e254c69d06
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998127"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50736708"
 ---
 # <a name="understanding-how-bots-work"></a>Grundlegendes zur Funktionsweise von Bots
 
@@ -41,7 +41,7 @@ Im Protokoll ist aber nicht die Reihenfolge angegeben, in der diese POST-Anforde
 
 ### <a name="defining-a-turn"></a>Definieren eines Durchlaufs
 
-Ein Durchlauf („Turn“) wird im Zusammenhang mit unseren Bots verwendet, um die gesamte Verarbeitung zu beschreiben, die dem Eintreffen einer Aktivität zugeordnet ist. 
+In einer Konversation sprechen die Personen häufig einzeln. Sie wechseln sich also ab. Ein Bot reagiert im Allgemeinen auf die Eingabe eines Benutzers. Im Bot Builder SDK besteht ein _Turn_ (Durchlauf) aus der eingehenden Aktivität des Benutzers für den Bot und einer beliebigen Aktivität, die vom Bot als direkte Antwort zurück an den Benutzer gesendet wird. Sie können sich einen Durchlauf wie die Verarbeitung vorstellen, die dem Eintreffen einer bestimmten Aktivität zugeordnet ist.
 
 Das Durchlaufkontext-Objekt (*turn context*) enthält Informationen zur Aktivität, z.B. den Absender und Empfänger, den Kanal und andere Daten, die zum Verarbeiten der Aktivität benötigt werden. Außerdem ermöglicht das Objekt das Hinzufügen von Informationen während des Turns für mehrere Ebenen des Bots.
 
@@ -75,8 +75,7 @@ Jede Antwortmethode wird in einem asynchronen Prozess ausgeführt. Beim Aufruf k
 
 Dies bedeutet auch, dass die Reihenfolge Ihrer Antworten für unabhängige Aktivitätsaufrufe nicht garantiert ist – insbesondere wenn eine Aufgabe komplexer als die andere ist. Wenn Ihr Bot mehrere Antworten auf eine eingehende Aktivität generieren kann, stellen Sie sicher, dass diese in der Reihenfolge sinnvoll sind, in der sie vom Benutzer empfangen werden. Die einzige Ausnahme hierbei ist die *send activities*-Methode, mit der Sie einen sortierten Satz mit Aktivitäten senden können.
 
-> [!IMPORTANT]
-> Der Thread, der den primären Botdurchlauf verarbeitet, löscht am Ende das Kontextobjekt. **Stellen Sie sicher, dass Sie auf alle Aktivitätsaufrufe`await`**, sodass der primäre Thread auf die generierte Aktivität wartet, bevor er die Verarbeitung beendet und den Durchlaufkontext löscht. Wenn eine Antwort (einschließlich ihrer Handler) längere Zeit benötigt und versucht, Vorgänge für das Kontextobjekt durchzuführen, kann es andernfalls zu einem Fehler der Art `Context was disposed` kommen. 
+[!INCLUDE [alert-await-send-activity](../includes/alert-await-send-activity.md)]
 
 ## <a name="response-event-handlers"></a>Antwortereignishandler
 
@@ -92,6 +91,8 @@ Die unter einem Kontextobjekt registrierten Handler werden auf eine Weise verarb
 ## <a name="bot-structure"></a>Botstruktur
 
 Wir sehen uns das Beispiel für einen Echobot mit Zähler [[C#](https://aka.ms/EchoBotWithStateCSharp) | [JS](https://aka.ms/EchoBotWithStateJS)] an und untersuchen wichtige Teile des Bots.
+
+[!INCLUDE [alert-await-send-activity](../includes/alert-await-send-activity.md)]
 
 # <a name="ctabcs"></a>[C#](#tab/cs)
 

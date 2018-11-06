@@ -1,19 +1,19 @@
 ---
 title: API-Referenz | Microsoft Docs
 description: Informationen zu den Headern, Vorgängen, Objekten und Fehlern im Bot Connector-Dienst und Bot State-Dienst.
-author: RobStand
-ms.author: kamrani
+author: ivorb
+ms.author: v-ivorb
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 12/13/2017
-ms.openlocfilehash: cd4a0dd73feb18aa6f82699a51ab086c55c5d2cf
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.date: 10/24/2018
+ms.openlocfilehash: 18f353ce6535dd56ca7a581776fdfab822555f2d
+ms.sourcegitcommit: 49a76dd34d4c93c683cce6c2b8b156ce3f53280e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998306"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50134740"
 ---
 # <a name="api-reference"></a>API-Referenz
 
@@ -130,6 +130,7 @@ Verwenden Sie diese Vorgänge, um Unterhaltung zu erstellen, Nachrichten (Aktivi
 | [Unterhaltung senden](#send-to-conversation) | Sendet eine Aktivität (Nachricht) an das Ende der angegebenen Unterhaltung. | 
 | [Auf Aktivität antworten](#reply-to-activity) | Sendet eine Aktivität (Nachricht) an die angegebene Unterhaltung als Antwort auf die angegebene Aktivität. | 
 | [Mitglieder der Unterhaltung abrufen](#get-conversation-members) | Ruft die Mitglieder der angegebenen Unterhaltung ab. |
+| [Mitglieder der Unterhaltung seitenweise abrufen](#get-conversation-paged-members) | Ruft die Mitglieder der angegebenen Unterhaltung seitenweise ab. |
 | [Aktivitätsmitglieder abrufen](#get-activity-members) | Ruft die Mitglieder der angegebenen Aktivität innerhalb der angegebenen Unterhaltung ab. | 
 | [Aktivität aktualisieren](#update-activity) | Aktualisiert eine vorhandene Aktivität. | 
 | [Aktivität löschen](#delete-activity) | Löscht eine vorhandene Aktivität. | 
@@ -178,6 +179,17 @@ GET /v3/conversations/{conversationId}/members
 |----|----|
 | **Anforderungstext** | – |
 | **Rückgabe** | Ein Array von [ChannelAccount](#channelaccount-object)-Objekten. | 
+
+### <a name="get-conversation-paged-members"></a>Mitglieder der Unterhaltung seitenweise abrufen
+Ruft die Mitglieder der angegebenen Unterhaltung seitenweise ab.
+```http
+GET /v3/conversations/{conversationId}/pagedmembers
+```
+
+| | |
+|----|----|
+| **Anforderungstext** | – |
+| **Rückgabe** | Ein Array mit [ChannelAccount](#channelaccount-object)-Objekten und einem Fortsetzungstoken, mit dem weitere Werte abgerufen werden können.|
 
 ### <a name="get-activity-members"></a>Aktivitätsmitglieder abrufen
 Ruft die Mitglieder der angegebenen Aktivität innerhalb der angegebenen Unterhaltung ab.
@@ -386,7 +398,7 @@ Das Schema definiert das Objekt und seine Eigenschaften, die Ihr Bot für die Ko
 | [ThumbnailCard-Objekt](#thumbnailcard-object) | Definiert eine Rich Card mit einem Miniaturbild, Titel, Text und Aktionsschaltflächen. |
 | [ThumbnailUrl-Objekt](#thumbnailurl-object) | Definiert die URL zur Quelle eines Bilds. |
 | [VideoCard-Objekt](#videocard-object) | Definiert eine Rich Card, die Videos wiedergeben kann. |
-
+| [SemanticAction-Objekt](#semanticaction-object) | Definiert einen Verweis auf eine programmgesteuerte Aktion. |
 
 ### <a name="activity-object"></a>Activity-Objekt
 Definiert eine Nachricht, die zwischen Bot und Benutzer ausgetauscht wird.<br/><br/> 
@@ -423,6 +435,7 @@ Definiert eine Nachricht, die zwischen Bot und Benutzer ausgetauscht wird.<br/><
 | **topicName** | Zeichenfolge | Das Thema der Unterhaltung, zu der die Aktivität gehört. |
 | **type** | Zeichenfolge | Der Typ der Aktivität. Einer der folgenden Werte: **contactRelationUpdate**, **conversationUpdate**, **deleteUserData**, **message**, **typing**, **endOfConversation**. Weitere Informationen zu Aktivitätstypen finden Sie unter [Aktivitäten: Überblick](bot-framework-rest-connector-activities.md). |
 | **value** | object | Ein Wert mit unbestimmtem Ende. |
+| **semanticAction** |[SemanticAction](#semanticaction-object) | Ein **SemanticAction**-Objekt, das einen Verweis auf eine programmgesteuerte Aktion darstellt. |
 
 <a href="#objects">Zurück zur Schematabelle</a>
 
@@ -852,5 +865,15 @@ Definiert eine Rich Card, die Videos wiedergeben kann.<br/><br/>
 | **text** | Zeichenfolge | Eine Beschreibung oder Eingabeaufforderung, die unter dem Titel oder Untertitel der Rich Card angezeigt werden soll. |
 | **title** | Zeichenfolge | Der Titel der Rich Card. |
 | **value** | object | Zusätzlicher Parameter für diese Rich Card.|
+
+<a href="#objects">Zurück zur Schematabelle</a>
+
+### <a name="semanticaction-object"></a>SemanticAction-Objekt
+Definiert einen Verweis auf eine programmgesteuerte Aktion.<br/><br/>
+
+| Eigenschaft | Typ | BESCHREIBUNG |
+|----|----|----|
+| **id** | Zeichenfolge | ID dieser Aktion |
+| **entities** | [Entität](#entity-object) | Dieser Aktion zugeordnete Entitäten |
 
 <a href="#objects">Zurück zur Schematabelle</a>

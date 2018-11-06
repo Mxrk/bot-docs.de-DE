@@ -10,18 +10,18 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 9/22/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 45bca42ddce527826d2723bc9a20a3c3e6c5aebe
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 97f280d1698e8670be81572a2891c18bc7bf47ab
+ms.sourcegitcommit: a496714fb72550a743d738702f4f79e254c69d06
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998607"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50736668"
 ---
 # <a name="dialogs-library"></a>Dialogbibliothek
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-Das zentrale Konzept im SDK zum Verwalten von Konversationen ist der Begriff des Dialogs. Dialogobjekte verarbeiten eingehende Aktivitäten und generieren ausgehende Antworten. Die Geschäftslogik des Bots wird entweder direkt oder indirekt innerhalb von Dialogklassen ausgeführt.
+Die Verwaltung von Konversationen basierend auf dem Konzept eines Dialogs ist für das SDK von wesentlicher Bedeutung. Dialogobjekte verarbeiten eingehende Aktivitäten und generieren ausgehende Antworten. Die Geschäftslogik des Bots wird entweder direkt oder indirekt innerhalb von Dialogklassen ausgeführt.
 
 Zur Laufzeit werden Dialoginstanzen in einem Stapel angeordnet. Der Dialog oben im Stapel wird als „ActiveDialog“ bezeichnet. Der aktuell aktive Dialog verarbeitet die eingehende Aktivität. Der Stapel wird zwischen jedem Sprecherwechsel der Konversation (die nicht zeitlich begrenzt ist und mehrere Tage dauern kann) beibehalten. 
 

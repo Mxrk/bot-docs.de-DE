@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 09/18/18
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 972df2a12ffa7901ed4e4ecf14ce99233293c5a2
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 30ce9c9ff5c458758a4cc9612b8f9947fa12734c
+ms.sourcegitcommit: 782b3a2e788c25effd7d150a070bd2819ea92dad
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997707"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50743654"
 ---
 # <a name="manage-conversation-and-user-state"></a>Verwalten des Konversations- und Benutzerzustands
 
@@ -63,8 +63,6 @@ Die `EchoBotAccessors`-Klasse in unserem Beispiel wird als Singleton erstellt un
 
 Der Konstruktor wird wie folgt aktualisiert, um `UserState` hinzuzufügen:
 ```csharp
-using EchoBotWithCounter;
-
 public EchoBotAccessors(ConversationState conversationState, UserState userState)
 {
     ConversationState = conversationState ?? throw new ArgumentNullException(nameof(conversationState));
@@ -138,8 +136,6 @@ Der Konversationszustand und der Benutzerzustand sind über den `services.AddSin
 Ändern Sie im `OnTurnAsync`-Handler der `EchoWithCounterBot : IBot`-Klasse den Code, um zur Eingabe des Benutzernamens und anschließend zur Eingabe der Telefonnummer aufzufordern. Um die aktuelle Konversation nachzuverfolgen, verwenden Sie die im „TopicState“ definierte Prompt-Eigenschaft. Diese Eigenschaft wurde als „askName“ initialisiert. Wenn Sie den Benutzernamen erhalten haben, legen Sie die Eigenschaft auf „askNumber“ und „UserName“ auf den vom Benutzer eingegebenen Namen fest. Nach dem Empfang der Telefonnummer senden Sie eine Bestätigungsnachricht, und zudem legen Sie die Eingabeaufforderung auf „confirmation“ fest, da Sie das Ende der Konversation erreicht haben.
 
 ```csharp
-using EchoBotWithCounter;
-
 if (turnContext.Activity.Type == ActivityTypes.Message)
 {
     // Get the conversation state from the turn context.
@@ -305,7 +301,7 @@ if (turnContext.activity.type === 'message') {
     
 }
 else {
-    await turnContext.sendActivity(`[${context.activity.type} event detected]`);
+    await turnContext.sendActivity(`[${turnContext.activity.type} event detected]`);
 }
 ```
 
@@ -322,7 +318,7 @@ Starten Sie im nächste Schritt den Emulator, und stellen Sie dann im Emulator e
 
 ### <a name="interact-with-your-bot"></a>Interagieren mit Ihrem Bot
 
-Senden Sie eine Nachricht an Ihren Bot. Dieser antwortet daraufhin mit einer Nachricht.
+Wenn Sie eine „Hi“-Nachricht an Ihren Bot senden, fragt der Bot nach Ihrem Namen und Ihrer Telefonnummer. Nachdem Sie diese Informationen angegeben haben, sendet der Bot eine Bestätigungsnachricht. Wenn Sie anschließend fortfahren, durchläuft der Bot den gleichen Zyklus erneut.
 ![Ausgeführter Emulator](../media/emulator-v4/emulator-running.png)
 
 Wenn Sie den Zustand selbst verwalten möchten, lesen Sie das Thema zum [Verwalten des Konversationsflusses mit eigenen Eingabeaufforderungen](bot-builder-primitive-prompts.md). Alternativ können Sie den Wasserfalldialog verwenden. Das Dialogfeld verfolgt den Konversationszustand für Sie, weshalb Sie keine Flags erstellen müssen, um den Zustand nachzuverfolgen. Weitere Informationen finden Sie unter [Verwalten eines einfachen Konversationsflusses mit Dialogen](bot-builder-dialog-manage-conversation-flow.md).

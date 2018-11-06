@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: d69f1f658520790ff429ecd25a190319e321164d
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 36a95ec60af117a9a13843dc078bd9bd5cfde635
+ms.sourcegitcommit: 6ed90a4c90add925a0a865be1127041b7775fd3d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998107"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50234473"
 ---
 # <a name="api-reference---direct-line-api-30"></a>Referenz zur Direct Line-API 3.0
 
@@ -223,5 +223,6 @@ Wenn ein Client ein [Activity](bot-framework-rest-connector-api-reference.md#act
 - Für die `from`-Eigenschaft muss automatisch eine vom Client ausgewählte Benutzer-ID festgelegt werden.
 - Anlagen können URLs zu vorhandenen Ressourcen oder URLs enthalten, die über den Direct Line-Anlageendpunkt hochgeladen wurden.
 - Die `channelData`-Eigenschaft wird gespeichert, ohne dass Änderungen an ihr vorgenommen werden.
+- Die Gesamtgröße der Aktivität darf bei der Serialisierung für JSON 300.000 Zeichen nicht überschreiten.
 
 Clients können pro Anforderung eine einzelne Aktivität [senden](bot-framework-rest-direct-line-3-0-send-activity.md). 

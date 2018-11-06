@@ -1,5 +1,5 @@
 ---
-title: Integrieren mehrerer LUIS- und QnA-Dienste mit dem Dispatch-Tool | Microsoft-Dokumentation
+title: Verwenden von LUIS- und QnA-Diensten mit dem Dispatch-Tool | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie LUIS und QnA Maker in Ihrem Bot verwenden können.
 keywords: luis, qna, dispatch-tool, mehrere dienste
 author: DeniseMak
@@ -8,16 +8,16 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 10/09/2018
+ms.date: 10/31/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: e59a7fd86e3802ea23d59a439165a194314639f8
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 4d029dc7361ac8a7fadb61141faf60d8a62eab3c
+ms.sourcegitcommit: a496714fb72550a743d738702f4f79e254c69d06
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997397"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50736678"
 ---
-# <a name="integrate-multiple-luis-and-qna-services-with-the-dispatch-tool"></a>Integrieren mehrerer LUIS- und QnA-Dienste mit dem Dispatch-Tool
+# <a name="use-luis-and-qna-services-with-the-dispatch-tool"></a>Verwenden von LUIS- und QnA-Diensten mit dem Dispatch-Tool
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
@@ -31,7 +31,9 @@ In diesem Tutorial wird veranschaulicht, wie ein mit dem Dispatch-Tool generiert
 | LUIS-App | Weather | Erkennt die Absichten von „Weather.GetForecast“ und „Weather.GetCondition“ mit Standortdaten.|
 | QnA Maker-Dienst | Häufig gestellte Fragen  | Stellt Antworten auf einige einfache Fragen zum Bot bereit. |
 
-Der Code für diesen Artikel stammt aus dem Beispiel **NLP with Dispatch** [[C#](https://aka.ms/dispatch-sample-cs)<!-- | [JS](https://aka.ms/dispatch-sample-js)-->].
+Der Code für diesen Artikel stammt aus dem Beispiel **NLP with Dispatch** [[C#](https://aka.ms/dispatch-sample-cs)].
+
+<!-- | [JS](https://aka.ms/dispatch-sample-js)-->
 
 Eine Übersicht über die Sprachdienste finden Sie unter [Language Understanding](bot-builder-concept-luis.md). Eine Anleitung zur Implementierung im Bot finden Sie in den Gewusst wie-Artikeln für [LUIS](bot-builder-howto-v4-luis.md) und [QnA Maker](bot-builder-howto-qna.md).
 
