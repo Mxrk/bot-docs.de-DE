@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 09/18/18
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 30ce9c9ff5c458758a4cc9612b8f9947fa12734c
-ms.sourcegitcommit: 782b3a2e788c25effd7d150a070bd2819ea92dad
+ms.openlocfilehash: 2a3709111b048730805b5578306c669591122dda
+ms.sourcegitcommit: 633008f8db06f1bb5be7bacdb7dd8de6f8165328
 ms.translationtype: HT
 ms.contentlocale: de-DE
 ms.lasthandoff: 11/01/2018
-ms.locfileid: "50743654"
+ms.locfileid: "50753608"
 ---
 # <a name="manage-conversation-and-user-state"></a>Verwalten des Konversations- und Benutzerzustands
 
@@ -319,7 +319,8 @@ Starten Sie im nächste Schritt den Emulator, und stellen Sie dann im Emulator e
 ### <a name="interact-with-your-bot"></a>Interagieren mit Ihrem Bot
 
 Wenn Sie eine „Hi“-Nachricht an Ihren Bot senden, fragt der Bot nach Ihrem Namen und Ihrer Telefonnummer. Nachdem Sie diese Informationen angegeben haben, sendet der Bot eine Bestätigungsnachricht. Wenn Sie anschließend fortfahren, durchläuft der Bot den gleichen Zyklus erneut.
-![Ausgeführter Emulator](../media/emulator-v4/emulator-running.png)
+
+![Ausgeführter Emulator](../media/emulator-v4/emulator-running-manage-state.png)
 
 Wenn Sie den Zustand selbst verwalten möchten, lesen Sie das Thema zum [Verwalten des Konversationsflusses mit eigenen Eingabeaufforderungen](bot-builder-primitive-prompts.md). Alternativ können Sie den Wasserfalldialog verwenden. Das Dialogfeld verfolgt den Konversationszustand für Sie, weshalb Sie keine Flags erstellen müssen, um den Zustand nachzuverfolgen. Weitere Informationen finden Sie unter [Verwalten eines einfachen Konversationsflusses mit Dialogen](bot-builder-dialog-manage-conversation-flow.md).
 

@@ -7,20 +7,22 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 12/13/2017
+ms.date: 11/02/2018
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: dbf2fd06d76b3e79fbcdd30891807ea71329bffd
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 914c33033be3fe35db7cae6d54b5835cb032a5fd
+ms.sourcegitcommit: 984705927561cc8d6a84f811ff24c8c71b71c76b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999057"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50965688"
 ---
 # <a name="localize-form-content"></a>Lokalisieren von Formularinhalten
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
-Die Lokalisierungssprache eines Formulars wird durch die Eigenschaften [CurrentUICulture](https://msdn.microsoft.com/en-us/library/system.threading.thread.currentuiculture(v=vs.110).aspx) und [CurrentCulture](https://msdn.microsoft.com/en-us/library/system.threading.thread.currentculture(v=vs.110).aspx) des aktuellen Threads festgelegt. Standardmäßig wird die Kultur vom **Locale**-Feld der aktuellen Nachricht abgeleitet. Sie können dieses Standardverhalten überschreiben. Lokalisierte Informationen können je nach Erstellungsmethode für Ihren Bot aus drei unterschiedlichen Quellen stammen, nämlich aus
+Die Lokalisierungssprache eines Formulars wird durch die Eigenschaften [CurrentUICulture](https://msdn.microsoft.com/library/system.threading.thread.currentuiculture(v=vs.110).aspx) und [CurrentCulture](https://msdn.microsoft.com/library/system.threading.thread.currentculture(v=vs.110).aspx) des aktuellen Threads festgelegt.
+Standardmäßig wird die Kultur vom **Locale**-Feld der aktuellen Nachricht abgeleitet. Sie können dieses Standardverhalten überschreiben.
+Lokalisierte Informationen können je nach Erstellungsmethode für Ihren Bot aus drei unterschiedlichen Quellen stammen, nämlich aus
 
 - den integrierten Lokalisierungsinhalten für **PromptDialog** und **FormFlow**,
 - einer Ressourcendatei, die Sie für statische Zeichenfolgen in Ihrem Formular erstellen,
@@ -28,7 +30,10 @@ Die Lokalisierungssprache eines Formulars wird durch die Eigenschaften [CurrentU
 
 ## <a name="generate-a-resource-file-for-the-static-strings-in-your-form"></a>Erstellen einer Ressourcendatei für statische Zeichenfolgen in Ihrem Formular
 
-Zu statischen Zeichenfolgen in einem Formular gehören solche, die das Formular aus den Informationen in Ihrer C#-Klasse generiert, und Zeichenfolgen, die Sie als Eingabeaufforderungen, Vorlagen, Nachrichten oder Bestätigungen festlegen. Zeichenfolgen, die aus integrierten Vorlagen generiert werden, werden nicht als statisch betrachtet, da diese Zeichenfolgen bereits lokalisiert sind. Da viele Zeichenfolgen in einem Formular automatisch generiert werden, ist es nicht möglich, die üblichen C#-Ressourcenzeichenfolgen direkt zu verwenden. Stattdessen können Sie eine Ressourcendatei für statische Zeichenfolgen in Ihrem Formular erstellen, indem Sie `IFormBuilder.SaveResources` aufrufen oder das **RView**-Tool verwenden, das im Bot Builder SDK für .NET enthalten ist.
+Zu statischen Zeichenfolgen in einem Formular gehören solche, die das Formular aus den Informationen in Ihrer C#-Klasse generiert, und Zeichenfolgen, die Sie als Eingabeaufforderungen, Vorlagen, Nachrichten oder Bestätigungen festlegen.
+Zeichenfolgen, die aus integrierten Vorlagen generiert werden, werden nicht als statisch betrachtet, da diese Zeichenfolgen bereits lokalisiert sind.
+Da viele Zeichenfolgen in einem Formular automatisch generiert werden, ist es nicht möglich, die üblichen C#-Ressourcenzeichenfolgen direkt zu verwenden.
+Stattdessen können Sie eine Ressourcendatei für statische Zeichenfolgen in Ihrem Formular erstellen, indem Sie `IFormBuilder.SaveResources` aufrufen oder das **RView**-Tool verwenden, das im Bot Builder SDK für .NET enthalten ist.
 
 ### <a name="use-iformbuildersaveresources"></a>Verwenden von IFormBuilder.SaveResources
 
@@ -36,7 +41,9 @@ Sie können eine Ressourcendatei generieren, indem Sie [IFormBuilder.SaveResourc
 
 ### <a name="use-rview"></a>Verwenden von RView
 
-Alternativ können Sie eine Ressourcendatei erstellen, die auf der DLL- oder EXE-Datei basiert. Hierzu verwenden Sie das <a href="https://github.com/Microsoft/BotBuilder/tree/master/CSharp/Tools/RView" target="_blank">RView</a>-Tool, das im Bot Builder SDK für .NET enthalten ist. Führen Sie zum Erstellen der RESX-Datei **rview** aus, und geben Sie die Assembly an, die die statische Formularerstellungsmethode und den Pfad zur Methode enthält. Im folgenden Codeausschnitt wird zeigt, wie Sie die `Microsoft.Bot.Sample.AnnotatedSandwichBot.SandwichOrder.resx`-Ressourcendatei mithilfe von **RView** erstellen. 
+Alternativ können Sie eine Ressourcendatei erstellen, die auf der DLL- oder EXE-Datei basiert. Hierzu verwenden Sie das <a href="https://aka.ms/v3-cs-RView-library" target="_blank">RView</a>-Tool, das im Bot Builder SDK für .NET enthalten ist.
+Führen Sie zum Erstellen der RESX-Datei **rview** aus, und geben Sie die Assembly an, die die statische Formularerstellungsmethode und den Pfad zur Methode enthält.
+Im folgenden Codeausschnitt wird zeigt, wie Sie die `Microsoft.Bot.Sample.AnnotatedSandwichBot.SandwichOrder.resx`-Ressourcendatei mithilfe von **RView** erstellen.
 
 ```csharp
 rview -g Microsoft.Bot.Sample.AnnotatedSandwichBot.dll Microsoft.Bot.Sample.AnnotatedSandwichBot.SandwichOrder.BuildForm
@@ -83,7 +90,7 @@ Beim Erstellen des Formulars sucht die [IFormBuilder.Build][build]-Methode autom
 
 ### <a name="localize-resource-files"></a>Lokalisieren von Ressourcendateien 
 
-Nach dem Hinzufügen von Ressourcendateien zu Ihrem Projekt können Sie sie mithilfe des <a href="https://developer.microsoft.com/en-us/windows/develop/multilingual-app-toolkit" target="_blank">Multilingual App Toolkits (MAT)</a> lokalisieren. Installieren Sie zuerst **MAT**, und aktivieren Sie es anschließend mithilfe der folgenden Schritte für Ihr Projekt:
+Nach dem Hinzufügen von Ressourcendateien zu Ihrem Projekt können Sie sie mithilfe des <a href="https://developer.microsoft.com/windows/develop/multilingual-app-toolkit" target="_blank">Multilingual App Toolkits (MAT)</a> lokalisieren. Installieren Sie zuerst **MAT**, und aktivieren Sie es anschließend mithilfe der folgenden Schritte für Ihr Projekt:
 
 1. Wählen Sie Ihr Projekt im Projektmappen-Explorer von Visual Studio aus.
 2. Klicken Sie auf **Extras** > **Multilingual App Toolkit** > **Enable** (Aktivieren).
