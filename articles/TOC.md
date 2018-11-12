@@ -13,10 +13,11 @@
 ## [Beispielrepository auf GitHub](https://github.com/Microsoft/BotBuilder-Samples/blob/master/readme.md)
 # Konzepte
 ## [Funktionsweise von Bots](v4sdk/bot-builder-basics.md)
+## [Dialogbibliothek](v4sdk/bot-builder-concept-dialog.md)
+## [Dialogzustand](v4sdk/bot-builder-dialog-state.md)
 ## [Middleware](v4sdk/bot-builder-concept-middleware.md)
-## [Informationen zur Dialogbibliothek](v4sdk/bot-builder-concept-dialog.md)
-## [Grundlegendes zum Status von Dialogen](v4sdk/bot-builder-dialog-state.md)
-<!-- [Language understanding](v4sdk/bot-builder-concept-luis.md) -->
+## [Begrüßen des Benutzers](v4sdk/bot-builder-welcome-user.md)
+## [Sprachverständnis](v4sdk/bot-builder-concept-luis.md)
 ## [Bot Service-Vorlagen](bot-service-concept-templates.md)
 ## [Cognitive Services](bot-service-concept-intelligence.md)
 ## [Wichtige Szenarien für Bots](bot-service-scenario-overview.md)
@@ -25,31 +26,31 @@
 ### [Bot für die Unternehmensproduktivität](bot-service-scenario-enterprise-productivity.md)
 ### [Informations-Bot](bot-service-scenario-informational.md)
 ### [Internet der Dinge-Bot](bot-service-scenario-internet-things.md)
-# Vorgehensweise 
+# Vorgehensweise
 ## [Entwurf](design/TOC.md)
 ## Entwickeln
-<!-- ## [Best practice for welcoming the user](v4sdk/bot-builder-welcome-user.md) -->
-### [Senden und Empfangen von SMS](v4sdk/bot-builder-howto-send-messages.md)
-### [Hinzufügen von Medien zu Nachrichten](v4sdk/bot-builder-howto-add-media-attachments.md)
-### [Verwenden der Schaltfläche für die Eingabe](v4sdk/bot-builder-howto-add-suggested-actions.md)
 ### [Senden einer Begrüßungsnachricht an Benutzer](v4sdk/bot-builder-send-welcome-message.md)
-<!-- ## [Add input hints to messages](v4sdk/bot-builder-howto-add-input-hints.md) -->
-### [Abrufen von Benachrichtigungen vom Bot](v4sdk/bot-builder-howto-proactive-message.md)
-<!-- ## [Save user input](v4sdk/bot-builder-primitive-prompts.md) -->
-### [Speichern von Benutzer- und Konversationsdaten](v4sdk/bot-builder-howto-v4-state.md) 
-### [Hinzufügen von Features zum Verstehen natürlicher Sprache zu Ihrem Bot](v4sdk/bot-builder-howto-v4-luis.md)
+### [Senden von SMS und gesprochenen Nachrichten](v4sdk/bot-builder-howto-send-messages.md)
+### [Anfügen von Medienanlagen an Nachrichten](v4sdk/bot-builder-howto-add-media-attachments.md)
+### [Hinzufügen von Eingabehinweisen zu Nachrichten](v4sdk/bot-builder-howto-add-input-hints.md)
+### [Vorschlagen von Aktionen für Benutzer](v4sdk/bot-builder-howto-add-suggested-actions.md)
+<!-- ### [Save user input](v4sdk/bot-builder-primitive-prompts.md) -->
+### [Verwalten des Zustands](v4sdk/bot-builder-howto-v4-state.md) 
+### [Proaktives Senden von Nachrichten an Benutzer](v4sdk/bot-builder-howto-proactive-message.md)
+### [Hinzufügen von Language Understanding-Funktionen](v4sdk/bot-builder-howto-v4-luis.md)
 ### [Beantworten der Fragen eines Benutzers mithilfe von QnA Maker](v4sdk/bot-builder-howto-qna.md)
 ### Verwalten von Konversationen mithilfe der Dialogbibliothek 
 #### [Sammeln von Benutzereingaben](v4sdk/bot-builder-prompts.md)
-#### [Implementieren eines sequenziellen Konversationsablaufs](v4sdk/bot-builder-dialog-manage-conversation-flow.md)
+#### [Implementieren eines grundlegenden sequenziellen Konversationsablaufs](v4sdk/bot-builder-dialog-manage-conversation-flow.md)
 #### [Erstellen eines erweiterten Konversationsablaufs mithilfe von Branches und Schleifen](v4sdk/bot-builder-dialog-manage-complex-conversation-flow.md)
 #### [Behandeln von Benutzerunterbrechungen](v4sdk/bot-builder-howto-handle-user-interrupt.md)
-#### [Speichern von Benutzerdaten](v4sdk/bot-builder-tutorial-persist-user-inputs.md)
+#### [Dauerhaftes Speichern von Daten in Dialogen](v4sdk/bot-builder-tutorial-persist-user-inputs.md)
 #### [Wiederverwenden von Dialogen](v4sdk/bot-builder-compositcontrol.md)
 ### [Direktes Schreiben in den Speicher](v4sdk/bot-builder-howto-v4-storage.md)
 ### [Hinzufügen von Authentifizierung zum Bot](v4sdk/bot-builder-authentication.md)
 ### [Implementieren von benutzerdefiniertem Speicher für Ihren Bot](v4sdk/bot-builder-custom-storage.md)
 ### [Verwalten von Bots mithilfe von CLI-Tools](bot-builder-tools.md)
+### [Implementieren von kanalspezifischer Funktionalität](v4sdk/bot-builder-channeldata.md)
 ### [.NET](dotnet/TOC.md)
 ### [Node.js](nodejs/TOC.md)
 ## [Debuggen](debug/TOC.md)
@@ -65,4 +66,9 @@
 ## [.NET SDK v3](/dotnet/api/?view=botbuilder-3.12.2.4)
 ## [Node.js SDK v3](https://docs.botframework.com/en-us/node/builder/chat-reference/modules/_botbuilder_d_.html)
 ## [Entitäten und Aktivitätstypen](bot-service-activities-entities.md)
+# Verwandte Themen
+## [Web-Apps](https://docs.microsoft.com/azure/app-service/)
+## [Funktionen](https://docs.microsoft.com/azure/azure-functions/)
+## [Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/)
+## [Application Insights](https://docs.microsoft.com/azure/azure-monitor/)
 # [Ressourcen](resources/TOC.md)
