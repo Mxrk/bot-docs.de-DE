@@ -1,5 +1,5 @@
 ---
-title: Bereitstellen Ihres Bots in Azure | Microsoft Docs
+title: Bereitstellen Ihres C#-Bots in Azure | Microsoft-Dokumentation
 description: Stellen Sie Ihren Bot in der Azure-Cloud bereit.
 keywords: Bereitstellen des Bots, Azure-Bereitstellung, Botkanalregistrierung, Veröffentlichen aus Visual Studio
 author: ivorb
@@ -8,22 +8,24 @@ manager: kamrani
 ms.topic: get-started-article
 ms.service: bot-service
 ms.subservice: abs
-ms.date: 09/19/2018
-ms.openlocfilehash: 5f3fc43bed16d50c347d4e07a9154dfd307f0dc0
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.date: 11/05/2018
+ms.openlocfilehash: f30a038c6bc5e435ade421e24b05d0b31a143538
+ms.sourcegitcommit: 9acac75f85d36c81b8bf4edec916dd0b52a4a5c7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999367"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51028737"
 ---
-# <a name="deploy-your-bot-to-azure"></a>Bereitstellen Ihres Bots in Azure
+# <a name="deploy-your-c-bot-to-azure"></a>Bereitstellen Ihres C#-Bots in Azure
 
 [!INCLUDE [pre-release-label](./includes/pre-release-label.md)]
 
-Nachdem Sie Ihren Bot erstellt und lokal überprüft haben, können Sie ihn in Azure pushen, um ihn von überall aus zugänglich zu machen. Für einen C#-Bot können Sie Visual Studio oder die Azure CLI nutzen, um Ihren Bot in Azure zu veröffentlichen. 
+Nachdem Sie Ihren Bot erstellt und lokal getestet haben, können Sie ihn in Azure veröffentlichen, um ihn von überall aus zugänglich zu machen.
 
 ## <a name="publish-from-visual-studio"></a>Veröffentlichen mit Visual Studio
 Zuerst stellen Sie den Bot in Azure über Visual Studio in einer App Service-Instanz bereit. Anschließend konfigurieren Sie Ihren Bot mit dem Azure Bot Service, indem Sie die Botkanalregistrierung verwenden.
+
+**Hinweis: Wenn der Name Ihres Visual Studio-Projekts Leerzeichen enthält, funktionieren die unten beschriebenen Bereitstellungsschritte nicht.**
 
 Klicken Sie im Fenster des Projektmappen-Explorers mit der rechten Maustaste auf den Knoten Ihres Projekts, und wählen Sie „Veröffentlichen“ aus.
 

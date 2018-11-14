@@ -7,13 +7,13 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 12/13/2017
-ms.openlocfilehash: 2a2cc13020c87616799ee768fbab6e72ab81cc8b
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.date: 10/25/2018
+ms.openlocfilehash: eb08ca3b560f5058526387c71eca4b790d033a1e
+ms.sourcegitcommit: 15f7fa40b7e0a05507cdc66adf75bcfc9533e781
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997637"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50916807"
 ---
 # <a name="add-media-attachments-to-messages"></a>Hinzufügen von Medienanlagen zu Nachrichten
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.locfileid: "49997637"
 Bots und Kanäle tauschen in der Regel Textzeichenfolgen aus, aber einige Kanäle unterstützen auch den Austausch von Anlagen, wodurch Ihr Bot reichhaltigere Nachrichten an Benutzer senden kann. Ihr Bot kann z.B. Medienanlagen (z.B. Bilder, Videos, Audio, Dateien) und [Rich Cards](bot-framework-rest-connector-add-rich-cards.md) senden. In diesem Artikel wird beschrieben, wie Sie mit dem Bot Connector-Dienst Medienanlagen zu Nachrichten hinzufügen.
 
 > [!TIP]
-> Informationen dazu, wie Sie den Typ und die Anzahl der Anlagen bestimmen, die ein Kanal unterstützt, und wie Sie ermitteln, wie der Kanal Anlagen wiedergibt, finden Sie unter [Kanalprüfung][ChannelInspector].
+> Informationen dazu, wie Sie den Typ und die Anzahl von Anlagen bestimmen, die ein Kanal unterstützt, und wie Sie ermitteln, wie der Kanal Anlagen rendert, finden Sie unter [Channel Inspector][ChannelInspector].
 
 ## <a name="add-a-media-attachment"></a>Hinzufügen einer Medienanlage  
 
@@ -126,6 +126,7 @@ Das Hinzufügen einer [AudioCard](bot-framework-rest-connector-api-reference.md#
         "title": "Allegro in C Major",
         "subtitle": "Allegro Duet",
         "text": "No Image, No Buttons, Autoloop, Autostart, Sharable",
+        "duration": "PT2M55S",
         "media": [
           {
             "url": "https://contoso.com/media/AllegrofromDuetinCMajor.mp3"
@@ -175,9 +176,7 @@ Der Medienereignisname **media/pause** wird im Feld `activity.name` angezeigt. E
 - [Erstellen von Nachrichten](bot-framework-rest-connector-create-messages.md)
 - [Senden und Empfangen von Nachrichten](bot-framework-rest-connector-send-and-receive-messages.md)
 - [Hinzufügen von Rich Cards zu Nachrichten](bot-framework-rest-connector-add-rich-cards.md)
-- [Kanalprüfung][ChannelInspector]
-
-[ChannelInspector]: ../bot-service-channel-inspector.md
+- [Bot Framework-Kartenschema](https://aka.ms/botSpecs-cardSchema)
 
 [Activity]: bot-framework-rest-connector-api-reference.md#activity-object
 [Attachment]: bot-framework-rest-connector-api-reference.md#attachment-object

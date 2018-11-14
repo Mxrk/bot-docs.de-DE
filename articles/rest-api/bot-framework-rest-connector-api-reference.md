@@ -7,13 +7,13 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 10/24/2018
-ms.openlocfilehash: 18f353ce6535dd56ca7a581776fdfab822555f2d
-ms.sourcegitcommit: 49a76dd34d4c93c683cce6c2b8b156ce3f53280e
+ms.date: 10/25/2018
+ms.openlocfilehash: 81192c9b5806d467c2a1fd292ee3d5db539e9ead
+ms.sourcegitcommit: 15f7fa40b7e0a05507cdc66adf75bcfc9533e781
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50134740"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50916867"
 ---
 # <a name="api-reference"></a>API-Referenz
 
@@ -447,6 +447,7 @@ Definiert eine Rich Card, die animierte GIF-Dateien oder kurze Videos wiedergebe
 | **autoloop** | boolean | Ein Flag, das angibt, ob die Liste der animierte GIF-Dateien wiedergeben werden soll, nachdem die letzte Datei wiedergeben wurde. Legen Sie diese Eigenschaft auf **TRUE** fest, um die Animation automatisch wiederzugeben, andernfalls auf **FALSE**. Der Standardwert lautet **true**. |
 | **autostart** | boolean | Ein Flag, das angibt, ob die Animation automatisch wiedergegeben werden soll, wenn die Rich Card angezeigt wird. Legen Sie diese Eigenschaft auf **TRUE** fest, um die Animation automatisch wiederzugeben, andernfalls auf **FALSE**. Der Standardwert lautet **true**. |
 | **buttons** | [CardAction](#cardaction-object)[] | Ein Array von **CardAction**-Objekten, das es dem Benutzer ermöglicht, mindestens eine Aktion auszuführen. Der Kanal bestimmt die Anzahl der Schaltflächen, die Sie angeben können. |
+| **duration** | Zeichenfolge | Die Länge des Medieninhalts im [Format der Zeitspanne nach ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html). |
 | **image** | [ThumbnailUrl](#thumbnailurl-object) | Ein **ThumbnailUrl**-Objekt, das das auf der Rich Card anzuzeigende Bild angibt. |
 | **media** | [MediaUrl](#mediaurl-object)[] | Ein Array von **MediaUrl**-Objekten, das die Liste der animierten GIF-Dateien angibt, die wiedergegeben werden sollen. |
 | **shareable** | boolean | Ein Flag, das angibt, ob die Animation für andere Benutzer freigegeben werden kann. Legen Sie diese Eigenschaft auf **TRUE** fest, wenn die Animation freigegeben werden kann, andernfalls auf **FALSE**. Der Standardwert lautet **true**. |
@@ -523,6 +524,7 @@ Definiert eine Rich Card, die eine Audiodatei wiedergeben kann.<br/><br/>
 | **autoloop** | boolean | Ein Flag, das angibt, ob die Liste der Audiodateien wiedergeben werden soll, nachdem die letzte Datei wiedergeben wurde. Legen Sie diese Eigenschaft auf **TRUE** fest, um die Audiodateien automatisch wiederzugeben, andernfalls auf **FALSE**. Der Standardwert lautet **true**. |
 | **autostart** | boolean | Ein Flag, das angibt, ob die Audiodatei automatisch wiedergegeben werden soll, wenn die Rich Card angezeigt wird. Legen Sie diese Eigenschaft auf **TRUE** fest, um die Audiodatei automatisch wiederzugeben, andernfalls auf **FALSE**. Der Standardwert lautet **true**. |
 | **buttons** | [CardAction](#cardaction-object)[] | Ein Array von **CardAction**-Objekten, das es dem Benutzer ermöglicht, mindestens eine Aktion auszuführen. Der Kanal bestimmt die Anzahl der Schaltflächen, die Sie angeben können. |
+| **duration** | Zeichenfolge | Die Länge des Medieninhalts im [Format der Zeitspanne nach ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html). |
 | **image** | [ThumbnailUrl](#thumbnailurl-object) | Ein **ThumbnailUrl**-Objekt, das das auf der Rich Card anzuzeigende Bild angibt. |
 | **media** | [MediaUrl](#mediaurl-object)[] | Ein Array von **MediaUrl**-Objekten, das die Liste der Audiodateien angibt, die wiedergegeben werden sollen. |
 | **shareable** | boolean | Ein Flag, das angibt, ob die Audiodateien für andere Benutzer freigegeben werden können. Legen Sie diese Eigenschaft auf **TRUE** fest, wenn die Audiodateien freigegeben werden können, andernfalls auf **FALSE**. Der Standardwert lautet **true**. |
@@ -858,6 +860,7 @@ Definiert eine Rich Card, die Videos wiedergeben kann.<br/><br/>
 | **autoloop** | boolean | Ein Flag, das angibt, ob die Liste der Videos wiedergeben werden soll, nachdem die letzte Datei wiedergeben wurde. Legen Sie diese Eigenschaft auf **TRUE** fest, um die Videos automatisch wiederzugeben, andernfalls auf **FALSE**. Der Standardwert lautet **true**. |
 | **autostart** | boolean | Ein Flag, das angibt, ob die Videos automatisch wiedergegeben werden sollen, wenn die Rich Card angezeigt wird. Legen Sie diese Eigenschaft auf **TRUE** fest, um die Videos automatisch wiederzugeben, andernfalls auf **FALSE**. Der Standardwert lautet **true**. |
 | **buttons** | [CardAction](#cardaction-object)[] | Ein Array von **CardAction**-Objekten, das es dem Benutzer ermöglicht, mindestens eine Aktion auszuführen. Der Kanal bestimmt die Anzahl der Schaltflächen, die Sie angeben können. |
+| **duration** | Zeichenfolge | Die Länge des Medieninhalts im [Format der Zeitspanne nach ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html). |
 | **image** | [ThumbnailUrl](#thumbnailurl-object) | Ein **ThumbnailUrl**-Objekt, das das auf der Rich Card anzuzeigende Bild angibt. |
 | **media** | [MediaUrl](#mediaurl-object)[] | Ein Array von **MediaUrl**-Objekten, das die Liste der Videos angibt, die wiedergegeben werden sollen. |
 | **shareable** | boolean | Ein Flag, das angibt, ob die Videos für andere Benutzer freigegeben werden können. Legen Sie diese Eigenschaft auf **TRUE** fest, wenn die Videos freigegeben werden können, andernfalls auf **FALSE**. Der Standardwert lautet **true**. |

@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 9/25/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 07035c8f0dfc7473192d8c51667ed1f5cefbc555
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 0225b6d81b8eb9899a5dda8dc032dcbfb573afc1
+ms.sourcegitcommit: 984705927561cc8d6a84f811ff24c8c71b71c76b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999396"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50965708"
 ---
 # <a name="manage-simple-conversation-flow-with-dialogs"></a>Verwalten eines einfachen Konversationsflusses mit Dialogen
 
@@ -39,7 +39,10 @@ Für die allgemeine Nutzung von Dialogen benötigen Sie das NuGet-Paket `Microso
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-Für die allgemeine Nutzung von Dialogen benötigen Sie die Bibliothek `botbuilder-dialogs`, die von NPM heruntergeladen werden kann.
+Zur Verwendung von Dialogen benötigen Sie in der Regel die Bibliothek `botbuilder-dialogs`. Führen Sie zum Installieren der Bibliothek den folgenden npm-Befehl aus:
+```cmd
+npm install --save botbuilder-dialogs
+```
 
 ---
 

@@ -1,7 +1,7 @@
 ---
-title: Entwickeln einer Willkommensumgebung für Benutzer | Microsoft-Dokumentation
+title: Senden einer Begrüßungsnachricht an Benutzer | Microsoft-Dokumentation
 description: Es wird beschrieben, wie Sie Ihren Bot so entwickeln, dass eine einladende Benutzerumgebung geschaffen wird.
-keywords: Übersicht, Entwickeln, Benutzeroberfläche, Begrüßung, personalisierte Benutzeroberfläche, C#, JS
+keywords: Übersicht, entwickeln, Benutzeroberfläche, Willkommen, personalisierte Benutzeroberfläche, C#, JS, Begrüßungsnachricht, Bot, begrüßen, Begrüßung
 author: dashel
 ms.author: dashel
 manager: kamrani
@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 10/31/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: f5549385106cab890269e9a5fafacc00dc331520
-ms.sourcegitcommit: a496714fb72550a743d738702f4f79e254c69d06
+ms.openlocfilehash: b3582d962911b6024062942a6d9f6ff1efab4022
+ms.sourcegitcommit: a54a70106b9fdf278fd7270b25dd51c9bd454ab1
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50736608"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51273087"
 ---
 # <a name="send-welcome-message-to-users"></a>Senden einer Begrüßungsnachricht an Benutzer
 
@@ -418,4 +418,4 @@ switch (text)
 
 ## <a name="next-steps"></a>Nächste Schritte
 > [!div class="nextstepaction"]
-> [Auffordern von Benutzern zur Eingabe mithilfe der Dialogbibliothek](bot-builder-prompts.md)
+> [Erfassen von Benutzereingaben](bot-builder-prompts.md)

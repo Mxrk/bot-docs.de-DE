@@ -3,91 +3,98 @@ title: Erstellen eines Bots mit dem Bot Builder SDK für JavaScript | Microsoft 
 description: Erstellen Sie schnell einen Bot mithilfe des Bot Builder SDK für JavaScript.
 keywords: Schnellstart, Bot Builder SDK, erste Schritte
 author: jonathanfingold
-ms.author: jonathanfingold
+ms.author: v-jofing
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 10/15/2018
+ms.date: 10/30/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: aa13889cea2a26bf094a919f5d05905d65f7661f
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 1b111125ea240bf89f506106c948c6b5d3be7649
+ms.sourcegitcommit: 15f7fa40b7e0a05507cdc66adf75bcfc9533e781
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998854"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50916817"
 ---
 # <a name="create-a-bot-with-the-bot-builder-sdk-for-javascript"></a>Erstellen eines Bots mit dem Bot Builder SDK für JavaScript
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-Dieser Schnellstart führt Sie durch die Erstellung eines Bots, wobei Sie den Yeoman Bot Builder-Generator und das Bot Builder SDK für JavaScript verwenden und dann den Bot mit dem Bot Framework-Emulator testen. 
+Dieser Schnellstart führt Sie durch die Erstellung eines einzelnen Bots mit dem Yeoman Bot Builder-Generator und dem Bot Builder SDK für JavaScript sowie das anschließende Testen des Bots mit dem Bot Framework-Emulator.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
 - [Visual Studio Code](https://www.visualstudio.com/downloads)
 - [Node.js](https://nodejs.org/)
-- [Yeoman](http://yeoman.io/): Kann einen Generator verwenden, um einen Bot für Sie zu erstellen.
+- [Yeoman](http://yeoman.io/) (verwendet einen Generator, um einen Bot für Sie zu erstellen)
 - [git](https://git-scm.com/)
 - [Bot Framework-Emulator](https://github.com/Microsoft/BotFramework-Emulator)
 - Kenntnisse von [restify](http://restify.com/) und asynchroner Programmierung in JavaScript
 
 > [!NOTE]
 > Bei einigen Installationen gibt der Installationsschritt für restify einen Fehler in Bezug auf node-gyp aus.
-> Wenn dies der Fall ist, versuchen Sie, `npm install -g windows-build-tools` auszuführen.
+> Wenn dies der Fall ist, versuchen Sie den folgenden Befehl mit erhöhten Berechtigungen auszuführen:
+> ```bash
+> npm install -g windows-build-tools
+> ```
 
 ## <a name="create-a-bot"></a>Erstellen eines Bots
 
-Öffnen Sie eine Eingabeaufforderung mit erhöhten Rechten, erstellen Sie ein Verzeichnis, und initialisieren Sie das Paket für Ihren Bot.
+So erstellen Sie Ihren Bot und initialisieren Sie die zugehörigen Pakete
 
-```bash
-md myJsBots
-cd myJsBots
-```
+1. Öffnen Sie ein Terminalfenster oder eine Eingabeaufforderung mit erhöhten Rechten.
+1. Falls Sie noch kein Verzeichnis für Ihre JavaScript-Bots haben, erstellen Sie eines, und wechseln Sie in dieses Verzeichnis. (Wir erstellen ein allgemeines Verzeichnis für Ihre JavaScript-Bots, obwohl wir in diesem Tutorial nur einen Bot erstellen.)
 
-Stellen Sie sicher, dass Ihre Version von npm aktuell ist.
-```bash
-npm i npm
-```
+   ```bash
+   md myJsBots
+   cd myJsBots
+   ```
 
-Dann installieren Sie Yeoman und den Generator für JavaScript.
+1. Stellen Sie sicher, dass Ihre Version von npm aktuell ist.
 
-```bash
-npm install -g yo
-npm install -g generator-botbuilder
-```
+   ```bash
+   npm install -g npm
+   ```
 
-Verwenden Sie anschließend den Generator, um einen Echobot zu erstellen.
+1. Dann installieren Sie Yeoman und den Generator für JavaScript.
 
-```bash
-yo botbuilder
-```
+   ```bash
+   npm install -g yo generator-botbuilder
+   ```
 
-Yeoman fordert Sie zur Eingabe einiger Informationen auf, um Ihren Bot zu erstellen.
+1. Verwenden Sie anschließend den Generator, um einen Echobot zu erstellen.
 
-- Geben Sie einen Namen für Ihren Bot ein.
-- Geben Sie eine Beschreibung ein.
-- Wählen Sie die Sprache für Ihren Bot aus: `JavaScript` oder `TypeScript`.
-- Wählen Sie die Vorlage `Echo` aus.
+   ```bash
+   yo botbuilder
+   ```
+
+Yeoman fordert Sie zur Eingabe einiger Informationen auf, um Ihren Bot zu erstellen. Verwenden Sie für dieses Tutorial die Standardwerte.
+
+- Geben Sie einen Namen für Ihren Bot ein. (myChatBot)
+- Geben Sie eine Beschreibung ein. (Zeigen Sie die Kernfunktionen von Microsoft Bot Framework auf.)
+- Wählen Sie die Sprache für Ihren Bot aus. (JavaScript)
+- Wählen Sie die zu verwendende Vorlage aus. (Echo)
 
 Dank der Vorlage enthält Ihr Projekt sämtlichen Code, der zum Erstellen des Bots in dieser Schnellstartanleitung erforderlich ist. Sie müssen tatsächlich keinen zusätzlichen Code schreiben.
 
 > [!NOTE]
-> Für einen Basisbot benötigen Sie ein LUIS-Sprachmodell. Sie können dieses Modell unter [luis.ai](https://www.luis.ai) erstellen. Aktualisieren Sie die BOT-Datei, nachdem Sie das Modell erstellt haben. Ihre BOT-Datei sollte [dieser Datei](../v4sdk/bot-builder-service-file.md) ähneln. 
+> Wenn Sie einen `Basic`-Bot erstellen, benötigen Sie ein LUIS-Sprachmodell (Language Understanding). Sie können dieses Modell unter [luis.ai](https://www.luis.ai) erstellen. Aktualisieren Sie die BOT-Datei, nachdem Sie das Modell erstellt haben. Ihre BOT-Datei sollte [dieser Datei](../v4sdk/bot-builder-service-file.md) ähneln.
 
 ## <a name="start-your-bot"></a>Starten Ihres Bots
 
-Wechseln Sie in PowerShell/Bash in das Verzeichnis, das Sie für Ihren Bot erstellt haben, und starten Sie ihn mit `npm start`. Zu diesem Zeitpunkt wird Ihr Bot lokal ausgeführt.
+Wechseln Sie in einem Terminalfenster oder einer Eingabeaufforderung in das Verzeichnis, das Sie für Ihren Bot erstellt haben, und starten Sie ihn mit `npm start`. Zu diesem Zeitpunkt wird Ihr Bot lokal ausgeführt.
 
 ## <a name="start-the-emulator-and-connect-your-bot"></a>Starten des Emulators und Herstellen einer Verbindung mit Ihrem Bot
-1. Starten Sie den Emulator.
+
+1. Starten Sie den Bot Framework-Emulator.
 2. Klicken Sie im Emulator auf der Registerkarte „Willkommen“ auf den Link **Bot öffnen**.
 3. Wählen Sie in dem Verzeichnis, in dem Sie das Projekt erstellt haben, die BOT-Datei aus.
 
 Senden Sie eine Nachricht an den Bot, und der Bot antwortet mit einer Nachricht.
-![Ausgeführter Emulator](../media/emulator-v4/emulator-running.png)
+![Ausgeführter Emulator](../media/emulator-v4/js-quickstart.png)
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 > [!div class="nextstepaction"]
-> [Funktionsweise von Bots](../v4sdk/bot-builder-basics.md) 
+> [Funktionsweise von Bots](../v4sdk/bot-builder-basics.md)
