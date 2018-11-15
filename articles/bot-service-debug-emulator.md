@@ -7,20 +7,20 @@ ms.author: v-demak
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
-ms.date: 09/20/2018
-ms.openlocfilehash: b1a20875eb25cbf4a07d8a96d79eed665b26157b
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.date: 11/13/2018
+ms.openlocfilehash: f3a6a57a5fd01061493e5c216875f0c4210483f6
+ms.sourcegitcommit: 8b7bdbcbb01054f6aeb80d4a65b29177b30e1c20
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49996797"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51645610"
 ---
 # <a name="debug-with-the-emulator"></a>Debuggen mit dem Emulator
 
 Der Bot Framework-Emulator ist eine Desktopanwendung, mit der Botentwickler ihre Bots lokal oder remote testen und debuggen können. Mit dem Emulator können Sie mit Ihrem Bot chatten und die Nachrichten ansehen, die Ihr Bot sendet und empfängt. Der Emulator zeigt Nachrichten so an, wie sie in einer Webchat-Benutzeroberfläche erscheinen würden und protokolliert JSON-Anforderungen und -Antworten, während Sie Nachrichten mit Ihrem Bot austauschen. Bevor Sie Ihren Bot in der Cloud bereitstellen, führen Sie ihn lokal aus, und testen Sie ihn mit dem Emulator. Sie können Ihren Bot mit dem Emulator auch testen, wenn Sie ihn noch nicht mit Azure Bot Service [erstellt](./bot-service-quickstart.md) oder für die Ausführung in Kanälen konfiguriert haben.
 
 ## <a name="prerequisites"></a>Voraussetzungen
-- Installieren des [Emulators](https://github.com/Microsoft/BotFramework-Emulator/releases)
+- Installieren des [Emulators](https://aka.ms/Emulator-wiki-getting-started)
 - Installieren der [ngrok][ngrokDownload]-Tunnellingsoftware
 
 ## <a name="connect-to-a-bot-running-on-localhost"></a>Verbinden mit auf Localhost ausgeführten Bots

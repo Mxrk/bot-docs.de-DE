@@ -8,28 +8,28 @@ manager: kamrani
 ms.topic: get-started-article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 09/23/2018
+ms.date: 11/13/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 32743e895f2390fe018dc3801ed5b8a67b32a8cc
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 77e24d58fb377ec2390671517204526bf076f78e
+ms.sourcegitcommit: 8b7bdbcbb01054f6aeb80d4a65b29177b30e1c20
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999377"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51645540"
 ---
 # <a name="create-a-bot-with-the-bot-builder-sdk-for-net"></a>Erstellen eines Bots mit dem Bot Builder SDK für .NET
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-In dieser Schnellstartanleitung werden die Schritte zum Erstellen eines Bots per C#-Vorlage und zum anschließenden Testen mit dem Bot Framework Emulator beschrieben. 
+In dieser Schnellstartanleitung werden die Schritte zum Erstellen eines Bots per C#-Vorlage und zum anschließenden Testen mit dem Bot Framework Emulator beschrieben.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 - Visual Studio [2017](https://www.visualstudio.com/downloads)
 - Bot Builder SDK v4-Vorlage für [C#](https://botbuilder.myget.org/feed/aitemplates/package/vsix/BotBuilderV4.fbe0fc50-a6f1-4500-82a2-189314b7bea2)
-- Bot Framework [Emulator](https://github.com/Microsoft/BotFramework-Emulator/releases)
+- Bot Framework [Emulator](https://aka.ms/Emulator-wiki-getting-started)
 - Kenntnisse von [ASP.Net Core](https://docs.microsoft.com/aspnet/core/) und asynchroner Programmierung in [C#](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/index)
 
 ## <a name="create-a-bot"></a>Erstellen eines Bots
-Installieren Sie die Vorlage „BotBuilderVSIX.vsix“, die Sie im Abschnitt „Voraussetzungen“ heruntergeladen haben. 
+Installieren Sie die Vorlage „BotBuilderVSIX.vsix“, die Sie im Abschnitt „Voraussetzungen“ heruntergeladen haben.
 
 Erstellen Sie in Visual Studio mithilfe der Vorlage „Bot Builder Echo Bot V4“ ein neues Bot-Projekt.
 

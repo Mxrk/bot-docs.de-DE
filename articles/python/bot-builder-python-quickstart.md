@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 08/30/2018
+ms.date: 11/13/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 4536bef820bc1e6e21ba2905fb643fe5608b3788
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 23cd0c531e00b19b24ee331a8ef1f510b55863b9
+ms.sourcegitcommit: 8b7bdbcbb01054f6aeb80d4a65b29177b30e1c20
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999017"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51645530"
 ---
 # <a name="create-a-bot-with-the-bot-builder-sdk-for-python"></a>Erstellen eines Bots mit dem Bot Builder SDK für Python
 
@@ -26,7 +26,7 @@ Dieser Schnellstart führt Sie durch die Schritte zum Erstellen eines Bots und a
 
 ## <a name="pre-requisite"></a>Voraussetzung
 - [Python 3.6.4](https://www.python.org/downloads/) 
-- [Bot Framework-Emulator](https://github.com/Microsoft/BotFramework-Emulator/releases)
+- Bot Framework [Emulator](https://aka.ms/Emulator-wiki-getting-started)
 
 ## <a name="create-a-bot"></a>Erstellen eines Bots
 Importieren Sie die folgenden Standardmodule in die Datei „main.py“:

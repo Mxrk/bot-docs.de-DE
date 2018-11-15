@@ -1,18 +1,22 @@
 ---
-redirect_url: /bot-framework/bot-builder-howto-v4-state
-ms.openlocfilehash: 081c7c1f3e354d4352baea029840c8175152116e
-ms.sourcegitcommit: a54a70106b9fdf278fd7270b25dd51c9bd454ab1
+title: Erstellen eigener Eingabeaufforderungen zum Erfassen von Benutzereingaben | Microsoft-Dokumentation
+description: Hier erfahren Sie, wie Sie einen Konversationsablauf mit einfachen Eingabeaufforderungen im Bot Builder SDK verwalten.
+keywords: Konversationsablauf, Eingabeaufforderungen
+author: v-ducvo
+ms.author: v-ducvo
+manager: kamrani
+ms.topic: article
+ms.service: bot-service
+ms.subservice: sdk
+ms.date: 11/12/2018
+monikerRange: azure-bot-service-4.0
+ms.openlocfilehash: bc223008778f0396b9bc7ff0c2ef48eb3773a105
+ms.sourcegitcommit: 0702305523f8c816b2eb95dce2ea9effb9e5ee5a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51273117"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51562093"
 ---
-<a name="--"></a><!--
----
-Titel: Erstellen eigener Eingabeaufforderungen zum Erfassen von Benutzereingaben | Microsoft-Dokumentation Beschreibung: Erfahren Sie, wie Sie einen Konversationsfluss mit einfachen Eingabeaufforderungen im Bot Builder SDK verwalten.
-Schlüsselwörter: Konversationsfluss, Eingabeaufforderungen author: v-ducvo ms.author: v-ducvo manager: kamrani ms.topic: article ms.service: bot-service ms.subservice: sdk ms.date: 10/31/2018 monikerRange: 'azure-bot-service-4.0'
----
-
 # <a name="create-your-own-prompts-to-gather-user-input"></a>Erstellen eigener Eingabeaufforderungen zum Erfassen von Benutzereingaben
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
@@ -694,4 +698,3 @@ Sie wissen nun, wie Sie Eingabeaufforderungszustände selbst verwalten. Als Näc
 > [!div class="nextstepaction"]
 > [Auffordern von Benutzern zur Eingabe](bot-builder-prompts.md)
 
--->
