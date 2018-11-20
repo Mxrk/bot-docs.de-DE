@@ -1,5 +1,5 @@
 ---
-title: Verwalten eines komplexen Konversationsablaufs mit Dialogen | Microsoft-Dokumentation
+title: Erstellen eines erweiterten Konversationsflusses mithilfe von Verzweigungen und Schleifen | Microsoft-Dokumentation
 description: Hier erfahren Sie, wie Sie einen komplexen Konversationsablauf mit Dialogen im Bot Builder SDK für Node.js verwalten.
 keywords: komplexer Konversationsablauf, Wiederholung, Schleife, Menü, Dialoge, Eingabeaufforderungen, Wasserfälle, Dialogsatz
 author: v-ducvo
@@ -8,24 +8,24 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 10/03/2018
+ms.date: 11/03/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: bbb038554801f4585cbc1e3186d139232405b47d
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 9605a2f078be753023e6d178247a211ace107873
+ms.sourcegitcommit: cb0b70d7cf1081b08eaf1fddb69f7db3b95b1b09
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999827"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51333024"
 ---
-# <a name="manage-complex-conversation-flows-with-dialogs"></a>Verwalten komplexer Konversationsabläufe mit Dialogen
+# <a name="create-advance-conversation-flow-using-branches-and-loops"></a>Erstellen eines erweiterten Konversationsflusses mithilfe von Verzweigungen und Schleifen
 
 [!INCLUDE [pre-release-label](~/includes/pre-release-label.md)]
 
-Im letzten Artikel wurde veranschaulicht, wie die Dialogbibliothek zum Verwalten einfacher Konversationen genutzt wird. Bei [einfachen Konversationsabläufen](bot-builder-dialog-manage-conversation-flow.md) beginnt der Benutzer mit dem ersten Schritt eines *Wasserfalls* und durchläuft alle weiteren Schritte bis zum letzten Schritt, wo die Konversation dann endet. In diesem Artikel verwenden wir Dialoge, um komplexere Konversationen mit Verzweigungen und Schleifen zu verwalten. Hierfür verwenden wir verschiedene Methoden, die im Dialogkontext und Wasserfallschrittkontext definiert sind, und übergeben Argumente zwischen verschiedenen Teilen des Dialogs.
+Im letzten Artikel wurde veranschaulicht, wie die Dialogbibliothek zum Verwalten einfacher Konversationen genutzt wird. In [sequenziellen Konversationsflüssen](bot-builder-dialog-manage-conversation-flow.md) beginnt der Benutzer mit dem ersten Schritt eines *Wasserfalls* und durchläuft alle weiteren Schritte bis zum letzten Schritt, wo die Konversation dann endet. In diesem Artikel verwenden wir Dialoge, um komplexere Konversationen mit Verzweigungen und Schleifen zu verwalten. Hierfür verwenden wir verschiedene Methoden, die im Dialogkontext und Wasserfallschrittkontext definiert sind, und übergeben Argumente zwischen verschiedenen Teilen des Dialogs.
 
 Weitere Hintergrundinformationen zu Dialogen finden Sie unter [Dialogbibliothek](bot-builder-concept-dialog.md).
 
-Mit der Methode _replace dialog_ aus der Bibliothek **Dialogs** erhalten Sie mehr Kontrolle über den *Dialogstapel*. Diese Methode ermöglicht es Ihnen, den derzeit aktiven Dialog gegen einen anderen auszutauschen, während der Zustand und Fluss der Konversation beibehalten werden. Mit den Methoden _begin dialog_ und _replace dialog_ können Sie je nach Bedarf Verzweigungen und Schleifen einrichten, um komplexere Interaktionen zu erstellen. Sollte sich die Komplexität Ihrer Konversationen erhöhen und sich die Verwaltung Ihrer Wasserfalldialoge daher schwierig gestalten, können Sie die Verwendung von [Komponentendialogen](bot-builder-compositcontrol.md) erwägen oder basierend auf der `Dialog`-Basisklasse eine benutzerdefinierte Klasse für die Dialogverwaltung erstellen.
+Mit der Methode _replace dialog_ aus der Bibliothek **Dialogs** erhalten Sie mehr Kontrolle über den *Dialogstapel*. Diese Methode ermöglicht es Ihnen, den derzeit aktiven Dialog gegen einen anderen auszutauschen, während der Zustand und Fluss der Konversation beibehalten werden. Mit den Methoden _begin dialog_ und _replace dialog_ können Sie je nach Bedarf Verzweigungen und Schleifen einrichten, um komplexere Interaktionen zu erstellen. Sollte sich die Komplexität Ihrer Konversationen erhöhen und sich die Verwaltung Ihrer Wasserfalldialoge daher schwierig gestalten, können Sie die [Wiederverwendung von Dialogen](bot-builder-compositcontrol.md) erwägen oder auf der Grundlage der `Dialog`-Basisklasse eine benutzerdefinierte Klasse für die Dialogverwaltung erstellen.
 
 In diesem Artikel erstellen wir Beispieldialoge für einen Bot, der als Hotel-Concierge fungiert und von Gästen zum Zugreifen auf häufige Dienste genutzt werden kann: Reservieren eines Tischs im Hotelrestaurant und Aufgeben einer Essensbestellung beim Zimmerservice.  Diese Features werden zusammen mit einem übergreifenden Menü als Dialoge im Dialogsatz erstellt.
 

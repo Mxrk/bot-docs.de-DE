@@ -8,20 +8,20 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 05/24/2018
+ms.date: 11/8/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 38d876e11d00a5471f2dcbfca44eb23290b7476c
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 713a53947a8ea6681f1793f9796a86c6d8014e29
+ms.sourcegitcommit: cb0b70d7cf1081b08eaf1fddb69f7db3b95b1b09
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997977"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51332924"
 ---
 # <a name="middleware"></a>Middleware
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-Middleware ist lediglich eine Klasse zwischen dem Adapter und der Bot-Logik, die während der Initialisierung der Middlewaresammlung Ihres Adapters hinzugefügt wird. Das SDK ermöglicht Ihnen das Schreiben eigener Middleware sowie das Hinzufügen wiederverwendbarer Komponenten von Middleware, die von anderen erstellt wurde. Jede ein- oder ausgehende Aktivität für Ihren Bot durchläuft Ihre Middleware.
+Middleware ist lediglich eine Klasse zwischen dem Adapter und der Bot-Logik, die während der Initialisierung der Middlewaresammlung Ihres Adapters hinzugefügt wird. Das SDK ermöglicht Ihnen das Schreiben eigener Middleware sowie das Hinzufügen von Middleware, die von anderen Entwicklern erstellt wurde. Jede ein- oder ausgehende Aktivität für Ihren Bot durchläuft Ihre Middleware.
 
 Der Adapter verarbeitet und leitet eingehende Aktivitäten durch die Bot-Middlewarepipeline zur Logik Ihres Bots und wieder zurück. Während jede Aktivität den Bot durchläuft, kann jede Middleware die Aktivität überprüfen und beeinflussen, sowohl bevor als auch nachdem die Bot-Logik ausgeführt wurde.
 
@@ -66,7 +66,7 @@ Die ersten Schritte in Ihrer Pipeline sollten wahrscheinlich die sein, die sich 
 Die letzten Schritte in Ihrer Middleware-Pipeline sollten sich auf Bot-spezifische Middleware beziehen. Also Middleware, die Sie implementieren, um jede Nachricht an den Bot zu verarbeiten. Wenn Ihre Middleware Zustandsinformationen oder andere Informationen im Kontext des Bots verwendet, fügen Sie sie nach der Middleware, die den Zustand oder Kontext ändert, der Middleware-Pipeline hinzu.
 
 ## <a name="short-circuiting"></a>Kurzschlüsse
-_Kurzschlüsse_ sind ein wichtiges Konzept bei der Middleware (und bei [Antworthandlern](bot-builder-basics.md#response-event-handlers)). Wenn die Ausführung durch die nachfolgenden Ebenen fortgesetzt werden soll, ist eine Middleware (oder ein Antworthandler) erforderlich, um die Ausführung durch Aufrufen des _next_-Delegaten zu übergeben.  Wenn der next-Delegat in der Middleware (oder dem Antworthandler) aufgerufen wird, tritt für die zugeordnete Pipeline ein Kurzschluss auf, und die nachfolgenden Ebenen werden nicht ausgeführt. Dies bedeutet, dass die gesamte Botlogik sowie jegliche Middleware im weiteren Verlauf der Pipeline übersprungen wird. Es besteht ein feiner Unterschied dazwischen, ob der Kurzschluss eines Durchlaufs von Ihrer Middleware oder von Ihrem Antworthandler ausgeht.
+_Kurzschlüsse_ sind ein wichtiges Konzept bei der Middleware (und bei Antworthandlern). Wenn die Ausführung durch die nachfolgenden Ebenen fortgesetzt werden soll, ist eine Middleware (oder ein Antworthandler) erforderlich, um die Ausführung durch Aufrufen des _next_-Delegaten zu übergeben.  Wenn der next-Delegat in der Middleware (oder dem Antworthandler) aufgerufen wird, tritt für die zugeordnete Pipeline ein Kurzschluss auf, und die nachfolgenden Ebenen werden nicht ausgeführt. Dies bedeutet, dass die gesamte Botlogik sowie jegliche Middleware im weiteren Verlauf der Pipeline übersprungen wird. Es besteht ein feiner Unterschied dazwischen, ob der Kurzschluss eines Durchlaufs von Ihrer Middleware oder von Ihrem Antworthandler ausgeht.
 
 Wenn der Kurschluss eines Durchlaufs von der Middleware ausgeht, wird Ihr Handler für den Botdurchlauf nicht aufgerufen, aber der gesamte Middleware-Code, der in der Pipeline vor diesem Punkt ausgeführt wurde, wird trotzdem bis zum Ende ausgeführt. 
 
@@ -75,5 +75,14 @@ Wenn _next_ bei Ereignishandlern nicht aufgerufen wird, wird das Ereignis abgebr
 > [!TIP]
 > Stellen Sie sicher, dass es dem gewünschten Verhalten entspricht, wenn Sie für ein Antwortereignis wie `SendActivities` einen Kurzschluss durchführen. Andernfalls kann es schwierig sein, Fehler zu beheben.
 
+## <a name="response-event-handlers"></a>Antwortereignishandler
+Zusätzlich zur Anwendungs- und Middlewarelogik können Antworthandler (manchmal auch als Ereignishandler oder Aktivitätsereignishandler bezeichnet) dem Kontextobjekt hinzugefügt werden. Diese Ereignishandler werden aufgerufen, wenn die dazugehörige Antwort im aktuellen Kontextobjekt vor der Ausführung der tatsächlichen Antwort stattfindet. Diese Handler sind nützlich, wenn Sie wissen, dass Sie vor oder nach dem eigentlichen Ereignis etwas für jede Aktivität dieses Typs für den Rest der aktuellen Antwort tun wollen.
+
+> [!WARNING] 
+> Achten Sie darauf, eine Aktivitätsantwortmethode nicht in ihrem jeweiligen Antwortereignishandler aufzurufen, z. B. indem Sie die SendActivity-Methode in einem onSendActivity-Handler aufrufen. Anderenfalls wird eine Endlosschleife generiert.
+
+Beachten Sie, dass jede neue Aktivität einen neuen Thread für die Ausführung erhält. Wenn der Thread zur Verarbeitung der Aktivität erstellt wird, wird die Liste der Handler für diese Aktivität in den neuen Thread kopiert. Handler, die nach diesem Punkt hinzugefügt wurden, werden für dieses spezielle Aktivitätsereignis nicht ausgeführt.
+Die unter einem Kontextobjekt registrierten Handler werden auf eine Weise verarbeitet, die der Verwaltung der Middlewarepipeline durch den Adapter sehr ähnelt. Handler werden daher in der Reihenfolge aufgerufen, in der sie hinzugefügt wurden, und der Aufruf des nächsten Delegaten übergibt die Steuerung an den nächsten registrierten Ereignishandler. Wenn ein Handler den nächsten Delegaten nicht aufruft, werden keine nachfolgenden Ereignishandler aufgerufen. Das Ereignis wird kurzgeschlossen, und der Adapter sendet die Antwort nicht an den Kanal.
+
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
-Sie können sich die Middleware für die Transkriptprotokollierung ansehen, die im Bot Builder SDK implementiert ist [[C#](https://github.com/Microsoft/botbuilder-dotnet/blob/master/libraries/Microsoft.Bot.Builder/TranscriptLoggerMiddleware.cs)|[JS](https://github.com/Microsoft/botbuilder-js/blob/master/libraries/botbuilder-core/src/transcriptLogger.ts)].
+Sie können sich die Middleware für die Transkriptprotokollierung ansehen, die im Bot Builder SDK implementiert ist [[C#](https://github.com/Microsoft/botbuilder-dotnet/blob/master/libraries/Microsoft.Bot.Builder/TranscriptLoggerMiddleware.cs) | [JS](https://github.com/Microsoft/botbuilder-js/blob/master/libraries/botbuilder-core/src/transcriptLogger.ts)].

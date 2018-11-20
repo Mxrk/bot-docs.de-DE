@@ -1,7 +1,7 @@
 ---
-title: Erfassen von Benutzereingaben mit der Dialogebibliothek | Microsoft-Dokumentation
+title: Erfassen von Benutzereingaben mit einer Dialogaufforderung | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie Benutzer mithilfe der Dialogebibliothek im Bot Builder SDK zur Eingabe auffordern.
-keywords: Eingabeaufforderungen, Dialogfelder, AttachmentPrompt, ChoicePrompt, ConfirmPrompt, DatetimePrompt, NumberPrompt, TextPrompt, erneute Eingabeaufforderung, Überprüfung
+keywords: Eingabeaufforderungen, Eingabeaufforderung, Benutzereingabe, Dialoge, AttachmentPrompt, ChoicePrompt, ConfirmPrompt, DatetimePrompt, NumberPrompt, TextPrompt, erneute Eingabeaufforderung, Validierung
 author: JonathanFingold
 ms.author: v-jofing
 manager: kamrani
@@ -10,22 +10,18 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/02/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 150d5f0a68d897ac278026a7cf36609aca05bb80
-ms.sourcegitcommit: 984705927561cc8d6a84f811ff24c8c71b71c76b
+ms.openlocfilehash: ec0cc5e942ed66c8683f8b0cc92ba7df2e36db42
+ms.sourcegitcommit: 8b7bdbcbb01054f6aeb80d4a65b29177b30e1c20
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50965718"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51645670"
 ---
-# <a name="use-dialog-library-to-gather-user-input"></a>Erfassen von Benutzereingaben mit der Dialogebibliothek
+# <a name="gather-user-input-using-a-dialog-prompt"></a>Erfassen von Benutzereingaben mit einer Dialogaufforderung
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
 Das Sammeln von Informationen durch das Stellen von Fragen ist eine der Hauptvorgehensweisen, mit denen ein Bot mit Benutzern interagiert. Dies ist auch direkt möglich, indem die _send activity_-Methode des [turn context](~/v4sdk/bot-builder-basics.md#defining-a-turn)-Objekts verwendet wird und dann die nächste eingehende Nachricht als Antwort verarbeitet wird. Das Bot Builder SDK stellt jedoch eine [Dialogebibliothek](bot-builder-concept-dialog.md) bereit, die Methoden enthält, mit denen das Stellen von Fragen vereinfacht und sichergestellt werden kann, dass die Antwort mit einem bestimmten Datentyp übereinstimmt oder benutzerdefinierte Validierungsregeln erfüllt. In diesem Thema wird ausführlich beschrieben, wie Sie dies erreichen, indem Sie einen Benutzer mithilfe von Eingabeaufforderungsobjekten zur Eingabe von Informationen auffordern.
-
-In diesem Artikel wird beschrieben, wie Sie Eingabeaufforderungen erstellen und in einem Dialog aufrufen.
-Informationen dazu, wie Sie Benutzer ohne Dialoge zur Eingabe auffordern, finden Sie unter [Erstellen eigener Eingabeaufforderungen zum Erfassen von Benutzereingaben](bot-builder-primitive-prompts.md).
-Informationen zur Verwendung von Dialogen im Allgemeinen finden Sie unter [Verwenden von Dialogen zum Verwalten eines einfachen Konversationsflusses](bot-builder-dialog-manage-conversation-flow.md).
 
 ## <a name="prompt-types"></a>Eingabeaufforderungstypen
 
@@ -431,13 +427,6 @@ Implementieren Sie das Validierungssteuerelement für die Gruppengröße. Wir be
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
-/// <summary>Validates whether the party size is appropriate to make a reservation.</summary>
-/// <param name="promptContext">The validation context.</param>
-/// <param name="cancellationToken">A cancellation token that can be used by other objects
-/// or threads to receive notice of cancellation.</param>
-/// <returns>A task that represents the work queued to execute.</returns>
-/// <remarks>Reservations can be made for groups of 6 to 20 people.
-/// If the task is successful, the result indicates whether the input was valid.</remarks>
 private async Task<bool> PartySizeValidatorAsync(
     PromptValidatorContext<int> promptContext,
     CancellationToken cancellationToken)
@@ -469,7 +458,7 @@ private async Task<bool> PartySizeValidatorAsync(
 
 ```javascript
 async partySizeValidator(promptContext) {
-    // Check whether the input could be recognized as an integer.
+    // Check whether the input could be recognized as date.
     if (!promptContext.recognized.succeeded) {
         await promptContext.context.sendActivity(
             "I'm sorry, I do not understand. Please enter the number of people in your party.");
@@ -503,13 +492,8 @@ Dieser Validierungscode ist nicht vollständig. Er eignet sich am besten für Ei
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
-/// <summary>Validates whether the reservation date is appropriate.</summary>
-/// <param name="promptContext">The validation context.</param>
-/// <param name="cancellationToken">A cancellation token that can be used by other objects
-/// or threads to receive notice of cancellation.</param>
-/// <returns>A task that represents the work queued to execute.</returns>
-/// <remarks>Reservations must be made at least an hour in advance.
-/// If the task is successful, the result indicates whether the input was valid.</remarks>
+// Validates whether the reservation date is appropriate.
+// Reservations must be made at least an hour in advance.
 private async Task<bool> DateValidatorAsync(
     PromptValidatorContext<IList<DateTimeResolution>> promptContext,
     CancellationToken cancellationToken = default(CancellationToken))
@@ -584,12 +568,7 @@ Verwenden Sie die Eingabeaufforderungen, die wir dem Dialogsatz hinzugefügt hab
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
-/// <summary>First step of the main dialog: prompt for party size.</summary>
-/// <param name="stepContext">The context for the waterfall step.</param>
-/// <param name="cancellationToken">A cancellation token that can be used by other objects
-/// or threads to receive notice of cancellation.</param>
-/// <returns>A task that represents the work queued to execute.</returns>
-/// <remarks>If the task is successful, the result contains information from this step.</remarks>
+// First step of the main dialog: prompt for party size.
 private async Task<DialogTurnResult> PromptForPartySizeAsync(
     WaterfallStepContext stepContext,
     CancellationToken cancellationToken = default(CancellationToken))
@@ -605,13 +584,8 @@ private async Task<DialogTurnResult> PromptForPartySizeAsync(
         cancellationToken);
 }
 
-/// <summary>Second step of the main dialog: record the party size and prompt for the
-/// reservation date.</summary>
-/// <param name="stepContext">The context for the waterfall step.</param>
-/// <param name="cancellationToken">A cancellation token that can be used by other objects
-/// or threads to receive notice of cancellation.</param>
-/// <returns>A task that represents the work queued to execute.</returns>
-/// <remarks>If the task is successful, the result contains information from this step.</remarks>
+// Second step of the main dialog: record the party size and prompt for the
+// reservation date.
 private async Task<DialogTurnResult> PromptForReservationDateAsync(
     WaterfallStepContext stepContext,
     CancellationToken cancellationToken = default(CancellationToken))
@@ -631,12 +605,7 @@ private async Task<DialogTurnResult> PromptForReservationDateAsync(
         cancellationToken);
 }
 
-/// <summary>Third step of the main dialog: return the collected party size and reservation date.</summary>
-/// <param name="stepContext">The context for the waterfall step.</param>
-/// <param name="cancellationToken">A cancellation token that can be used by other objects
-/// or threads to receive notice of cancellation.</param>
-/// <returns>A task that represents the work queued to execute.</returns>
-/// <remarks>If the task is successful, the result contains information from this step.</remarks>
+// Third step of the main dialog: return the collected party size and reservation date.
 private async Task<DialogTurnResult> AcknowledgeReservationAsync(
     WaterfallStepContext stepContext,
     CancellationToken cancellationToken = default(CancellationToken))
@@ -822,8 +791,6 @@ async onTurn(turnContext) {
 
 ---
 
-Weitere Beispiele finden Sie in unserem [Beispielrepository](https://aka.ms/bot-samples-readme).
-
 Sie können ähnliche Verfahren verwenden, um Antworten auf Eingabeaufforderungen für beliebige Eingabeaufforderungstypen zu überprüfen.
 
 ## <a name="handling-prompt-results"></a>Behandeln von Eingabeaufforderungsergebnissen
@@ -834,19 +801,10 @@ Wozu Sie das Ergebnis der Eingabeaufforderung verwenden, hängt davon ab, warum 
 * Speichern Sie die Informationen im Zustand des Dialogs zwischen (beispielsweise das Festlegen eines Werts in der _values_-Eigenschaft des Wasserfallschrittkontexts), und geben Sie die erfassten Informationen dann bei der Beendigung des Dialogs zurück.
 * Speichern Sie die Informationen im Botzustand. Dazu müssen Sie den Dialog so entwerfen, dass er Zugriff auf die Zustandseigenschaftenaccessoren des Bots hat.
 
-Unter „Zusätzliche Ressourcen“ finden Sie Themen und Beispiele zu diesen Szenarien.
-
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
-
-* [Verwalten eines einfachen Konversationsflusses](bot-builder-dialog-manage-conversation-flow.md)
-* [Verwalten komplexer Konversationsabläufe mit Dialogen](bot-builder-dialog-manage-complex-conversation-flow.md)
-* [Erstellen integrierter Dialoge](bot-builder-compositcontrol.md)
-* [Dauerhaftes Speichern von Daten in Dialogen](bot-builder-tutorial-persist-user-inputs.md)
-* Beispiel für **Eingabeaufforderungen mit mehreren Turns** ([C#](https://aka.ms/cs-multi-prompts-sample) | [JS](https://aka.ms/js-multi-prompts-sample))
+Weitere Informationen zu mehreren Eingabeaufforderungen finden Sie in den Beispielen für [[C#](https://aka.ms/cs-multi-prompts-sample) oder [JS](https://aka.ms/js-multi-prompts-sample)].
 
 ## <a name="next-steps"></a>Nächste Schritte
 
-Da Sie jetzt wissen, wie ein Benutzer zu einer Eingabe aufgefordert wird, können Sie den Botcode und die Benutzeroberfläche verbessern, indem Sie verschiedene Gesprächsflüsse über Dialogfelder verwalten.
-
 > [!div class="nextstepaction"]
-> [Verwalten komplexer Konversationsabläufe mit Dialogen](bot-builder-dialog-manage-complex-conversation-flow.md)
+> [Implementieren eines grundlegenden sequenziellen Konversationsablaufs](bot-builder-dialog-manage-conversation-flow.md)

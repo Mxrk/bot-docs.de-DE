@@ -1,5 +1,5 @@
 ---
-title: Bot-Aktivität im Bot Builder SDK | Microsoft-Dokumentation
+title: Funktionsweise von Bots | Microsoft-Dokumentation
 description: Enthält eine Beschreibung der Funktionsweise von Aktivitäten und HTTP im Bot Builder SDK.
 keywords: Konversationsfluss, Turn, Botkonversation, Dialoge, Eingabeaufforderungen, Wasserfälle, Dialogsatz
 author: johnataylor
@@ -8,16 +8,16 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 10/31/2018
+ms.date: 11/08/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: f86c666b7a8ff754681a7eca7005fc42676705fc
-ms.sourcegitcommit: a496714fb72550a743d738702f4f79e254c69d06
+ms.openlocfilehash: 852740695f4d5719ba4dc4cc3d49c6820d95b3ef
+ms.sourcegitcommit: cb0b70d7cf1081b08eaf1fddb69f7db3b95b1b09
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50736708"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51333004"
 ---
-# <a name="understanding-how-bots-work"></a>Grundlegendes zur Funktionsweise von Bots
+# <a name="how-bots-work"></a>Funktionsweise von Bots
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
@@ -55,38 +55,13 @@ Wir verwenden das vorherige Diagramm erneut, aber nun liegt der Schwerpunkt auf 
 
 Im obigen Beispiel hat der Bot auf die Nachrichtenaktivität mit einer anderen Nachrichtenaktivität geantwortet, die die gleiche Textnachricht enthält. Die Verarbeitung beginnt damit, dass die HTTP POST-Anforderung auf dem Webserver ankommt. Dabei werden die Aktivitätsinformationen als JSON-Nutzlast übertragen. Unter C# ist dies normalerweise ein ASP.NET-Projekt. Bei einem JavaScript-Node.js-Projekt ist dies meist eines der gängigen Frameworks, z.B. Express oder Restify.
 
-Der *Adapter*, eine integrierte Komponente des SDK, dient als Steuereinheit des Frameworks. Der Dienst nutzt die Aktivitätsinformationen zum Erstellen eines Aktivitätsobjekts und ruft dann die *process activity*-Methode des Adapters auf, während das Aktivitätsobjekt und die Authentifizierungsinformationen übergeben werden. (Dieser Aufruf ist in den Bibliotheken für C# enthalten, aber er wird in JavaScript angezeigt.) Nach dem Erhalt der Aktivität erstellt der Adapter ein Objekt mit dem Turn-Kontext und ruft die [Middleware](#middleware) auf. Die Verarbeitung wird nach dem Middlewareschritt mit der Botlogik fortgesetzt, die Pipeline wird abgeschlossen, und der Adapter verwirft das Objekt mit dem Turn-Kontext.
-
-Der *Turn-Handler* des Bots, der den größten Teil der Anwendungslogik ausmacht, verwendet einen Turn-Kontext als Argument. Der Turn-Handler verarbeitet normalerweise den Inhalt der eingehenden Aktivität und generiert als Antwort eine oder mehrere Aktivitäten. Diese werden mit der *send activity*-Methode des Turn-Kontexts gesendet. Beim Aufrufen der send activity-Methode wird eine Aktivität an den Kanal des Benutzers gesendet, sofern die Verarbeitung nicht auf andere Art und Weise unterbrochen wird. Die Aktivität durchläuft alle registrierten [Ereignishandler](#response-event-handlers), bevor sie an den Kanal gesendet wird.
-
-## <a name="middleware"></a>Middleware
-
-Die Middleware ist ein linearer Satz mit Komponenten, die der Reihenfolge nach hinzugefügt und ausgeführt werden. Jede Komponente erhält die Chance, für die Aktivität Vorgänge durchzuführen – sowohl vor als auch nach dem Turn-Handler des Bots –, und hat Zugriff auf den Turn-Kontext für die Aktivität. Sofern für die Middleware kein [Kurzschluss](~/v4sdk/bot-builder-concept-middleware.md#short-circuiting) auftritt, ist die letzte Phase der Middlewarepipeline ein Rückruf zum Aufrufen des Turn-Handlers für den Bot, bevor der Stapel wieder durchlaufen wird. Weitere ausführliche Informationen zu Middleware finden Sie unter dem Thema [Middleware](~/v4sdk/bot-builder-concept-middleware.md).
-
-## <a name="generating-responses"></a>Generieren von Antworten
-
-Der Turn-Kontext stellt Methoden zur Verfügung, mit denen der Code auf eine Aktivität reagieren kann:
-
-* Die Methoden _send activity_ und _send activities_ senden eine oder mehrere Aktivitäten an die Konversation.
-* Die _update activity_-Methode aktualisiert eine Aktivität innerhalb der Konversation, wenn dies vom Kanal unterstützt wird.
-* Die _delete activity_-Methode entfernt eine Aktivität aus der Konversation, wenn dies vom Kanal unterstützt wird.
-
-Jede Antwortmethode wird in einem asynchronen Prozess ausgeführt. Beim Aufruf klont die Aktivitätsantwortmethode die zugeordnete Liste mit [Ereignishandlern](#response-event-handlers), bevor sie mit dem Aufrufen des Handlers beginnt. Sie enthält also alle bis zu diesem Zeitpunkt hinzugefügten Handler, ist nach dem Start des Prozesses aber leer.
-
-Dies bedeutet auch, dass die Reihenfolge Ihrer Antworten für unabhängige Aktivitätsaufrufe nicht garantiert ist – insbesondere wenn eine Aufgabe komplexer als die andere ist. Wenn Ihr Bot mehrere Antworten auf eine eingehende Aktivität generieren kann, stellen Sie sicher, dass diese in der Reihenfolge sinnvoll sind, in der sie vom Benutzer empfangen werden. Die einzige Ausnahme hierbei ist die *send activities*-Methode, mit der Sie einen sortierten Satz mit Aktivitäten senden können.
+Der *Adapter*, eine integrierte Komponente des SDK, ist das Kernstück der SDK-Runtime. Die Aktivität wird als JSON (JavaScript Object Notation) im HTTP-POST-Text übertragen. Dieses JSON-Objekt wird deserialisiert, um das Activity-Objekt zu erstellen, das dann mit einem Aufruf der *process activity*-Methode an den Adapter übergeben wird. Der Adapter erstellt nach dem Empfang der Aktivität einen *Turn-Kontext* und ruft die Middleware auf. Die Bezeichnung *Turn-Kontext* entstammt der Verwendung des Worts „Turn“ (Durchlauf oder Wendung) und beschreibt die gesamte Verarbeitung im Zusammenhang mit dem Empfang einer Aktivität. Der Turn-Kontext ist eine der wichtigsten Abstraktionen im SDK. Er überträgt nicht nur die eingehende Aktivität an alle Middlewarekomponenten und die Anwendungslogik, sondern stellt auch den Mechanismus bereit, mit dem die Middlewarekomponenten und die Anwendungslogik ausgehende Aktivitäten senden können. Der Turn-Kontext stellt Antwortmethoden für das _Senden, Aktualisieren und Löschen von Aktivitäten_ bereit, mit denen auf eine Aktivität reagiert wird. Jede Antwortmethode wird in einem asynchronen Prozess ausgeführt. 
 
 [!INCLUDE [alert-await-send-activity](../includes/alert-await-send-activity.md)]
 
-## <a name="response-event-handlers"></a>Antwortereignishandler
 
-Zusätzlich zur Anwendungs- und Middlewarelogik können Antworthandler (manchmal auch als Ereignishandler oder Aktivitätsereignishandler bezeichnet) dem Kontextobjekt hinzugefügt werden. Diese Ereignishandler werden aufgerufen, wenn die dazugehörige [Antwort](#generating-responses) im aktuellen Kontextobjekt vor der Ausführung der tatsächlichen Antwort stattfindet. Diese Handler sind nützlich, wenn Sie wissen, dass Sie vor oder nach dem eigentlichen Ereignis etwas für jede Aktivität dieses Typs für den Rest der aktuellen Antwort tun wollen.
-
-> [!WARNING]
-> Achten Sie darauf, eine Aktivitätsantwortmethode nicht aus ihrem jeweiligen Antwortereignishandler heraus aufzurufen, z.B. indem Sie die send activity-Methode aus einem _on send activity_-Handler heraus aufrufen. Anderenfalls wird eine Endlosschleife generiert.
-
-Beachten Sie, dass jede neue Aktivität einen neuen Thread für die Ausführung erhält. Wenn der Thread zur Verarbeitung der Aktivität erstellt wird, wird die Liste der Handler für diese Aktivität in den neuen Thread kopiert. Handler, die nach diesem Punkt hinzugefügt wurden, werden für dieses spezielle Aktivitätsereignis nicht ausgeführt.
-
-Die unter einem Kontextobjekt registrierten Handler werden auf eine Weise verarbeitet, die der Verwaltung der [Middlewarepipeline](~/v4sdk/bot-builder-concept-middleware.md#the-bot-middleware-pipeline) durch den Adapter ähnelt. Das heißt, dass Handler in der Reihenfolge aufgerufen werden, in der sie hinzugefügt wurden, und der Aufruf des _nächsten_ Delegaten übergibt die Kontrolle an den nächsten registrierten Ereignishandler. Wenn ein Handler den nächsten Delegaten nicht aufruft, werden keine nachfolgenden Ereignishandler aufgerufen. Das Ereignis wird [kurzgeschlossen](~/v4sdk/bot-builder-concept-middleware.md#short-circuiting), und der Adapter sendet die Antwort nicht an den Kanal.
+## <a name="middleware"></a>Middleware
+Die Middleware ist ähnlich aufgebaut wie jede andere Messagingmiddleware. Sie besteht aus einem linearen Satz von Komponenten, die nacheinander ausgeführt werden, sodass jede Komponente einen Vorgang für die Aktivität ausführen kann. Der letzte Schritt der Middlewarepipeline ist ein Rückruf, mit dem die Turn-Handlerfunktion (`OnTurnAsync` in C# und `onTurn` in JS) für die Botklasse aufgerufen wird, die die Anwendung im Adapter registriert hat. Der Turn-Handler akzeptiert einen Turn-Kontext als Argument. Die in der Turn-Handlerfunktion ausgeführte Anwendungslogik verarbeitet in der Regel den Inhalt der eingehenden Aktivität und generiert daraufhin eine oder mehrere Aktivitäten, die mithilfe der *send activity*-Funktion des Turn-Kontexts gesendet werden. Durch den Aufruf von *send activity* für den Turn-Kontext werden die Middlewarekomponenten für die ausgehenden Aktivitäten aufgerufen. Middlewarekomponenten werden vor und nach der Turn-Handlerfunktion des Bots ausgeführt. Die Ausführung ist grundsätzlich geschachtelt und wird daher mitunter als „Matroschkapuppe“ bezeichnet. Weitere ausführliche Informationen zu Middleware finden Sie unter dem Thema [Middleware](~/v4sdk/bot-builder-concept-middleware.md).
 
 ## <a name="bot-structure"></a>Botstruktur
 
@@ -96,7 +71,7 @@ Wir sehen uns das Beispiel für einen Echobot mit Zähler [[C#](https://aka.ms/E
 
 # <a name="ctabcs"></a>[C#](#tab/cs)
 
-Ein Bot ist eine Art von [ASP.NET Core](https://docs.microsoft.com/aspnet/core/?view=aspnetcore-2.1)-Webanwendung. Wenn Sie sich die [ASP.NET-Grundlagen](https://docs.microsoft.com/aspnet/core/fundamentals/index?view=aspnetcore-2.1&tabs=aspnetcore2x) ansehen, werden Sie ähnlichen Code in Dateien wie „Program.cs“ und „Startup.cs“ sehen. Diese Dateien sind für alle Web-Apps erforderlich und nicht botspezifisch. Der Code in einigen dieser Dateien ist hier nicht angegeben, aber Sie können das Beispiel für einen Echobot mit Zähler verwenden.
+Ein Bot ist eine Art von [ASP.NET Core](https://docs.microsoft.com/aspnet/core/?view=aspnetcore-2.1)-Webanwendung. Wenn Sie sich die [ASP.NET-Grundlagen](https://docs.microsoft.com/aspnet/core/fundamentals/index?view=aspnetcore-2.1&tabs=aspnetcore2x) ansehen, werden Sie ähnlichen Code in Dateien wie **Program.cs** und **Startup.cs** sehen. Diese Dateien sind für alle Web-Apps erforderlich und nicht botspezifisch. Der Code in einigen dieser Dateien ist hier nicht angegeben, Sie können aber das Beispiel für den [C#-Echobot mit Zähler](https://aka.ms/EchoBot-With-Counter) zu Rate ziehen.
 
 ### <a name="echowithcounterbotcs"></a>EchoWithCounterBot.cs
 
@@ -245,7 +220,7 @@ public class EchoBotAccessors
 
 # <a name="javascripttabjs"></a>[JavaScript](#tab/js)
 
-Der Systemabschnitt enthält hauptsächlich die Dateien **package.json**, **.env**, **index.js** und **README.md**. Der Code in einigen der Dateien wird hier nicht gezeigt, Sie werden ihn jedoch sehen, wenn Sie den Bot ausführen.
+Der Yeoman-Generator erstellt eine [Restify](http://restify.com/)-Webanwendung. Wenn Sie sich in den zugehörigen Dokumenten den Schnellstart für Restify ansehen, werden Sie dort eine App finden, die der generierten Datei **index.js** ähnelt. In diesem Abschnitt werden in erster Linie die Dateien **package.json**, **.env**, **index.js**, **bot.js** und **echobot-with-counter.bot** beschrieben. Der Code in einigen der Dateien wird hier nicht gezeigt, Sie werden ihn jedoch sehen, wenn Sie den Bot ausführen. Zudem können Sie das Beispiel für den [Node.js-Echobot mit Zähler](https://aka.ms/js-echobot-with-counter) zu Rate ziehen.
 
 ### <a name="packagejson"></a>package.json
 

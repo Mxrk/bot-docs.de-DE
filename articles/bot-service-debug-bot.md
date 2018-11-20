@@ -1,59 +1,52 @@
 ---
-title: Debuggen eines mit Bot Service erstellten Bots | Microsoft-Dokumentation
+title: Debuggen eines Bots | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie einen mit Bot Service erstellten Bot debuggen.
 author: v-ducvo
 ms.author: v-ducvo
-keywords: Bot Builder SDK, Continuous Deployment, App Service, Emulator
+keywords: Bot Builder SDK, Bot debuggen, Bot testen, Bot-Emulator, Emulator
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 07/13/2018
-ms.openlocfilehash: 3312aa3508a7d9e57f1adc3e36c9d0325cdf6df6
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.date: 11/13/2018
+ms.openlocfilehash: 997d907bfabb284e079f21437418645a7dac061e
+ms.sourcegitcommit: 8b7bdbcbb01054f6aeb80d4a65b29177b30e1c20
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997547"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51645650"
 ---
-# <a name="debug-a-bot-service-bot"></a>Debuggen eines Bot Service-Bots
+# <a name="debug-a-bot"></a>Debuggen eines Bots
 
-Dieser Artikel beschreibt das Debuggen Ihres Bots mithilfe einer integrierten Entwicklungsumgebung (IDE) wie Visual Studio oder Visual Studio Code und dem Bot Framework-Emulator. In diesem Artikel wird der **EchoBot** verwendet, den Sie im Verlauf des Artikels [Erstellen eines Bots mit Bot Service](bot-service-quickstart.md) erstellt haben, doch können Sie diese Methoden zum lokalen Debuggen jedes Bots verwenden.
+Dieser Artikel beschreibt das Debuggen Ihres Bots mithilfe einer integrierten Entwicklungsumgebung (IDE) wie Visual Studio oder Visual Studio Code und dem Bot Framework-Emulator. Mit den hier beschriebenen Methoden können Sie jeden beliebigen Bot lokal debuggen, im Schnellstart werden jedoch ein [C#](~/dotnet/bot-builder-dotnet-sdk-quickstart.md)-Bot und ein [JS](~/javascript/bot-builder-javascript-quickstart.md)-Bot verwendet.
 
-## <a name="debug-a-javascript-bot"></a>Debuggen eines JavaScript-Bots
-
-Führen Sie die Schritte in diesem Abschnitt aus, um einen in JavaScript geschriebenen Bot zu debuggen.
-
-### <a name="prerequisites"></a>Voraussetzungen
-
-Bevor Sie Ihren JavaScript-Bot debuggen können, müssen Sie die folgenden Aufgaben ausführen.
-
-- Laden Sie den Quellcode für Ihren Bot (aus Azure) herunter, wie es unter [Herunterladen und erneutes Bereitstellen des Bot-Quellcodes](bot-service-build-download-source-code.md) beschrieben ist.
-- Laden Sie den [Bot Framework-Emulator](https://github.com/Microsoft/BotFramework-Emulator/releases) herunter, und installieren Sie ihn.
-- Laden Sie einen Code-Editor wie <a href="https://code.visualstudio.com" target="_blank">Visual Studio Code</a> herunter, und installieren Sie ihn.
+## <a name="prerequisites"></a>Voraussetzungen 
+- Laden Sie den [Bot Framework-Emulator](https://aka.ms/Emulator-wiki-getting-started) herunter, und installieren Sie ihn.
+- Laden Sie [Visual Studio Code](https://code.visualstudio.com) oder [Visual Studio](https://www.visualstudio.com/downloads) (Community Edition oder höher) herunter, und installieren Sie das Programm.
 
 ### <a name="debug-a-javascript-bot-using-command-line-and-emulator"></a>Debuggen eines JavaScript-Bots über die Befehlszeile und mit dem Emulator
 
 Führen Sie die folgenden Schritte aus, um einen JavaScript-Bot über die Befehlszeile auszuführen und mit dem Emulator zu testen:
 1. Wechseln Sie an der Befehlszeile zu dem Verzeichnis mit Ihrem Botprojekt.
-2. Starten Sie den Bot, indem Sie den Befehl **node app.js** ausführen.
-3. Starten Sie den Emulator, und stellen Sie eine Verbindung mit dem Endpunkte des Bots her (z.B. **http://localhost:3978/api/messages**). Wenn Sie den Bot zum ersten Mal ausführen, klicken Sie auf **Datei > Neuer Bot**, und folgen Sie den Anweisungen auf dem Bildschirm. Andernfalls klicken Sie auf **Datei > Bot öffnen**, um einen vorhandenen Bot zu öffnen. Da dieser Bot lokal auf Ihrem Computer ausgeführt wird, können Sie die Felder **MSA-App-ID** und **MSA-App-Kennwort** leer lassen. Weitere Informationen finden Sie unter [Debuggen mit dem Emulator](bot-service-debug-emulator.md).
-4. Senden Sie Ihrem Bot über den Emulator eine Nachricht (senden Sie z.B. die Nachricht „Hi“). 
-5. Verwenden Sie die Bereiche **Inspektor** und **Protokoll** auf der rechten Seite des Emulatorfensters zum Debuggen Ihres Bots. Beispielsweise werden beim Klicken auf eine der Nachrichtenblasen (z.B. die Nachrichtenblase „Hi“ im Screenshot unten) die Details der Nachricht im Bereich **Inspektor** angezeigt. Hiermit können Sie Anforderungen und Antworten anzeigen, während Nachrichten zwischen dem Emulator und dem Bot ausgetauscht werden. Sie können auch auf einen der verknüpften Texte im Bereich **Protokoll** klicken, um die Details im Bereich **Inspektor** anzuzeigen.
+1. Starten Sie den Bot, indem Sie den Befehl **node app.js** ausführen.
+1. Klicken Sie auf der Registerkarte „Willkommen“ des Emulators auf den Link **Bot öffnen**.
+1. Wählen Sie in dem Verzeichnis, in dem Sie das Projekt erstellt haben, die BOT-Datei aus.
+1. Senden Sie Ihrem Bot über den Emulator eine Nachricht (senden Sie z.B. die Nachricht „Hi“). 
+1. Verwenden Sie die Bereiche **Inspektor** und **Protokoll** auf der rechten Seite des Emulatorfensters zum Debuggen Ihres Bots. Beispielsweise werden beim Klicken auf eine der Nachrichtenblasen (z.B. die Nachrichtenblase „Hi“ im Screenshot unten) die Details der Nachricht im Bereich **Inspektor** angezeigt. Hiermit können Sie Anforderungen und Antworten anzeigen, während Nachrichten zwischen dem Emulator und dem Bot ausgetauscht werden. Sie können auch auf einen der verknüpften Texte im Bereich **Protokoll** klicken, um die Details im Bereich **Inspektor** anzuzeigen.
 
    ![Bereich „Inspektor“ im Emulator](~/media/bot-service-debug-bot/emulator_inspector.png)
 
 ### <a name="debug-a-javascript-bot-using-breakpoints-in-visual-studio-code"></a>Debuggen eines JavaScript-Bots mithilfe von Haltepunkten in Visual Studio Code
 
-Mithilfe einer IDE wie Visual Studio Code können Sie Haltepunkte festlegen und den Bot im Debugmodus ausführen, um den Code schrittweise zu durchlaufen. Zum Festlegen von Haltepunkten in Visual Studio Code führen Sie die folgenden Schritte aus:
+In Visual Studio Code können Sie Breakpoints festlegen und den Bot im Debugmodus ausführen, um den Code schrittweise zu durchlaufen. Zum Festlegen von Haltepunkten in Visual Studio Code führen Sie die folgenden Schritte aus:
 
 1. Starten Sie Visual Studio Code, und öffnen Sie den Ordner mit Ihrem Botprojekt.
 2. Klicken Sie auf der Menüleiste auf **Debuggen** und dann auf **Debugging starten**. Wenn Sie zum Auswählen eines Laufzeitmoduls für das Ausführen des Codes aufgefordert werden, wählen Sie **Node.js** aus. Zu diesem Zeitpunkt wird der Bot lokal ausgeführt. 
-
+<!--
    > [!NOTE]
-   > Wenn der Fehler „Der Wert darf nicht NULL sein“ angezeigt wird, vergewissern Sie sich, dass Ihre Einstellung für **Table Storage** gültig ist.
-   > Der **EchoBot** verwendet standardmäßig **Table Storage**. Um Table Storage in Ihrem Bot zu verwenden, benötigen Sie *Name* und *Schlüssel* der Tabelle. Wenn Ihnen keine Table Storage-Instanz bereitsteht, können Sie eine erstellen oder für Testzwecke den Code auskommentieren, der **TableBotDataStore** verwendet, und die Codezeile auskommentieren, die **InMemoryDataStore** verwendet. **InMemoryDataStore** ist nur für Tests und das Erstellen von Prototypen gedacht.
-
+   > If you get the "Value cannot be null" error, check to make sure your **Table Storage** setting is valid.
+   > The **EchoBot** is default to using **Table Storage**. To use Table Storage in your bot, you need the table *name* and *key*. If you do not have a Table Storage instance ready, you can create one or for testing purposes, you can comment out the code that uses **TableBotDataStore** and uncomment the line of code that uses **InMemoryDataStore**. The **InMemoryDataStore** is intended for testing and prototyping only.
+-->
 3. Legen Sie Haltepunkte nach Bedarf fest. In Visual Studio Code können Sie Haltepunkte festlegen, indem Sie mit dem Mauszeiger auf die Spalte links neben den Zeilennummern zeigen. Ein kleiner roter Punkt wird angezeigt. Wenn Sie auf den Punkt klicken, wird der Haltepunkt festgelegt. Wenn Sie erneut auf den Punkt klicken, wird der Haltepunkt entfernt.
 
    ![Festlegen eines Haltepunkts in Visual Studio Code](~/media/bot-service-debug-bot/breakpoint-set.png)
@@ -63,39 +56,25 @@ Mithilfe einer IDE wie Visual Studio Code können Sie Haltepunkte festlegen und 
 
    ![Debuggen in Visual Studio Code](~/media/bot-service-debug-bot/breakpoint-caught.png)
 
-
-## <a name="debug-a-c-bot"></a>Debuggen eines C#-Bots
-
-Führen Sie die Schritte in diesem Abschnitt aus, um einen in C# geschriebenen Bot zu debuggen.
-
-
-### <a name="prerequisites"></a>Voraussetzungen
-
-Bevor Sie Ihren C#-Bot der Web-App debuggen können, müssen Sie die folgenden Aufgaben ausführen.
-
-- Laden Sie den Quellcode für Ihren Bot (aus Azure) herunter, wie es unter [Herunterladen und erneutes Bereitstellen des Bot-Quellcodes](bot-service-build-download-source-code.md) beschrieben ist.
-- Laden Sie den [Bot Framework-Emulator](https://github.com/Microsoft/BotFramework-Emulator/releases) herunter, und installieren Sie ihn.
-- Laden Sie <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> (Community Edition oder höher) herunter, und installieren Sie das Programm.
-
 ### <a name="debug-a-c-bot-using-breakpoints-in-visual-studio"></a>Debuggen eines C#-Bots mithilfe von Haltepunkten in Visual Studio
 
-Mithilfe einer IDE wie Visual Studio (VS) können Sie Haltepunkte festlegen und den Bot im Debugmodus ausführen, um den Code schrittweise zu durchlaufen. Zum Festlegen von Haltepunkten in Visual Studio führen Sie die folgenden Schritte aus:
+In Visual Studio (VS) können Sie Breakpoints festlegen und den Bot im Debugmodus ausführen, um den Code schrittweise zu durchlaufen. Zum Festlegen von Haltepunkten in Visual Studio führen Sie die folgenden Schritte aus:
 
 1. Navigieren Sie zu Ihrem Botordner, und öffnen Sie die **SLN**-Datei. Damit wird die Projektmappe in Visual Studio geöffnet.
 2. Klicken Sie auf der Menüleiste auf **Erstellen** und dann auf **Projektmappe erstellen**.
-3. Erweitern Sie im **Projektmappen-Explorer** den Ordner **Dialoge**, und klicken Sie auf **EchoDialog.cs**. In dieser Datei ist die Hauptlogik des Bots definiert.
-4. Klicken Sie auf der Menüleiste auf **Debuggen** und dann auf **Debugging starten**. Zu diesem Zeitpunkt wird der Bot lokal ausgeführt. 
+3. Klicken Sie im **Projektmappen-Explorer** auf **EchoWithCounterBot.cs**. In dieser Datei ist die Hauptlogik des Bots definiert. Legen Sie Breakpoints nach Bedarf fest. In Visual Studio können Sie Haltepunkte festlegen, indem Sie mit dem Mauszeiger auf die Spalte links neben den Zeilennummern zeigen. Ein kleiner roter Punkt wird angezeigt. Wenn Sie auf den Punkt klicken, wird der Haltepunkt festgelegt. Wenn Sie erneut auf den Punkt klicken, wird der Haltepunkt entfernt.
+5. Klicken Sie auf der Menüleiste auf **Debuggen** und dann auf **Debugging starten**. Zu diesem Zeitpunkt wird der Bot lokal ausgeführt. 
 
+<!--
    > [!NOTE]
-   > Wenn der Fehler „Der Wert darf nicht NULL sein“ angezeigt wird, vergewissern Sie sich, dass Ihre Einstellung für **Table Storage** gültig ist.
-   > Der **EchoBot** verwendet standardmäßig **Table Storage**. Um Table Storage in Ihrem Bot zu verwenden, benötigen Sie *Name* und *Schlüssel* der Tabelle. Wenn Ihnen keine Table Storage-Instanz bereitsteht, können Sie eine erstellen oder für Testzwecke den Code auskommentieren, der **TableBotDataStore** verwendet, und die Codezeile auskommentieren, die **InMemoryDataStore** verwendet. **InMemoryDataStore** ist nur für Tests und das Erstellen von Prototypen gedacht.
-
-5. Legen Sie Haltepunkte nach Bedarf fest. In Visual Studio können Sie Haltepunkte festlegen, indem Sie mit dem Mauszeiger auf die Spalte links neben den Zeilennummern zeigen. Ein kleiner roter Punkt wird angezeigt. Wenn Sie auf den Punkt klicken, wird der Haltepunkt festgelegt. Wenn Sie erneut auf den Punkt klicken, wird der Haltepunkt entfernt.
+   > If you get the "Value cannot be null" error, check to make sure your **Table Storage** setting is valid.
+   > The **EchoBot** is default to using **Table Storage**. To use Table Storage in your bot, you need the table *name* and *key*. If you do not have a Table Storage instance ready, you can create one or for testing purposes, you can comment out the code that uses **TableBotDataStore** and uncomment the line of code that uses **InMemoryDataStore**. The **InMemoryDataStore** is intended for testing and prototyping only.
+-->
 
    ![Festlegen eines Haltepunkts in Visual Studio](~/media/bot-service-debug-bot/breakpoint-set-vs.png)
 
-6. Starten Sie den Bot Framework-Emulator, und stellen Sie eine Verbindung mit Ihrem Bot her, wie es im Abschnitt oben beschrieben ist. 
-7. Senden Sie Ihrem Bot über den Emulator eine Nachricht (senden Sie z.B. die Nachricht „Hi“). Die Ausführung wird an der Zeile unterbrochen, an der Sie den Haltepunkt platziert haben.
+7. Starten Sie den Bot Framework-Emulator, und stellen Sie eine Verbindung mit Ihrem Bot her, wie es im Abschnitt oben beschrieben ist. 
+8. Senden Sie Ihrem Bot über den Emulator eine Nachricht (senden Sie z.B. die Nachricht „Hi“). Die Ausführung wird an der Zeile unterbrochen, an der Sie den Haltepunkt platziert haben.
 
    ![Debuggen in Visual Studio](~/media/bot-service-debug-bot/breakpoint-caught-vs.png)
 
@@ -110,7 +89,7 @@ Die serverlose C\#-Umgebung mit Verbrauchsplan in Bot Service ähnelt eher Node.
 Bevor Sie Ihren C#-Bot mit Verbrauchsplan debuggen können, müssen Sie die folgenden Aufgaben ausführen.
 
 - Laden Sie den Quellcode für Ihren Bot (aus Azure) herunter, wie es unter [Einrichten von Continuous Deployment](bot-service-continuous-deployment.md) beschrieben ist.
-- Laden Sie den [Bot Framework-Emulator](https://github.com/Microsoft/BotFramework-Emulator/releases) herunter, und installieren Sie ihn.
+- Laden Sie den [Bot Framework-Emulator](https://aka.ms/Emulator-wiki-getting-started) herunter, und installieren Sie ihn.
 - Installieren Sie die <a href="https://www.npmjs.com/package/azure-functions-cli" target="_blank">Azure Functions-Befehlszeilenschnittstelle</a>.
 - Installieren Sie die <a href="https://github.com/dotnet/cli" target="_blank">DotNet-Befehlszeilenschnittstelle</a>.
   
@@ -153,4 +132,4 @@ Außerdem können Sie Protokolldetails im Konsolenfenster anzeigen.
 ## <a name="next-steps"></a>Nächste Schritte
 
 > [!div class="nextstepaction"]
-> [Debuggen mit dem Emulator](bot-service-debug-emulator.md)
+> [Debuggen Ihres Bots mit Transkriptdateien](~/v4sdk/bot-builder-debug-transcript.md)

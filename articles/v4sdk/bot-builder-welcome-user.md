@@ -1,22 +1,18 @@
 ---
-title: Willkommensumgebung für Benutzer | Microsoft-Dokumentation
-description: Es wird beschrieben, wie Sie Ihren Bot so entwerfen, dass eine einladende Benutzerumgebung geschaffen wird.
-keywords: Übersicht, Entwurf, Benutzeroberfläche, Begrüßung, personalisierte Benutzeroberfläche
-author: dashel
-ms.author: dashel
-manager: kamrani
-ms.topic: article
-ms.service: bot-service
-ms.subservice: sdk
-ms.date: 8/30/2018
-monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: f9c58762e0733fbb379b43375710e651424095fc
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+redirect_url: /bot-framework/bot-builder-send-welcome-message
+ms.openlocfilehash: ef281fd1b6539484c06f68caffbd4e87ec8acc2b
+ms.sourcegitcommit: cb0b70d7cf1081b08eaf1fddb69f7db3b95b1b09
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998747"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51332904"
 ---
+<a name="--"></a><!--
+---
+Titel: Begrüßung des Benutzers | Microsoft-Dokumentation Beschreibung: Erfahren Sie, wie Sie Ihren Bot so entwerfen, dass eine einladende Benutzerumgebung geschaffen wird.
+Schlüsselwörter: Übersicht, Entwurf, Benutzeroberfläche, Begrüßung, personalisierte Benutzeroberfläche author: dashel ms.author: dashel manager: kamrani ms.topic: article ms.service: bot-service ms.subservice: sdk ms.date: 8/30/2018 monikerRange: 'azure-bot-service-4.0'
+---
+
 # <a name="welcoming-the-user"></a>Willkommensumgebung für Benutzer
 
 Das Hauptziel bei der Erstellung eines Bots besteht darin, mit dem Benutzer eine aussagekräftige Konversation zu führen. Dieses Ziel erreichen Sie am besten, indem Sie Folgendes sicherstellen: Gleich nach dem ersten Anmelden müssen Benutzer den Hauptzweck und die Funktionen des Bots erkennen können und sich darüber im Klaren sein, aus welchem Grund der Bot erstellt wurde.
@@ -74,3 +70,5 @@ Indem Sie Ihre Interaktionen zeitlich passend und an die Konversation angepasst 
 ## <a name="next-steps"></a>Nächste Schritte
 > [!div class="nextstepaction"]
 > [Senden einer Begrüßungsnachricht an Benutzer](bot-builder-send-welcome-message.md)
+
+-->

@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 03/01/2018
-ms.openlocfilehash: d2f4692580843f530641827707d250fa726830e3
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: d329fcbe5b4a34cb3e9c1fbf0160c5248020a508
+ms.sourcegitcommit: cb0b70d7cf1081b08eaf1fddb69f7db3b95b1b09
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50000397"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51332964"
 ---
 # <a name="entities-and-activity-types"></a>Entitäten und Aktivitätstypen
 
@@ -177,13 +177,19 @@ Abgesehen vom gängigsten Typ **Message** können Aktivitäten viele verschieden
 ## <a name="message"></a>Message:
 
 <!-- Only the last link is different. -->
+
 ::: moniker range="azure-bot-service-3.0"
+
 Ihr Bot sendet Nachrichtenaktivitäten, um Informationen an Benutzer zu übermitteln und Nachrichtenaktivitäten von Benutzern zu erhalten.
-Einige Nachrichten können aus Nur-Text bestehen, während andere vielfältigere Inhalte wie [gesprochenen Text](v4sdk/bot-builder-howto-send-messages.md#send-a-spoken-message), [vorgeschlagene Aktionen](v4sdk/bot-builder-howto-add-suggested-actions.md), [Medienanlagen](v4sdk/bot-builder-howto-add-media-attachments.md), [Rich Cards](v4sdk/bot-builder-howto-add-media-attachments.md#send-a-hero-card) und [kanalspezifische Daten](~/dotnet/bot-builder-dotnet-channeldata.md) enthalten können.
+Einige Nachrichten können aus Nur-Text bestehen, während andere vielfältigere Inhalte wie gesprochenen Text, [vorgeschlagene Aktionen](v4sdk/bot-builder-howto-add-suggested-actions.md), [Medienanlagen](v4sdk/bot-builder-howto-add-media-attachments.md), [Rich Cards](v4sdk/bot-builder-howto-add-media-attachments.md#send-a-hero-card) und [kanalspezifische Daten](~/dotnet/bot-builder-dotnet-channeldata.md) enthalten können.
+
 ::: moniker-end
+
 ::: moniker range="azure-bot-service-4.0"
+
 Ihr Bot sendet Nachrichtenaktivitäten, um Informationen an Benutzer zu übermitteln und Nachrichtenaktivitäten von Benutzern zu erhalten.
-Einige Nachrichten können aus Nur-Text bestehen, während andere vielfältigere Inhalte wie [gesprochenen Text](v4sdk/bot-builder-howto-send-messages.md#send-a-spoken-message), [vorgeschlagene Aktionen](v4sdk/bot-builder-howto-add-suggested-actions.md), [Medienanlagen](v4sdk/bot-builder-howto-add-media-attachments.md), [Rich Cards](v4sdk/bot-builder-howto-add-media-attachments.md#send-a-hero-card) und [kanalspezifische Daten](~/v4sdk/bot-builder-channeldata.md) enthalten können.
+Einige Nachrichten können aus Nur-Text bestehen, während andere vielfältigere Inhalte wie gesprochenen Text, [vorgeschlagene Aktionen](v4sdk/bot-builder-howto-add-suggested-actions.md), [Medienanlagen](v4sdk/bot-builder-howto-add-media-attachments.md), [Rich Cards](v4sdk/bot-builder-howto-add-media-attachments.md#send-a-hero-card) und [kanalspezifische Daten](~/v4sdk/bot-builder-channeldata.md) enthalten können.
+
 ::: moniker-end
 
 ## <a name="contactrelationupdate"></a>contactRelationUpdate
@@ -237,6 +243,7 @@ Ein Bot empfängt ein typingActivity-Objekt, um anzugeben, dass der Benutzer ein
 Ein Bot kann ein typingActivity-Objekt senden, um dem Benutzer mitzuteilen, dass er an einer Anforderung arbeitet oder eine Antwort erstellt.
 
 ::: moniker range="azure-bot-service-3.0"
+
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 - <a href="https://docs.botframework.com/en-us/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html" target="_blank">Activity-Klasse</a>

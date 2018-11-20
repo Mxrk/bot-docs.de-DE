@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 9/22/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 97f280d1698e8670be81572a2891c18bc7bf47ab
-ms.sourcegitcommit: a496714fb72550a743d738702f4f79e254c69d06
+ms.openlocfilehash: 88022c387d5f9ef7f645be74010aba3c676efadc
+ms.sourcegitcommit: cb0b70d7cf1081b08eaf1fddb69f7db3b95b1b09
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50736668"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51332934"
 ---
 # <a name="dialogs-library"></a>Dialogbibliothek
 
@@ -24,6 +24,8 @@ ms.locfileid: "50736668"
 Die Verwaltung von Konversationen basierend auf dem Konzept eines Dialogs ist für das SDK von wesentlicher Bedeutung. Dialogobjekte verarbeiten eingehende Aktivitäten und generieren ausgehende Antworten. Die Geschäftslogik des Bots wird entweder direkt oder indirekt innerhalb von Dialogklassen ausgeführt.
 
 Zur Laufzeit werden Dialoginstanzen in einem Stapel angeordnet. Der Dialog oben im Stapel wird als „ActiveDialog“ bezeichnet. Der aktuell aktive Dialog verarbeitet die eingehende Aktivität. Der Stapel wird zwischen jedem Sprecherwechsel der Konversation (die nicht zeitlich begrenzt ist und mehrere Tage dauern kann) beibehalten. 
+
+## <a name="dialog-lifecycle"></a>Dialoglebenszyklus
 
 Ein Dialogfeld implementiert drei Hauptfunktionen:
 - BeginDialog

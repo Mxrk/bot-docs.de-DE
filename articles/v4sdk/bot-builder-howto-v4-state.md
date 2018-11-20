@@ -1,5 +1,5 @@
 ---
-title: Verwalten des Konversations- und Benutzerzustands | Microsoft-Dokumentation
+title: Speichern von Benutzer- und Konversationsdaten | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie mithilfe des Bot Builder SDK für .NET Zustandsdaten speichern und abrufen.
 keywords: Konversationszustand, Benutzerzustand, Konversationsfluss
 author: ivorb
@@ -8,16 +8,16 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 09/18/18
+ms.date: 11/14/18
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 2a3709111b048730805b5578306c669591122dda
-ms.sourcegitcommit: 633008f8db06f1bb5be7bacdb7dd8de6f8165328
+ms.openlocfilehash: 5698c50b167e7162ef6910b7c428dab5ceb51d0e
+ms.sourcegitcommit: 8b7bdbcbb01054f6aeb80d4a65b29177b30e1c20
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50753608"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51645640"
 ---
-# <a name="manage-conversation-and-user-state"></a>Verwalten des Konversations- und Benutzerzustands
+# <a name="save-user-and-conversation-data"></a>Speichern von Benutzer- und Konversationsdaten
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
@@ -308,7 +308,9 @@ else {
 ---
 
 ## <a name="start-your-bot"></a>Starten Ihres Bots
-Führen Sie Ihren Bot lokal aus.
+- Für einen JavaScript-Bot: Wechseln Sie in einem Terminalfenster oder einer Eingabeaufforderung in das Verzeichnis, das Sie für Ihren Bot erstellt haben, und starten Sie ihn mit `npm start`. Zu diesem Zeitpunkt wird Ihr Bot lokal ausgeführt.
+
+- Für einen C#-Bot: Führen Sie Ihren Bot lokal mit Visual Studio aus. Klicken Sie auf die Schaltfläche „Ausführen“. Visual Studio erstellt daraufhin die Anwendung, stellt sie auf „localhost“ bereit und startet den Webbrowser mit der Seite ``default.htm`` der Anwendung. Zu diesem Zeitpunkt wird Ihr Bot lokal ausgeführt.
 
 ### <a name="start-the-emulator-and-connect-your-bot"></a>Starten des Emulators und Herstellen einer Verbindung mit Ihrem Bot
 Starten Sie im nächste Schritt den Emulator, und stellen Sie dann im Emulator eine Verbindung mit Ihrem Bot her:

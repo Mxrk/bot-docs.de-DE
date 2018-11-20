@@ -8,24 +8,38 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 10/31/2018
+ms.date: 11/08/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: b3582d962911b6024062942a6d9f6ff1efab4022
-ms.sourcegitcommit: a54a70106b9fdf278fd7270b25dd51c9bd454ab1
+ms.openlocfilehash: 25745d380e53173c4dc67d280c120ced5845078b
+ms.sourcegitcommit: cb0b70d7cf1081b08eaf1fddb69f7db3b95b1b09
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51273087"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51332914"
 ---
 # <a name="send-welcome-message-to-users"></a>Senden einer Begrüßungsnachricht an Benutzer
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-Im vorherigen Artikel [Welcoming the user](./bot-builder-welcome-user.md) (Willkommensumgebung für Benutzer) wurden mehrere bewährte Methoden beschrieben, mit deren Implementierung Sie sicherstellen können, dass die erste Interaktion mit Ihrem Bot für Benutzer positiv verläuft. In diesem Artikel wird dieses Thema fortgeführt, indem kurze Codebeispiele bereitgestellt werden, die für die Begrüßung von Benutzern in Ihrem Bot hilfreich sind.
+Das Hauptziel bei der Erstellung eines Bots besteht darin, mit dem Benutzer eine aussagekräftige Konversation zu führen. Dieses Ziel erreichen Sie am besten, indem Sie Folgendes sicherstellen: Gleich nach dem ersten Anmelden müssen Benutzer den Hauptzweck und die Funktionen des Bots erkennen können und sich darüber im Klaren sein, aus welchem Grund der Bot erstellt wurde. Dieser Artikel enthält Codebeispiele für die Begrüßung von Benutzern in Ihrem Bot.
 
 ## <a name="same-welcome-for-different-channels"></a>Gleiche Begrüßung für unterschiedliche Kanäle
+Es sollte immer eine Begrüßungsnachricht generiert werden, wenn Ihre Benutzer zum ersten Mal mit Ihrem Bot interagieren. Hierzu können Sie die Aktivitätstypen Ihres Bots überwachen und auf neue Verbindungen warten. Für jede neue Verbindung können je nach Kanal bis zu zwei Aktivitäten zum Aktualisieren der Konversation generiert werden.
 
-Im folgenden Beispiel wird auf neue _Konversationsupdate_-Aktivitäten gewartet, nicht mehr als eine Begrüßungsnachricht gesendet (basierend auf dem Beitritt Ihres Benutzer zur Konversation) und ein Statusflag für die Eingabeaufforderung festgelegt, um die erste Konversationseingabe des Benutzers zu ignorieren. Im folgenden Beispielcode werden die Beispiele zur Benutzerbegrüßung aus dem GitHub-Repository für [C#](https://aka.ms/bot-welcome-sample-cs)- und [JS](https://aka.ms/bot-welcome-sample-js)-Code verwendet.
+- Eine Aktivität, wenn der Bot des Benutzers mit der Konversation verbunden wird.
+- Eine weitere Aktivität, wenn der Benutzer der Konversation beitritt.
+
+Es ist verlockend, jeweils einfach eine Begrüßungsnachricht zu generieren, wenn eine neue Konversationsaktualisierung erkannt wird. Dies kann aber zu unerwarteten Ergebnissen führen, wenn auf Ihren Bot über viele verschiedene Kanäle zugegriffen wird.
+
+Für einige Kanäle wird eine Konversationsaktualisierung erstellt, wenn ein Benutzer zum ersten Mal eine Verbindung mit dem Kanal herstellt, und erst dann eine separate Konversationsaktualisierung, wenn vom Benutzer eine erste Eingabenachricht empfangen wird. Andere Kanäle generieren beide Aktivitäten, wenn der Benutzer zum ersten Mal eine Verbindung mit dem Kanal herstellt. Wenn Sie einfach auf ein Ereignis zur Konversationsaktualisierung warten und eine Begrüßungsnachricht in einem Kanal mit zwei Aktivitäten zur Konversationsaktualisierung anzeigen, erhält der Benutzer unter Umständen Folgendes:
+
+![Doppelte Begrüßungsnachricht](./media/double_welcome_message.png)
+
+Diese doppelte Nachricht kann vermieden werden, indem nur für das zweite Ereignis zur Konversationsaktualisierung eine erste Begrüßungsnachricht generiert wird. Das zweite Ereignis kann erkannt werden, wenn die beiden folgenden Bedingungen erfüllt sind:
+- Ein Ereignis zur Konversationsaktualisierung ist eingetreten.
+- Der Konversation wurde ein neues Mitglied (Benutzer) hinzugefügt.
+
+Im folgenden Beispiel wird nach einer neuen *Aktivität zum Aktualisieren der Konversation* gesucht, eine einzelne Begrüßungsnachricht gesendet (basierend auf dem Beitritt des Benutzers zur Konversation) und ein Statusflag für die Eingabeaufforderung festgelegt, um die erste Konversationseingabe des Benutzers zu ignorieren. Sie können den vollständigen Quellcode in [[C#](https://aka.ms/bot-welcome-sample-cs) oder [JS](https://aka.ms/bot-welcome-sample-js)] von GitHub herunterladen.
 
 [!INCLUDE [alert-await-send-activity](../includes/alert-await-send-activity.md)]
 
@@ -231,8 +245,7 @@ module.exports = MainDialog;
 ---
 
 ## <a name="discard-initial-user-input"></a>Verwerfen der ersten Benutzereingabe
-
-Um sicherzustellen, dass Ihr Benutzer über alle möglichen Kanäle eine benutzerfreundliche Oberfläche erhält, vermeiden wir es, ungültige Antwortdaten zu verarbeiten. Hierfür stellen wir eine anfängliche Eingabeaufforderung bereit und richten Schlüsselwörter ein, nach denen in den Antworten des Benutzers gesucht wird.
+Es ist auch wichtig zu berücksichtigen, wann die Eingabe Ihres Benutzers ggf. nützliche Informationen enthält. Auch dies kann je nach Kanal variieren. Um sicherzustellen, dass Ihr Benutzer über alle möglichen Kanäle eine benutzerfreundliche Oberfläche erhält, vermeiden wir es, ungültige Antwortdaten zu verarbeiten. Hierfür stellen wir eine anfängliche Eingabeaufforderung bereit und richten Schlüsselwörter ein, nach denen in den Antworten des Benutzers gesucht wird.
 
 ## <a name="ctabcsharpmulti"></a>[C#](#tab/csharpmulti)
 
@@ -363,12 +376,12 @@ private static async Task SendIntroCardAsync(ITurnContext turnContext, Cancellat
 }
 ```
 
-Als Nächstes können wir die Karte mit dem folgenden await-Befehl senden. Wir fügen dies in den folgenden Code des Bots ein: _switch (text)_ case "help".
+Als Nächstes können wir die Karte mit dem folgenden await-Befehl senden. Wir fügen dies in den Code _switch (text) case "help"_ des Bots ein.
 
 ```csharp
 switch (text)
 {
-    case "hello":
+    case "hello":"
     case "hi":
         await turnContext.SendActivityAsync($"You said {text}.", cancellationToken: cancellationToken);
         break;
