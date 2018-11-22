@@ -14,9 +14,9 @@
 # Konzepte
 ## [Funktionsweise von Bots](v4sdk/bot-builder-basics.md)
 ## [Verwalten von Botressourcen mit einer Botdatei](v4sdk/bot-file-basics.md)
+## [Verwalten des Zustands](v4sdk/bot-builder-concept-state.md)
 ## [Middleware](v4sdk/bot-builder-concept-middleware.md)
-## [Informationen zur Dialogbibliothek](v4sdk/bot-builder-concept-dialog.md)
-## [Grundlegendes zum Status von Dialogen](v4sdk/bot-builder-dialog-state.md)
+## [Dialogbibliothek](v4sdk/bot-builder-concept-dialog.md)
 <!-- [Language understanding](v4sdk/bot-builder-concept-luis.md) -->
 ## [Bot Service-Vorlagen](bot-service-concept-templates.md)
 ## [Cognitive Services](bot-service-concept-intelligence.md)
