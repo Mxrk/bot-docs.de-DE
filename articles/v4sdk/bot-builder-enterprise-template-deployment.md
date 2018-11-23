@@ -42,7 +42,7 @@ az extension add -n botservice
 ## <a name="configuration"></a>Konfiguration
 
 - Rufen Sie Ihren LUIS-Erstellungsschlüssel ab.
-   - Informationen zum korrekten LUIS-Portal für die Region, in der Sie die Bereitstellung durchführen möchten, finden Sie auf [dieser Dokumentationsseite](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-reference-regions). Beachten Sie, dass „www.luis.ai“ auf die US-Region verweist und ein über dieses Portal abgerufener Erstellungsschlüssel für eine Bereitstellung in Europa nicht funktioniert.
+   - Informationen zum korrekten LUIS-Portal für die Region, in der Sie die Bereitstellung durchführen möchten, finden Sie auf [dieser Dokumentationsseite](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-reference-regions). Beachten Sie, dass „ www.luis.ai “ auf die US-Region verweist und ein über dieses Portal abgerufener Erstellungsschlüssel für eine Bereitstellung in Europa nicht funktioniert.
    - Klicken Sie nach der Anmeldung in der rechten oberen Ecke auf Ihren Namen.
    - Klicken Sie auf „Einstellungen“, und notieren Sie sich den Erstellungsschlüssel für den nächsten Schritt.
 
