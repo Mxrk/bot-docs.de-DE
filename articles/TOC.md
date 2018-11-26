@@ -13,10 +13,10 @@
 ## [Beispielrepository auf GitHub](https://github.com/Microsoft/BotBuilder-Samples/blob/master/readme.md)
 # Konzepte
 ## [Funktionsweise von Bots](v4sdk/bot-builder-basics.md)
-## [Verwalten von Botressourcen mit einer Botdatei](v4sdk/bot-file-basics.md)
 ## [Verwalten des Zustands](v4sdk/bot-builder-concept-state.md)
-## [Middleware](v4sdk/bot-builder-concept-middleware.md)
 ## [Dialogbibliothek](v4sdk/bot-builder-concept-dialog.md)
+## [Middleware](v4sdk/bot-builder-concept-middleware.md)
+## [Verwalten von Ressourcen mit einer BOT-Datei](v4sdk/bot-file-basics.md)
 <!-- [Language understanding](v4sdk/bot-builder-concept-luis.md) -->
 ## [Bot Service-Vorlagen](bot-service-concept-templates.md)
 ## [Cognitive Services](bot-service-concept-intelligence.md)
