@@ -8,120 +8,89 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: cognitive-services
-ms.date: 11/08/18
+ms.date: 11/16/18
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: eab8e2f9d437748d0bb0fefd31c03c8fb350c6b1
-ms.sourcegitcommit: 8b7bdbcbb01054f6aeb80d4a65b29177b30e1c20
+ms.openlocfilehash: faf26b1c4ba87061631f217ee074283759f77c97
+ms.sourcegitcommit: 392c581aa2f59cd1798ee2136b6cfee56aa3ee6d
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51645700"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52156699"
 ---
 # <a name="add-natural-language-understanding-to-your-bot"></a>Hinzufügen von Features zum Verstehen natürlicher Sprache zu Ihrem Bot
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-Die Fähigkeit zu verstehen, was Ihr Benutzer in einer Konversation und im Kontext meint, kann eine schwierige Aufgabe sein, Ihrem Bot aber ein natürlicheres Sprachgefühl verleihen. Language Understanding, genannt LUIS, ermöglicht es Ihnen, genau das zu tun, sodass Ihr Bot die Absicht von Benutzernachrichten bestimmen, mehr natürliche Sprache von Ihrem Benutzer erkennen und den Konversationsablauf besser steuern kann. Weitere Hintergrundinformationen zu LUIS finden Sie bei Bedarf unter [Language Understanding](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/what-is-luis) für Bots.
-
+Die Fähigkeit zu verstehen, was Ihr Benutzer in einer Konversation und im Kontext meint, kann eine schwierige Aufgabe sein, Ihrem Bot aber ein natürlicheres Sprachgefühl verleihen. Language Understanding, genannt LUIS, ermöglicht es Ihnen, genau das zu tun, sodass Ihr Bot die Absicht von Benutzernachrichten bestimmen, mehr natürliche Sprache von Ihrem Benutzer erkennen und den Konversationsablauf besser steuern kann. In diesem Thema wird die Einrichtung eines einfachen Bots behandelt, für den LUIS verwendet wird, um verschiedene Absichten zu erkennen. 
 ## <a name="prerequisites"></a>Voraussetzungen
-In diesem Thema wird die Einrichtung eines einfachen Bots behandelt, für den LUIS verwendet wird, um verschiedene Absichten zu erkennen. Der Code in diesem Artikel basiert auf dem Beispiel „NLP with LUIS“ für [C#](https://aka.ms/cs-luis-sample) und [JavaScript](https://aka.ms/js-luis-sample).
+- [luis.ai](https://www.luis.ai)-Konto
+- [Bot Framework-Emulator](https://github.com/Microsoft/BotFramework-Emulator/blob/master/README.md#download)
+- Der Code in diesem Artikel basiert auf dem Beispiel **NLP mit LUIS**. Sie benötigen eine Kopie des Beispiels im [C#](https://aka.ms/cs-luis-sample)- oder [JS](https://aka.ms/js-luis-sample)-Format. 
+- Sie müssen mit den [Bot-Grundlagen](bot-builder-basics.md), der [Verarbeitung natürlicher Sprache (Natural Language Processing, NLP)](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/what-is-luis) und der [BOT](bot-file-basics.md)-Datei vertraut sein.
 
 ## <a name="create-a-luis-app-in-the-luis-portal"></a>Erstellen einer LUIS-App im LUIS-Portal
+Melden Sie sich am LUIS-Portal an, um Ihre eigene Version der LUIS-Beispiel-App zu erstellen. Sie können Ihre Anwendungen auf der Seite **Meine Apps** erstellen und verwalten. 
 
-Registrieren Sie sich zuerst unter [luis.ai](https://www.luis.ai) für ein Konto, und erstellen Sie im LUIS-Portal eine LUIS-App, indem Sie [diese Anleitung](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-how-to-start-new-app) befolgen. Wenn Sie Ihre eigene Version der in diesem Artikel verwendeten LUIS-App erstellen möchten, können Sie im LUIS-Portal wie folgt vorgehen: [Importieren](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/create-new-app#import-new-app) Sie die Datei `LUIS.Reminders.json` ([C#](https://github.com/Microsoft/BotBuilder-Samples/blob/v4/samples/csharp_dotnetcore/12.nlp-with-luis/CognitiveModels/LUIS-Reminders.json) | [JS](https://github.com/Microsoft/BotBuilder-Samples/blob/master/samples/javascript_nodejs/12.nlp-with-luis/cognitiveModels/reminders.json)), um Ihre LUIS-App zu erstellen, und führen Sie dann das [Trainieren](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/luis-how-to-train) und [Veröffentlichen](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/publishapp) durch.
+1. Wählen Sie **Import new app** (Neue App importieren). 
+1. Klicken Sie auf **Choose App file (JSON format)...** (App-Datei wählen (JSON-Format)...). 
+1. Wählen Sie die Datei `reminders.json`, die im Ordner `CognitiveModels` des Beispiels enthalten ist. Geben Sie unter **Optional Name** (Optionaler Name) den Namen **LuisBot** ein. Diese Datei enthält drei Absichten: „Calendar-Add“, „Calendar-Find“ und „None“. Wir verwenden diese Absichten, um zu verstehen, was der Benutzer gemeint hat, als er eine Nachricht an den Bot gesendet hat. 
+1. [Trainieren](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/luis-how-to-train) Sie die App.
+1. [Veröffentlichen](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/publishapp) Sie die App in der *Produktionsumgebung*.
 
 ### <a name="obtain-values-to-connect-to-your-luis-app"></a>Abrufen von Werten zum Herstellen einer Verbindung mit Ihrer LUIS-App
 
-Nachdem Ihre LUIS-App veröffentlicht wurde, können Sie von Ihrem Bot aus darauf zugreifen. Sie müssen sich mehrere Werte notieren, um von Ihrem Bot aus auf Ihre LUIS-App zugreifen zu können. Sie können diese Informationen mit dem LUIS-Portal oder mit den CLI-Tools abrufen.
+Nachdem Ihre LUIS-App veröffentlicht wurde, können Sie von Ihrem Bot aus darauf zugreifen. Sie müssen sich mehrere Werte notieren, um von Ihrem Bot aus auf Ihre LUIS-App zugreifen zu können. Sie können diese Informationen mit dem LUIS-Portal abrufen.
 
-#### <a name="using-luis-portal"></a>Verwenden des LUIS-Portals
-- Wählen Sie Ihre veröffentlichte LUIS-App unter [luis.ai](https://www.luis.ai) aus.
-- Wählen Sie bei geöffneter veröffentlichter LUIS-App die Registerkarte **VERWALTEN**.
-- Wählen Sie auf der linken Seite die Registerkarte **Anwendungsinformationen**, und notieren Sie sich den Wert, der unter _Anwendungs-ID_ angezeigt wird, als <IHRE_APP-ID>.
-- Wählen Sie auf der linken Seite die Registerkarte **Schlüssel und Endpunkte**, und notieren Sie sich den Wert unter _Erstellungsschlüssel_ als <IHREN_ERSTELLUNGSSCHLÜSSEL>. Beachten Sie, dass <IHR_ABONNEMENTSCHLÜSSEL> mit <IHREM_ERSTELLUNGSSCHLÜSSEL> identisch ist. Scrollen Sie nach unten an das Ende der Seite, und notieren Sie sich den Wert unter _Region_ als <IHRE_REGION> und den Wert unter _Endpunkt_ als <IHREN_ENDPUNKT>.
+#### <a name="retrieve-application-information-from-the-luisai-portal"></a>Abrufen von Anwendungsinformationen aus dem Portal „LUIS.ai“
+Die BOT-Datei dient als Ort, an dem alle Dienstverweise zentral zusammengefasst werden. Die von Ihnen abgerufenen Informationen werden der BOT-Datei im nächsten Abschnitt hinzugefügt. 
+1. Wählen Sie Ihre veröffentlichte LUIS-App unter [luis.ai](https://www.luis.ai) aus.
+1. Wählen Sie bei geöffneter veröffentlichter LUIS-App die Registerkarte **VERWALTEN**.
+1. Wählen Sie auf der linken Seite die Registerkarte **Anwendungsinformationen**, und notieren Sie sich den Wert, der unter _Anwendungs-ID_ angezeigt wird, als <IHRE_APP-ID>.
+1. Wählen Sie auf der linken Seite die Registerkarte **Schlüssel und Endpunkte**, und notieren Sie sich den Wert unter _Erstellungsschlüssel_ als <IHREN_ERSTELLUNGSSCHLÜSSEL>. Beachten Sie, dass *Ihr Abonnementschlüssel* mit *Ihrem Erstellungsschlüssel* identisch ist. 
+1. Scrollen Sie nach unten an das Ende der Seite, und notieren Sie sich den Wert, der für _Region_ angezeigt wird, als <IHRE_REGION>.
+1. Notieren Sie sich den Wert unter _Endpunkt_ als <IHREN_ENDPUNKT>.
 
-#### <a name="using-cli-tools"></a>Verwenden von CLI-Tools
+#### <a name="update-the-bot-file"></a>Aktualisieren der Bot-Datei
+Fügen Sie die Informationen, die zum Zugreifen auf Ihre LUIS-App erforderlich sind, z.B. Anwendungs-ID, Erstellungsschlüssel, Abonnementschlüssel, Endpunkt und Region, der Datei `nlp-with-luis.bot` hinzu. Dies sind die Werte, die Sie zuvor aus Ihrer veröffentlichten LUIS-App gespeichert haben.
 
-Sie können die Bot Builder CLI-Tools [luis](https://aka.ms/botbuilder-tools-luis) und [msbot](https://aka.ms/botbuilder-tools-msbot-readme) nutzen, um Metadaten zu Ihrer LUIS-App abzurufen und Ihrer **BOT**-Datei hinzuzufügen.
-
-1. Öffnen Sie ein Terminal oder eine Eingabeaufforderung, und navigieren Sie zum Stammverzeichnis für Ihr Botprojekt.
-2. Stellen Sie sicher, dass die Tools `luis` und `msbot` installiert sind.
-
-    ```shell
-    npm install luis msbot
-    ```
-
-3. Führen Sie `luis init` aus, um eine LUIS-Ressourcendatei (**.luisrc**) zu erstellen. Geben Sie Ihren LUIS-Erstellungsschlüssel und Ihre Region an, wenn Sie dazu aufgefordert werden. Sie müssen hier nicht Ihre App-ID eingeben.
-4. Führen Sie den folgenden Befehl aus, um Ihre Metadaten herunterzuladen und der Konfigurationsdatei Ihres Bots hinzuzufügen.
-    Wenn Sie Ihre Konfigurationsdatei verschlüsselt haben, müssen Sie Ihren geheimen Schlüssel angeben, um die Datei zu aktualisieren.
-
-    ```shell
-    luis get application --appId <your-app-id> --msbot | msbot connect luis --stdin [--secret <YOUR-SECRET>]
-    ```
+```json
+{
+    "name": "LuisBot",
+    "description": "",
+    "services": [
+        {
+            "type": "endpoint",
+            "name": "development",
+            "endpoint": "http://localhost:3978/api/messages",
+            "appId": "",
+            "appPassword": "",
+            "id": "166"
+        },
+        {
+            "type": "luis",
+            "name": "LuisBot",
+            "appId": "<luis appid>",
+            "version": "0.1",
+            "authoringKey": "<luis authoring key>",
+            "subscriptionKey": "<luis subscription key>",
+            "region": "<luis region>",
+            "id": "158"
+        }
+    ],
+    "padlock": "",
+    "version": "2.0"
+}
+```
+# <a name="ctabcs"></a>[C#](#tab/cs)
 
 ## <a name="configure-your-bot-to-use-your-luis-app"></a>Konfigurieren Sie Ihren Bot für die Verwendung Ihrer LUIS-App
 
-Ein Verweis auf die LUIS-App wird zuerst beim Initialisieren des Bots hinzugefügt. Dies ermöglicht das Aufrufen in unserer Botlogik.
-
-### <a name="prerequisite"></a>Voraussetzung
-
-Bevor wir mit dem Programmieren beginnen, sollten Sie sicherstellen, dass Sie über die Pakete verfügen, die für die LUIS-App erforderlich sind.
-
-# <a name="ctabcs"></a>[C#](#tab/cs)
-
-Fügen Sie Ihrem Bot das folgende [NuGet-Paket](https://docs.microsoft.com/en-us/nuget/tools/package-manager-ui) hinzu.
-
-* `Microsoft.Bot.Builder.AI.Luis`
-
-# <a name="javascripttabjs"></a>[JavaScript](#tab/js)
-
-Die LUIS-Features sind im Paket `botbuilder-ai` enthalten. Sie können Ihrem Projekt dieses Paket über npm hinzufügen:
-
-```shell
-npm install --save botbuilder-ai
-```
-
----
-
-# <a name="ctabcs"></a>[C#](#tab/cs)
-
-Laden Sie den [NLP LUIS-Beispielcode](https://aka.ms/cs-luis-sample) herunter, und öffnen Sie ihn. Wir ändern den Code gemäß unseren Anforderungen. 
-
-Fügen Sie zuerst die Informationen, die zum Zugreifen auf Ihre LUIS-App erforderlich sind, z.B. Anwendungs-ID, Erstellungsschlüssel, Abonnementschlüssel, Endpunkt und Region, der Datei `BotConfiguration.bot` hinzu. Dies sind die Werte, die Sie zuvor aus Ihrer veröffentlichten LUIS-App gespeichert haben.
-
-```csharp
-{
-  "name": "LuisBot",
-  "services": [
-    {
-      "type": "endpoint",
-      "name": "development",
-      "endpoint": "http://localhost:3978/api/messages",
-      "appId": "",
-      "appPassword": "",
-      "id": "1"
-    },
-    {
-      "type": "luis",
-      "name": "LuisBot",
-      "AppId": "<YOUR_APP_ID>",
-      "SubscriptionKey": "<YOUR_SUBSCRIPTION_KEY>",
-      "AuthoringKey": "<YOUR_AUTHORING_KEY>",
-      "GetEndpoint": "<YOUR_ENDPOINT>",
-      "Region": "<YOUR_REGION>"
-    }
-  ],
-  "padlock": "",
-  "version": "2.0"
-}
-```
-
-Als Nächstes initialisieren wir eine neue Instanz der Bot Service-Klasse `BotServices.cs`, mit der die obigen Informationen aus Ihrer `.bot`-Datei abgerufen werden. Fügen Sie der Datei `BotServices.cs` den folgenden Code hinzu.
+Als Nächstes initialisieren wir eine neue Instanz der BotService-Klasse in `BotServices.cs`, mit der die obigen Informationen aus Ihrer `.bot`-Datei abgerufen werden. Der externe Dienst wird mit der `BotConfiguration`-Klasse konfiguriert.
 
 ```csharp
 public class BotServices
 {
-    /// Initializes a new instance of the BotServices class
+    // Initializes a new instance of the BotServices class
     public BotServices(BotConfiguration botConfiguration)
     {
         foreach (var service in botConfiguration.Services)
@@ -145,13 +114,12 @@ public class BotServices
             }
         }
 
-    /// Gets the set of LUIS Services used.
-    /// LuisServices is represented as a dictionary.  
+    // Gets the set of LUIS Services used. LuisServices is represented as a dictionary.  
     public Dictionary<string, LuisRecognizer> LuisServices { get; } = new Dictionary<string, LuisRecognizer>();
 }
 ```
 
-Anschließend registrieren wir die LUIS-App als Singleton in der Datei `Startup.cs`, indem wir den folgenden Code in `ConfigureServices` hinzufügen.
+Registrieren Sie die LUIS-App anschließend als Singleton in der Datei `Startup.cs`, indem Sie den folgenden Code in der `ConfigureServices`-Methode verwenden.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -160,7 +128,7 @@ public void ConfigureServices(IServiceCollection services)
     var botFilePath = Configuration.GetSection("botFilePath")?.Value;
 
     // Loads .bot configuration file and adds a singleton that your Bot can access through dependency injection.
-    var botConfig = BotConfiguration.Load(botFilePath ?? @".\BotConfiguration.bot", secretKey);
+    var botConfig = BotConfiguration.Load(botFilePath ?? @".\nlp-with-luis.bot", secretKey);
     services.AddSingleton(sp => botConfig ?? throw new InvalidOperationException($"The .bot config file could not be loaded. ({botConfig})"));
 
     // Initialize Bot Connected Services clients.
@@ -179,22 +147,13 @@ public void ConfigureServices(IServiceCollection services)
         }
 
         options.CredentialProvider = new SimpleCredentialProvider(endpointService.AppId, endpointService.AppPassword);
-
-        // Creates a logger for the application to use.
-        ILogger logger = _loggerFactory.CreateLogger<LuisBot>();
-
-        // Catches any errors that occur during a conversation turn and logs them.
-        options.OnTurnError = async (context, exception) =>
-        {
-            logger.LogError($"Exception caught : {exception}");
-            await context.SendActivityAsync("Sorry, it looks like something went wrong.");
-        };
-        /// ...
+        
+        // ...
     });
 }
 ```
 
-Als Nächstes müssen Sie diese LUIS-Instanz für Ihren Bot bereitstellen. Öffnen Sie `LuisBot.cs`, und fügen Sie den folgenden Code am Anfang der Datei hinzu.
+Als Nächstes ruft der Bot in der Datei `Luis.cs` diese LUIS-Instanz ab.
 
 ```csharp
 public class LuisBot : IBot
@@ -202,56 +161,25 @@ public class LuisBot : IBot
     public static readonly string LuisKey = "LuisBot";
     private const string WelcomeText = "This bot will introduce you to natural language processing with LUIS. Type an utterance to get started";
 
-    /// Services configured from the ".bot" file.
+    // Services configured from the ".bot" file.
     private readonly BotServices _services;
 
-    /// Initializes a new instance of the LuisBot class.
+    // Initializes a new instance of the LuisBot class.
     public LuisBot(BotServices services)
     {
         _services = services ?? throw new System.ArgumentNullException(nameof(services));
         if (!_services.LuisServices.ContainsKey(LuisKey))
         {
-            throw new System.ArgumentException($"Invalid configuration. Please check your '.bot' file for a LUIS service named '{LuisKey}'.");
+            throw new System.ArgumentException($"Invalid configuration....");
         }
     }
-    /// ...
+    // ...
 }
 ```
 
 # <a name="javascripttabjs"></a>[JavaScript](#tab/js)
 
 In unserem Beispiel befindet sich der Startcode in der Datei **index.js** und der Code für die Botlogik in der Datei **bot.js**. Zusätzliche Konfigurationsinformationen sind in der Datei **nlp-with-luis.bot** enthalten.
-
-Nachdem Sie die Anleitungen zur Erstellung Ihrer LUIS-App und zur Aktualisierung Ihrer **BOT**-Datei befolgt haben, sollte Ihre Datei **nlp-with-luis.bot** einen Diensteintrag für Ihre LUIS-App enthalten.
-
-```json
-{
-    "name": "YOUR_LUIS_APP_NAME",
-    "description": "",
-    "services": [
-        {
-            "type": "endpoint",
-            "name": "development",
-            "endpoint": "http://localhost:3978/api/messages",
-            "appId": "",
-            "appPassword": "",
-            "id": "35"
-        },
-        {
-            "type": "luis",
-            "name": "YOUR_LUIS_APP_NAME",
-            "appId": "<YOUR_APP_ID>",
-            "version": "0.1",
-            "authoringKey": "<YOUR_AUTHORING_KEY>",
-            "subscriptionKey": "<YOUR_SUBSCRIPTION_KEY>>",
-            "region": "<YOUR_REGION>",
-            "id": "83"
-        }
-    ],
-    "padlock": "",
-    "version": "2.0"
-}
-```
 
 In der Datei **bot.js** lesen wir die Konfigurationsinformationen ein, um den LUIS-Dienst zu generieren und den Bot zu initialisieren.
 Aktualisieren Sie den Wert von `LUIS_CONFIGURATION` in den Namen Ihrer LUIS-App, der in Ihrer Konfigurationsdatei angezeigt wird.
@@ -423,13 +351,14 @@ Die LUIS-Erkennung gibt Informationen dazu zurück, wie gut die Äußerung mit d
 
 ---
 
-## <a name="extract-entities"></a>Extrahieren von Entitäten
+<!--
+## Extract entities
 
-Neben dem Erkennen von Absichten können mit einer LUIS-App auch Entitäten extrahiert werden, bei denen es sich um wichtige Wörter für die Erfüllung der Anforderung eines Benutzers handelt. Für einen Wetter-Bot kann die LUIS-App beispielsweise den Ort für den Wetterbericht aus der Nachricht des Benutzers extrahieren.
+Besides recognizing intent, a LUIS app can also extract entities, which are important words for fulfilling a user's request. For example, for a weather bot, the LUIS app might be able to extract the location for the weather report from the user's message.
 
-Eine gängige Methode zur Strukturierung von Konversationen ist das Identifizieren von Entitäten in der Nachricht des Benutzers und das Abfragen der benötigten Entitäten, die nicht gefunden werden. Die nachfolgenden Schritte verarbeiten dann die Antwort auf die Eingabeaufforderung.
+A common way to structure your conversation is to identify any entities in the user's message, and prompt for any of the required entities that are not found. Then, the subsequent steps handle the response to the prompt.
 
-<!--Snip
+
 # [C#](#tab/cs)
 
 Let's say the message from the user was "What's the weather in Seattle"? The [LuisRecognizer](https://docs.microsoft.com/en-us/dotnet/api/microsoft.bot.builder.ai.luis.luisrecognizer) gives you a [RecognizerResult](https://docs.microsoft.com/en-us/dotnet/api/microsoft.bot.builder.core.extensions.recognizerresult) with an [`Entities` property](https://docs.microsoft.com/en-us/dotnet/api/microsoft.bot.builder.core.extensions.recognizerresult#properties-) that has this structure:
@@ -505,16 +434,25 @@ function findEntities(entityName, entityResults) {
     }
     return entities.length > 0 ? entities : undefined;
 }
-```
-/Snip-->
 
-Wenn Sie Informationen wie z. B. Entitäten aus mehreren Schritten in einer Konversation erfassen, kann es hilfreich sein, die benötigten Informationen im Zustand zu speichern. Wenn eine Entität gefunden wird, kann sie dem entsprechenden Zustandsfeld hinzugefügt werden. Wenn das zugeordnete Feld im aktuellen Schritt Ihrer Konversation bereits ausgefüllt ist, kann der Schritt, in dem zur Eingabe dieser Informationen aufgefordert wird, ausgelassen werden.
 
-## <a name="additional-resources"></a>Zusätzliche Ressourcen
+When gathering information like entities from multiple steps in a conversation, it can be helpful to save the information you need in your state. If an entity is found, it can be added to the appropriate state field. In your conversation if the current step already has the associated field completed, the step to prompt for that information can be skipped.
 
-Ein Beispiel mit LUIS finden Sie in den Projekten für [[C#](https://aka.ms/cs-luis-sample)] oder [[JavaScript](https://aka.ms/js-luis-sample)].
+/Snip -->
+
+## <a name="test-the-bot"></a>Testen des Bots
+
+1. Führen Sie das Beispiel lokal auf Ihrem Computer aus. Wenn Sie eine Anleitung benötigen, helfen Ihnen die Infodateien für [C#](https://github.com/Microsoft/BotBuilder-Samples/blob/master/samples/csharp_dotnetcore/12.nlp-with-luis/README.md) bzw. [JS](https://github.com/Microsoft/BotBuilder-Samples/blob/master/samples/javascript_nodejs/12.nlp-with-luis/README.md) weiter.
+
+1. Geben Sie im Emulator wie unten gezeigt eine Nachricht ein. 
+
+![Beispiel für NLP-Test](~/media/emulator-v4/nlp-luis-sample-testing.png)
+
+Der Bot antwortet mit der Absicht, die über die höchste Bewertung verfügt. In diesem Fall ist dies die Absicht `Calendar-Add`. Zur Erinnerung: Mit der Datei `reminders.json`, die Sie im LUIS.ai-Portal importiert haben, werden die Absichten definiert.
+
+Ein Vorhersageergebnis gibt den Grad der Zuverlässigkeit an, den LUIS in die Ergebnisse von Vorhersagen hat. Ein Vorhersageergebnis liegt zwischen 0 (null) und 1 (eins). Ein Beispiel für eine hohe Zuverlässigkeitsbewertung von LUIS ist der Wert 0,99. Ein Beispiel für eine Bewertung mit niedriger Zuverlässigkeit ist 0,01. 
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 > [!div class="nextstepaction"]
-> [Kombinieren von LUIS- und QnA-Diensten mit dem Dispatch-Tool](./bot-builder-tutorial-dispatch.md)
+> [Verwenden von QnA Maker zum Beantworten von Fragen](./bot-builder-howto-qna.md)

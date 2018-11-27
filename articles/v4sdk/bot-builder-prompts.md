@@ -8,26 +8,29 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 11/02/2018
+ms.date: 11/21/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: ec0cc5e942ed66c8683f8b0cc92ba7df2e36db42
-ms.sourcegitcommit: 8b7bdbcbb01054f6aeb80d4a65b29177b30e1c20
+ms.openlocfilehash: 1c69b438c739ac9c47d40e53f1300a4773fc1a1d
+ms.sourcegitcommit: 6cb37f43947273a58b2b7624579852b72b0e13ea
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51645670"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52288789"
 ---
 # <a name="gather-user-input-using-a-dialog-prompt"></a>Erfassen von Benutzereingaben mit einer Dialogaufforderung
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-Das Sammeln von Informationen durch das Stellen von Fragen ist eine der Hauptvorgehensweisen, mit denen ein Bot mit Benutzern interagiert. Dies ist auch direkt möglich, indem die _send activity_-Methode des [turn context](~/v4sdk/bot-builder-basics.md#defining-a-turn)-Objekts verwendet wird und dann die nächste eingehende Nachricht als Antwort verarbeitet wird. Das Bot Builder SDK stellt jedoch eine [Dialogebibliothek](bot-builder-concept-dialog.md) bereit, die Methoden enthält, mit denen das Stellen von Fragen vereinfacht und sichergestellt werden kann, dass die Antwort mit einem bestimmten Datentyp übereinstimmt oder benutzerdefinierte Validierungsregeln erfüllt. In diesem Thema wird ausführlich beschrieben, wie Sie dies erreichen, indem Sie einen Benutzer mithilfe von Eingabeaufforderungsobjekten zur Eingabe von Informationen auffordern.
+Das Sammeln von Informationen durch das Stellen von Fragen ist eine der Hauptvorgehensweisen, mit denen ein Bot mit Benutzern interagiert. Die Dialogbibliothek (*dialogs*) vereinfacht das Stellen von Fragen und das Überprüfen der Antworten, um sicherzustellen, dass sie einen bestimmten Datentyp aufweisen oder benutzerdefinierte Validierungsregeln erfüllen. In diesem Thema wird ausführlich beschrieben, wie Sie Eingabeaufforderungen für einen Wasserfalldialog erstellen und aufrufen.
 
-## <a name="prompt-types"></a>Eingabeaufforderungstypen
+## <a name="prerequisites"></a>Voraussetzungen
+- Der Code in diesem Artikel basiert auf dem Beispiel für die Dialogaufforderung (dialog-prompt). Sie benötigen eine Kopie des Beispiels im [C#](https://aka.ms/dialog-prompt-cs)- oder [JS](https://aka.ms/dialog-prompt-js)-Format.
+- Sie müssen über Grundkenntnisse für die [Dialogbibliothek](bot-builder-concept-dialog.md) verfügen und mit der [Verwaltung von Konversationen](bot-builder-dialog-manage-conversation-flow.md) vertraut sein. 
+- [Bot Framework Emulator](https://github.com/Microsoft/BotFramework-Emulator) für die Durchführung von Tests.
 
-Im Hintergrund sind Eingabeaufforderungen ein aus zwei Schritten bestehender Dialog. Im ersten Schritt fordert die Eingabeaufforderungen den Benutzer zur Eingabe auf. Im zweiten Schritt wird der gültige Wert zurückgegeben oder der Vorgang mit einer erneuten Eingabeaufforderung neu gestartet.
+## <a name="about-prompt-types"></a>Informationen zu Eingabeaufforderungstypen
 
-Die Dialogebibliothek enthält viele einfache Eingabeaufforderungen, die jeweils zum Anfordern einer anderen Art von Antwort verwendet werden.
+Im Hintergrund sind Eingabeaufforderungen ein aus zwei Schritten bestehender Dialog. Im ersten Schritt fordert die Eingabeaufforderungen den Benutzer zur Eingabe auf. Im zweiten Schritt wird der gültige Wert zurückgegeben oder der Vorgang mit einer erneuten Eingabeaufforderung neu gestartet. Die Dialogebibliothek enthält viele einfache Eingabeaufforderungen, die jeweils zum Anfordern einer anderen Art von Antwort verwendet werden. Die einfachen Eingabeaufforderungen können Eingaben in natürlicher Sprache interpretieren (z. B. „zehn“ oder „ein Dutzend“ für eine Zahl oder „morgen“ oder „Freitag um 10 Uhr“ für eine Datums- und Zeitangabe).
 
 | Prompt | BESCHREIBUNG | Rückgabe |
 |:----|:----|:----|
@@ -38,158 +41,258 @@ Die Dialogebibliothek enthält viele einfache Eingabeaufforderungen, die jeweils
 | _Zahleneingabeaufforderung_ | Fordert den Benutzer auf, eine Zahl einzugeben. | Ein numerischer Wert. |
 | _Texteingabeaufforderung_ | Fordert den Benutzer auf, einen allgemeinen Text einzugeben. | Eine Zeichenfolge. |
 
-Die Bibliothek enthält auch eine _OAuth-Eingabeaufforderung_ zum Abrufen eines _OAuth-Tokens_, mit dem im Auftrag des Benutzers auf eine andere Anwendung zugegriffen wird. Weitere Informationen zur Authentifizierung finden Sie unter [Hinzufügen von Authentifizierung zu Ihrem Bot](bot-builder-authentication.md).
+Um einen Benutzer zur Eingabe aufzufordern, definieren Sie eine Eingabeaufforderung mit einer der integrierten Klassen (beispielsweise _text prompt_), und fügen Sie diese dann Ihrem Dialogsatz hinzu. Eingabeaufforderungen verfügen über feste IDs, die innerhalb eines Dialogsatzes eindeutig sein müssen. Sie können ein benutzerdefiniertes Validierungssteuerelement für jede Eingabeaufforderung verwenden, und für einige Eingabeaufforderungen können Sie ein _Standardgebietsschema_ angeben. 
 
-Die einfachen Eingabeaufforderungen können Eingaben in natürlicher Sprache interpretieren (z. B. „zehn“ oder „ein Dutzend“ für eine Zahl oder „morgen“ oder „Freitag um 10 Uhr“ für eine Datums- und Zeitangabe).
+### <a name="prompt-locale"></a>Gebietsschema der Eingabeaufforderung
+
+Das Gebietsschema wird verwendet, um das sprachspezifische Verhalten der Eingabeaufforderungen **choice**, **confirm**, **date-time** und **number** zu bestimmen. Wenn für den Kanal eine _locale_-Eigenschaft angegeben wurde, wird für alle Eingaben des Benutzers dieser Wert verwendet. Wenn das _Standardgebietsschema_ der Eingabeaufforderung beim Aufrufen des Konstruktors der Eingabeaufforderung angegeben oder zu einem späteren Zeitpunkt festgelegt wird, wird andernfalls dieses Gebietsschema verwendet. Falls keine dieser Angaben vorhanden ist, wird Englisch („en-us“) als Gebietsschema genutzt. Hinweis: Das Gebietsschema ist ein zwei-, drei- oder vierstelliger ISO 639-Code, der eine Sprache oder eine Sprachfamilie darstellt.
 
 ## <a name="using-prompts"></a>Verwenden von Eingabeaufforderungen
 
-Ein Dialog kann eine Eingabeaufforderung nur dann verwenden, wenn der Dialog und die Eingabeaufforderung im selben Dialogsatz enthalten sind.
+Ein Dialog kann eine Eingabeaufforderung nur dann verwenden, wenn der Dialog und die Eingabeaufforderung im selben Dialogsatz enthalten sind. Sie können die gleiche Eingabeaufforderung in mehreren Schritten in einem Dialog und in mehreren Dialogen in demselben Dialogsatz verwenden. Bei der Initialisierung ordnen Sie einer Eingabeaufforderung jedoch eine benutzerdefinierte Validierung zu. Um eine andere Validierung für den gleichen Eingabeaufforderungstyp zu verwenden, benötigen Sie mehrere Instanzen des Eingabeaufforderungstyps mit jeweils eigenem Validierungscode.
 
-1. Definieren Sie einen Zustandseigenschaftenaccessor für Ihren Dialogzustand.
-1. Erstellen Sie einen Dialogsatz.
-1. Erstellen Sie Ihre Eingabeaufforderungen, und fügen Sie sie dem Dialogsatz hinzu.
-1. Erstellen Sie einen Dialog, in dem Ihre Eingabeaufforderungen verwendet werden, und fügen Sie ihn dem Dialogsatz hinzu.
-1. Fügen Sie im Dialog Aufrufe der Eingabeaufforderungen und zum Abrufen der Ergebnisse der Eingabeaufforderung hinzu.
-
-In diesem Artikel wird erläutert, wie Sie Ihre Eingabeaufforderungen erstellen und über einen Wasserfalldialog aufrufen.
-Weitere Informationen zu Dialogen im Allgemeinen finden Sie im Artikel zur [Dialogebibliothek](bot-builder-concept-dialog.md).
-Eine Beschreibung eines vollständigen Bots, der Dialoge und Eingabeaufforderungen verwendet, finden Sie unter [Verwalten eines einfachen Konversationsflusses mit Dialogen](bot-builder-dialog-manage-conversation-flow.md).
-
-Sie können die gleiche Eingabeaufforderung in mehreren Schritten in einem Dialog und in mehreren Dialogen in demselben Dialogsatz verwenden.
-Bei der Initialisierung ordnen Sie einer Eingabeaufforderung jedoch eine benutzerdefinierte Validierung zu.
-Wenn eine andere Validierung für den gleichen Eingabeaufforderungstyp erforderlich ist, benötigen Sie daher mehrere Instanzen des Eingabeaufforderungstyps mit jeweils eigenem Validierungscode.
-
-### <a name="create-a-prompt"></a>Erstellen einer Eingabeaufforderung
-
-Um einen Benutzer zur Eingabe aufzufordern, definieren Sie eine Eingabeaufforderung mit einer der integrierten Klassen (beispielsweise _text prompt_), und fügen Sie diese dann Ihrem Dialogsatz hinzu.
-
-* Die Eingabeaufforderung hat eine feste ID. (Bezeichner müssen innerhalb eines Dialogsatzes eindeutig sein.)
-* Die Eingabeaufforderung kann über ein benutzerdefiniertes Validierungssteuerelement verfügen. (Siehe [Benutzerdefinierte Validierung](#custom-validation).)
-* Bei einigen Eingabeaufforderungen können Sie ein _Standardgebietsschema_ angeben.
-
-In der Regel werden Eingabeaufforderungen beim Initialisieren des Bots erstellt und dem Dialogsatz hinzugefügt. Der Dialogsatz kann dann die ID der Eingabeaufforderung auflösen, wenn der Bot Eingaben vom Benutzer empfängt.
-
-Der folgende Code erstellt beispielsweise zwei Texteingabeaufforderungen und fügt sie einem vorhandenen Dialogsatz hinzu. Die zweite Texteingabeaufforderung verweist auf eine Validierungsmethode, die hier nicht gezeigt wird.
+### <a name="define-a-state-property-accessor-for-the-dialog-state"></a>Definieren eines Zustandseigenschaftenaccessors für den Dialogzustand
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-Hier enthält `_dialogs` einen vorhandenen Dialogsatz, und `NameValidator` ist eine Validierungsmethode.
+Im Beispiel zur Dialogeingabeaufforderung, das in diesem Artikel verwendet wird, wird der Benutzer zum Eingeben von Reservierungsinformationen aufgefordert. Zum Verwalten der Anzahl von Personen und des Datums definieren wir in der Datei „DialogPromptBot.cs“ eine innere Klasse für die Reservierungsinformationen.
 
 ```csharp
-_dialogs.Add(new TextPrompt("nickNamePrompt"));
-_dialogs.Add(new TextPrompt("namePrompt", NameValidator));
+public class Reservation
+{
+    public int Size { get; set; }
+
+    public string Date { get; set; }
+}
+```
+
+Als Nächstes fügen wir einen Zustandseigenschaftenaccessor für die Reservierungsdaten hinzu.
+
+```csharp
+public class DialogPromptBotAccessors
+{
+    public DialogPromptBotAccessors(ConversationState conversationState)
+    {
+        ConversationState = conversationState ?? throw new ArgumentNullException(nameof(conversationState));
+    }
+
+    public static string DialogStateAccessorKey { get; } = "DialogPromptBotAccessors.DialogState";
+    public static string ReservationAccessorKey { get; } = "DialogPromptBotAccessors.Reservation";
+
+    public IStatePropertyAccessor<DialogState> DialogStateAccessor { get; set; }
+    public IStatePropertyAccessor<DialogPromptBot.Reservation> ReservationAccessor { get; set; }
+
+    public ConversationState ConversationState { get; }
+}
+```
+
+In „Startup.cs“ aktualisieren wir die `ConfigureServices`-Methode, um die Accessors festzulegen.
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    // ...
+
+    // Create and register state accesssors.
+    // Acessors created here are passed into the IBot-derived class on every turn.
+    services.AddSingleton<BotAccessors>(sp =>
+    {
+        // ...
+
+        // Create the custom state accessor.
+        // State accessors enable other components to read and write individual properties of state.
+        var accessors = new BotAccessors(conversationState)
+        {
+            DialogStateAccessor = conversationState.CreateProperty<DialogState>(DialogPromptBotAccessors.DialogStateAccessorKey),
+            ReservationAccessor = conversationState.CreateProperty<DialogPromptBot.Reservation>(DialogPromptBotAccessors.ReservationAccessorKey),
+        };
+
+        return accessors;
+    });
+}
 ```
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-Hier enthält `this.dialogs` einen vorhandenen Dialogsatz, und `NameValidator` ist eine Validierungsfunktion.
+Für JavaScript sind keine Änderungen am HTTP-Dienstcode erforderlich. Wir können die Datei „index.js“ daher unverändert verwenden.
+
+In „bot.js“ fügen wir die `require`-Anweisungen ein, die für den Bot mit der Dialogeingabeaufforderung benötigt werden. 
+```javascript
+const { ActivityTypes } = require('botbuilder');
+const { DialogSet, WaterfallDialog, NumberPrompt, DateTimePrompt, ChoicePrompt, DialogTurnStatus } = require('botbuilder-dialogs');
+```
+
+Fügen Sie Bezeichner für die Zustandseigenschaftenaccessoren, Dialoge und Eingabeaufforderungen hinzu.
 
 ```javascript
-this.dialogs.add(new TextPrompt('nickNamePrompt'));
-this.dialogs.add(new TextPrompt('namePrompt', NameValidator));
+// Define identifiers for state property accessors.
+const DIALOG_STATE_ACCESSOR = 'dialogStateAccessor';
+const RESERVATION_ACCESSOR = 'reservationAccessor';
+
+// Define identifiers for dialogs and prompts.
+const RESERVATION_DIALOG = 'reservationDialog';
+const PARTY_SIZE_PROMPT = 'partySizePrompt';
+const LOCATION_PROMPT = 'locationPrompt';
+const RESERVATION_DATE_PROMPT = 'reservationDatePrompt';
 ```
 
 ---
 
-#### <a name="locales"></a>Locales
+### <a name="create-a-dialog-set-and-prompts"></a>Erstellen eines Dialogsatzes und von Eingabeaufforderungen
 
-Das Gebietsschema wird verwendet, um das sprachspezifische Verhalten der Eingabeaufforderungen **choice**, **confirm**, **date-time** und **number** zu bestimmen. Dabei gilt für jede Eingabe des Benutzers Folgendes:
-
-* Wenn vom Kanal eine _locale_-Eigenschaft in der Nachricht des Benutzers angegeben wurde, wird dieses Gebietsschema verwendet.
-* Wenn das _Standardgebietsschema_ der Eingabeaufforderung beim Aufrufen des Konstruktors der Eingabeaufforderung angegeben oder zu einem späteren Zeitpunkt festgelegt wird, wird andernfalls dieses Gebietsschema verwendet.
-* Andernfalls wird Englisch („en-us“) als Gebietsschema verwendet.
-
-> [!NOTE]
-> Das Gebietsschema ist ein zwei-, drei- oder vierstelliger ISO 639-Code, der eine Sprache oder eine Sprachfamilie darstellt.
-
-### <a name="call-a-prompt-from-a-waterfall-dialog"></a>Aufrufen einer Eingabeaufforderung über einen Wasserfalldialog
-
-Nachdem eine Eingabeaufforderung hinzugefügt wurde, können Sie sie in einem Schritt eines Wasserfalldialogs aufrufen und das Ergebnis der Eingabeaufforderung im folgenden Dialogschritt abrufen.
-Um eine Eingabeaufforderung in einem Wasserfallschritt aufzurufen, rufen Sie die _prompt_-Methode des _Wasserfallschritt-Kontextobjekts_ auf. Der erste Parameter ist die ID der zu verwendenden Eingabeaufforderung, und der zweite Parameter enthält die Optionen für die Eingabeaufforderung (z. B. den Text, mit dem der Benutzer zur Eingabe aufgefordert wird).
-
-Angenommen, der Benutzer interagiert mit einem Bot, der Bot enthält einen aktiven Wasserfalldialog, und der nächste Schritt im Dialog verwendet eine Eingabeaufforderung.
-
-1. Wenn der Benutzer eine Nachricht an den Bot sendet, geschieht Folgendes:
-   1. Der Turn-Handler des Bots erstellt einen Dialogkontext und ruft die _continue_-Methode auf.
-   1. Die Steuerung wird an den nächsten Schritt im aktiven Dialog übergeben, bei dem es sich in diesem Fall um Ihren Wasserfalldialog handelt.
-   1. Der Schritt ruft die _prompt_-Methode des Wasserfallschrittkontexts auf, um den Benutzer zur Eingabe aufzufordern.
-   1. Der Wasserfallschrittkontext pusht die Eingabeaufforderung in den Stapel und startet ihn.
-   1. Die Eingabeaufforderung sendet eine Aktivität an den Benutzer, um ihn zur Eingabe aufzufordern.
-1. Wenn der Benutzer die nächste Nachricht an den Bot sendet, geschieht Folgendes:
-   1. Der Turn-Handler des Bots erstellt einen Dialogkontext und ruft die _continue_-Methode auf.
-   1. Die Steuerung wird an den nächsten Schritt im aktiven Dialog übergeben, bei dem es sich um den nächsten Turn der Eingabeaufforderung handelt.
-   1. Die Eingabeaufforderung überprüft die Eingabe des Benutzers.
-      * Wenn die Eingabe nicht gültig ist, wird die Eingabeaufforderung neu gestartet, wodurch der Benutzer erneut zur Eingabe aufgefordert wird. Diese Schritte werden im nächsten Turn wiederholt.
-      * Andernfalls wird die Eingabeaufforderung beendet und ein _DialogTurnResult_-Objekt an den übergeordneten Dialog zurückgegeben. Die Steuerung wird an den nächsten Schritt des Wasserfalldialogs übergeben, wobei das Ergebnis der Eingabeaufforderung in der _result_-Eigenschaft des Wasserfallschrittkontexts verfügbar ist.
-
-<!--
-> [!NOTE]
-> A waterfall step delegate takes a _waterfall step context_ parameter and returns a _dialog turn result_.
-> A prompt's result is contained within the prompt's return value (a dialog turn result object) when it ends.
-> The waterfall dialog provides the return value in the waterfall step context parameter when it calls the next waterfall step.
--->
-
-Wenn eine Eingabeaufforderung einen Wert zurückgibt, wird die _result_-Eigenschaft des Wasserfallschrittkontexts auf den Rückgabewert der Eingabeaufforderung festgelegt.
-
-Dieses Beispiel zeigt Teile der zwei aufeinander folgenden Wasserfallschritte. Im ersten Teil wird die Eingabeaufforderung verwendet, um den Benutzer zur Eingabe seines Namens aufzufordern. Im zweiten Teil wird der Rückgabewert der Eingabeaufforderung abgerufen.
+In der Regel erstellen Sie Eingabeaufforderungen beim Initialisieren des Bots und fügen diese dem Dialogsatz hinzu. Der Dialogsatz kann dann die ID der Eingabeaufforderung auflösen, wenn der Bot Eingaben vom Benutzer empfängt.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-Hier ist `name` die ID einer Texteingabeaufforderung, und `NameStepAsync` und `GreetingStepAsync` sind zwei aufeinander folgende Schrittdelegate eines Wasserfalldialogs.
+Definieren Sie in der `DialogPromptBot`-Klasse Bezeichner für Dialoge, Eingabeaufforderungen und den Dialogsatz.
+```csharp
+private const string ReservationDialog = "reservationDialog";
+private const string PartySizePrompt = "partyPrompt";
+private const string LocationPrompt = "locationPrompt";
+private const string ReservationDatePrompt = "reservationDatePrompt";
+
+private readonly DialogSet _dialogSet;
+```
+
+Erstellen Sie im Konstruktor des Bots den Dialogsatz, und fügen Sie die Eingabeaufforderungen sowie den Reservierungsdialog hinzu. Wir fügen die benutzerdefinierte Validierung ein, wenn wir die Eingabeaufforderungen erstellen, und implementieren die Validierungsfunktionen später.
 
 ```csharp
-private static async Task<DialogTurnResult> NameStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
-{
-    // ...
+// The following code creates prompts and adds them to an existing dialog set. The DialogSet contains all the dialogs that can 
+// be used at runtime. The prompts also references a validation method is not shown here.
 
-    // Prompt for the user's name.
+public DialogPromptBot(DialogPromptBotAccessors accessors, ILoggerFactory loggerFactory)
+{
+   // ...
+
+    // Create the dialog set and add the prompts, including custom validation.
+    _dialogSet = new DialogSet(_accessors.DialogStateAccessor);
+    _dialogSet.Add(new NumberPrompt<int>(PartySizePrompt, PartySizeValidatorAsync));
+    _dialogSet.Add(new ChoicePrompt(LocationPrompt));
+    _dialogSet.Add(new DateTimePrompt(ReservationDatePrompt, DateValidatorAsync));
+
+    // Define the steps of the waterfall dialog and add it to the set.
+    WaterfallStep[] steps = new WaterfallStep[]
+    {
+        PromptForPartySizeAsync,
+        PromptForLocationAsync,
+        PromptForReservationDateAsync,
+        AcknowledgeReservationAsync,
+    };
+    _dialogSet.Add(new WaterfallDialog(ReservationDialog, steps));
+
+
+}
+```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Erstellen Sie im Konstruktor Zustandseigenschaftenaccessoren. 
+
+```javascript
+constructor(conversationState) {
+    // Creates our state accessor properties.
+    this.dialogStateAccessor = conversationState.createProperty(DIALOG_STATE_ACCESSOR);
+    this.reservationAccessor = conversationState.createProperty(RESERVATION_ACCESSOR);
+    this.conversationState = conversationState;
+    // ...
+    }
+```
+
+Erstellen Sie als Nächstes den Dialogsatz, und fügen Sie die Eingabeaufforderungen, einschließlich der benutzerdefinierten Validierung, hinzu.
+
+```javascript
+    // ...
+    this.dialogSet = new DialogSet(this.dialogStateAccessor);
+    this.dialogSet.add(new NumberPrompt(PARTY_SIZE_PROMPT, this.partySizeValidator));
+    this.dialogSet.add(new ChoicePrompt (LOCATION_PROMPT));
+    this.dialogSet.add(new DateTimePrompt(RESERVATION_DATE_PROMPT, this.dateValidator));
+    // ...
+```
+
+Definieren Sie anschließend die Schritte des Wasserfalldialogs, und fügen Sie ihn dem Satz hinzu.
+```javascript
+    // ...
+    this.dialogSet.add(new WaterfallDialog(RESERVATION_DIALOG, [
+    this.promptForPartySize.bind(this),
+    this.promptForLocation.bind(this),
+    this.promptForReservationDate.bind(this),
+    this.acknowledgeReservation.bind(this),
+ ]));
+}
+```
+
+---
+
+### <a name="implement-dialog-steps"></a>Implementieren der Dialogschritte
+
+In der Hauptdatei des Bots implementieren wir unsere einzelnen Schritte des Wasserfalldialogs. Nachdem eine Eingabeaufforderung hinzugefügt wurde, können wir sie in einem Schritt eines Wasserfalldialogs aufrufen und das Ergebnis der Eingabeaufforderung im folgenden Dialogschritt abrufen. Um eine Eingabeaufforderung in einem Wasserfallschritt aufzurufen, rufen Sie die _prompt_-Methode des _Wasserfallschritt-Kontextobjekts_ auf. Der erste Parameter ist die ID der zu verwendenden Eingabeaufforderung, und der zweite Parameter enthält die Optionen für die Eingabeaufforderung (z. B. den Text, mit dem der Benutzer zur Eingabe aufgefordert wird).     
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+In der Datei „DialogPromptBot.cs“ implementieren wir die Schritte `PromptForPartySizeAsync`, `PromptForLocationAsync`, `PromptForReservationDateAsync` und `AcknowledgeReservationAsync` des Wasserfalldialogs.
+
+Hier sind nur `PromptForPartySizeAsync` und `PromptForLocationAsync` dargestellt, wobei es sich um zwei aufeinander folgende Schrittdelegaten eines Wasserfalldialogs handelt.
+
+```csharp
+private async Task<DialogTurnResult> PromptForPartySizeAsync(WaterfallStepContext stepContext)
+{
+    // Prompt for the party size. The result of the prompt is returned to the next step of the waterfall.
+    // If the input is not valid, the prompt is restarted, causing it to reprompt for input
+    // and this set of steps is repeated next turn. Otherwise, the prompt ends and returns a _dialog turn result_ object 
+    // to the parent dialog. Control passes to the next step of your waterfall dialog, with the result of the prompt 
+    // available in the waterfall step context's _result_ property.
     return await stepContext.PromptAsync(
-        "name",
-         new PromptOptions { Prompt = MessageFactory.Text("Please enter your name.") },
-         cancellationToken);
+        PartySizePrompt,
+        new PromptOptions
+        {
+            Prompt = MessageFactory.Text("How many people is the reservation for?"),
+            RetryPrompt = MessageFactory.Text("How large is your party?"),
+        },
+        cancellationToken);
 }
 
-private static async Task<DialogTurnResult> GreetingStepAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
+private async Task<DialogTurnResult> PromptForLocationAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
 {
-    // Get the user's name from the prompt result.
-    string name = (string)stepContext.Result;
-    await stepContext.Context.SendActivityAsync(
-        MessageFactory.Text($"Pleased to meet you, {name}."),
-         cancellationToken);
+    // Record the party size information in the current dialog state.
+    int size = (int)stepContext.Result;
+    stepContext.Values["size"] = size;
 
-    // ...
+    return await stepContext.PromptAsync(
+        "locationPrompt",
+        new PromptOptions
+        {
+            Prompt = MessageFactory.Text("Please choose a location."),
+            RetryPrompt = MessageFactory.Text("Sorry, please choose a location from the list."),
+            Choices = ChoiceFactory.ToChoices(new List<string> { "Redmond", "Bellevue", "Seattle" }),
+        },
+        cancellationToken);
 }
 ```
+Im obigen Beispiel wird eine Auswahleingabeaufforderung mit allen drei Eigenschaften veranschaulicht. Die `PromptForLocationAsync`-Methode wird als Schritt in einem Wasserfalldialog verwendet, und der Dialogsatz enthält sowohl den Wasserfalldialog als auch eine Auswahleingabeaufforderung mit der ID `locationPrompt`.
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-Hier ist `name` die ID einer Texteingabeaufforderung, und `nameStep` und `greetingStep` sind zwei aufeinander folgende Schrittfunktionen eines Wasserfalldialogs.
+Hier sind `PARTY_SIZE_PROMPT` und `LOCATION_PROMPT` die IDs der Eingabeaufforderungen und `promptForPartySize` und `promptForLocation` zwei aufeinander folgende Schrittfunktionen eines Wasserfalldialogs.
 
 ```javascript
-async nameStep(step) {
-    // ...
-
-    return await step.prompt('name', 'Please enter your name.');
+async promptForPartySize(stepContext) {
+    // Prompt for the party size. The result of the prompt is returned to the next step of the waterfall.
+    return await stepContext.prompt(
+        PARTY_SIZE_PROMPT, {
+            prompt: 'How many people is the reservation for?',
+            retryPrompt: 'How large is your party?'
+        });
 }
 
-async greetingStep(step) {
-    // Get the user's name from the prompt result.
-    const name = step.result;
-    await step.context.sendActivity(`Pleased to meet you, ${name}.`);
-
-    // ...
+async promptForLocation(stepContext) {
+    // Prompt for location
+    return await stepContext.prompt(
+        LOCATION_PROMPT, 'Select a location.', ['Redmond', 'Bellevue', 'Seattle']
+    );
 }
 ```
 
 ---
-
-### <a name="call-a-prompt-from-the-bots-turn-handler"></a>Aufrufen einer Eingabeaufforderung über den Turn-Handler des Bots
-
-Es ist möglich, eine Eingabeaufforderung direkt über den Turn-Handler aufzurufen, indem Sie die _prompt_-Methode des Dialogkontexts verwenden.
-Hierzu müssten Sie die _ContinueDialog_-Methode des Dialogkontexts beim nächsten Turn aufrufen und den Rückgabewert (ein _DialogTurnResult_-Objekt) überprüfen. Ein Beispiel dazu finden Sie im Beispiel für die Validierung von Eingabeaufforderungen ([C#](https://aka.ms/cs-prompt-validation-sample) | [JS](https://aka.ms/js-prompt-validation-sample)). Einen alternativen Ansatz finden Sie unter [Erstellen eigener Eingabeaufforderungen zum Erfassen von Benutzereingaben](bot-builder-primitive-prompts.md).
-
-## <a name="prompt-options"></a>Eingabeaufforderungsoptionen
 
 Der zweite Parameter der _prompt_-Methode akzeptiert ein _PromptOptions_-Objekt mit den folgenden Eigenschaften.
 
@@ -203,47 +306,11 @@ Im Allgemeinen sind die prompt- und retryPrompt-Eigenschaften Aktivitäten, sie 
 
 Sie sollten die erste Eingabeaufforderungsaktivität, die an den Benutzer gesendet werden soll, immer angeben.
 
-Die Angabe einer erneuten Eingabeaufforderung ist sinnvoll, wenn die Benutzereingabe nicht überprüft werden kann, weil sie in einem Format vorliegt, das die Eingabeaufforderung nicht analysieren kann (z. B. „morgen“ für eine Zahleneingabeaufforderung), oder weil die Eingabe ein Validierungskriterium nicht erfüllt. Wenn in diesem Fall keine erneute Eingabeaufforderung angegeben wurde, verwendet die Eingabeaufforderung die erste Eingabeaufforderungsaktivität, um den Benutzer erneut zur Eingabe aufzufordern.
+Die Angabe einer erneuten Eingabeaufforderung ist sinnvoll, wenn die Benutzereingabe nicht überprüft werden kann, weil sie in einem Format vorliegt, das die Eingabeaufforderung nicht analysieren kann (z.B. „morgen“ für eine Zahleneingabeaufforderung), oder weil die Eingabe ein Validierungskriterium nicht erfüllt. Wenn in diesem Fall keine erneute Eingabeaufforderung angegeben wurde, verwendet die Eingabeaufforderung die erste Eingabeaufforderungsaktivität, um den Benutzer erneut zur Eingabe aufzufordern.
 
 Bei einer Auswahleingabeaufforderung sollten Sie immer die Liste der verfügbaren Optionen bereitstellen.
 
-Das folgende Beispiel veranschaulicht eine Auswahleingabeaufforderung mit allen drei Eigenschaften. Die _FavoriteColor_-Methode wird als Schritt in einem Wasserfalldialog verwendet, und der Dialogsatz enthält sowohl den Wasserfalldialog als auch eine Auswahleingabeaufforderung mit der ID `colorChoice`.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
-
-```csharp
-private static async Task<DialogTurnResult> FavoriteColorAsync(WaterfallStepContext stepContext, CancellationToken cancellationToken)
-{
-    // ...
-
-    return await stepContext.PromptAsync(
-        "colorChoice",
-        new PromptOptions {
-            Prompt = MessageFactory.Text("Please choose a color."),
-            RetryPrompt = MessageFactory.Text("Sorry, please choose a color from the list."),
-            Choices = ChoiceFactory.ToChoices(new List<string> { "blue", "green", "red" }),
-        },
-        cancellationToken);
-}
-```
-
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
-
-Im JavaScript SDK können Sie eine Zeichenfolge für die `prompt`- und `retryPrompt`-Eigenschaften angeben. Die Eingabeaufforderung konvertiert diese Nachrichtenaktivitäten für Sie.
-
-```javascript
-async favoriteColor(step) {
-    // ...
-
-    return await step.prompt('colorChoice', {
-        prompt: 'Please choose a color:',
-        retryPrompt: 'Sorry, please choose a color from the list.',
-        choices: [ 'red', 'green', 'blue' ]
-    });
-}
-```
-
----
 
 ## <a name="custom-validation"></a>Benutzerdefinierte Validierung
 
@@ -263,166 +330,11 @@ Das Ergebnis der Eingabeaufforderungserkennung weist die folgenden Eigenschaften
 | _Erfolgreich_ | Gibt an, ob die Erkennung die Eingabe analysieren konnte. |
 | _Wert_ | Der Rückgabewert der Erkennung. Bei Bedarf kann der Validierungscode diesen Wert ändern. |
 
-### <a name="setup"></a>Einrichtung
-
-Vor dem Hinzufügen des Codes für die Validierung müssen einige Einrichtungsschritte ausgeführt werden.
-
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
-
-Definieren Sie in der **CS**-Datei Ihres Bots eine innere Klasse für Reservierungsinformationen.
-
-```csharp
-public class Reservation
-{
-    public int Size { get; set; }
-
-    public string Date { get; set; }
-}
-```
-
-Fügen Sie in **BotAccessors.cs** einen Zustandseigenschaftenaccessor für die Reservierungsdaten hinzu.
-
-```csharp
-public class BotAccessors
-{
-    public BotAccessors(ConversationState conversationState)
-    {
-        ConversationState = conversationState ?? throw new ArgumentNullException(nameof(conversationState));
-    }
-
-    public static string DialogStateAccessorKey { get; } = "BotAccessors.DialogState";
-    public static string ReservationAccessorKey { get; } = "BotAccessors.Reservation";
-
-    public IStatePropertyAccessor<DialogState> DialogStateAccessor { get; set; }
-    public IStatePropertyAccessor<ReservationBot.Reservation> ReservationAccessor { get; set; }
-
-    public ConversationState ConversationState { get; }
-}
-```
-
-Aktualisieren Sie `ConfigureServices` in **Startup.cs**, um die Accessoren festzulegen.
-
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    // ...
-
-    // Create and register state accesssors.
-    // Acessors created here are passed into the IBot-derived class on every turn.
-    services.AddSingleton<BotAccessors>(sp =>
-    {
-        // ...
-
-        // Create the custom state accessor.
-        // State accessors enable other components to read and write individual properties of state.
-        var accessors = new BotAccessors(conversationState)
-        {
-            DialogStateAccessor = conversationState.CreateProperty<DialogState>(BotAccessors.DialogStateAccessorKey),
-            ReservationAccessor = conversationState.CreateProperty<ReservationBot.Reservation>(BotAccessors.ReservationAccessorKey),
-        };
-
-        return accessors;
-    });
-}
-```
-
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
-
-Für JavaScript sind keine Änderungen am HTTP-Dienstcode erforderlich. Wir können die Datei **index.js** daher unverändert verwenden.
-
-Aktualisieren Sie in **bot.js** die require-Anweisungen, und fügen Sie Bezeichner für die Zustandseigenschaftenaccessoren hinzu.
-
-```javascript
-const { ActivityTypes } = require('botbuilder');
-const { DialogSet, WaterfallDialog, NumberPrompt, DateTimePrompt, DialogTurnStatus } = require('botbuilder-dialogs');
-
-// Define identifiers for our state property accessors.
-const DIALOG_STATE_ACCESSOR = 'dialogStateAccessor';
-const RESERVATION_ACCESSOR = 'reservationAccessor';
-```
-
----
-
-Fügen Sie in Ihrer BOT-Datei Bezeichner für die hier verwendeten Dialoge und Eingabeaufforderungen hinzu.
-
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
-
-```csharp
-// Define identifiers for our dialogs and prompts.
-private const string ReservationDialog = "reservationDialog";
-private const string PartySizePrompt = "partyPrompt";
-private const string ReservationDatePrompt = "reservationDatePrompt";
-```
-
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
-
-```javascript
-// Define identifiers for our dialogs and prompts.
-const RESERVATION_DIALOG = 'reservationDialog';
-const PARTY_SIZE_PROMPT = 'partySizePrompt';
-const RESERVATION_DATE_PROMPT = 'reservationDatePrompt';
-```
-
----
-
-### <a name="define-the-prompts-and-dialogs"></a>Definieren der Eingabeaufforderungen und Dialoge
-
-Erstellen Sie im Konstruktorcode des Bots den Dialogsatz, und fügen Sie die Eingabeaufforderungen sowie den Reservierungsdialog hinzu.
-Die benutzerdefinierte Validierung fügen Sie beim Erstellen der Eingabeaufforderungen hinzu. Als Nächstes implementieren Sie die Validierungsfunktionen.
-
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
-
-```csharp
-public ReservationBot(BotAccessors accessors, ILoggerFactory loggerFactory)
-{
-    // ...
-    _accessors = accessors ?? throw new System.ArgumentNullException(nameof(accessors));
-
-    // Create the dialog set and add the prompts, including custom validation.
-    _dialogSet = new DialogSet(_accessors.DialogStateAccessor);
-    _dialogSet.Add(new NumberPrompt<int>(PartySizePrompt, PartySizeValidatorAsync));
-    _dialogSet.Add(new DateTimePrompt(ReservationDatePrompt, DateValidatorAsync));
-
-    // Define the steps of the waterfall dialog and add it to the set.
-    WaterfallStep[] steps = new WaterfallStep[]
-    {
-        PromptForPartySizeAsync,
-        PromptForReservationDateAsync,
-        AcknowledgeReservationAsync,
-    };
-    _dialogSet.Add(new WaterfallDialog(ReservationDialog, steps));
-}
-```
-
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
-
-```javascript
-constructor(conversationState) {
-    // Creates our state accessor properties.
-    // See https://aka.ms/about-bot-state-accessors to learn more about the bot state and state accessors.
-    this.dialogStateAccessor = conversationState.createProperty(DIALOG_STATE_ACCESSOR);
-    this.reservationAccessor = conversationState.createProperty(RESERVATION_ACCESSOR);
-    this.conversationState = conversationState;
-
-    // Create the dialog set and add the prompts, including custom validation.
-    this.dialogSet = new DialogSet(this.dialogStateAccessor);
-    this.dialogSet.add(new NumberPrompt(PARTY_SIZE_PROMPT, partySizeValidator));
-    this.dialogSet.add(new DateTimePrompt(RESERVATION_DATE_PROMPT, dateValidator));
-
-    // Define the steps of the waterfall dialog and add it to the set.
-    this.dialogSet.add(new WaterfallDialog(RESERVATION_DIALOG, [
-        this.promptForPartySize.bind(this),
-        this.promptForReservationDate.bind(this),
-        this.acknowledgeReservation.bind(this),
-    ]));
-}
-```
-
----
-
 ### <a name="implement-validation-code"></a>Implementieren des Codes für die Validierung
 
-Implementieren Sie das Validierungssteuerelement für die Gruppengröße. Wir beschränken Reservierungen auf Gruppen von 6 bis 20 Personen.
+**Validierungssteuerelement für die Anzahl von Personen**
+
+Wir beschränken Reservierungen auf Gruppen von 6 bis 20 Personen.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -458,7 +370,7 @@ private async Task<bool> PartySizeValidatorAsync(
 
 ```javascript
 async partySizeValidator(promptContext) {
-    // Check whether the input could be recognized as date.
+    // Check whether the input could be recognized as an integer.
     if (!promptContext.recognized.succeeded) {
         await promptContext.context.sendActivity(
             "I'm sorry, I do not understand. Please enter the number of people in your party.");
@@ -483,11 +395,9 @@ async partySizeValidator(promptContext) {
 
 ---
 
-Die Datums-/Uhrzeiteingabeaufforderung gibt eine Liste oder ein Array der möglichen _Datums-/Uhrzeitauflösungen_ zurück, die der Benutzereingabe entsprechen. Beispielsweise kann 9:00 sowohl 9: 00 Uhr als auch 21: 00 Uhr bedeuten, und „Sonntag“ ist ebenfalls mehrdeutig. Darüber hinaus kann eine Datums-/Uhrzeitauflösung ein Datum, eine Uhrzeit, eine Datums- und Uhrzeitangabe oder einen Bereich darstellen. Die Datums-/Uhrzeiteingabeaufforderung verwendet [Microsoft/Recognizers-Text](https://github.com/Microsoft/Recognizers-Text), um die Eingabe des Benutzers zu analysieren.
+**Validierung des Datums und der Uhrzeit**
 
-Implementieren Sie die Validierung für das Reservierungsdatum. Wir beschränken Reservierungen auf mindestens eine Stunde nach der aktuellen Uhrzeit. Wir übernehmen die erste Auflösung, die unseren Kriterien entspricht, und löschen den Rest.
-
-Dieser Validierungscode ist nicht vollständig. Er eignet sich am besten für Eingaben, die in Bezug auf ein Datum und eine Uhrzeit analysiert werden. Der Code veranschaulicht einige der Optionen für die Validierung einer Datums-/Uhrzeiteingabeaufforderung. Ihre Implementierung hängt von den Informationen ab, die Sie vom Benutzer erfassen möchten.
+In der Validierung für das Reservierungsdatum beschränken wir Reservierungen auf Zeiträume, die mindestens eine Stunde in der Zukunft liegen. Wir übernehmen die erste Auflösung, die unseren Kriterien entspricht, und löschen den Rest. Der unten angegebene Validierungscode ist nicht erschöpfend und funktioniert am besten für Eingaben, deren Analyse ein Datum und eine Uhrzeit ergibt. Mit dem Code werden einige Optionen für die Validierung einer Datums-/Uhrzeiteingabeaufforderung veranschaulicht. Ihre Implementierung hängt von den Informationen ab, die Sie vom Benutzer erfassen möchten.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -530,148 +440,62 @@ private async Task<bool> DateValidatorAsync(
 
 ```javascript
 async dateValidator(promptContext) {
-// Check whether the input could be recognized as an integer.
-if (!promptContext.recognized.succeeded) {
+    // Check whether the input could be recognized as an integer.
+    if (!promptContext.recognized.succeeded) {
+        await promptContext.context.sendActivity(
+            "I'm sorry, I do not understand. Please enter the date or time for your reservation.");
+        return false;
+    }
+
+    // Check whether any of the recognized date-times are appropriate,
+    // and if so, return the first appropriate date-time.
+    const earliest = Date.now() + (60 * 60 * 1000);
+    let value = null;
+    promptContext.recognized.value.forEach(candidate => {
+        // TODO: update validation to account for time vs date vs date-time vs range.
+        const time = new Date(candidate.value || candidate.start);
+        if (earliest < time.getTime()) {
+            value = candidate;
+        }
+    });
+    if (value) {
+        promptContext.recognized.value = [value];
+        return true;
+    }
+
     await promptContext.context.sendActivity(
-        "I'm sorry, I do not understand. Please enter the date or time for your reservation.");
+        "I'm sorry, we can't take reservations earlier than an hour from now.");
     return false;
 }
-
-// Check whether any of the recognized date-times are appropriate,
-// and if so, return the first appropriate date-time.
-const earliest = Date.now() + (60 * 60 * 1000);
-let value = null;
-promptContext.recognized.value.forEach(candidate => {
-    // TODO: update validation to account for time vs date vs date-time vs range.
-    const time = new Date(candidate.value || candidate.start);
-    if (earliest < time.getTime()) {
-        value = candidate;
-    }
-});
-if (value) {
-    promptContext.recognized.value = [value];
-    return true;
-}
-
-await promptContext.context.sendActivity(
-    "I'm sorry, we can't take reservations earlier than an hour from now.");
-return false;
-}
 ```
 
 ---
 
-### <a name="implement-the-dialog-steps"></a>Implementieren der Dialogschritte
-
-Verwenden Sie die Eingabeaufforderungen, die wir dem Dialogsatz hinzugefügt haben. Wir haben den Eingabeaufforderungen bei ihrer Erstellung im Konstruktor des Bots eine Validierung hinzugefügt. Wenn die Eingabeaufforderung den Benutzer erstmals zur Eingabe auffordert, sendet sie die _prompt_-Aktivität aus den bereitgestellten Optionen. Wenn die Validierung fehlschlägt, sendet die Eingabeaufforderung die _retryPrompt_-Aktivität, um den Benutzer zur Eingabe anderer Informationen aufzufordern.
-
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
-
-```csharp
-// First step of the main dialog: prompt for party size.
-private async Task<DialogTurnResult> PromptForPartySizeAsync(
-    WaterfallStepContext stepContext,
-    CancellationToken cancellationToken = default(CancellationToken))
-{
-    // Prompt for the party size. The result of the prompt is returned to the next step of the waterfall.
-    return await stepContext.PromptAsync(
-        PartySizePrompt,
-        new PromptOptions
-        {
-            Prompt = MessageFactory.Text("How many people is the reservation for?"),
-            RetryPrompt = MessageFactory.Text("How large is your party?"),
-        },
-        cancellationToken);
-}
-
-// Second step of the main dialog: record the party size and prompt for the
-// reservation date.
-private async Task<DialogTurnResult> PromptForReservationDateAsync(
-    WaterfallStepContext stepContext,
-    CancellationToken cancellationToken = default(CancellationToken))
-{
-    // Record the party size information in the current dialog state.
-    int size = (int)stepContext.Result;
-    stepContext.Values["size"] = size;
-
-    // Prompt for the reservation date. The result of the prompt is returned to the next step of the waterfall.
-    return await stepContext.PromptAsync(
-        ReservationDatePrompt,
-        new PromptOptions
-        {
-            Prompt = MessageFactory.Text("Great. When will the reservation be for?"),
-            RetryPrompt = MessageFactory.Text("What time should we make your reservation for?"),
-        },
-        cancellationToken);
-}
-
-// Third step of the main dialog: return the collected party size and reservation date.
-private async Task<DialogTurnResult> AcknowledgeReservationAsync(
-    WaterfallStepContext stepContext,
-    CancellationToken cancellationToken = default(CancellationToken))
-{
-    // Retrieve the reservation date.
-    DateTimeResolution resolution = (stepContext.Result as IList<DateTimeResolution>).First();
-    string time = resolution.Value ?? resolution.Start;
-
-    // Send an acknowledgement to the user.
-    await stepContext.Context.SendActivityAsync(
-        "Thank you. We will confirm your reservation shortly.",
-        cancellationToken: cancellationToken);
-
-    // Return the collected information to the parent context.
-    Reservation reservation = new Reservation
-    {
-        Date = time,
-        Size = (int)stepContext.Values["size"],
-    };
-    return await stepContext.EndDialogAsync(reservation, cancellationToken);
-}
-```
-
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
-
-```javascript
-async promptForPartySize(stepContext) {
-    // Prompt for the party size. The result of the prompt is returned to the next step of the waterfall.
-    return await stepContext.prompt(
-        PARTY_SIZE_PROMPT, {
-            prompt: 'How many people is the reservation for?',
-            retryPrompt: 'How large is your party?'
-        });
-}
-
-async promptForReservationDate(stepContext) {
-    // Record the party size information in the current dialog state.
-    stepContext.values.size = stepContext.result;
-
-    // Prompt for the reservation date. The result of the prompt is returned to the next step of the waterfall.
-    return await stepContext.prompt(
-        RESERVATION_DATE_PROMPT, {
-            prompt: 'Great. When will the reservation be for?',
-            retryPrompt: 'What time should we make your reservation for?'
-        });
-}
-
-async acknowledgeReservation(stepContext) {
-    // Retrieve the reservation date.
-    const resolution = stepContext.result[0];
-    const time = resolution.value || resolution.start;
-
-    // Send an acknowledgement to the user.
-    await stepContext.context.sendActivity(
-        'Thank you. We will confirm your reservation shortly.');
-
-    // Return the collected information to the parent context.
-    return await stepContext.endDialog({ date: time, size: stepContext.values.size });
-}
-```
-
----
+Die Datums-/Uhrzeiteingabeaufforderung gibt eine Liste oder ein Array der möglichen _Datums-/Uhrzeitauflösungen_ zurück, die der Benutzereingabe entsprechen. Beispielsweise kann 9:00 sowohl 9: 00 Uhr als auch 21: 00 Uhr bedeuten, und „Sonntag“ ist ebenfalls mehrdeutig. Darüber hinaus kann eine Datums-/Uhrzeitauflösung ein Datum, eine Uhrzeit, eine Datums- und Uhrzeitangabe oder einen Bereich darstellen. Die Datums-/Uhrzeiteingabeaufforderung verwendet [Microsoft/Recognizers-Text](https://github.com/Microsoft/Recognizers-Text), um die Eingabe des Benutzers zu analysieren.
 
 ### <a name="update-the-turn-handler"></a>Aktualisieren des Turn-Handlers
 
-Aktualisieren Sie den Turn-Handler des Bots, um den Dialog zu starten und einen Rückgabewert des Dialogs zu akzeptieren, wenn dieser abgeschlossen wird.
+Aktualisieren Sie den Turn-Handler des Bots, um den Dialog zu starten und einen Rückgabewert des Dialogs zu akzeptieren, wenn dieser abgeschlossen wird. Hierbei setzen wir voraus, dass der Benutzer mit einem Bot interagiert, der Bot einen aktiven Wasserfalldialog enthält und im nächsten Schritt des Dialogs eine Eingabeaufforderung verwendet wird.
+
+1. Wenn der Benutzer eine Nachricht an den Bot sendet, geschieht Folgendes:
+   1. Der Turn-Handler des Bots erstellt einen Dialogkontext und ruft die _continue_-Methode auf.
+   1. Die Steuerung wird an den nächsten Schritt im aktiven Dialog übergeben, bei dem es sich in diesem Fall um Ihren Wasserfalldialog handelt.
+   1. Der Schritt ruft die _prompt_-Methode des Wasserfallschrittkontexts auf, um den Benutzer zur Eingabe aufzufordern.
+   1. Der Wasserfallschrittkontext pusht die Eingabeaufforderung in den Stapel und startet ihn.
+   1. Die Eingabeaufforderung sendet eine Aktivität an den Benutzer, um ihn zur Eingabe aufzufordern.
+1. Wenn der Benutzer die nächste Nachricht an den Bot sendet, geschieht Folgendes:
+   1. Der Turn-Handler des Bots erstellt einen Dialogkontext und ruft die _continue_-Methode auf.
+   1. Die Steuerung wird an den nächsten Schritt im aktiven Dialog übergeben, bei dem es sich um den nächsten Turn der Eingabeaufforderung handelt.
+   1. Die Eingabeaufforderung überprüft die Eingabe des Benutzers.
+
+      
+**Behandeln von Eingabeaufforderungsergebnissen**
+
+Wozu Sie das Ergebnis der Eingabeaufforderung verwenden, hängt davon ab, warum Sie die Informationen vom Benutzer angefordert haben. Beispiele für Optionen:
+
+* Verwenden Sie die Informationen zum Steuern des Dialogflusses (z.B. wenn ein Benutzer auf eine Bestätigungs- oder Auswahleingabeaufforderung reagiert).
+* Speichern Sie die Informationen im Zustand des Dialogs zwischen (beispielsweise das Festlegen eines Werts in der _values_-Eigenschaft des Wasserfallschrittkontexts), und geben Sie die erfassten Informationen dann bei der Beendigung des Dialogs zurück.
+* Speichern Sie die Informationen im Botzustand. Dazu müssen Sie den Dialog so entwerfen, dass er Zugriff auf die Zustandseigenschaftenaccessoren des Bots hat. 
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -783,6 +607,9 @@ async onTurn(turnContext) {
             // Save the updated dialog state into the conversation state.
             await this.conversationState.saveChanges(turnContext, false);
             break;
+        case ActivityTypes.EndOfConversation:
+        case ActivityTypes.DeleteUserData:
+            break;
         default:
             break;
     }
@@ -791,20 +618,22 @@ async onTurn(turnContext) {
 
 ---
 
+
+
 Sie können ähnliche Verfahren verwenden, um Antworten auf Eingabeaufforderungen für beliebige Eingabeaufforderungstypen zu überprüfen.
 
-## <a name="handling-prompt-results"></a>Behandeln von Eingabeaufforderungsergebnissen
+## <a name="test-your-bot"></a>Testen Ihres Bots
+1. Führen Sie das Beispiel lokal auf Ihrem Computer aus. Wenn Sie eine Anleitung benötigen, helfen Ihnen die INFODATEIEN für [C#](https://aka.ms/dialog-prompt-cs) bzw. [JS](https://aka.ms/dialog-prompt-js) weiter.
+2. Starten Sie den Emulator, und senden Sie Nachrichten wie unten dargestellt, um den Bot zu testen.
 
-Wozu Sie das Ergebnis der Eingabeaufforderung verwenden, hängt davon ab, warum Sie die Informationen vom Benutzer angefordert haben. Beispiele für Optionen:
-
-* Verwenden Sie die Informationen zum Steuern des Dialogflusses (z. B. wenn ein Benutzer auf eine Bestätigungs- oder Auswahleingabeaufforderung reagiert).
-* Speichern Sie die Informationen im Zustand des Dialogs zwischen (beispielsweise das Festlegen eines Werts in der _values_-Eigenschaft des Wasserfallschrittkontexts), und geben Sie die erfassten Informationen dann bei der Beendigung des Dialogs zurück.
-* Speichern Sie die Informationen im Botzustand. Dazu müssen Sie den Dialog so entwerfen, dass er Zugriff auf die Zustandseigenschaftenaccessoren des Bots hat.
+![Beispiel für das Testen der Dialogeingabeaufforderung](~/media/emulator-v4/test-dialog-prompt.png)
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
-Weitere Informationen zu mehreren Eingabeaufforderungen finden Sie in den Beispielen für [[C#](https://aka.ms/cs-multi-prompts-sample) oder [JS](https://aka.ms/js-multi-prompts-sample)].
+Wenn Sie eine Eingabeaufforderung direkt aus Ihrem Turn-Handler aufrufen möchten, hilft Ihnen das Beispiel _prompt-validations_ im [C#](https://aka.ms/cs-prompt-validation-sample)- bzw. [JS](https://aka.ms/js-prompt-validation-sample)-Format weiter.
+
+Die Dialogbibliothek enthält auch eine _OAuth-Eingabeaufforderung_ zum Abrufen eines _OAuth-Tokens_, mit dem im Auftrag des Benutzers auf eine andere Anwendung zugegriffen wird. Weitere Informationen zur Authentifizierung finden Sie unter [Hinzufügen von Authentifizierung](bot-builder-authentication.md) zu Ihrem Bot.
 
 ## <a name="next-steps"></a>Nächste Schritte
 
 > [!div class="nextstepaction"]
-> [Implementieren eines grundlegenden sequenziellen Konversationsablaufs](bot-builder-dialog-manage-conversation-flow.md)
+> [Erstellen eines erweiterten Konversationsablaufs mithilfe von Branches und Schleifen](bot-builder-dialog-manage-complex-conversation-flow.md)

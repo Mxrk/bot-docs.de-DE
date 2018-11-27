@@ -1,22 +1,18 @@
 ---
-title: Stellen von Fragen an den Benutzer | Microsoft Docs
-description: Erfahren Sie, wie das Wasserfallmodell im Bot Builder SDK verwendet wird, um den Benutzer aufzufordern, mehrere Eingaben vorzunehmen.
-keywords: Wasserfälle, Dialogfelder, Stellen einer Frage, Eingabeaufforderungen
-author: v-ducvo
-ms.author: v-ducvo
-manager: kamrani
-ms.topic: article
-ms.service: bot-service
-ms.subservice: sdk
-ms.date: 5/10/2018
-monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 84c86e9cc295cd2a1dce0857fa7ab629c219dab1
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+redirect_url: /bot-framework/bot-builder-prompts
+ms.openlocfilehash: e7cfbad19290b3ef61d40dc90493db8f530a9a4e
+ms.sourcegitcommit: 4661b9bb31d74731dbbb16e625be088b44ba5899
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997473"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51826937"
 ---
+<a name="--"></a><!--
+---
+title: Stellen von Fragen an den Benutzer | Microsoft-Dokumentation description: Es wird beschrieben, wie Sie das Wasserfallmodell verwenden, um beim Bot Builder SDK von Benutzern mehrere Eingaben abzufragen.
+keywords: Wasserfälle, Dialoge, Stellen einer Frage, Eingabeaufforderungen author: v-ducvo ms.author: v-ducvo manager: kamrani ms.topic: article ms.service: bot-service ms.subservice: sdk ms.date: 5/10/2018 monikerRange: 'azure-bot-service-4.0'
+---
+
 # <a name="ask-the-user-questions"></a>Dem Benutzer Fragen stellen
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
@@ -500,3 +496,5 @@ In diesem Tutorial speichert der Bot die Eingabe des Benutzers in Variablen inne
 
 > [!div class="nextstepaction"]
 > [Speichern von Benutzerdaten](bot-builder-tutorial-persist-user-inputs.md)
+
+-->

@@ -8,45 +8,30 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 11/13/2018
+ms.date: 11/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 06eb7d80ca8baa91c619b31dc61c7f78856a3b7c
-ms.sourcegitcommit: 873361802bd1802f745544ba903aecf658cce639
+ms.openlocfilehash: e774d6360968e5059588dbdb476cfd1f35fb464e
+ms.sourcegitcommit: 6cb37f43947273a58b2b7624579852b72b0e13ea
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51611047"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52288829"
 ---
 # <a name="implement-sequential-conversation-flow"></a>Implementieren eines sequenziellen Konversationsflusses
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-Mit der Dialogbibliothek können Sie einfache und komplexe Konversationsflüsse verwalten.
+Mit der Dialogbibliothek können Sie einfache und komplexe Konversationsflüsse verwalten. In einer einfachen Interaktion wird der Bot über eine feste Sequenz von Schritten ausgeführt, und die Konversation endet. In diesem Artikel verwenden wir einen _Wasserfalldialog_, einige _Eingabeaufforderungen_ und einen _Dialogsatz_, um eine einfache Interaktion zu erstellen, bei der dem Benutzer eine Reihe von Fragen gestellt wird.
 
-In einer einfachen Interaktion wird der Bot über eine feste Sequenz von Schritten ausgeführt, und die Konversation endet.
-In diesem Artikel verwenden wir einen _Wasserfalldialog_, einige _Eingabeaufforderungen_ und einen _Dialogsatz_, um eine einfache Interaktion zu erstellen, bei der dem Benutzer eine Reihe von Fragen gestellt wird.
-Wir greifen dabei auf den Code aus dem Beispiel für **Eingabeaufforderungen mit mehreren Turns** [[C#](https://aka.ms/cs-multi-prompts-sample) | [JS](https://aka.ms/js-multi-prompts-sample)] zurück.
+## <a name="prerequisites"></a>Voraussetzungen
+- [Bot Framework-Emulator](https://github.com/Microsoft/BotFramework-Emulator/blob/master/README.md#download)
+- Der Code in diesem Artikel basiert auf dem Beispiel für die Eingabeaufforderung für mehrere Durchläufe (**multi-turn-prompt**). Sie benötigen eine Kopie des Beispiels im [C#](https://aka.ms/cs-multi-prompts-sample)- oder [JS](https://aka.ms/js-multi-prompts-sample)-Format.
+- Sie müssen mit den [Bot-Grundlagen](bot-builder-basics.md), der [Dialogbibliothek](bot-builder-concept-dialog.md), dem [Dialogzustand ](bot-builder-dialog-state.md) und der [BOT](bot-file-basics.md)-Datei vertraut sein.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-Für die allgemeine Nutzung von Dialogen benötigen Sie das NuGet-Paket `Microsoft.Bot.Builder.Dialogs` für Ihr Projekt bzw. Ihre Projektmappe.
-
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
-
-Für die allgemeine Nutzung von Dialogen benötigen Sie die Bibliothek `botbuilder-dialogs`, die über npm heruntergeladen werden kann.
-
-Navigieren Sie zum Verzeichnis Ihres Projekts, und führen Sie den folgenden Befehl aus, um dieses Paket zu installieren und als Abhängigkeit zu speichern.
-
-```shell
-npm install botbuilder-dialogs --save
-```
-
----
 In den folgenden Abschnitten werden die Schritte erläutert, die Sie zum Implementieren einfacher Dialoge für die meisten Bots ausführen würden:
 
 ## <a name="configure-your-bot"></a>Konfigurieren Ihres Bots
-
-Dem Dialogsatz muss ein Zustandseigenschaftenaccessor zugewiesen werden, den der Bot zum Verwalten des [Dialogzustands](bot-builder-dialog-state.md) verwenden kann.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -132,7 +117,7 @@ Der Konstruktor des Bots erstellt die Zustandseigenschaftenaccessoren für den B
 
 ## <a name="update-the-bot-turn-handler-to-call-the-dialog"></a>Aktualisieren des Turn-Handlers des Bots zum Aufrufen des Dialogs
 
-Zum Ausführen des Dialogs muss der Turn-Handler des Bots einen Dialogkontext für den Dialogsatz erstellen, der die Dialoge für den Bot enthält. (Ein Bot kann mehrere Dialogsätze definieren, im Allgemeinen sollten Sie jedoch nur einen Dialogsatz für Ihren Bot festlegen. Unter [Dialogbibliothek](bot-builder-concept-dialog.md) werden die wichtigsten Aspekte von Dialogen beschrieben.)
+Zum Ausführen des Dialogs muss der Turn-Handler des Bots einen Dialogkontext für den Dialogsatz erstellen, der die Dialoge für den Bot enthält. Ein Bot kann mehrere Dialogsätze definieren, aber im Allgemeinen sollten Sie nur einen Dialogsatz für Ihren Bot festlegen. 
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -228,8 +213,6 @@ In diesem Bot haben wir zwei Zustandseigenschaftenaccessoren definiert:
 
 Die _get_- und _set_-Methoden eines Zustandseigenschaftenaccessors rufen den Wert der Eigenschaft ab und legen ihn im Cache des Zustandsverwaltungsobjekts fest. Der Cache wird aufgefüllt, wenn der Wert einer Zustandseigenschaft erstmals in einem Turn angefordert wird, er muss jedoch explizit gespeichert werden. Um Änderungen an diesen beiden Zustandseigenschaften beizubehalten, rufen wir die _saveChanges_-Methode des entsprechenden Zustandsverwaltungsobjekts auf.
 
-Weitere Informationen finden Sie unter [Dialogzustand](bot-builder-dialog-state.md).
-
 ## <a name="initialize-your-bot-and-define-your-dialog"></a>Initialisieren Ihres Bots und Definieren des Dialogs
 
 Die einfache Konversation in unserem Beispiel wird in Form einer Reihe von Fragen modelliert, die dem Benutzer gestellt werden. Die Schritte in den C#- und JavaScript-Versionen unterscheiden sich geringfügig:
@@ -260,7 +243,7 @@ Für den `hello_user`-Dialog:
 Beim Definieren Ihrer eigenen Wasserfallschritte müssen Sie Folgendes bedenken.
 
 * Jeder Turn des Bots spiegelt die Eingabe des Benutzers wider und wird von einer Antwort des Bots gefolgt. Sie fordern den Benutzer also am Ende eines Wasserfallschritts zur Eingabe auf und erhalten die Antwort im nächsten Wasserfallschritt.
-* Jede Eingabeaufforderung ist im Grunde ein aus zwei Schritten bestehender Dialog, der die zugehörige Eingabeaufforderung darstellt und eine Schleife ausführt, bis eine „gültige“ Eingabe empfangen wird. (Sie können die integrierte Validierung für die einzelnen Eingabeaufforderungstypen verwenden oder der Eingabeaufforderung eine eigene benutzerdefinierte Validierung hinzufügen. Weitere Informationen finden Sie unter [Erfassen von Benutzereingaben](bot-builder-prompts.md).)
+* Jede Eingabeaufforderung ist im Grunde ein aus zwei Schritten bestehender Dialog, der die zugehörige Eingabeaufforderung darstellt und eine Schleife ausführt, bis eine „gültige“ Eingabe empfangen wird. 
 
 In diesem Beispiel wird der Dialog in der BOT-Datei definiert und im Konstruktor des Bots initialisiert.
 
@@ -528,7 +511,7 @@ Zum Trennen der Dialogschritte und des Botzustands stehen verschiedene Optionen 
 
 ## <a name="test-your-dialog"></a>Testen des Dialogs
 
-Erstellen Sie Ihren Bot lokal, führen Sie ihn lokal aus, und interagieren Sie dann mithilfe des [Emulators](../bot-service-debug-emulator.md) mit dem Bot.
+Erstellen Sie Ihren Bot lokal, führen Sie ihn lokal aus, und interagieren Sie dann mithilfe des Emulators mit dem Bot.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -551,6 +534,9 @@ Erstellen Sie Ihren Bot lokal, führen Sie ihn lokal aus, und interagieren Sie d
    * Der Bot startet den aus einem Schritt bestehenden `hello_user`-Dialog, der Informationen aus den erfassten Daten anzeigt und dann sofort endet.
 
 ---
+
+## <a name="additional-resources"></a>Zusätzliche Ressourcen
+Sie können die integrierte Validierung für die einzelnen Eingabeaufforderungstypen wie hier gezeigt verwenden oder der Eingabeaufforderung eine eigene benutzerdefinierte Validierung hinzufügen. Weitere Informationen finden Sie unter [Erfassen von Benutzereingaben mit einer Dialogaufforderung](bot-builder-prompts.md).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

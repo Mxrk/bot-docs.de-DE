@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/8/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 713a53947a8ea6681f1793f9796a86c6d8014e29
-ms.sourcegitcommit: cb0b70d7cf1081b08eaf1fddb69f7db3b95b1b09
+ms.openlocfilehash: bd431da58d13f3024617900bbeabd8007a2e3bb8
+ms.sourcegitcommit: 6cb37f43947273a58b2b7624579852b72b0e13ea
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51332924"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52288800"
 ---
 # <a name="middleware"></a>Middleware
 
@@ -83,6 +83,16 @@ Zusätzlich zur Anwendungs- und Middlewarelogik können Antworthandler (manchmal
 
 Beachten Sie, dass jede neue Aktivität einen neuen Thread für die Ausführung erhält. Wenn der Thread zur Verarbeitung der Aktivität erstellt wird, wird die Liste der Handler für diese Aktivität in den neuen Thread kopiert. Handler, die nach diesem Punkt hinzugefügt wurden, werden für dieses spezielle Aktivitätsereignis nicht ausgeführt.
 Die unter einem Kontextobjekt registrierten Handler werden auf eine Weise verarbeitet, die der Verwaltung der Middlewarepipeline durch den Adapter sehr ähnelt. Handler werden daher in der Reihenfolge aufgerufen, in der sie hinzugefügt wurden, und der Aufruf des nächsten Delegaten übergibt die Steuerung an den nächsten registrierten Ereignishandler. Wenn ein Handler den nächsten Delegaten nicht aufruft, werden keine nachfolgenden Ereignishandler aufgerufen. Das Ereignis wird kurzgeschlossen, und der Adapter sendet die Antwort nicht an den Kanal.
+
+## <a name="handling-state-in-middleware"></a>Verarbeiten des Zustands in Middleware
+
+Eine gängige Methode zum Speichern des Zustands ist das Aufrufen der „save changes“-Methode am Ende des Turn-Handlers. Hier ist ein Diagramm angegeben, in dem der Schwerpunkt auf dem Aufruf liegt.
+
+![Zustand der Middleware – Probleme](media/bot-builder-dialog-state-problem.png)
+
+Das Problem bei diesem Ansatz ist, dass alle Zustandsaktualisierungen, die über die benutzerdefinierte Middleware nach der Rückgabe des Turn-Handlers des Bots durchgeführt werden, nicht im beständigen Speicher gespeichert werden. Die Lösung besteht darin, den Aufruf in die „save changes“-Methode zu verschieben, nachdem die benutzerdefinierte Middleware abgeschlossen wurde. Hierfür wird AutoSaveChangesMiddleware am Anfang des Middlewarestapels hinzugefügt – bzw. spätestens vor den Middlewarekomponenten, mit denen der Zustand aktualisiert wird. Die Ausführung ist unten dargestellt.
+
+![Zustand der Middleware – Lösung](media/bot-builder-dialog-state-solution.png)
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 Sie können sich die Middleware für die Transkriptprotokollierung ansehen, die im Bot Builder SDK implementiert ist [[C#](https://github.com/Microsoft/botbuilder-dotnet/blob/master/libraries/Microsoft.Bot.Builder/TranscriptLoggerMiddleware.cs) | [JS](https://github.com/Microsoft/botbuilder-js/blob/master/libraries/botbuilder-core/src/transcriptLogger.ts)].

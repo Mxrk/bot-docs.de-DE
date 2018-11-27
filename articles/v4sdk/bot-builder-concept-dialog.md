@@ -1,21 +1,21 @@
 ---
 title: Dialoge im Bot Builder-SDK | Microsoft-Dokumentation
 description: Beschreibt, was ein Dialog ist, und wie er innerhalb des Bot Builder-SDK funktioniert.
-keywords: Konversationsablauf, Erkennen der Absicht, Einzeldurchlauf, Mehrfachdurchlauf, Bot-Konversation, Dialoge, Eingabeaufforderungen, Wasserfälle, Dialogsatz
+keywords: Konversationsablauf, Eingabeaufforderung, Dialogzustand, Erkennen der Absicht, Einzeldurchlauf, Mehrfachdurchlauf, Bot-Konversation, Dialoge, Eingabeaufforderungen, Wasserfälle, Dialogsatz
 author: johnataylor
 ms.author: johtaylo
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 9/22/2018
+ms.date: 11/22/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 88022c387d5f9ef7f645be74010aba3c676efadc
-ms.sourcegitcommit: cb0b70d7cf1081b08eaf1fddb69f7db3b95b1b09
+ms.openlocfilehash: 52a2867f4d62be4969ed77d8d83e1e752edd7f92
+ms.sourcegitcommit: 6cb37f43947273a58b2b7624579852b72b0e13ea
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51332934"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52288839"
 ---
 # <a name="dialogs-library"></a>Dialogbibliothek
 
@@ -40,7 +40,7 @@ Hinweis: Das **BeginDialog-Element eines Dialogs** ist Initialisierungscode und 
 
 Zur Unterstützung der Schachtelung von Dialogen (wenn Dialog einen untergeordneten Dialog aufweist) ist ein zusätzlicher Fortsetzungstyp vorhanden, der als „Wiederaufnahme“ bezeichnet wird. Das DialogContext-Element ruft die ResumeDialog-Methode für einen übergeordneten Dialog auf, wenn ein untergeordneter Dialog abgeschlossen wird.
 
-Eingabeaufforderungen und Wasserfälle sind beides konkrete Beispiele für Dialoge, die vom SDK bereitgestellt werden. Viele Szenarien werden durch Zusammenstellen dieser Abstraktionen erstellt, im Hintergrund beginnt die ausgeführte Logik jedoch immer gleich, d.h. mit dem hier beschriebenen Fortsetzungs- und Wiederaufnahmemuster. Die Implementierung einer Dialogklasse von Grund auf ist ein relativ komplexes Thema, in den [Beispielen](https://github.com/Microsoft/BotBuilder-samples) ist jedoch ein Beispiel dafür enthalten.
+Eingabeaufforderungen und Wasserfälle sind beides konkrete Beispiele für Dialoge, die vom SDK bereitgestellt werden. Viele Szenarien werden durch Zusammenstellen dieser Abstraktionen erstellt, im Hintergrund beginnt die ausgeführte Logik jedoch immer gleich, d.h. mit dem hier beschriebenen Fortsetzungs- und Wiederaufnahmemuster. 
 
 Die **Dialogbibliothek** im Bot Builder-SDK enthält integrierte Funktionen wie _Eingabeaufforderungen_, _Wasserfalldialoge_ und _Komponentendialoge_, um Ihnen die Verwaltung der Konversation Ihres Bots zu erleichtern. Sie können Eingabeaufforderungen verwenden, um Benutzer nach verschiedenen Arten von Informationen zu fragen, einen Wasserfall zum Kombinieren mehrerer Schritte in einer Sequenz, und Komponentendialoge zum Verpacken Ihrer Dialoglogik in separate Klassen, die dann in andere Bots integriert werden können.
 ## <a name="waterfall-dialogs-and-prompts"></a>Wasserfalldialoge und Eingabeaufforderungen
@@ -63,6 +63,18 @@ Sie können einen Rückgabewert aus einem Dialog entweder innerhalb eines Wasser
 In einem Wasserfallschritt stellt der Dialog den Rückgabewert in der _result_-Eigenschaft des Wasserfall-Schrittkontexts bereit.
 In der Regel müssen Sie nur den Status des Dialogdurchlauf-Ergebnisses aus der Durchlauflogik Ihres Bots überprüfen.
 
+## <a name="dialog-state"></a>Dialogzustand
+
+Dialoge sind ein Ansatz zum Implementieren einer Konversation mit mehreren Durchläufen („Turns“) und ein Beispiel für ein Feature im SDK, das auf einem persistenten Zustand für mehrere Durchläufe beruht. Ohne Zustand in den Dialogen weiß Ihr Bot nicht, wo sich die Informationen im Dialogsatz befinden oder welche Informationen bereits erfasst wurden.
+
+Ein auf Dialogen basierender Bot enthält normalerweise eine Dialogsatzsammlung als Membervariable in der Botimplementierung. Dieser Dialogsatz wird mit einem Handle für ein Objekt mit der Bezeichnung „Accessor“ erstellt, über das der Zugriff auf den persistenten Zustand möglich ist. Hintergrundinformationen zum Zustand in Bots finden Sie unter [Verwalten des Zustands](bot-builder-concept-state.md). 
+
+![Dialogzustand](media/bot-builder-dialog-state.png)
+
+Wenn der OnTurn-Handler des Bots aufgerufen wird, initialisiert der Bot das Dialogsubsystem, indem die Kontexterstellung (*create context*) für den Dialogsatz aufgerufen wird, um den *Dialogkontext* zurückzugeben. Für die Erstellung eines Dialogkontexts ist ein Zustand erforderlich, auf den mit dem Accessor zugegriffen wird. Der Accessor wird beim Erstellen des Dialogsatzes bereitgestellt. Mit diesem Accessor kann der Dialogsatz den richtigen JSON-Code für den Dialogzustand abrufen. Dieser Dialogkontext enthält die erforderlichen Informationen, die vom Dialog benötigt werden.
+
+Ausführlichere Informationen zu Zustandsaccessoren finden Sie unter [Speichern von Benutzer- und Konversationsdaten](bot-builder-howto-v4-state.md).
+
 ## <a name="repeating-a-dialog"></a>Wiederholen eines Dialogs
 
 Verwenden Sie zum Wiederholen eines Dialogs die *replace dialog*-Methode. Die *replace dialog*-Methode des Dialogkontexts entfernt den aktuellen Dialog aus dem Stapel, verschiebt den ersetzenden Dialog an den Anfang des Stapels und startet diesen Dialog. Mit dieser Methode können Sie also Schleife erstellen, indem Sie einen Dialog durch sich selbst ersetzen. Hinweis: Wenn der interne Zustand für den aktuellen Dialog beibehalten werden muss, müssen Sie im Aufruf der _replace dialog_-Methode Informationen an die neue Instanz des Dialogs übergeben und dann den Dialog entsprechend initialisieren. Der Zugriff auf die in den neuen Dialog übergebenen Optionen ist in jedem Schritt des Dialogs über die _options_-Eigenschaft des Schrittkontexts möglich. Dies ist eine hervorragende Möglichkeit zum Behandeln eines komplexen Konversationsablaufs oder zum Verwalten von Menüs.
@@ -78,7 +90,7 @@ Somit können Sie eine Verzweigung innerhalb Ihres Konversationsablaufs erstelle
 ## <a name="component-dialog"></a>Komponentendialog
 Manchmal bietet es sich an, einen wiederverwendbaren Dialog zu schreiben, den Sie in verschiedenen Szenarien verwenden möchten. Ein Beispiel dafür wäre ein Adressendialog, bei dem der Benutzer zur Angabe von Werten für Straße, Ort und Postleitzahl aufgefordert werden. 
 
-Das ComponentDialog-Element bietet ein gewisses Maß an Isolation, da es über ein separates DialogSet-Element verfügt. Durch ein separates DialogSet-Element werden Namenskonflikte mit dem übergeordneten Element verhindert, das den Dialog enthält. Das DialogSet-Element erstellt eine eigene unabhängige interne Dialoglaufzeit (durch Erstellung eines eigenen DialogContext-Element) und sendet die Aktivität an dieses. Dieser sekundäre Sendevorgang bedeutet, dass das Element eine Möglichkeit zum Abfangen der Aktivität hatte. Dies kann sehr nützlich, wenn Sie Funktionen wie „Hilfe“ und „Abbrechen“ implementieren möchten.  Sehen Sie sich das Vorlagenbeispiel für Bots für Unternehmen an. 
+Das ComponentDialog-Element bietet ein gewisses Maß an Isolation, da es über ein separates DialogSet-Element verfügt. Durch ein separates DialogSet-Element werden Namenskonflikte mit dem übergeordneten Element verhindert, das den Dialog enthält. Das DialogSet-Element erstellt eine eigene unabhängige interne Dialoglaufzeit (durch Erstellung eines eigenen DialogContext-Element) und sendet die Aktivität an dieses. Dieser sekundäre Sendevorgang bedeutet, dass das Element eine Möglichkeit zum Abfangen der Aktivität hatte. Dies kann sehr nützlich, wenn Sie Funktionen wie „Hilfe“ und „Abbrechen“ implementieren möchten.  Sehen Sie sich das [Vorlagenbeispiel für Bots für Unternehmen](https://aka.ms/abs/templates/cabot) an. 
 
 ## <a name="next-steps"></a>Nächste Schritte
 

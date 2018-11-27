@@ -8,13 +8,13 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: abs
-ms.date: 09/18/2018
-ms.openlocfilehash: b5b02773ab71801132f2a73f81123588e7ddfcdb
-ms.sourcegitcommit: 8b7bdbcbb01054f6aeb80d4a65b29177b30e1c20
+ms.date: 11/15/2018
+ms.openlocfilehash: 3c5b12bb804477ae41cf70d2ce955066801f5916
+ms.sourcegitcommit: d92fd6233295856052305e0d9e3cba29c9ef496e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51645690"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51715134"
 ---
 ::: moniker range="azure-bot-service-3.0"
 
@@ -85,17 +85,17 @@ In diesem Thema haben Sie gelernt, wie Sie einen **einfachen** Web-App-Bot/Funct
 
 Azure Bot Service stellt die Kernkomponenten zum Erstellen von Bots bereit, einschließlich Bot Builder SDK für die Entwicklung von Bots und Bot Service für die Verbindung von Bots mit Kanälen. In diesem Thema können Sie eine .NET- oder Node.js-Vorlage zum Erstellen eines Bots mit dem Bot Builder SDK v4 auswählen.
 
-## <a name="log-in-to-azure"></a>Anmelden an Azure
-Melden Sie sich beim [Azure-Portal](http://portal.azure.com)an.
+## <a name="prerequisites"></a>Voraussetzungen
+- [Azure](http://portal.azure.com)-Konto
 
-> [!TIP]
-> Wenn Sie noch kein Abonnement besitzen, können Sie sich für ein <a href="https://azure.microsoft.com/en-us/free/" target="_blank">kostenloses Konto</a> registrieren.
+### <a name="create-a-new-bot-service"></a>Erstellen eines neuen Botdiensts
 
-## <a name="create-a-new-bot-service"></a>Erstellen eines neuen Botdiensts
+1. Melden Sie sich beim [Azure-Portal](http://portal.azure.com/)an.
+1. Klicken Sie oben links im Azure-Portal auf den Link **Neue Ressource erstellen**, und wählen Sie dann **KI + Machine Learning** > **Web-App-Bot**. 
 
-1. Klicken Sie links oben im Azure-Portal auf den Link **Neue Ressource erstellen**, und wählen Sie dann **KI + Machine Learning > Web-App-Bot** aus. 
+![Erstellen eines Bots](~/media/azure-bot-quickstarts/abs-create-blade.png)
 
-2. Ein neues Blatt mit Informationen über den **Web-App-Bot** wird geöffnet.  
+2. Ein *neues Blatt* mit Informationen zum **Web-App-Bot** wird geöffnet.  
 
 3. Geben Sie auf dem Blatt **Bot Service** die angeforderten Informationen über Ihren Bot wie in der Tabelle unter der Abbildung angegeben an.  <br/>
  ![Blatt zum Erstellen eines Web-App-Bots](~/media/azure-bot-quickstarts/sdk-create-bot-service-blade.png)
@@ -132,6 +132,6 @@ Geben Sie eine Nachricht ein, und Ihr Bot sollte antworten.
 In diesem Thema haben Sie gelernt, wie Sie einen **Echo**-Web-App-Bot mithilfe von Azure Bot Service erstellen. Außerdem haben Sie die Funktionalität Ihres Bots mit dem integrierten Webchat-Steuerelement überprüft. Nun erfahren Sie, wie Sie Ihren Bot verwalten und mit dem Quellcode arbeiten.
 
 > [!div class="nextstepaction"]
-> [Verwalten eines Bots](bot-service-manage-overview.md)
+> [Funktionsweise von Bots](~/v4sdk/bot-builder-basics.md)
 
 ::: moniker-end

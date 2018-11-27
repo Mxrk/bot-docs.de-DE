@@ -8,20 +8,24 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 11/08/2018
+ms.date: 11/15/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 25745d380e53173c4dc67d280c120ced5845078b
-ms.sourcegitcommit: cb0b70d7cf1081b08eaf1fddb69f7db3b95b1b09
+ms.openlocfilehash: eb62df9bd1f74ab6de9b67fe352b1af4620a6bc6
+ms.sourcegitcommit: d92fd6233295856052305e0d9e3cba29c9ef496e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51332914"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51715104"
 ---
 # <a name="send-welcome-message-to-users"></a>Senden einer Begrüßungsnachricht an Benutzer
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
 Das Hauptziel bei der Erstellung eines Bots besteht darin, mit dem Benutzer eine aussagekräftige Konversation zu führen. Dieses Ziel erreichen Sie am besten, indem Sie Folgendes sicherstellen: Gleich nach dem ersten Anmelden müssen Benutzer den Hauptzweck und die Funktionen des Bots erkennen können und sich darüber im Klaren sein, aus welchem Grund der Bot erstellt wurde. Dieser Artikel enthält Codebeispiele für die Begrüßung von Benutzern in Ihrem Bot.
+
+## <a name="prerequisites"></a>Voraussetzungen
+- Sie müssen mit den [Bot-Grundlagen](bot-builder-basics.md) vertraut sein. 
+- Eine Kopie des **Beispiels zur Benutzerbegrüßung** im [C#](https://aka.ms/proactive-sample-cs)- oder [JS](https://aka.ms/proactive-sample-js)-Format. Der Code aus dem Beispiel wird verwendet, um zu beschreiben, wie Sie Begrüßungsnachrichten senden.
 
 ## <a name="same-welcome-for-different-channels"></a>Gleiche Begrüßung für unterschiedliche Kanäle
 Es sollte immer eine Begrüßungsnachricht generiert werden, wenn Ihre Benutzer zum ersten Mal mit Ihrem Bot interagieren. Hierzu können Sie die Aktivitätstypen Ihres Bots überwachen und auf neue Verbindungen warten. Für jede neue Verbindung können je nach Kanal bis zu zwei Aktivitäten zum Aktualisieren der Konversation generiert werden.
@@ -39,25 +43,13 @@ Diese doppelte Nachricht kann vermieden werden, indem nur für das zweite Ereign
 - Ein Ereignis zur Konversationsaktualisierung ist eingetreten.
 - Der Konversation wurde ein neues Mitglied (Benutzer) hinzugefügt.
 
-Im folgenden Beispiel wird nach einer neuen *Aktivität zum Aktualisieren der Konversation* gesucht, eine einzelne Begrüßungsnachricht gesendet (basierend auf dem Beitritt des Benutzers zur Konversation) und ein Statusflag für die Eingabeaufforderung festgelegt, um die erste Konversationseingabe des Benutzers zu ignorieren. Sie können den vollständigen Quellcode in [[C#](https://aka.ms/bot-welcome-sample-cs) oder [JS](https://aka.ms/bot-welcome-sample-js)] von GitHub herunterladen.
+Im folgenden Beispiel wird nach einer neuen *Aktivität zum Aktualisieren der Konversation* gesucht, eine einzelne Begrüßungsnachricht gesendet (basierend auf dem Beitritt des Benutzers zur Konversation) und ein Statusflag für die Eingabeaufforderung festgelegt, um die erste Konversationseingabe des Benutzers zu ignorieren. 
 
 [!INCLUDE [alert-await-send-activity](../includes/alert-await-send-activity.md)]
 
 ## <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-Dieser Satz mit Bibliotheken wird verwendet, um alle folgenden C#-Codebeispiele zu unterstützen.
-
-```csharp
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.Bot.Builder;
-using Microsoft.Bot.Builder.Dialogs;
-using Microsoft.Bot.Schema;
-```
-
-Wir müssen jetzt ein Zustandsobjekt für einen bestimmten Benutzer einer Konversation und den zugehörigen Accessor erstellen.
+Wir müssen ein Zustandsobjekt für einen bestimmten Benutzer einer Konversation und den zugehörigen Accessor erstellen.
 
 ```csharp
 /// The state object is used to keep track of various state related to a user in a conversation.
@@ -428,6 +420,8 @@ switch (text)
 }
 ```
 ---
+## <a name="test-the-bot"></a>Testen des Bots
+Eine Anleitung zum Ausführen und Testen des Bots finden Sie in der [INFODATEI](https://github.com/Microsoft/BotBuilder-Samples/blob/master/samples/csharp_dotnetcore/03.welcome-user/readme.md). 
 
 ## <a name="next-steps"></a>Nächste Schritte
 > [!div class="nextstepaction"]
