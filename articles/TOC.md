@@ -10,7 +10,7 @@
 ## [Verwenden von mehreren LUIS- und QnA-Modellen](v4sdk/bot-builder-tutorial-dispatch.md)
 ## [Hinzufügen von Authentifizierung zum Bot](bot-builder-tutorial-authentication.md)
 # Beispiele
-## [Beispielrepository auf GitHub](https://github.com/Microsoft/BotBuilder-Samples/blob/master/readme.md)
+## [Beispielrepository auf GitHub](https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md)
 # Konzepte
 ## [Funktionsweise von Bots](v4sdk/bot-builder-basics.md)
 ## [Verwalten des Zustands](v4sdk/bot-builder-concept-state.md)
