@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/22/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 52a2867f4d62be4969ed77d8d83e1e752edd7f92
-ms.sourcegitcommit: 6cb37f43947273a58b2b7624579852b72b0e13ea
+ms.openlocfilehash: 964d4a0344df595630f5b38fa32b3cc3a526ed5c
+ms.sourcegitcommit: bbfb171f515c50a3c8bba5ca898daf25cf764378
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52288839"
+ms.lasthandoff: 11/23/2018
+ms.locfileid: "52293592"
 ---
 # <a name="dialogs-library"></a>Dialogbibliothek
 
@@ -62,6 +62,25 @@ Ein Wasserfalldialog besteht aus einer Sequenz von Wasserfallschritten. Jeder Sc
 Sie können einen Rückgabewert aus einem Dialog entweder innerhalb eines Wasserfallschritts oder im on-turn-Handler Ihres Bots verarbeiten.
 In einem Wasserfallschritt stellt der Dialog den Rückgabewert in der _result_-Eigenschaft des Wasserfall-Schrittkontexts bereit.
 In der Regel müssen Sie nur den Status des Dialogdurchlauf-Ergebnisses aus der Durchlauflogik Ihres Bots überprüfen.
+
+## <a name="about-prompt-types"></a>Informationen zu Eingabeaufforderungstypen
+
+Im Hintergrund sind Eingabeaufforderungen ein aus zwei Schritten bestehender Dialog. Im ersten Schritt fordert die Eingabeaufforderungen den Benutzer zur Eingabe auf. Im zweiten Schritt wird der gültige Wert zurückgegeben oder der Vorgang mit einer erneuten Eingabeaufforderung neu gestartet. Die Dialogebibliothek enthält viele einfache Eingabeaufforderungen, die jeweils zum Anfordern einer anderen Art von Antwort verwendet werden. Die einfachen Eingabeaufforderungen können Eingaben in natürlicher Sprache interpretieren (z. B. „zehn“ oder „ein Dutzend“ für eine Zahl oder „morgen“ oder „Freitag um 10 Uhr“ für eine Datums- und Zeitangabe).
+
+| Prompt | BESCHREIBUNG | Rückgabe |
+|:----|:----|:----|
+| _Anlageneingabeaufforderung_ | Fordert den Benutzer auf, eine oder mehrere Anlagen anzufügen (beispielsweise ein Dokument oder Bild). | Eine Sammlung von _attachment_-Objekten. |
+| _Auswahleingabeaufforderung_ | Fordert den Benutzer auf, eine Auswahl in einer Reihe von Optionen zu treffen. | Ein _found choice_-Objekt. |
+| _Bestätigungseingabeaufforderung_ | Fordert den Benutzer zur Bestätigung auf. | Ein boolescher Wert. |
+| _Datums-/Uhrzeiteingabeaufforderung_ | Fordert den Benutzer auf, ein Datum und eine Uhrzeit anzugeben. | Eine Sammlung von Objekten für die _Datums-/Uhrzeitauflösung_. |
+| _Zahleneingabeaufforderung_ | Fordert den Benutzer auf, eine Zahl einzugeben. | Ein numerischer Wert. |
+| _Texteingabeaufforderung_ | Fordert den Benutzer auf, einen allgemeinen Text einzugeben. | Eine Zeichenfolge. |
+
+Um einen Benutzer zur Eingabe aufzufordern, definieren Sie eine Eingabeaufforderung mit einer der integrierten Klassen (beispielsweise _text prompt_), und fügen Sie diese dann Ihrem Dialogsatz hinzu. Eingabeaufforderungen verfügen über feste IDs, die innerhalb eines Dialogsatzes eindeutig sein müssen. Sie können ein benutzerdefiniertes Validierungssteuerelement für jede Eingabeaufforderung verwenden, und für einige Eingabeaufforderungen können Sie ein _Standardgebietsschema_ angeben. 
+
+### <a name="prompt-locale"></a>Gebietsschema der Eingabeaufforderung
+
+Das Gebietsschema wird verwendet, um das sprachspezifische Verhalten der Eingabeaufforderungen **choice**, **confirm**, **date-time** und **number** zu bestimmen. Wenn für den Kanal eine _locale_-Eigenschaft angegeben wurde, wird für alle Eingaben des Benutzers dieser Wert verwendet. Wenn das _Standardgebietsschema_ der Eingabeaufforderung beim Aufrufen des Konstruktors der Eingabeaufforderung angegeben oder zu einem späteren Zeitpunkt festgelegt wird, wird andernfalls dieses Gebietsschema verwendet. Falls keine dieser Angaben vorhanden ist, wird Englisch („en-us“) als Gebietsschema genutzt. Hinweis: Das Gebietsschema ist ein zwei-, drei- oder vierstelliger ISO 639-Code, der eine Sprache oder eine Sprachfamilie darstellt.
 
 ## <a name="dialog-state"></a>Dialogzustand
 
