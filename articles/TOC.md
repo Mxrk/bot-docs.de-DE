@@ -43,7 +43,7 @@
 ### Verwalten von Konversationen mithilfe der Dialogbibliothek 
 #### [Implementieren eines sequenziellen Konversationsablaufs](v4sdk/bot-builder-dialog-manage-conversation-flow.md)
 #### [Sammeln von Benutzereingaben mithilfe einer Dialogaufforderung](v4sdk/bot-builder-prompts.md)
-#### [Erstellen eines erweiterten Konversationsablaufs mithilfe von Branches und Schleifen](v4sdk/bot-builder-dialog-manage-complex-conversation-flow.md)
+#### [Erstellen eines erweiterten Konversationsflusses mithilfe von Verzweigungen und Schleifen](v4sdk/bot-builder-dialog-manage-complex-conversation-flow.md)
 #### [Behandeln von Benutzerunterbrechungen](v4sdk/bot-builder-howto-handle-user-interrupt.md)
 #### [Speichern von Benutzerdaten](v4sdk/bot-builder-tutorial-persist-user-inputs.md)
 #### [Wiederverwenden von Dialogen](v4sdk/bot-builder-compositcontrol.md)
