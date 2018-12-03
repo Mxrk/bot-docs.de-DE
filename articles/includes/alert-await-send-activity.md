@@ -1,0 +1,2 @@
+> [!IMPORTANT]
+> Der Thread, der den primären Botdurchlauf verarbeitet, löscht am Ende das Kontextobjekt. **Stellen Sie sicher, dass Sie auf alle Aktivitätsaufrufe`await`**, sodass der primäre Thread auf die generierte Aktivität wartet, bevor er die Verarbeitung beendet und den Durchlaufkontext löscht. Wenn eine Antwort (einschließlich der Handler) sehr lange dauert und versucht wird, Vorgänge für das Kontextobjekt durchzuführen, tritt ggf. ein Fehler der Art _Context was disposed_ (Kontext wurde verworfen) auf.

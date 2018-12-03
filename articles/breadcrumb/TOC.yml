@@ -1,0 +1,24 @@
+items:
+- name: Docs
+  href: /
+  homepage: /
+  items:
+  - name: Botdienst
+    tocHref: /Bot-Framework/
+    topicHref: /Bot-Framework/index
+    items:
+    - name: Bot Builder SDK für .NET
+      tocHref: /Bot-Framework/dotnet
+      topicHref: /Bot-Framework/dotnet/
+    - name: Bot Builder SDK für Node.js
+      tocHref: /Bot-Framework/nodejs
+      topicHref: /Bot-Framework/nodejs/
+    - name: Bot Framework-REST-API
+      tocHref: /Bot-Framework/rest-api
+      topicHref: /Bot-Framework/rest-api/
+ms.openlocfilehash: c5662b5fb0d28616f12fd969c49ad296d8f429e8
+ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39111743"

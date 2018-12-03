@@ -1,0 +1,1 @@
+Wenn Ihr Bot einen Rückruf empfängt, sollte dieser überprüfen, ob die im Rückruf angegebene Information gültig ist und den Rückruf bestätigen, indem eine HTTP-Antwort gesendet wird. 

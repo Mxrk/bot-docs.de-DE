@@ -1,0 +1,4 @@
+Die Funktionalität **Middleware** im Bot Builder SDK ermöglicht Ihrem Bot, alle Nachrichten abzufangen, die zwischen Benutzer und Bot ausgetauscht werden. Für jede abgefangene Nachricht können Sie beispielsweise die Nachricht in einem von Ihnen angegebenen Datenspeicher speichern, der ein Unterhaltungsprotokoll erstellt, oder die Nachricht überprüfen und eine durch Ihren Code festgelegte Aktion ausführen. 
+
+> [!NOTE]
+> Bot Framework speichert Unterhaltungsdetails nicht automatisch, um das Sammeln privater Informationen zu verhindern, die Bots und Benutzer nicht an Dritte weitergeben möchten. Wenn Ihr Bot Unterhaltungsinformationen speichert, sollte er den Benutzer darüber informieren und erläutern, was mit den Daten geschieht.

@@ -1,0 +1,22 @@
+# Unternehmensvorlage
+## [Einführung](../v4sdk/bot-builder-enterprise-template-overview.md)
+## [Übersicht](../v4sdk/bot-builder-enterprise-template-overview-detail.md)
+## [Erstellen eines Projekts](../v4sdk/bot-builder-enterprise-template-create-project.md)
+## [Anpassen der Vorlage](../v4sdk/bot-builder-enterprise-template-customize.md)
+## [Bereitstellen der Vorlage](../v4sdk/bot-builder-enterprise-template-deployment.md)
+## [Analyse](../v4sdk/bot-builder-enterprise-template-powerbi.md)
+# Virtueller Assistent 
+## [Übersicht](../v4sdk/bot-builder-virtual-assistant-introduction.md)
+# [Häufig gestellte Fragen](../bot-service-resources-bot-framework-faq.md)
+# [Erhalten von Support](../bot-service-resources-links-help.md)
+# [Anleitung zu Bezeichnern](../bot-service-resources-identifiers-guide.md)
+# [App Insights-Schlüssel](../bot-service-resources-app-insights-keys.md)
+# [Benutzer-Agent-Anforderungen](../bot-service-resources-user-agent.md)
+# [Richtlinien für die Bot-Überprüfung](../bot-service-review-guidelines.md)
+# [Bot Framework-Aktivitätsschema](https://aka.ms/botSpecs-activitySchema)
+# [Bot Framework-Kartenschema](https://aka.ms/botSpecs-cardSchema)
+# [Bot Framework-Transskriptschema](https://aka.ms/botSpecs-transcripts)
+# [Bot Service-Kompatibilität](../v4sdk/bot-service-compliance.md)
+# Problembehandlung
+## [Behandeln allgemeiner Probleme](../bot-service-troubleshoot-general-problems.md)
+## [Behandeln von Authentifizierungsproblemen](../bot-service-troubleshoot-authentication-problems.md)

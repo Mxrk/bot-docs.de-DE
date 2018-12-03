@@ -1,0 +1,11 @@
+# [Prinzipien des Bot-Entwurfs](../bot-service-design-principles.md)
+# [Erste Interaktion](../bot-service-design-first-interaction.md)
+# [Entwerfen und Steuern des Unterhaltungsflusses](../bot-service-design-conversation-flow.md)
+# [Entwerfen der Bot-Navigation](../bot-service-design-navigation.md)
+# [Entwerfen der Benutzeroberfläche](../bot-service-design-user-experience.md)
+# Muster
+## [Aufgabenautomatisierung](../bot-service-design-pattern-task-automation.md)
+## [Wissensdatenbank](../bot-service-design-pattern-knowledge-base.md)
+## [Übergabe an Mensch](../bot-service-design-pattern-handoff-human.md)
+## [Bots in Apps](../bot-service-design-pattern-embed-app.md)
+## [Bots auf Websites](../bot-service-design-pattern-embed-web-site.md)

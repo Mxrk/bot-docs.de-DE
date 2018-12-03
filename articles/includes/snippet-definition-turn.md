@@ -1,0 +1,1 @@
+Das Empfangen einer Aktivität und ihre Verarbeitung durch den Bot wird als **Durchlauf** bezeichnet. Ein Durchlauf stellt einen kompletten Zyklus des Bots dar. Ein Durchlauf endet, wenn alle Ausführungen und Botebenen abgeschlossen sind und die Aktivität vollständig verarbeitet wurde.
