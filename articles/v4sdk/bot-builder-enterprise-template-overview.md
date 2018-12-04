@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.date: 09/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: f5aacc693fb2e8987d6b59db67d0272423a4cf44
-ms.sourcegitcommit: 8b7bdbcbb01054f6aeb80d4a65b29177b30e1c20
+ms.openlocfilehash: 43bc3c7606a12084690d71f8b6ea2dc3b2e5984d
+ms.sourcegitcommit: 6c719b51c9e4e84f5642100a33fe346b21360e8a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51645553"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52451992"
 ---
 # <a name="enterprise-bot-template"></a>Vorlage für den Bot für Unternehmen 
 
@@ -29,15 +29,15 @@ Feature | BESCHREIBUNG |
 Einführungsnachricht | Einführungsnachricht mit einer adaptiven Karte für den Konversationsbeginn. Die Nachricht informiert über die Funktionen des Bots und bietet Schaltflächen für erste Fragen. Entwickler können nach Bedarf Anpassungen vornehmen.
 Automatisierte Eingabeindikatoren  | Senden Sie visuelle Eingabeindikatoren während Konversationen, und wiederholen Sie dies bei Vorgängen mit langer Ausführungsdauer.
 Auf BOT-Datei basierende Konfiguration | Alle Konfigurationsinformationen für Ihren Bot (LUIS, Dispatcher-Endpunkte, Application Insights und Ähnliches) befinden sich in der BOT-Datei und werden beim Start Ihres Bots herangezogen.
-Grundlegende Konversationsabsichten  | Grundabsichten (Begrüßung, Verabschiedung, Hilfe, Abbruch usw.) in englischer, französischer, italienischer, deutscher und spanischer Sprache. Diese werden in Sprachverständnisdateien (LU-Dateien) bereitgestellt und lassen sich problemlos anpassen.
+Grundlegende Konversationsabsichten  | Grundabsichten (Begrüßung, Verabschiedung, Hilfe, Abbruch usw.) in englischer, französischer, italienischer, deutscher, spanischer und chinesischer Sprache. Diese werden in Sprachverständnisdateien (LU-Dateien) bereitgestellt und lassen sich problemlos anpassen.
 Grundlegende Konversationsantworten  | Antworten auf grundlegende Konversationsabsichten, abstrahiert in separaten View-Klassen. Diese werden später in die neuen Sprachgenerationsdateien (LG-Dateien) verschoben.
 Erkennung ungeeigneter Inhalte oder personenbezogener Informationen (personally identifiable information, PII)  |Ermöglicht die Erkennung ungeeigneter Daten oder personenbezogener Informationen in eingehenden Konversationen durch die Verwendung von [Content Moderator](https://azure.microsoft.com/en-us/services/cognitive-services/content-moderator/) in einer Middlewarekomponente.
 Transkripte  | Transkripts sämtlicher Konversationen, die in Azure Storage gespeichert sind.
-Verteiler | Ein integriertes [Dispatchmodell](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=csaddref%2Ccsbotconfig) zur Erkennung, ob eine bestimmte Äußerung von LUIS und dem Code verarbeitet oder an QnAMaker übergeben werden soll.
-QnAMaker-Integration  | Integration von [QnAMaker](https://www.qnamaker.ai) zur Beantwortung allgemeiner Fragen auf der Grundlage einer Wissensdatenbank, die auf bereits vorhandene Datenquellen (beispielsweise PDF-Handbücher) zurückgreifen kann.
+Verteiler | Ein integriertes [Dispatchmodell](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=csaddref%2Ccsbotconfig) zur Erkennung, ob eine bestimmte Äußerung von LUIS und dem Code verarbeitet oder an QnA Maker übergeben werden soll.
+QnA Maker-Integration  | Integration von [QnA Maker](https://www.qnamaker.ai) zur Beantwortung allgemeiner Fragen auf der Grundlage einer Wissensdatenbank, die auf bereits vorhandene Datenquellen (beispielsweise PDF-Handbücher) zurückgreifen kann.
 Konversationserkenntnisse  | Integration von [Application Insights](https://azure.microsoft.com/en-gb/services/application-insights/) zur Erfassung von Telemetriedaten für alle Konversationen und ein exemplarisches Power BI-Dashboard, um Ihnen den Einstieg in die Gewinnung von Erkenntnissen über Ihre Konversationsumgebungen zu erleichtern.
 
-Darüber hinaus werden alle für den Bot erforderlichen Azure-Ressourcen automatisch bereitgestellt: Botregistrierung, Azure App Service, LUIS, QnAMaker, Content Moderator, Cosmos DB, Azure Storage und Application Insights. Außerdem werden grundlegende Modelle für LUIS, QnAMaker und Dispatcher erstellt, trainiert und veröffentlicht, um das sofortige Testen grundlegender Absichten und der Weiterleitung zu ermöglichen.
+Darüber hinaus werden alle für den Bot erforderlichen Azure-Ressourcen automatisch bereitgestellt: Botregistrierung, Azure App Service, LUIS, QnA Maker, Content Moderator, Cosmos DB, Azure Storage und Application Insights. Außerdem werden grundlegende Modelle für LUIS, QnA Maker und Dispatcher erstellt, trainiert und veröffentlicht, um das sofortige Testen grundlegender Absichten und der Weiterleitung zu ermöglichen.
 
 Nach Erstellung der Vorlage und Ausführung der Bereitstellungsschritte können Sie F5 drücken, um einen umfassenden Test durchzuführen. Dadurch erhalten Sie nicht nur eine solide Grundlage für die Erstellung Ihrer Konversationsumgebung, Sie sparen sich im Gegensatz zu früher auch mehrere Tage Arbeit und erreichen eine höhere Konversationsqualität.
 

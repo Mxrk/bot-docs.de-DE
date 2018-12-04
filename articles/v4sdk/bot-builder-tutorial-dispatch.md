@@ -1,67 +1,45 @@
 ---
-title: Verwenden von LUIS- und QnA-Diensten mit dem Dispatch-Tool | Microsoft-Dokumentation
+title: Verwenden von mehreren LUIS- und QnA-Modellen | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie LUIS und QnA Maker in Ihrem Bot verwenden können.
-keywords: luis, qna, dispatch-tool, mehrere dienste
+keywords: LUIS, QnA, Dispatch-Tool, mehrere Dienste, Weiterleiten von Absichten
 author: DeniseMak
 ms.author: v-demak
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 10/31/2018
+ms.date: 11/26/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 4d029dc7361ac8a7fadb61141faf60d8a62eab3c
-ms.sourcegitcommit: a496714fb72550a743d738702f4f79e254c69d06
+ms.openlocfilehash: 9b0ddf5cf8af61048ba78f10824c9573da82fc08
+ms.sourcegitcommit: a722f960cd0a8513d46062439eb04de3a0275346
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50736678"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52336270"
 ---
-# <a name="use-luis-and-qna-services-with-the-dispatch-tool"></a>Verwenden von LUIS- und QnA-Diensten mit dem Dispatch-Tool
+# <a name="use-multiple-luis-and-qna-models"></a>Verwenden von mehreren LUIS- und QnA-Modellen
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-<!--TODO: Add the JS sections back in and update them once the JS sample is working.-->
+In diesem Tutorial wird veranschaulicht, wie Sie den Dispatch-Dienst zum Weiterleiten von Äußerungen verwenden, wenn von einem Bot mehrere LUIS-Modelle und QnA Maker-Dienste für unterschiedliche Szenarien unterstützt werden. In diesem Fall konfigurieren wir den Dispatch-Vorgang mit mehreren LUIS-Modellen für Konversationen im Bereich Gebäudeautomatisierung und Wetterdaten und den QnA Maker-Dienst für die Beantwortung von Fragen basierend auf einer FAQ-Textdatei als Eingabe. In diesem Beispiel werden die folgenden Dienste kombiniert.
 
-In diesem Tutorial wird veranschaulicht, wie ein mit dem Dispatch-Tool generiertes LUIS-Modell verwendet wird, um Ihren Bot in mehrere LUIS-Apps (Language Understanding Intelligent Service) und QnA Maker-Dienste zu integrieren. In diesem Beispiel werden die folgenden Dienste kombiniert.
+| NAME | BESCHREIBUNG |
+|------|------|
+| HomeAutomation | Eine LUIS-App, die eine Absicht zur Gebäudeautomatisierung mit den zugeordneten Entitätsdaten erkennt.|
+| Weather | Eine LUIS-App, die die Absichten `Weather.GetForecast` und `Weather.GetCondition` mit Standortdaten erkennt.|
+| Häufig gestellte Fragen  | Eine QnA Maker-Wissensdatenbank, die Antworten auf einfache Fragen zum Bot liefert. |
 
-| Dienstart | NAME | BESCHREIBUNG |
-|------|------|------|
-| LUIS-App | HomeAutomation | Erkennt eine Absicht zur Gebäudeautomatisierung mit den zugeordneten Entitätsdaten.|
-| LUIS-App | Weather | Erkennt die Absichten von „Weather.GetForecast“ und „Weather.GetCondition“ mit Standortdaten.|
-| QnA Maker-Dienst | Häufig gestellte Fragen  | Stellt Antworten auf einige einfache Fragen zum Bot bereit. |
+## <a name="prerequisites"></a>Voraussetzungen
 
-Der Code für diesen Artikel stammt aus dem Beispiel **NLP with Dispatch** [[C#](https://aka.ms/dispatch-sample-cs)].
-
-<!-- | [JS](https://aka.ms/dispatch-sample-js)-->
-
-Eine Übersicht über die Sprachdienste finden Sie unter [Language Understanding](bot-builder-concept-luis.md). Eine Anleitung zur Implementierung im Bot finden Sie in den Gewusst wie-Artikeln für [LUIS](bot-builder-howto-v4-luis.md) und [QnA Maker](bot-builder-howto-qna.md).
-
-Sie können die Anleitung in der Infodatei des Beispiels befolgen, um den Bot einzurichten und zu testen, oder Sie können zu [Hinweise zum Code](#notes-about-the-code) springen.
+- Der Code in diesem Artikel basiert auf dem Beispiel **NLP mit Dispatch**. Sie benötigen eine Kopie des Beispiels im [C#](https://aka.ms/dispatch-sample-cs)- oder [JS](https://aka.ms/dispatch-sample-js)-Format.
+- Sie müssen mit den [Bot-Grundlagen](bot-builder-basics.md), der [Verarbeitung natürlicher Sprache](bot-builder-howto-v4-luis.md), [QnA Maker](bot-builder-howto-qna.md) und der [BOT](bot-file-basics.md)-Datei vertraut sein.
+- [Bot Framework Emulator](https://github.com/Microsoft/BotFramework-Emulator/blob/master/README.md#download) für die Durchführung von Tests.
 
 ## <a name="create-the-services-and-test-the-bot"></a>Erstellen der Dienste und Testen des Bots
 
-Befolgen Sie die Anleitung in der Infodatei für das Beispiel. Sie verwenden diese CLI-Tools zum Erstellen und Veröffentlichen dieser Dienste und zum Aktualisieren der zugehörigen Informationen in Ihrer Konfigurationsdatei (**.bot**).
+Befolgen Sie die Anleitung in der **INFODATEI** für [C#](https://github.com/Microsoft/BotBuilder-Samples/blob/master/samples/csharp_dotnetcore/14.nlp-with-dispatch/README.md) oder [JS](https://github.com/Microsoft/BotBuilder-Samples/blob/master/samples/javascript_nodejs/14.nlp-with-dispatch/README.md), um das Beispiel mit dem Emulator zu erstellen und auszuführen. 
 
-1. Führen Sie für das Beispielrepository das Klonen oder Pullen durch.
-1. Installieren Sie die Bot Builder CLI-Tools.
-1. Konfigurieren Sie die erforderlichen Dienste manuell.
-
-### <a name="test-your-bot"></a>Testen Ihres Bots
-
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
-
-Starten Sie Ihren Bot, indem Sie entweder Visual Studio oder Visual Studio Code verwenden.
-
-<!--
-# [JavaScript](#tab/javascript)
--->
-
----
-
-Stellen Sie über Bot Framework Emulator eine Verbindung mit Ihrem Bot her.
-
-Hier ist ein Teil der Eingabe dieser Dienste angegeben, den wir eingefügt haben:
+Zu Referenzzwecken sind hier einige Fragen und Befehle zu den verwendeten Diensten angegeben:
 
 * QnA Maker
   * `hi`, `good morning`
@@ -71,118 +49,9 @@ Hier ist ein Teil der Eingabe dieser Dienste angegeben, den wir eingefügt haben
   * `turn off bedroom light`
   * `make some coffee`
 * LUIS (Wetter)
-  * `whats the weather in chennai india`
-  * `what's the forecast for bangalore`
+  * `whats the weather in redmond washington`
+  * `what's the forecast for london`
   * `show me the forecast for nebraska`
-
-## <a name="notes-about-the-code"></a>Hinweise zum Code
-
-### <a name="packages"></a>Pakete
-
-In diesem Beispiel werden die folgenden Pakete verwendet:
-
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
-
-Die aktuellen v4-Versionen dieser [NuGet-Pakete](https://docs.microsoft.com/en-us/nuget/tools/package-manager-ui#updating-a-package).
-
-* `Microsoft.Bot.Builder`
-* `Microsoft.Bot.Builder.AI.Luis`
-* `Microsoft.Bot.Builder.AI.QnA`
-* `Microsoft.Bot.Builder.Integration.AspNet.Core`
-* `Microsoft.Bot.Configuration`
-
-<!--
-# [JavaScript](#tab/javascript)
-
-Download the [LUIS Dispatch sample][DispatchBotJs].  Install the required packages, including the `botbuilder-ai` package for LUIS and QnA Maker, using npm:
-
-* `npm install --save botbuilder`
-* `npm install --save botbuilder-ai`
--->
-
----
-
-### <a name="botbuilder-cli-tools"></a>Bot Builder CLI-Tools
-
-Im Beispiel werden diese [Bot Builder CLI-Tools](https://aka.ms/botbuilder-tools-readme) (über npm verfügbar) genutzt, um die Dienste LUIS, QnA Maker und Dispatch zu erstellen, zu trainieren und zu veröffentlichen. Außerdem werden Informationen zu diesen Diensten in der Konfigurationsdatei (**.bot**) Ihres Bots aufgezeichnet.
-
-* [Dispatch](https://aka.ms/botbuilder-tools-dispatch)
-* [LUDown](https://aka.ms/botbuilder-tools-ludown-readme)
-* [LUIS](https://aka.ms/botbuilder-tools-luis)
-* [MSBot](https://aka.ms/botbuilder-tools-msbot-readme)
-* [QnA Maker](https://aka.ms/botbuilder-tools-qnaMaker)
-
-> [!TIP]
-> Führen Sie den folgenden Befehl aus, um sicherzustellen, dass Sie die neueste Version von npm und dieser CLI-Tools verwenden.
->
-> ```shell
-> npm i -g npm dispatch ludown luis-apis msbot qnamaker
-> ```
-
-Nachdem Sie die Tools zum Einrichten der Dienste verwendet haben, sollte Ihre **BOT**-Datei für dieses Beispiel in etwa wie folgt aussehen. (Sie können `msbot secret -n` ausführen, um die vertraulichen Werte in dieser Datei zu verschlüsseln.)
-
-```json
-{
-    "name": "NLP-With-Dispatch-Bot",
-    "description": "",
-    "services": [
-        {
-            "type": "endpoint",
-            "name": "development",
-            "id": "http://localhost:3978/api/messages",
-            "appId": "",
-            "appPassword": "",
-            "endpoint": "http://localhost:3978/api/messages"
-        },
-        {
-            "type": "luis",
-            "name": "Home Automation",
-            "appId": "<your-home-automation-luis-app-id>",
-            "version": "0.1",
-            "authoringKey": "<your-luis-authoring-key>",
-            "subscriptionKey": "<your-cognitive-services-subscription-key>",
-            "region": "westus",
-            "id": "110"
-        },
-        {
-            "type": "luis",
-            "name": "Weather",
-            "appId": "<your-weather-luis-app-id>",
-            "version": "0.1",
-            "authoringKey": "<your-luis-authoring-key>",
-            "subscriptionKey": "<your-cognitive-services-subscription-key>",
-            "region": "westus",
-            "id": "92"
-        },
-        {
-            "type": "qna",
-            "name": "Sample QnA",
-            "kbId": "<your-qna-knowledge-base-id>",
-            "subscriptionKey": "<your-cognitive-services-subscription-key>",
-            "endpointKey": "<your-qna-endpoint-key>",
-            "hostname": "<your-qna-host-name>",
-            "id": "184"
-        },
-        {
-            "type": "dispatch",
-            "name": "NLP-With-Dispatch-BotDispatch",
-            "appId": "<your-dispatch-app-id>",
-            "authoringKey": "<your-luis-authoring-key>",
-            "subscriptionKey": "<your-cognitive-services-subscription-key>",
-            "version": "Dispatch",
-            "region": "westus",
-            "serviceIds": [
-                "110",
-                "92",
-                "184"
-            ],
-            "id": "27"
-        }
-    ],
-    "padlock": "",
-    "version": "2.0"
-}
-```
 
 ### <a name="connecting-to-the-services-from-your-bot"></a>Herstellen einer Verbindung mit den Diensten über Ihren Bot
 
@@ -196,24 +65,35 @@ In **Startup.cs** wird die Konfigurationsdatei mit `ConfigureServices` eingelese
 public void ConfigureServices(IServiceCollection services)
 {
     //...
-    var botConfig = BotConfiguration.Load(botFilePath ?? @".\BotConfiguration.bot", secretKey);
+    var botConfig = BotConfiguration.Load(botFilePath ?? @".\nlp-with-dispatch.bot", secretKey);
     services.AddSingleton(sp => botConfig
         ?? throw new InvalidOperationException($"The .bot config file could not be loaded. ({botConfig})"));
 
-    // Retrieve current endpoint.
-    var environment = _isProduction ? "production" : "development";
-    var service = botConfig.Services.Where(s => s.Type == "endpoint" && s.Name == environment).FirstOrDefault();
-    if (!(service is EndpointService endpointService))
-    {
-        throw new InvalidOperationException($"The .bot file does not contain an endpoint with name '{environment}'.");
-    }
-
+    // ...
+    
     var connectedServices = InitBotServices(botConfig);
-
     services.AddSingleton(sp => connectedServices);
-    //...
+    
+    services.AddBot<NlpDispatchBot>(options =>
+    {
+          
+          // The Memory Storage used here is for local bot debugging only. 
+          // When the bot is restarted, everything stored in memory will be gone.
+
+          Storage dataStore = new MemoryStorage();
+
+          // ...
+
+          // Create Conversation State object.
+          // The Conversation State object is where we persist anything at the conversation-scope.
+
+          var conversationState = new ConversationState(dataStore);
+          options.State.Add(conversationState);
+     });
 }
+
 ```
+Mit dem folgenden Code werden die Verweise des Bots auf externe Dienste initialisiert. Beispielsweise werden hier LUIS- und QnA Maker-Dienste erstellt. Diese externen Dienste werden mit der `BotConfiguration`-Klasse konfiguriert (basierend auf dem Inhalt Ihrer BOT-Datei).
 
 ```csharp
 private static BotServices InitBotServices(BotConfiguration config)
@@ -326,9 +206,7 @@ else
 Wenn das Modell ein Ergebnis produziert, wird angegeben, welcher Dienst die Äußerung am besten verarbeiten kann. Der Code in diesem Bot leitet die Anforderung an den entsprechenden Dienst weiter und fasst anschließend die Antwort des aufgerufenen Diensts zusammen.
 
 ```csharp
-/// <summary>
-/// Depending on the intent from Dispatch, routes to the right LUIS model or QnA service.
-/// </summary>
+// Depending on the intent from Dispatch, routes to the right LUIS model or QnA service.
 private async Task DispatchToTopIntentAsync(
     ITurnContext context,
     (string intent, double score)? topIntent,
@@ -367,9 +245,7 @@ private async Task DispatchToTopIntentAsync(
     }
 }
 
-/// <summary>
-/// Dispatches the turn to the request QnAMaker app.
-/// </summary>
+// Dispatches the turn to the request QnAMaker app.
 private async Task DispatchToQnAMakerAsync(
     ITurnContext context,
     string appName,
@@ -389,9 +265,8 @@ private async Task DispatchToQnAMakerAsync(
     }
 }
 
-/// <summary>
-/// Dispatches the turn to the requested LUIS model.
-/// </summary>
+
+// Dispatches the turn to the requested LUIS model.
 private async Task DispatchToLuisModelAsync(
     ITurnContext context,
     string appName,
@@ -426,10 +301,7 @@ Manchmal gibt es Benutzernachrichten, die als Beispiele in den LUIS-Apps und den
 dispatch eval
 ```
 
-Durch das Ausführen von `dispatch eval` wird die Datei **Summary.html** generiert, die Statistiken zur vorhergesagten Leistung des Sprachmodells bereitstellt.
-
-> [!TIP]
-> Sie können `dispatch eval` auf allen LUIS-Apps ausführen, nicht nur auf LUIS-Apps, die mit dem Dispatch-Tool erstellt wurden.
+Durch das Ausführen von `dispatch eval` wird die Datei **Summary.html** generiert, die Statistiken zur vorhergesagten Leistung des Sprachmodells bereitstellt. Sie können `dispatch eval` auf allen LUIS-Apps ausführen, nicht nur auf LUIS-Apps, die mit dem Dispatch-Tool erstellt wurden.
 
 ### <a name="edit-intents-for-duplicates-and-overlaps"></a>Bearbeiten von Absichten für Duplikate und Überlappungen
 
@@ -438,42 +310,23 @@ Durch das Ausführen von `dispatch eval` wird die Datei **Summary.html** generie
 * Entfernen Sie die Absicht „None“ aus der ursprünglichen LUIS-App `Home Automation`, und fügen Sie die Äußerungen in dieser Absicht der Absicht „None“ in der Dispatcher-App hinzu.
 * Wenn Sie die Absicht „None“ nicht aus der ursprünglichen LUIS-App entfernen, müssen Sie Ihrem Bot Logik hinzufügen, um die Nachrichten, die mit der Absicht übereinstimmen, an den QnA Maker-Dienst zu übergeben.
 
-> [!TIP]
-> Tipps zur Verbesserung der Leistung Ihres Sprachmodells finden Sie unter [Best practices for Language Understanding (Bewährte Methoden für Language Understanding)](./bot-builder-concept-luis.md#best-practices-for-language-understanding).
 
-## <a name="to-clean-up-resources-from-this-sample"></a>So bereinigen Sie Ressourcen für dieses Beispiel
+## <a name="additional-resources"></a>Zusätzliche Ressourcen 
 
-In diesem Beispiel werden einige Anwendungen und Ressourcen erstellt. Sie können diese Anleitung befolgen, um sie zu löschen.
+**Löschen von Ressourcen:** In diesem Beispiel werden einige Anwendungen und Ressourcen erstellt, die Sie mit den unten angegebenen Schritten löschen können. Sie sollten aber keine Ressourcen löschen, die von *anderen Apps oder Diensten* benötigt werden. 
 
-### <a name="luis-resources"></a>LUIS-Ressourcen
-
+_LUIS-Ressourcen_
 1. Melden Sie sich am [luis.ai](https://www.luis.ai)-Portal an.
-1. Navigieren Sie zur Seite **Meine Apps**.
+1. Navigieren Sie zur Seite _Meine Apps_.
 1. Wählen Sie die Apps aus, die von diesem Beispiel erstellt wurden.
    * `Home Automation`
    * `Weather`
    * `NLP-With-Dispatch-BotDispatch`
-1. Klicken Sie auf **Löschen** und dann auf **OK**, um den Vorgang zu bestätigen.
+1. Klicken Sie auf _Löschen_ und dann auf _OK_, um den Vorgang zu bestätigen.
 
-### <a name="qna-maker-resources"></a>QnA Maker-Ressourcen
-
+_QnA Maker-Ressourcen_
 1. Melden Sie sich am Portal [qnamaker.ai](https://www.qnamaker.ai/) an.
-1. Navigieren Sie zur Seite **Meine Wissensdatenbanken**.
-1. Klicken Sie für die Wissensdatenbank `Sample QnA` auf die Schaltfläche „Löschen“ und dann auf **Löschen**, um den Vorgang zu bestätigen.
+1. Navigieren Sie zur Seite _Meine Wissensdatenbanken_.
+1. Klicken Sie für die Wissensdatenbank `Sample QnA` auf die Schaltfläche „Löschen“ und dann auf _Löschen_, um den Vorgang zu bestätigen.
 
-### <a name="azure-resources"></a>Azure-Ressourcen
-
-> [!WARNING]
-> Löschen Sie hierbei keine Ressourcen, die von anderen Apps oder Diensten genutzt werden.
-
-1. Melden Sie sich beim [Azure-Portal](https://portal.azure.com/) an.
-1. Navigieren Sie zur Seite **Übersicht** für die Cognitive Services-Ressource, die Sie für das Beispiel erstellt haben.
-1. Klicken Sie auf **Löschen** und dann auf **Ja**, um den Vorgang zu bestätigen.
-
-## <a name="additional-resources"></a>Zusätzliche Ressourcen
-
-* [Sprachverständnis](bot-builder-concept-luis.md)
-* [Entwerfen von Wissens-Bots](../bot-service-design-pattern-knowledge-base.md)
-* [Konfigurieren der Sprachvorbereitung](../bot-service-manage-speech-priming.md)
-* [Verwenden von LUIS für Language Understanding](bot-builder-howto-v4-luis.md)
-* [Verwenden von QnA Maker zum Beantworten von Fragen](bot-builder-howto-qna.md)
+**Bewährte Methode:** Halten Sie sich an die bewährte Methode für [LUIS](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-concept-best-practices) und [QnA Maker](https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/concepts/best-practices), um die in diesem Beispiel genutzten Dienste zu verbessern.

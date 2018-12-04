@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservices: sdk
 ms.date: 10/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: a7a8b7088e65d015f22438ee2050f97823b72e49
-ms.sourcegitcommit: 49a76dd34d4c93c683cce6c2b8b156ce3f53280e
+ms.openlocfilehash: 2c493a27d7829e7c7be21b6ce70cb6f046dad616
+ms.sourcegitcommit: 6c719b51c9e4e84f5642100a33fe346b21360e8a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50134782"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52452092"
 ---
 # <a name="debug-your-bot-using-transcript-files"></a>Debuggen Ihres Bots mit Transkriptdateien
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
@@ -50,7 +50,7 @@ Wählen Sie zum Abrufen einer Bot-Transkriptdatei mit dem Bot Framework Emulator
 ![Abrufen des gespeicherten Transkripts](./media/emulator_transcript_retrieve.png)
 
 ## <a name="debug-using-transcript-file"></a>Debuggen mit der Transkriptdatei
-Nachdem die Transkriptdatei geladen wurde, können Sie nun Interaktionen debuggen, die Sie zwischen einem Benutzer und Ihrem Bot erfasst haben. Klicken Sie hierzu einfach auf ein aufgezeichnetes Ereignis oder eine Aktivität, das bzw. die unten rechts im Emulator im Abschnitt _LOG_ (PROTOKOLL) angezeigt wird. Im Beispiel unten haben wir erste Interaktion des Benutzers ausgewählt, also das Senden der Nachricht „Hello“. Hierbei werden alle Informationen in Ihrer Transkriptdatei, die diese spezifische Interaktion betreffen, im JSON-Format im Fenster _INSPECTOR_ (INSPEKTOR) des Emulators angezeigt. Wenn wir uns einige dieser Werte von unten nach oben ansehen, erhalten wir folgende Informationen:
+Nachdem die Transkriptdatei geladen wurde, können Sie nun Interaktionen debuggen, die Sie zwischen einem Benutzer und Ihrem Bot erfasst haben. Klicken Sie hierzu einfach auf ein aufgezeichnetes Ereignis oder eine Aktivität, das bzw. die unten rechts im Emulator im Abschnitt _LOG_ (PROTOKOLL) angezeigt wird. Im Beispiel unten haben wir die erste Interaktion des Benutzers ausgewählt, also das Senden der Nachricht „Hello“. Hierbei werden alle Informationen in Ihrer Transkriptdatei, die diese spezifische Interaktion betreffen, im JSON-Format im Fenster _INSPECTOR_ (INSPEKTOR) des Emulators angezeigt. Wenn wir uns einige dieser Werte von unten nach oben ansehen, erhalten wir folgende Informationen:
 * Der Interaktionstyp lautet _message_.
 * Der Zeitpunkt, zu dem die Nachricht gesendet wurde.
 * Der gesendete Text enthält das Wort „Hello“.

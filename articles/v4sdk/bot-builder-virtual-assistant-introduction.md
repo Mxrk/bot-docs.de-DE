@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.date: 13/12/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: e93f7d24396b4e35fc81960d42148dd8942362d7
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 3a3074ff9e8de36d7a7cf7b86fef62979bc53fa8
+ms.sourcegitcommit: 958a28bbab7dd29b384bb2e2d58d866e88f53316
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998960"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52500652"
 ---
 # <a name="virtual-assistant-solution-overview"></a>Lösung für virtuelle Assistenten – Übersicht
 
@@ -24,7 +24,7 @@ Wir sind davon überzeugt, dass unsere Kunden ihre Kundenbeziehungen und -erkenn
 
 Der Funktionsumfang des virtuellen Assistenten ist breit gefächert und bietet Endbenutzern eine große Auswahl an Funktionen. Um die Produktivität von Entwicklern zu steigern und ein aktives Ökosystem aus wiederverwendbaren Konversationserfahrungen zu schaffen, stellen wir Entwicklern Beispiele für Konversationsfähigkeiten zur Verfügung, die wiederverwendet werden können. Diese Fähigkeiten können in eine Konversationsanwendung integriert werden, um bestimmte Konversationserfahrungen zu verbessern, z.B. das Suchen nach einem Point of Interest, das Interagieren mit Kalendern, Aufgaben, E-Mails usw. Die Fähigkeiten sind vollständig anpassbar und umfassen Sprachmodelle für mehrere Sprachen, Dialoge und Code.
 
-Derzeit wird eine erste Vorschauversion ausgeführt. Wir arbeiten eng mit langjährigen Kunden und Partnern in einem Open-Source-Repository zusammen, um die ersten Benutzeroberflächen in den kommenden Monaten zum Leben zu erwecken und für ein breiteres Publikum verfügbar zu machen.
+Wir arbeiten derzeit eng mit den ersten Kunden und Partnern in einem Open-Source-Repository zusammen, um die ersten Benutzeroberflächen zum Leben zu erwecken.
 
 ![Virtueller Assistent – Diagramm](./media/enterprise-template/customassistantdiagram.jpg)
 
@@ -97,5 +97,5 @@ Alle Aspekte der einzelnen Fähigkeiten (Sprachmodell, Dialoge, Integrationscode
 
 ## <a name="getting-started"></a>Erste Schritte
 
-Derzeit wird eine erste Vorschauversion ausgeführt. Wir arbeiten eng mit langjährigen Kunden und Partnern in einem Open-Source-Repository zusammen, um die ersten Benutzeroberflächen in den kommenden Monaten zum Leben zu erwecken und für ein breiteres Publikum verfügbar zu machen. Wenn Sie Ihr Interesse bekunden und einsteigen möchten, können Sie [dieses Formular](https://aka.ms/customassistantpreviewform) ausfüllen. Wir nehmen dann Kontakt mit Ihnen auf.
+Die Lösung „Virtueller Assistent“ ist in [diesem GitHub-Repository](https://github.com/Microsoft/AI/tree/master/solutions/Virtual-Assistant) verfügbar, das vom dazugehörigen Team regelmäßig aktualisiert wird. Eine ausführlichere Dokumentation finden Sie in demselben Repository, und Sie können Problembeschreibungen und Feedback direkt über die Feedbackmechanismen von GitHub bereitstellen. Falls Sie ein wichtiges Szenario beschreiben möchten, können Sie [dieses Formular](https://aka.ms/customassistantpreviewform) ausfüllen. Wir nehmen dann Kontakt mit Ihnen auf.
 

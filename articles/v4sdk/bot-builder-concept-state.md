@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/15/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 366a985e839c8a79fcd8794c139e2e8130a05335
-ms.sourcegitcommit: 6cb37f43947273a58b2b7624579852b72b0e13ea
+ms.openlocfilehash: 940dba389205ff339b80f741b8a8aec87ff54f1d
+ms.sourcegitcommit: bcde20bd4ab830d749cb835c2edb35659324d926
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52288872"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52338563"
 ---
 # <a name="managing-state"></a>Verwalten des Zustands
 
@@ -33,7 +33,13 @@ Es gibt verschiedene Ebenen für die Nutzung des Zustands. Da dies für Bots rel
 
 Auf dem Back-End, auf dem die Zustandsinformationen gespeichert werden, befindet sich die *Speicherebene*. Wir können uns dies wie unseren physischen Speicher vorstellen, z.B. „In-Memory“, Azure oder Drittanbieterserver.
 
-Über das Bot Framework SDK werden Implementierungen der Speicherebene bereitgestellt, z.B. In-Memory-Speicher für das lokale Testen und Azure Storage oder CosmosDB zum Testen und Bereitstellen in der Cloud.
+Das Bot Framework SDK enthält einige Implementierungen für die Speicherebene:
+
+- Bei **Arbeitsspeicher** wird zu Testzwecken In-Memory-Speicher implementiert. In-Memory-Datenspeicher ist nur für lokale Tests bestimmt, da er flüchtig und temporär ist. Die Daten werden jedes Mal gelöscht, wenn der Bot neu gestartet wird.
+- Bei **Azure Blob Storage** wird eine Verbindung mit einer Azure Blob Storage-Objektdatenbank hergestellt.
+- Bei **Azure Cosmos DB-Speicher** wird eine Verbindung mit einer Cosmos DB-NoSQL-Datenbank hergestellt.
+
+Eine Anleitung zum Herstellen einer Verbindung für andere Speicheroptionen finden Sie unter [Direktes Schreiben in den Speicher](bot-builder-howto-v4-storage.md).
 
 ## <a name="state-management"></a>Zustandsverwaltung
 
@@ -45,7 +51,7 @@ Diese Zustandseigenschaften werden in bereichsbezogenen „Buckets“ zusammenge
 - Konversationszustand
 - Zustand der privaten Konversation
 
-Alle diese Buckets sind Unterklassen der *Bot State*-Klasse, von der Ableitungen erstellt werden können, um andere Arten von Buckets zu definieren.
+Alle diese Buckets sind Unterklassen der *Bot State*-Klasse, von der Ableitungen erstellt werden können, um andere Arten von Buckets mit anderen Bereichen zu definieren.
 
 Diese vordefinierten Buckets beziehen sich jeweils auf eine bestimmte Sichtbarkeit:
 
@@ -53,13 +59,40 @@ Diese vordefinierten Buckets beziehen sich jeweils auf eine bestimmte Sichtbarke
 - Der Konversationszustand ist für jeden Durchlauf einer bestimmten Konversation unabhängig vom Benutzer (also den Gruppenkonversationen) verfügbar.
 - Der Zustand der privaten Konversation bezieht sich auf die jeweilige Konversation und den jeweiligen Benutzer.
 
+> [!TIP]
+> Sowohl der Benutzerzustand als auch der Konversationszustand bezieht sich jeweils auf den Kanal.
+> Wenn eine Person unterschiedliche Kanäle nutzt, um auf Ihren Bot zuzugreifen, wird sie jeweils als ein anderer Benutzer angezeigt (einer für jeden Kanal), der jeweils einen eigenen Benutzerzustand aufweist.
+
 Die Schlüssel, die für diese einzelnen vordefinierten Buckets verwendet werden, gelten spezifisch für den Benutzer oder die Konversation (oder beides). Beim Festlegen des Werts Ihrer Zustandseigenschaft wird der Schlüssel für Sie intern definiert und umfasst die im Durchlaufkontext enthaltenen Informationen, um sicherzustellen, dass die einzelnen Benutzer bzw. Konversationen im richtigen Bucket und unter der richtigen Eigenschaft angeordnet werden. Die Schlüssel werden wie folgt definiert:
 
 - Vom Benutzerzustand wird ein Schlüssel erstellt, indem die *Kanal-ID* und die *Von-ID* (Channel ID/From ID) verwendet werden. Beispiel: _{Activity.ChannelId}/users/{Activity.From.Id}#YourPropertyName_.
 - Mit dem Konversationszustand wird ein Schlüssel erstellt, indem die *Kanal-ID* und die *Konversations-ID* (Channel ID/Conversation ID) verwendet werden. Beispiel: _{Activity.ChannelId}/conversations/{Activity.Conversation.Id}#YourPropertyName_.
 - Mit dem Zustand der privaten Konversation wird ein Schlüssel erstellt, indem die *Kanal-ID*, die *Von-ID* und die *Konversations-ID* verwendet werden. Beispiel: _{Activity.ChannelId}/conversations/{Activity.Conversation.Id}/users/{Activity.From.Id}#YourPropertyName_.
 
+### <a name="when-to-use-each-type-of-state"></a>Verwenden der einzelnen Zustandsarten
+
+Der Konversationszustand ist gut für die Nachverfolgung des Konversationskontexts, z.B.:
+
+- Ob der Bot dem Benutzer eine Frage gestellt hat und welche Frage dies war
+- Was das aktuelle Thema der Konversation ist oder das vorherige Thema war
+
+Der Benutzerzustand ist gut für Nachverfolgungsinformationen zum Benutzer, z.B.:
+
+- Nicht kritische Benutzerinformationen, z.B. Name und Präferenzen, eine Alarmeinstellung oder eine Alarmpräferenz
+- Informationen zur letzten Konversation des Benutzers mit dem Bot
+  - Ein Bot für die Produktunterstützung kann beispielsweise verfolgen, nach welchen Produkten der Benutzer gefragt hat.
+
+Der private Konversationszustand ist gut für Kanäle, die Gruppenkonversationen unterstützen, bei denen Sie aber sowohl benutzer- als auch konversationsspezifische Informationen nachverfolgen möchten. Beispielsweise bei einem Clicker-Bot für ein Klassenzimmer:
+
+- Der Bot kann Antworten der Kursteilnehmer auf eine bestimmte Frage aggregieren und anzeigen.
+- Der Bot kann die Leistung jedes Kursteilnehmers aggregieren und am Ende der Stunde für jeden Kursteilnehmer jeweils „privat“ bereitstellen.
+
 Weitere Informationen zur Verwendung dieser vordefinierten Buckets finden Sie im [Gewusst-wie-Artikel zum Zustand](bot-builder-howto-v4-state.md).
+
+### <a name="connecting-to-multiple-databases"></a>Herstellen einer Verbindung mit mehreren Datenbanken
+
+Wenn Ihr Bot eine Verbindung mit mehreren Datenbanken herstellen muss, können Sie eine Speicherebene für jede Datenbank erstellen.
+Erstellen Sie für jede Speicherebene die Objekte für die Zustandsverwaltung, die Sie zum Unterstützen Ihrer Zustandseigenschaften benötigen.
 
 ## <a name="state-property-accessors"></a>Zustandseigenschaftenaccessoren
 
@@ -78,15 +111,14 @@ Damit die Änderungen beibehalten werden, die Sie an der vom Accessor erhaltenen
 
 Die Accessormethoden stellen den Hauptansatz für die Interaktion Ihres Bots mit dem Zustand dar. Hier sind die einzelnen Funktionsweisen und zugrunde liegenden Ebenen beschrieben:
 
-- *get*-Methode des Accessors
-    - Accessor fordert die Eigenschaft vom Zustandscache an.
-    - Wenn die Eigenschaft im Cache enthalten ist, wird sie zurückgegeben. Andernfalls wird sie aus dem Zustandsverwaltungsobjekt abgerufen.
-        - Falls sie im Zustand noch nicht verfügbar ist, können Sie die Factorymethode im *get*-Aufruf des Accessors verwenden.
-- *set*-Methode des Accessors
-    - Aktualisiert den Zustandscache mit dem neuen Eigenschaftswert.
-- Änderungen speichern (*save changes*) für das Zustandsverwaltungsobjekt
-    - Überprüfen Sie die Änderungen an der Eigenschaft im Zustandscache.
-    - Schreiben Sie diese Eigenschaft in den Speicher.
+- Die *get*-Methode des Accessors:
+  - Der Accessor fordert die Eigenschaft vom Zustandscache an.
+  - Wenn die Eigenschaft im Cache enthalten ist, wird sie zurückgegeben. Andernfalls wird sie aus dem Zustandsverwaltungsobjekt abgerufen.
+    Falls sie im Zustand noch nicht verfügbar ist, können Sie die Factorymethode im *get*-Aufruf des Accessors verwenden. -Die *set*-Methode des Accessors:
+  - Aktualisiert den Zustandscache mit dem neuen Eigenschaftswert.
+- Die *save changes*-Methode des Objekts für die Zustandsverwaltung:
+  - Überprüfen Sie die Änderungen an der Eigenschaft im Zustandscache.
+  - Schreiben Sie diese Eigenschaft in den Speicher.
 
 ## <a name="saving-state"></a>Speichern des Zustands
 

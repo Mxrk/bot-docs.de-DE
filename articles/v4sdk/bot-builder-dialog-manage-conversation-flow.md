@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: e774d6360968e5059588dbdb476cfd1f35fb464e
-ms.sourcegitcommit: 6cb37f43947273a58b2b7624579852b72b0e13ea
+ms.openlocfilehash: 2264b6927ccb863f153f2feb829cc0fb99c711f7
+ms.sourcegitcommit: 6c719b51c9e4e84f5642100a33fe346b21360e8a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52288829"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52452082"
 ---
 # <a name="implement-sequential-conversation-flow"></a>Implementieren eines sequenziellen Konversationsflusses
 
@@ -240,7 +240,7 @@ Für den `hello_user`-Dialog:
 
 ---
 
-Beim Definieren Ihrer eigenen Wasserfallschritte müssen Sie Folgendes bedenken.
+Hier sind einige Punkte angegeben, die Sie beim Definieren Ihrer eigenen Wasserfallschritte bedenken sollten.
 
 * Jeder Turn des Bots spiegelt die Eingabe des Benutzers wider und wird von einer Antwort des Bots gefolgt. Sie fordern den Benutzer also am Ende eines Wasserfallschritts zur Eingabe auf und erhalten die Antwort im nächsten Wasserfallschritt.
 * Jede Eingabeaufforderung ist im Grunde ein aus zwei Schritten bestehender Dialog, der die zugehörige Eingabeaufforderung darstellt und eine Schleife ausführt, bis eine „gültige“ Eingabe empfangen wird. 

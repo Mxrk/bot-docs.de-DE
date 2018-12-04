@@ -1,5 +1,5 @@
 ---
-title: Verwalten von Botressourcen mit einer BOT-Datei | Microsoft-Dokumentation
+title: Verwalten von Ressourcen mit einer BOT-Datei | Microsoft-Dokumentation
 description: Beschreibt den Zweck und die Verwendung einer BOT-Datei.
 keywords: BOT-Datei, .bot, .bot-Datei, MsBot, Botressourcen, Botressourcen verwalten
 author: ivorb
@@ -8,16 +8,16 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 11/13/2018
+ms.date: 11/23/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 0ff3f0e68d58a8768bb785a88ee7664ab430e453
-ms.sourcegitcommit: 8b7bdbcbb01054f6aeb80d4a65b29177b30e1c20
+ms.openlocfilehash: 276b553a6990ed286acbf073825afa7c4656de32
+ms.sourcegitcommit: 6c719b51c9e4e84f5642100a33fe346b21360e8a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51645630"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52452022"
 ---
-# <a name="manage-bot-resources-with-a-bot-file"></a>Verwalten von Botressourcen mit einer BOT-Datei
+# <a name="manage-resources-with-a-bot-file"></a>Verwalten von Ressourcen mit einer BOT-Datei
 
 Bots nutzen in der Regel viele verschiedene Dienste, beispielsweise [LUIS.ai](https://luis.ai) oder [QnaMaker.ai](https://qnamaker.ai). Beim Entwickeln eines Bots ist kein einheitlicher Speicherort zum Speichern der Metadaten der verwendeten Dienste verfügbar.  Daher können wir keine Tools erstellen, die einen Bot in seiner Gesamtheit erfassen und darstellen.
 
@@ -45,15 +45,14 @@ Abgesehen von diesen Diensten kann Ihr Bot von anderen benutzerdefinierten Diens
 ## <a name="what-does-a-bot-file-look-like"></a>Wie sieht eine BOT-Datei aus? 
 Sehen Sie sich die folgende [BOT](https://github.com/Microsoft/botbuilder-tools/blob/master/packages/MSBot/docs/sample-bot-file.json)-Beispieldatei an.
 Informationen zur Verschlüsselung und Entschlüsselung der BOT-Datei finden Sie unter [Bot Secrets](https://github.com/Microsoft/botbuilder-tools/blob/master/packages/MSBot/docs/bot-file-encryption.md) (Botgeheimnisse).
-## <a name="why-do-i-need-a-bot-file"></a>Wozu benötige ich eine BOT-Datei?
 
+## <a name="why-do-i-need-a-bot-file"></a>Wozu benötige ich eine BOT-Datei?
 Eine BOT-Datei ist zum Erstellen von Bots mit dem Bot Builder SDK **nicht** erforderlich. Sie können zum Nachverfolgen der Dienstverweise und Schlüssel, von denen Ihr Bot abhängt, weiterhin „appsettings.json“, „web.config“, ENV, Key Vault oder andere geeignete Mechanismen verwenden. Um den Bot mit dem Emulator zu testen, benötigen Sie jedoch eine BOT-Datei. Die gute Nachricht ist, dass der Emulator eine BOT-Datei zum Testen erstellen kann. Starten Sie hierzu den Emulator, und klicken Sie auf der Begrüßungsseite auf den Link **Neue Botkonfiguration erstellen**. Geben Sie im angezeigten Dialogfeld einen **Botnamen** und eine **Endpunkt-URL** ein. Stellen Sie anschließend eine Verbindung her.
 
 Die Verwendung einer BOT-Datei bietet die folgenden Vorteile:
 - Sie stellt unabhängig von der verwendeten Programmiersprache/Plattform eine Standardmethode zum Speichern von Ressourcen bereit.   
 - Der Bot Framework-Emulator und die CLI-Tools beruhen auf verbundenen Überwachungsdiensten in einem konsistenten Format (in einer BOT-Datei) und funktionieren einwandfrei mit solchen Diensten. 
 - Elegante Toollösungen für die Erstellung und Verwaltung von Diensten sind ohne ein gut definiertes Schema (BOT-Datei) schwieriger zu realisieren.  
-
 
 ## <a name="using-bot-file-in-your-bot-builder-sdk-bot"></a>Verwenden der BOT-Datei in Ihrem Bot Builder SDK-Bot
 Sie können die BOT-Datei verwenden, um Dienstkonfigurationsinformationen im Code Ihres Bots abzurufen. Die für [C#](https://www.nuget.org/packages/Microsoft.Bot.Configuration) und [JS](https://www.npmjs.com/package/botframework-config) verfügbare Bibliothek „BotFramework-Configuration“ ermöglicht Ihnen das Laden einer BOT-Datei und unterstützt mehrere Methoden zum Abfragen und Abrufen der entsprechenden Dienstkonfigurationsinformationen.

@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/13/2018
-ms.openlocfilehash: 997d907bfabb284e079f21437418645a7dac061e
-ms.sourcegitcommit: 8b7bdbcbb01054f6aeb80d4a65b29177b30e1c20
+ms.openlocfilehash: fcda5c57a96b6f93aad965e868c824577616f630
+ms.sourcegitcommit: 6c719b51c9e4e84f5642100a33fe346b21360e8a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51645650"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52452042"
 ---
 # <a name="debug-a-bot"></a>Debuggen eines Bots
 
@@ -29,8 +29,7 @@ Dieser Artikel beschreibt das Debuggen Ihres Bots mithilfe einer integrierten En
 Führen Sie die folgenden Schritte aus, um einen JavaScript-Bot über die Befehlszeile auszuführen und mit dem Emulator zu testen:
 1. Wechseln Sie an der Befehlszeile zu dem Verzeichnis mit Ihrem Botprojekt.
 1. Starten Sie den Bot, indem Sie den Befehl **node app.js** ausführen.
-1. Klicken Sie auf der Registerkarte „Willkommen“ des Emulators auf den Link **Bot öffnen**.
-1. Wählen Sie in dem Verzeichnis, in dem Sie das Projekt erstellt haben, die BOT-Datei aus.
+1. Starten Sie den Emulator, und stellen Sie eine Verbindung mit dem Endpunkte des Bots her (z.B. **http://localhost:3978/api/messages**). Wenn Sie den Bot zum ersten Mal ausführen, klicken Sie auf **Datei > Neuer Bot**, und folgen Sie den Anweisungen auf dem Bildschirm. Andernfalls klicken Sie auf **Datei > Bot öffnen**, um einen vorhandenen Bot zu öffnen. Da dieser Bot lokal auf Ihrem Computer ausgeführt wird, können Sie die Felder **MSA-App-ID** und **MSA-App-Kennwort** leer lassen. Weitere Informationen finden Sie unter [Debuggen mit dem Emulator](bot-service-debug-emulator.md).
 1. Senden Sie Ihrem Bot über den Emulator eine Nachricht (senden Sie z.B. die Nachricht „Hi“). 
 1. Verwenden Sie die Bereiche **Inspektor** und **Protokoll** auf der rechten Seite des Emulatorfensters zum Debuggen Ihres Bots. Beispielsweise werden beim Klicken auf eine der Nachrichtenblasen (z.B. die Nachrichtenblase „Hi“ im Screenshot unten) die Details der Nachricht im Bereich **Inspektor** angezeigt. Hiermit können Sie Anforderungen und Antworten anzeigen, während Nachrichten zwischen dem Emulator und dem Bot ausgetauscht werden. Sie können auch auf einen der verknüpften Texte im Bereich **Protokoll** klicken, um die Details im Bereich **Inspektor** anzuzeigen.
 
