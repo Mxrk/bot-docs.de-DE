@@ -345,7 +345,7 @@ Um eine native Kik-Nachricht zu erstellen, legen Sie die „channel data“-Eige
 
 | Eigenschaft | BESCHREIBUNG |
 |----|----|
-| Cloud an das Gerät | Ein Array von Kik-Nachrichten. Weitere Informationen zum Kik-Nachrichtenformat finden Sie im Artikel zu <a href="https://dev.kik.com/#/docs/messaging#message-formats" target="_blank">Kik-Nachrichtenformaten</a>. |
+|  Cloud an das Gerät | Ein Array von Kik-Nachrichten. Weitere Informationen zum Kik-Nachrichtenformat finden Sie im Artikel zu <a href="https://dev.kik.com/#/docs/messaging#message-formats" target="_blank">Kik-Nachrichtenformaten</a>. |
 
 Dieser Codeausschnitt zeigt ein Beispiel für die `channelData`-Eigenschaft für eine native Kik-Nachricht.
 
