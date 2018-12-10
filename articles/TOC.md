@@ -55,7 +55,8 @@
 ### [Node.js](nodejs/TOC.md)
 ## [Debuggen](debug/TOC.md)
 ## Bereitstellen
-### [Bereitstellen Ihres Bots in Azure](bot-builder-howto-deploy-azure.md)
+### [Bereitstellen Ihres Bots mit der Azure CLI](bot-builder-deploy-az-cli.md)
+### [Bereitstellen Ihres C#-Bots mit Visual Studio](bot-builder-howto-deploy-azure.md)
 <!-- ### [Download and redeploy bot code](bot-service-build-download-source-code.md) -->
 ### [Festlegen der kontinuierlichen Bereitstellung](bot-service-build-continuous-deployment.md)
 ## [Verwalten](manage/TOC.md)
