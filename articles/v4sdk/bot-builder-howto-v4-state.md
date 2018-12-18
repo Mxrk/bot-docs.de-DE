@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/26/18
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 8f979aed3bc1c4bb4c74629bcffb258e139ce77d
-ms.sourcegitcommit: bcde20bd4ab830d749cb835c2edb35659324d926
+ms.openlocfilehash: 8c3aad54a9e80e8a046a6e31a5109a1de8c61a8b
+ms.sourcegitcommit: 91156d0866316eda8d68454a0c4cd74be5060144
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52338553"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53010505"
 ---
 # <a name="save-user-and-conversation-data"></a>Speichern von Benutzer- und Konversationsdaten
 
@@ -118,7 +118,7 @@ Der Bot nutzt den Accessor zum Abrufen der Zustandseigenschaft aus dem Turn-Kont
 Zuerst definieren wir Klassen für alle Informationen, die wir in den einzelnen Zustandstypen verwalten möchten.
 
 - Eine `UserProfile`-Klasse für die Benutzerinformationen, die vom Bot gesammelt werden.
-- Eine `ConversationData`-Klasse zum Nachverfolgen der Informationen, wann eine Nachricht eintrifft und von wem sie stammt.
+- Eine `ConversationData`-Klasse zum Nachverfolgen der Informationen zum Empfangszeitpunkt und Absender einer Nachricht.
 
 ```csharp
 // Defines a state property used to track information about the user.
@@ -382,13 +382,13 @@ async onTurn(turnContext) {
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-**Datenschutz:** Wenn Sie die persönlichen Daten von Benutzern speichern möchten, sollten Sie sicherstellen, dass die Anforderungen der [Datenschutz-Grundverordnung](https://blog.botframework.com/2018/04/23/general-data-protection-regulation-gdpr) erfüllt sind.
+**Datenschutz:** Wenn Sie persönliche Daten von Benutzern speichern möchten, müssen Sie sicherstellen, dass die Anforderungen der [Datenschutz-Grundverordnung](https://blog.botframework.com/2018/04/23/general-data-protection-regulation-gdpr) erfüllt sind.
 
-**Zustandsverwaltung:** Alle Aufrufe der Zustandsverwaltung sind asynchron, und standardmäßig gilt, dass „der letzte Schreibvorgang gewinnt“ (last-writer-wins). In der Praxis sollten Sie das Abrufen, Festlegen und Speichern des Zustands in Ihrem Bot möglichst nah beieinander anordnen.
+**Zustandsverwaltung:** Alle Aufrufe der Zustandsverwaltung sind asynchron, und standardmäßig gilt der Konfliktauflösungsmodus „Letzter Schreiber gewinnt“. In der Praxis sollten Sie das Abrufen, Festlegen und Speichern des Zustands in Ihrem Bot möglichst nah beieinander anordnen.
 
-**Kritische Geschäftsdaten:** Verwenden Sie den Bot-Zustand zum Speichern von Einstellungen, des Benutzernamens oder der letzten Bestellung, aber nicht zum Speichern von kritischen Geschäftsdaten. [Erstellen Sie für kritische Daten eigene Speicherkomponenten](bot-builder-custom-storage.md), oder schreiben Sie direkt in den [Speicher](bot-builder-howto-v4-storage.md).
+**Kritische Geschäftsdaten:** Verwenden Sie den Botzustand zum Speichern von Einstellungen, des Benutzernamens oder der letzten Bestellung, aber nicht zum Speichern von kritischen Geschäftsdaten. [Erstellen Sie für kritische Daten eigene Speicherkomponenten](bot-builder-custom-storage.md), oder schreiben Sie direkt in den [Speicher](bot-builder-howto-v4-storage.md).
 
-**Recognizer-Text:** In diesem Beispiel werden die Microsoft/Recognizers-Text-Bibliotheken genutzt, um Benutzereingaben zu analysieren und zu überprüfen. Weitere Informationen finden Sie auf der Seite mit der [Übersicht](https://github.com/Microsoft/Recognizers-Text#microsoft-recognizers-text-overview).
+**Recognizer-Text:** In diesem Beispiel werden die Microsoft/Recognizers-Text-Bibliotheken verwendet, um Benutzereingaben zu analysieren und zu überprüfen. Weitere Informationen finden Sie auf der Seite mit der [Übersicht](https://github.com/Microsoft/Recognizers-Text#microsoft-recognizers-text-overview).
 
 ## <a name="next-step"></a>Nächster Schritt
 

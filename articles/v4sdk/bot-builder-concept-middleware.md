@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/8/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: dacf952e6554eb76e0a41418791fb954e82d4f38
-ms.sourcegitcommit: 6c719b51c9e4e84f5642100a33fe346b21360e8a
+ms.openlocfilehash: 1bfa180967c55aac6012e02887ac2893947263f9
+ms.sourcegitcommit: 91156d0866316eda8d68454a0c4cd74be5060144
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52452062"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53010585"
 ---
 # <a name="middleware"></a>Middleware
 
@@ -28,7 +28,7 @@ Der Adapter verarbeitet und leitet eingehende Aktivitäten durch die Bot-Middlew
 Bevor Sie mit Middleware arbeiten, ist es wichtig, dass Sie [Bots im Allgemeinen](~/v4sdk/bot-builder-basics.md) und [wie sie Aktivitäten verarbeiten](~/v4sdk/bot-builder-basics.md#the-activity-processing-stack) verstehen.
 
 ## <a name="uses-for-middleware"></a>Verwendungsmöglichkeiten für Middleware
-Dies ist eine häufig gestellte Frage: „Wann sollte ich Aktionen als Middleware implementieren und nicht meine normale Botlogik verwenden?“ Mit Middleware haben Sie zusätzliche Möglichkeiten zum Interagieren mit dem Konversationsfluss Ihrer Benutzer – sowohl vor als auch nach der Verarbeitung jedes _Durchlaufs_ der Konversation. Darüber hinaus können Sie mit Middleware auch Informationen zur Konversation speichern und abrufen und bei Bedarf weitere Verarbeitungslogik aufrufen. Unten sind einige häufige Szenarien angegeben, die zeigen, wann Middleware hilfreich sein kann.
+Oft stellt sich folgende Frage: „Wann sollte ich Aktionen als Middleware implementieren und nicht meine normale Botlogik verwenden?“ Mit Middleware haben Sie zusätzliche Möglichkeiten zum Interagieren mit dem Konversationsfluss Ihrer Benutzer – sowohl vor als auch nach der Verarbeitung jedes _Durchlaufs_ der Konversation. Darüber hinaus können Sie mit Middleware auch Informationen zur Konversation speichern und abrufen und bei Bedarf weitere Verarbeitungslogik aufrufen. Unten sind einige häufige Szenarien angegeben, die zeigen, wann Middleware hilfreich sein kann.
 
 ### <a name="looking-at-or-acting-on-every-activity"></a>Ansehen oder Beeinflussen jeder Aktivität
 Es gibt viele Situationen, in denen Ihr Bot jede Aktivität bzw. jede Aktivität eines bestimmten Typs behandeln sollte. Angenommen, Sie möchten jedes MessageActivity-Objekt protokollieren, das der Bot empfängt, oder eine Fallbackantwort bereitstellen, wenn der Bot keine andere Antwort für diesen Durchlauf generiert hat. Die Middleware ist ein guter Ausgangspunkt hierfür, da sie sowohl vor als auch nach der Ausführung der restlichen Bot-Logik agieren kann.
@@ -78,7 +78,7 @@ Wenn _next_ bei Ereignishandlern nicht aufgerufen wird, wird das Ereignis abgebr
 ## <a name="response-event-handlers"></a>Antwortereignishandler
 Zusätzlich zur Anwendungs- und Middlewarelogik können Antworthandler (manchmal auch als Ereignishandler oder Aktivitätsereignishandler bezeichnet) dem Kontextobjekt hinzugefügt werden. Diese Ereignishandler werden aufgerufen, wenn die dazugehörige Antwort im aktuellen Kontextobjekt vor der Ausführung der tatsächlichen Antwort stattfindet. Diese Handler sind nützlich, wenn Sie wissen, dass Sie vor oder nach dem eigentlichen Ereignis etwas für jede Aktivität dieses Typs für den Rest der aktuellen Antwort tun wollen.
 
-> [!WARNING] 
+> [!WARNING]
 > Achten Sie darauf, eine Aktivitätsantwortmethode nicht in ihrem jeweiligen Antwortereignishandler aufzurufen, z. B. indem Sie die SendActivity-Methode in einem onSendActivity-Handler aufrufen. Anderenfalls wird eine Endlosschleife generiert.
 
 Beachten Sie, dass jede neue Aktivität einen neuen Thread für die Ausführung erhält. Wenn der Thread zur Verarbeitung der Aktivität erstellt wird, wird die Liste der Handler für diese Aktivität in den neuen Thread kopiert. Handler, die nach diesem Punkt hinzugefügt wurden, werden für dieses spezielle Aktivitätsereignis nicht ausgeführt.
@@ -90,9 +90,11 @@ Eine gängige Methode zum Speichern des Zustands ist das Aufrufen der „save ch
 
 ![Zustand der Middleware – Probleme](media/bot-builder-dialog-state-problem.png)
 
-Das Problem bei diesem Ansatz ist, dass alle Zustandsaktualisierungen, die über die benutzerdefinierte Middleware nach der Rückgabe des Turn-Handlers des Bots durchgeführt werden, nicht im beständigen Speicher gespeichert werden. Die Lösung besteht darin, den Aufruf in die „save changes“-Methode zu verschieben, nachdem die benutzerdefinierte Middleware abgeschlossen wurde. Hierfür wird AutoSaveChangesMiddleware am Anfang des Middlewarestapels hinzugefügt – bzw. spätestens vor den Middlewarekomponenten, mit denen der Zustand aktualisiert wird. Die Ausführung ist unten dargestellt.
+Das Problem bei diesem Ansatz ist, dass alle Zustandsaktualisierungen, die über die benutzerdefinierte Middleware nach der Rückgabe des Turn-Handlers des Bots durchgeführt werden, nicht im beständigen Speicher gespeichert werden. Die Lösung besteht darin, den Aufruf der SaveChanges-Methode zu verschieben und nach dem Abschluss der benutzerdefinierten Middleware auszuführen. Dazu wird eine Instanz der _auto-save changes_-Middleware am Anfang des Middlewarestapels oder spätestens vor der Middleware, die den Zustand möglicherweise aktualisiert, hinzugefügt. Die Ausführung ist unten dargestellt.
 
 ![Zustand der Middleware – Lösung](media/bot-builder-dialog-state-solution.png)
+
+Fügen Sie die Objekte für die Zustandsverwaltung hinzu, die eine Aktualisierung eines _BotStateSet_-Objekts erfordern, und verwenden Sie diese dann, wenn Sie Ihre „auto-save changes“-Middleware erstellen.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 Sie können sich die Middleware für die Transkriptprotokollierung ansehen, die im Bot Builder SDK implementiert ist [[C#](https://github.com/Microsoft/botbuilder-dotnet/blob/master/libraries/Microsoft.Bot.Builder/TranscriptLoggerMiddleware.cs) | [JS](https://github.com/Microsoft/botbuilder-js/blob/master/libraries/botbuilder-core/src/transcriptLogger.ts)].

@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: abs
 ms.date: 10/30/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 14a56749c68cfe89ed4a0da3c046a39a8e0783fe
-ms.sourcegitcommit: 15f7fa40b7e0a05507cdc66adf75bcfc9533e781
+ms.openlocfilehash: 27e0b54b4e790e76c55deb858e50d8c81507443a
+ms.sourcegitcommit: 91156d0866316eda8d68454a0c4cd74be5060144
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50916787"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53010595"
 ---
 # <a name="add-authentication-to-your-bot-via-azure-bot-service"></a>Hinzufügen von Authentifizierung zu Ihrem Bot über Azure Bot Service
 
@@ -41,9 +41,8 @@ Sie können die Schritte in diesem Artikel auch verwenden, um solche Features ei
 
 | Beispiel | BotBuilder-Version | BESCHREIBUNG |
 |:---|:---:|:---|
-| [C# Auth](http://aka.ms/v4csharpauth) | v4 | Veranschaulicht die OAuthCard-Unterstützung im v4-C#-SDK |
-| [C# Auth Graph](http://aka.ms/v4csharpauthgraph) | v4 |  Veranschaulicht die OAuthCard-Unterstützung im v4-C#-SDK mit AAD und der Microsoft Graph-API |
-| [Node Auth](http://aka.ms/v4cnodeauth) | v4 |  Veranschaulicht die OAuthCard-Unterstützung im v4 Node/JavaScript SDK |
+| **Botauthentifizierung** ([C#](https://aka.ms/v4cs-bot-auth-sample) / [JS](https://aka.ms/v4js-bot-auth-sample)) | v4 | Veranschaulicht die OAuthCard-Unterstützung. |
+| **Botauthentifizierung MSGraph** ([C#](https://aka.ms/v4cs-auth-msgraph-sample) / [JS](https://aka.ms/v4js-auth-msgraph-sample)) | v4 |  Veranschaulicht die Microsoft Graph-API-Unterstützung mit OAuth 2. |
 
 > [!NOTE]
 > Die Authentifizierungsfeatures funktionieren auch mit Bot Builder v3. Allerdings wird in diesem Artikel nur v4-Beispielcode behandelt.
@@ -52,7 +51,7 @@ Weitere Informationen und Unterstützung finden Sie unter [Bot Framework additio
 
 ## <a name="overview"></a>Übersicht
 
-In diesem Tutorial wird ein Beispiel-Bot erstellt, der mithilfe eines V1- oder V2-Tokens eine Verbindung mit Microsoft Graph herstellt. Im Rahmen dieses Vorgangs verwenden Sie Code aus einem GitHub-Repository. In diesem Tutorial wird beschrieben, wie Sie dies einrichten (einschließlich der Bot-Anwendung).
+In diesem Tutorial wird ein Beispiel-Bot erstellt, der mithilfe eines V1- oder V2-Tokens eine Verbindung mit Microsoft Graph herstellt. Im Rahmen dieses Prozesses verwenden Sie Code aus dem GitHub-Repository [Microsoft/BotBuilder-Samples](https://github.com/Microsoft/BotBuilder-Samples). In diesem Tutorial wird die Einrichtung beschrieben (einschließlich der Botanwendung).
 
 - **Erstellen des Bots und einer Authentifizierungsanwendung**
 - **Vorbereiten des Bot-Beispielcodes**
@@ -208,7 +207,7 @@ Sie können diesen Verbindungsnamen nun im Code Ihres Bots verwenden, um Benutze
 1. Klicken Sie oben im Bereich **Service Provider Connection Setting** (Dienstanbieter-Verbindungseinstellung) auf **Verbindung testen**.
 1. Beim ersten Mal sollte dies eine neue Registerkarte im Browser öffnen, auf der die Berechtigungen aufgeführt werden, die die App von Ihnen anfordert.
 1. Klicken Sie auf **Annehmen**.
-1. Daraufhin werden Sie auf die Seite **Test Connection to `<your-connection-name>' Succeeded** (Testverbindung mit „<Name-Ihrer-Verbindung>“ erfolgreich) weitergeleitet.
+1. Daraufhin werden Sie zu einer Seite **Test Connection to <your-connection-name> Succeeded** (Testverbindung mit <Name-Ihrer-Verbindung> erfolgreich) umgeleitet.
 
 ## <a name="prepare-the-bot-sample-code"></a>Vorbereiten des Bot-Beispielcodes
 
@@ -228,7 +227,7 @@ Je nach gewähltem Beispiel verwenden Sie entweder C# oder Node.
     > [!IMPORTANT]
     > Abhängig von den Zeichen in Ihrem Geheimnis müssen Sie das Kennwort möglicherweise mit XML-Escapezeichen versehen. Beispielsweise müssen alle kaufmännische Und-Zeichen (&) als `&amp;` codiert werden.
 
-    ```xml
+    ```json
     {
         "name": "BotAuthentication",
         "secretKey": "",

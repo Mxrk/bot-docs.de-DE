@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/15/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 940dba389205ff339b80f741b8a8aec87ff54f1d
-ms.sourcegitcommit: bcde20bd4ab830d749cb835c2edb35659324d926
+ms.openlocfilehash: bf7d6a574cc4e63d22e3f34462a1ec00dbdac75e
+ms.sourcegitcommit: 91156d0866316eda8d68454a0c4cd74be5060144
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52338563"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53010539"
 ---
 # <a name="managing-state"></a>Verwalten des Zustands
 
@@ -27,7 +27,11 @@ Wie bei Web-Apps auch, ist ein Bot grundsätzlich zustandslos. Jedes einzelne Se
 
 Wenn der Zustand verwaltet wird, kann Ihr Bot aussagekräftigere Konversationen durchführen, indem bestimmte Punkte zu einem Benutzer oder einer Konversation gespeichert werden. Wenn mit einem Benutzer beispielsweise schon einmal eine Konversation erfolgt ist, können Sie die bereits erhaltenen Informationen zum Benutzer speichern, damit Sie nicht noch einmal danach fragen müssen. Bei der Zustandsspeicherung werden Daten auch länger als nur für den aktuellen Durchlauf (Turn) gespeichert, damit Informationen auch im Verlauf einer Konversation mit mehreren Durchläufen erhalten bleiben.
 
-Es gibt verschiedene Ebenen für die Nutzung des Zustands. Da dies für Bots relevant ist, werden sie hier beschrieben: Speicherebene, Zustandsverwaltung und Zustandseigenschaftenaccessoren.
+Es gibt verschiedene Ebenen der Nutzung des Zustands, die für Bots relevant sind. Diese Ebenen werden im Folgenden beschrieben: Speicherebene, Zustandsverwaltung (im folgenden Diagramm im Botzustand enthalten) und Zustandseigenschaftenaccessoren. Das Diagramm zeigt Teile der Interaktionssequenz zwischen diesen Ebenen. Die durchgezogenen Pfeile stellen einen Methodenaufruf dar, und die gestrichelten Pfeile stellen die Antwort dar (mit oder ohne Rückgabewert).
+
+![Botzustand](media/bot-builder-state.png)
+
+Der im Diagramm dargestellte Fluss wird in den folgenden Abschnitten mit Details zu jeder dieser Ebenen erläutert.
 
 ## <a name="storage-layer"></a>Speicherebene
 

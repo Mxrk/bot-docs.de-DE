@@ -1,28 +1,35 @@
 ---
-title: Bereitstellen Ihres C#-Bots in Azure | Microsoft-Dokumentation
+title: Bereitstellen Ihres C#-Bots mit Visual Studio | Microsoft-Dokumentation
 description: Stellen Sie Ihren Bot in der Azure-Cloud bereit.
-keywords: Bereitstellen des Bots, Azure-Bereitstellung, Botkanalregistrierung, Veröffentlichen aus Visual Studio
+keywords: Bot bereitstellen, in Azure bereitstellen, Bot veröffentlichen, Bot mit dem az-Tool bereitstellen, Bot mit Visual Studio bereitstellen, MSBot veröffentlichen, MSBot klonen
 author: ivorb
 ms.author: v-ivorb
 manager: kamrani
 ms.topic: get-started-article
 ms.service: bot-service
 ms.subservice: abs
-ms.date: 11/05/2018
-ms.openlocfilehash: f30a038c6bc5e435ade421e24b05d0b31a143538
-ms.sourcegitcommit: 9acac75f85d36c81b8bf4edec916dd0b52a4a5c7
+ms.date: 12/08/2018
+ms.openlocfilehash: ac4e5f2ea385cb8318ad59e04c8ca8787480f5c8
+ms.sourcegitcommit: 77664484e1b0780a15f686ef08bd23716b049b4a
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51028737"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53121786"
 ---
-# <a name="deploy-your-c-bot-to-azure"></a>Bereitstellen Ihres C#-Bots in Azure
+# <a name="deploy-your-c-bot-using-visual-studio"></a>Bereitstellen Ihres C#-Bots mit Visual Studio
 
 [!INCLUDE [pre-release-label](./includes/pre-release-label.md)]
 
-Nachdem Sie Ihren Bot erstellt und lokal getestet haben, können Sie ihn in Azure veröffentlichen, um ihn von überall aus zugänglich zu machen.
+Nachdem Sie Ihren Bot erstellt und lokal getestet haben, können Sie ihn in Azure bereitstellen, um ihn von überall aus zugänglich zu machen. Wenn Sie Ihren Bot in Azure bereitstellen, werden Ihnen die Kosten für die von Ihnen genutzten Dienste in Rechnung gestellt. Im Artikel zur [Abrechnungs- und Kostenverwaltung](https://docs.microsoft.com/en-us/azure/billing/) finden Sie Informationen zur Azure-Abrechnung, zum Überwachen der Nutzung und Kosten sowie zum Verwalten Ihres Kontos und Ihrer Abonnements.
 
-## <a name="publish-from-visual-studio"></a>Veröffentlichen mit Visual Studio
+In diesem Artikel erfahren Sie, wie Sie einen C#-Bot mithilfe von Visual Studio und des Azure-Portals bereitstellen. Bevor Sie die Schritte ausführen, sollten Sie diesen Artikel lesen, um sich mit allen Details der Bereitstellung eines Bots vertraut zu machen.
+
+## <a name="prerequisites"></a>Voraussetzungen
+- Installieren Sie [Bot Framework Emulator](https://aka.ms/Emulator-wiki-getting-started).
+- Installieren und konfigurieren Sie [ngrok](https://github.com/Microsoft/BotFramework-Emulator/wiki/Tunneling-%28ngrok%29).
+- Kenntnisse der [BOT](v4sdk/bot-file-basics.md)-Datei.
+
+## <a name="deploy-your-bot-in-app-service"></a>Bereitstellen Ihres Bots in App Service
 Zuerst stellen Sie den Bot in Azure über Visual Studio in einer App Service-Instanz bereit. Anschließend konfigurieren Sie Ihren Bot mit dem Azure Bot Service, indem Sie die Botkanalregistrierung verwenden.
 
 **Hinweis: Wenn der Name Ihres Visual Studio-Projekts Leerzeichen enthält, funktionieren die unten beschriebenen Bereitstellungsschritte nicht.**
@@ -138,6 +145,22 @@ An diesem Punkt können Sie Ihren Bot aus Azure unter Verwendung des integrierte
 ![Testen in Webchat](media/azure-bot-quickstarts/getting-started-test-webchat.png)
 
 4. Geben Sie eine Nachricht wie `Hi` ein, und drücken Sie die EINGABETASTE. Der Bot gibt `Turn 1: You sent Hi` zurück.
+
+---
+
+## <a name="additional-resources"></a>Zusätzliche Ressourcen
+
+Wenn Sie einen Bot bereitstellen, werden in der Regel die folgenden Ressourcen im Azure-Portal erstellt:
+
+| Ressourcen      | BESCHREIBUNG |
+|----------------|-------------|
+| Web-App-Bot | Ein Azure Bot Service-Bot, der in einer Azure App Service-Instanz bereitgestellt wird.|
+| [App Service](https://docs.microsoft.com/en-us/azure/app-service/)| Ermöglicht Ihnen das Erstellen und Hosten von Webanwendungen.|
+| [App Service-Plan](https://docs.microsoft.com/en-us/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview)| Definiert eine Gruppe von Computeressourcen für eine auszuführende Web-App.|
+| [Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-overview)| Bietet Tools zum Erfassen und Analysieren von Telemetriedaten.|
+| [Speicherkonto](https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction)| Bietet hoch verfügbaren, sicheren, stabilen, skalierbaren und redundanten Cloudspeicher.|
+
+Falls Sie nicht mit Azure-Ressourcengruppen vertraut sind, lesen Sie die Erläuterung der grundlegenden [Begriffe](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#terminology).
 
 ## <a name="next-steps"></a>Nächste Schritte
 > [!div class="nextstepaction"]

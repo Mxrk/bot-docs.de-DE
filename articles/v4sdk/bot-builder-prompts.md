@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/21/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 9d8caf19a98fb595e4b1e27b0635d2a752b88390
-ms.sourcegitcommit: bbfb171f515c50a3c8bba5ca898daf25cf764378
+ms.openlocfilehash: a8a0976e6f553e52e13ae13bbb719dd7bdead8f6
+ms.sourcegitcommit: 91156d0866316eda8d68454a0c4cd74be5060144
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/23/2018
-ms.locfileid: "52293602"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53010540"
 ---
 # <a name="gather-user-input-using-a-dialog-prompt"></a>Erfassen von Benutzereingaben mit einer Dialogaufforderung
 
@@ -168,7 +168,7 @@ public DialogPromptBot(DialogPromptBotAccessors accessors, ILoggerFactory logger
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-Erstellen Sie im Konstruktor Zustandseigenschaftenaccessoren. 
+Erstellen Sie im Konstruktor Zustandseigenschaftenaccessoren.
 
 ```javascript
 constructor(conversationState) {
@@ -192,6 +192,7 @@ Erstellen Sie als Nächstes den Dialogsatz, und fügen Sie die Eingabeaufforderu
 ```
 
 Definieren Sie anschließend die Schritte des Wasserfalldialogs, und fügen Sie ihn dem Satz hinzu.
+
 ```javascript
     // ...
     this.dialogSet.add(new WaterfallDialog(RESERVATION_DIALOG, [
@@ -207,7 +208,7 @@ Definieren Sie anschließend die Schritte des Wasserfalldialogs, und fügen Sie 
 
 ### <a name="implement-dialog-steps"></a>Implementieren der Dialogschritte
 
-In der Hauptdatei des Bots implementieren wir unsere einzelnen Schritte des Wasserfalldialogs. Nachdem eine Eingabeaufforderung hinzugefügt wurde, können wir sie in einem Schritt eines Wasserfalldialogs aufrufen und das Ergebnis der Eingabeaufforderung im folgenden Dialogschritt abrufen. Um eine Eingabeaufforderung in einem Wasserfallschritt aufzurufen, rufen Sie die _prompt_-Methode des _Wasserfallschritt-Kontextobjekts_ auf. Der erste Parameter ist die ID der zu verwendenden Eingabeaufforderung, und der zweite Parameter enthält die Optionen für die Eingabeaufforderung (z. B. den Text, mit dem der Benutzer zur Eingabe aufgefordert wird).     
+In der Hauptdatei des Bots implementieren wir unsere einzelnen Schritte des Wasserfalldialogs. Nachdem eine Eingabeaufforderung hinzugefügt wurde, können wir sie in einem Schritt eines Wasserfalldialogs aufrufen und das Ergebnis der Eingabeaufforderung im folgenden Dialogschritt abrufen. Um eine Eingabeaufforderung in einem Wasserfallschritt aufzurufen, rufen Sie die _prompt_-Methode des _Wasserfallschritt-Kontextobjekts_ auf. Der erste Parameter ist die ID der zu verwendenden Eingabeaufforderung, und der zweite Parameter enthält die Optionen für die Eingabeaufforderung (z. B. den Text, mit dem der Benutzer zur Eingabe aufgefordert wird).
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -250,6 +251,7 @@ private async Task<DialogTurnResult> PromptForLocationAsync(WaterfallStepContext
         cancellationToken);
 }
 ```
+
 Im obigen Beispiel wird eine Auswahleingabeaufforderung mit allen drei Eigenschaften veranschaulicht. Die `PromptForLocationAsync`-Methode wird als Schritt in einem Wasserfalldialog verwendet, und der Dialogsatz enthält sowohl den Wasserfalldialog als auch eine Auswahleingabeaufforderung mit der ID `locationPrompt`.
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
@@ -291,8 +293,6 @@ Sie sollten die erste Eingabeaufforderungsaktivität, die an den Benutzer gesend
 Die Angabe einer erneuten Eingabeaufforderung ist sinnvoll, wenn die Benutzereingabe nicht überprüft werden kann, weil sie in einem Format vorliegt, das die Eingabeaufforderung nicht analysieren kann (z.B. „morgen“ für eine Zahleneingabeaufforderung), oder weil die Eingabe ein Validierungskriterium nicht erfüllt. Wenn in diesem Fall keine erneute Eingabeaufforderung angegeben wurde, verwendet die Eingabeaufforderung die erste Eingabeaufforderungsaktivität, um den Benutzer erneut zur Eingabe aufzufordern.
 
 Bei einer Auswahleingabeaufforderung sollten Sie immer die Liste der verfügbaren Optionen bereitstellen.
-
-
 
 ## <a name="custom-validation"></a>Benutzerdefinierte Validierung
 
@@ -470,14 +470,13 @@ Aktualisieren Sie den Turn-Handler des Bots, um den Dialog zu starten und einen 
    1. Die Steuerung wird an den nächsten Schritt im aktiven Dialog übergeben, bei dem es sich um den nächsten Turn der Eingabeaufforderung handelt.
    1. Die Eingabeaufforderung überprüft die Eingabe des Benutzers.
 
-      
 **Behandeln von Eingabeaufforderungsergebnissen**
 
 Wozu Sie das Ergebnis der Eingabeaufforderung verwenden, hängt davon ab, warum Sie die Informationen vom Benutzer angefordert haben. Beispiele für Optionen:
 
-* Verwenden Sie die Informationen zum Steuern des Dialogflusses (z.B. wenn ein Benutzer auf eine Bestätigungs- oder Auswahleingabeaufforderung reagiert).
-* Speichern Sie die Informationen im Zustand des Dialogs zwischen (beispielsweise das Festlegen eines Werts in der _values_-Eigenschaft des Wasserfallschrittkontexts), und geben Sie die erfassten Informationen dann bei der Beendigung des Dialogs zurück.
-* Speichern Sie die Informationen im Botzustand. Dazu müssen Sie den Dialog so entwerfen, dass er Zugriff auf die Zustandseigenschaftenaccessoren des Bots hat. 
+- Verwenden Sie die Informationen zum Steuern des Dialogflusses (z.B. wenn ein Benutzer auf eine Bestätigungs- oder Auswahleingabeaufforderung reagiert).
+- Speichern Sie die Informationen im Zustand des Dialogs zwischen (beispielsweise das Festlegen eines Werts in der _values_-Eigenschaft des Wasserfallschrittkontexts), und geben Sie die erfassten Informationen dann bei der Beendigung des Dialogs zurück.
+- Speichern Sie die Informationen im Botzustand. Dazu müssen Sie den Dialog so entwerfen, dass er Zugriff auf die Zustandseigenschaftenaccessoren des Bots hat.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -600,17 +599,17 @@ async onTurn(turnContext) {
 
 ---
 
-
-
 Sie können ähnliche Verfahren verwenden, um Antworten auf Eingabeaufforderungen für beliebige Eingabeaufforderungstypen zu überprüfen.
 
 ## <a name="test-your-bot"></a>Testen Ihres Bots
+
 1. Führen Sie das Beispiel lokal auf Ihrem Computer aus. Wenn Sie eine Anleitung benötigen, helfen Ihnen die INFODATEIEN für [C#](https://aka.ms/dialog-prompt-cs) bzw. [JS](https://aka.ms/dialog-prompt-js) weiter.
 2. Starten Sie den Emulator, und senden Sie Nachrichten wie unten dargestellt, um den Bot zu testen.
 
 ![Beispiel für das Testen der Dialogeingabeaufforderung](~/media/emulator-v4/test-dialog-prompt.png)
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
+
 Wenn Sie eine Eingabeaufforderung direkt aus Ihrem Turn-Handler aufrufen möchten, hilft Ihnen das Beispiel _prompt-validations_ im [C#](https://aka.ms/cs-prompt-validation-sample)- bzw. [JS](https://aka.ms/js-prompt-validation-sample)-Format weiter.
 
 Die Dialogbibliothek enthält auch eine _OAuth-Eingabeaufforderung_ zum Abrufen eines _OAuth-Tokens_, mit dem im Auftrag des Benutzers auf eine andere Anwendung zugegriffen wird. Weitere Informationen zur Authentifizierung finden Sie unter [Hinzufügen von Authentifizierung](bot-builder-authentication.md) zu Ihrem Bot.

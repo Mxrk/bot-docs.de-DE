@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 03/01/2018
-ms.openlocfilehash: d329fcbe5b4a34cb3e9c1fbf0160c5248020a508
-ms.sourcegitcommit: cb0b70d7cf1081b08eaf1fddb69f7db3b95b1b09
+ms.openlocfilehash: 818017a81b497b13ee181dbb6b87c03a0182736d
+ms.sourcegitcommit: 75f32b3325dd0fc4d8128dee6c22ebf91e5785b3
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51332964"
+ms.lasthandoff: 12/09/2018
+ms.locfileid: "53120677"
 ---
 # <a name="entities-and-activity-types"></a>Entitäten und Aktivitätstypen
 
@@ -173,6 +173,11 @@ Abgesehen vom gängigsten Typ **Message** können Aktivitäten viele verschieden
 | [invoke](#invoke) | IInvokeActivity (C#) <br> Activity (JS) | Stellt eine an einen Bot gesendete Kommunikation für die Anforderung der Ausführung eines bestimmten Vorgangs dar. Dieser Aktivitätstyp ist für die interne Verwendung durch Microsoft Bot Framework reserviert. |
 | [messageReaction](#messagereaction) | IMessageReactionActivity (C#) <br> Activity (JS) | Gibt an, dass ein Benutzer auf eine vorhandene Aktivität reagiert hat. Wenn ein Benutzer beispielsweise auf die Schaltfläche „Gefällt mir“ einer Nachricht geklickt hat. |
 | [typing](#typing) | ITypingActivity (C#) <br> Activity (JS) | Gibt an, dass der Benutzer oder Bot am anderen Ende einer Nachricht eine Antwort erstellt. |
+| messageUpdate | IMessageUpdateActivity (C#) <br> Activity (JS) | Gibt eine Anforderung zum Aktualisieren einer vorherigen Nachrichtenaktivität in einer Konversation an. |
+| messageDelete | IMessageDeleteActivity (C#) <br> Activity (JS) | Gibt eine Anforderung zum Löschen einer vorherigen Nachrichtenaktivität in einer Konversation an. |
+| suggestion | ISuggestionActivity (C#) <br> Activity (JS) | Gibt einen privaten Vorschlag an den Empfänger zu einer anderen spezifischen Aktivität an. |
+| Ablaufverfolgung | ITraceActivity (C#) <br> Activity (JS) | Eine Aktivität, mit der ein Bot interne Informationen in einem protokollierten Konversationstranskript protokollieren kann. |
+| handoff | IHandoffActivity (C#) <br> Activity (JS) | Die Steuerung der Konversation wurde übergeben oder eine Anforderung zum Übergeben der Steuerung der Konversation. |
 
 ## <a name="message"></a>Message:
 
