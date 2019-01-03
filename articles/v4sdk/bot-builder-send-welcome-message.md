@@ -2,20 +2,20 @@
 title: Senden einer Begrüßungsnachricht an Benutzer | Microsoft-Dokumentation
 description: Es wird beschrieben, wie Sie Ihren Bot so entwickeln, dass eine einladende Benutzerumgebung geschaffen wird.
 keywords: Übersicht, entwickeln, Benutzeroberfläche, Willkommen, personalisierte Benutzeroberfläche, C#, JS, Begrüßungsnachricht, Bot, begrüßen, Begrüßung
-author: dashel
-ms.author: dashel
+author: DanDev33
+ms.author: v-dashel
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 11/15/2018
+ms.date: 12/20/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 02fb57d5d766ddd72c2dcface673c5c6355cf184
-ms.sourcegitcommit: 6c719b51c9e4e84f5642100a33fe346b21360e8a
+ms.openlocfilehash: 7e6ea963ce018833b362be3f413f15da4d4bf658
+ms.sourcegitcommit: f7a8f05fc05ff4a7212a437d540485bf68831604
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52452032"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735940"
 ---
 # <a name="send-welcome-message-to-users"></a>Senden einer Begrüßungsnachricht an Benutzer
 
@@ -25,7 +25,7 @@ Das Hauptziel bei der Erstellung eines Bots besteht darin, mit dem Benutzer eine
 
 ## <a name="prerequisites"></a>Voraussetzungen
 - Sie müssen mit den [Bot-Grundlagen](bot-builder-basics.md) vertraut sein. 
-- Eine Kopie des **Beispiels zur Benutzerbegrüßung** im [C#](https://aka.ms/proactive-sample-cs)- oder [JS](https://aka.ms/proactive-sample-js)-Format. Der Code aus dem Beispiel wird verwendet, um zu beschreiben, wie Sie Begrüßungsnachrichten senden.
+- Eine Kopie des **Beispiels zur Benutzerbegrüßung** im [C#](https://aka.ms/bot-welcome-sample-cs)- oder [JS](https://aka.ms/bot-welcome-sample-js)-Format. Der Code aus dem Beispiel wird verwendet, um zu beschreiben, wie Sie Begrüßungsnachrichten senden.
 
 ## <a name="same-welcome-for-different-channels"></a>Gleiche Begrüßung für unterschiedliche Kanäle
 Es sollte immer eine Begrüßungsnachricht generiert werden, wenn Ihre Benutzer zum ersten Mal mit Ihrem Bot interagieren. Hierzu können Sie die Aktivitätstypen Ihres Bots überwachen und auf neue Verbindungen warten. Für jede neue Verbindung können je nach Kanal bis zu zwei Aktivitäten zum Aktualisieren der Konversation generiert werden.
@@ -421,7 +421,7 @@ switch (text)
 ```
 ---
 ## <a name="test-the-bot"></a>Testen des Bots
-Eine Anleitung zum Ausführen und Testen des Bots finden Sie in der [INFODATEI](https://github.com/Microsoft/BotBuilder-Samples/blob/master/samples/csharp_dotnetcore/03.welcome-user/readme.md). 
+Eine Anleitung zum Ausführen und Testen des Bots finden Sie in der [INFODATEI](https://aka.ms/bot-welcome-sample-cs).
 
 ## <a name="next-steps"></a>Nächste Schritte
 > [!div class="nextstepaction"]
