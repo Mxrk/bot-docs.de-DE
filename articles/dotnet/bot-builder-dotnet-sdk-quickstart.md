@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: get-started-article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 11/13/2018
+ms.date: 11/19/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 20a7dad4398874febfbd71024cd68763107f7bd8
-ms.sourcegitcommit: 0b421ff71617f03faf55ea175fb91d1f9e348523
+ms.openlocfilehash: d40b203ccd044992c026a592d5f86b0881754a41
+ms.sourcegitcommit: f7a8f05fc05ff4a7212a437d540485bf68831604
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53286626"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735920"
 ---
 # <a name="create-a-bot-with-the-bot-builder-sdk-for-net"></a>Erstellen eines Bots mit dem Bot Builder SDK für .NET
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
@@ -59,6 +59,10 @@ Senden Sie eine Nachricht an Ihren Bot. Dieser antwortet daraufhin mit einer Nac
 
 > [!NOTE]
 > Wenn Sie sehen, dass die Nachricht nicht gesendet werden kann, müssen Sie Ihren Computer ggf. neu starten, weil ngrok die erforderlichen Berechtigungen für Ihr System noch nicht erhalten hat (einmaliger Vorgang).
+
+## <a name="additional-resources"></a>Zusätzliche Ressourcen
+
+Informationen zum Herstellen einer Verbindung mit einem remote gehosteten Bot finden Sie unter [Tunneling (ngrok)](https://github.com/Microsoft/BotFramework-Emulator/wiki/Tunneling-(ngrok)).
 
 ## <a name="next-steps"></a>Nächste Schritte
 

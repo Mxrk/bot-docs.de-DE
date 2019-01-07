@@ -7,12 +7,12 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.date: 08/28/2018
-ms.openlocfilehash: 2a78ec6f8c453bfcfa3b6aba0d73257f35db76b8
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 660c10c400bb68e807f39eb1b7ccc38f500991e6
+ms.sourcegitcommit: 0f65857943d318da48df0a8654cde53e9a699116
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997217"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53389313"
 ---
 # <a name="bot-framework-frequently-asked-questions"></a>Häufig gestellte Fragen zu Bot Framework
 
@@ -26,6 +26,38 @@ Bevor das Conversation User Interface (CUI) verfügbar ist, verfügen nur wenige
 ### <a name="what-is-the-v4-sdk"></a>Was ist das v4 SDK?
 Das Bot Builder v4 SDK basiert auf dem Feedback und den Erfahrungen aus früheren Bot Builder SDKs. Es verfügt über die erforderlichen Abstraktionsebenen und ermöglicht gleichzeitig die Umsetzung umfassender Bot-Bausteine mit vielen Komponenten. Sie können mit einem einfachen Bot beginnen und ihn dann über ein modulares und erweiterbares Framework immer komplexer machen. Sie finden die [häufig gestellten Fragen](https://github.com/Microsoft/botbuilder-dotnet/wiki/FAQ) für das SDK auf GitHub.
 
+## <a name="bot-framework-sdk-version-3-lifetime-support"></a>Support für die Lebensdauer von Version 3 des Bot Framework SDK 
+SDK V3-Bots werden weiterhin von Azure Bot Service ausgeführt und unterstützt.  Genau wie bei anderen Frameworks bieten wir auch nach der Veröffentlichung von Version 4 des Bot Framework SDK weiterhin Support für Version 3 des SDK in Form von Sicherheitsupdates, Fehlerbehebungen mit hoher Priorität und Updates auf Connector-/Protokollebene.  Der Support für Version 3 wird bis Ende 2019 fortgeführt.
+
+### <a name="what-is-microsoft-plan-for-supporting-existing-v3-bots-what-happens-to-my-v3-bots-will-my-v3-bots-stop-working"></a>Welche Supportpläne hat Microsoft für bereits vorhandene V3-Bots? Was geschieht mit meinen V3-Bots? Funktionieren meine V3-Bots nicht mehr?
+SDK V3-Bots werden weiterhin von Azure Bot Service ausgeführt und unterstützt.  Genau wie bei anderen Frameworks bieten wir auch nach der Veröffentlichung von Version 4 des Bot Framework SDK weiterhin Support für Version 3 des SDK in Form von Sicherheitsupdates, Fehlerbehebungen mit hoher Priorität und Updates auf Connector-/Protokollebene.  Der Support für Version 3 wird bis Ende 2019 fortgeführt.
+- Azure Bot Service und Bot Framework V3 sind beides allgemein verfügbare Produkte und werden vollständig unterstützt. Das zugrunde liegende Bot Framework-Protokoll und die Connectorbibliotheken haben sich nicht geändert und werden sowohl vom V3-SDK als auch vom V4-SDK genutzt.  
+- Mit dem V3-SDK für Bot Framework (BotBuilder) erstellte Bots werden bis Ende 2019 unterstützt. 
+- Kunden können weiterhin V3-Bots über das Azure-Portal oder mithilfe von Azure CLI-Tools erstellen.
+
+### <a name="what-happens-to-my-bot-written-to-rest--bot-framework-protocol-31"></a>Was geschieht mit meinem für REST und das Bot Framework-Protokoll 3.1 entwickelten Bot?
+- Azure Bot Service und Bot Framework V3 sind beides allgemein verfügbare Produkte und werden vollständig unterstützt.
+- Das Bot Framework-Protokoll hat sich nicht geändert und wird sowohl vom V3-SDK als auch vom V4-SDK genutzt.  
+
+### <a name="will-there-be-more-updates-additional-development-for-the-v3-sdk-or-just-bugfixes"></a>Werden weitere Updates bereitgestellt, und wird das V3-SDK weiterentwickelt, oder werden lediglich Probleme behandelt?  
+- V3 erhält kleinere Verbesserungen (insbesondere auf der Connectorebene) sowie Sicherheitsupdates und Fehlerkorrekturen mit hoher Priorität.  
+- Updates für V3 werden zweimal jährlich und nach Bedarf (basierend auf Fehlerkorrekturen und/oder erforderlichen Protokolländerungen) veröffentlicht. 
+- Aktuell ist geplant, über NuGet und NPM Neben- und Patchversionen von V3 für unsere C#- und JavaScript-SDKs zu veröffentlichen.
+
+### <a name="why-v4-is-not-backwards-compatible-with-v3"></a>Warum ist V4 nicht abwärtskompatibel mit V3?
+- Auf der Protokollebene wird für die Kommunikation zwischen Ihrer Konversations-App (also Ihrem Bot) und verschiedenen Kanälen das Bot Framework Activity-Protokoll verwendet. Dieses Protokoll hat sich zwischen V3 und V4 nicht verändert. Die gleiche zugrunde liegende Azure Bot Service-Infrastruktur unterstützt sowohl V3- als auch V4-Bots.
+- Version 4 des Bot Framework SDK bietet eine konversationsorientierte Entwicklungsumgebung mit einer modularen und erweiterbaren SDK-Architektur, mit der Entwickler stabile und komplexe Chatanwendungen entwickeln können. Das erweiterbare Design von V4 geht auf Kundenfeedback zurück, in dem bemängelt wurde, dass die Dialogmodelle und Primitive des SDK V3 zu unflexibel sind und die Erweiterbarkeit einschränken.  
+
+### <a name="what-is-the-general-migration-strategy-i-have-a-v3-bot-how-can-i-migrate-it-to-v4-can-i-migrate-my-v3-bot-to-v4"></a>Wie sieht die allgemeine Migrationsstrategie aus? Wie kann ich meinen V3-Bot zu einem V4-Bot migrieren?/Kann ich meinen V3-Bot zu einem V4-Bot migrieren?
+- Aktuell werden Dokumentationen und Beispiele bereitgestellt, um Sie bei der Migration von Bots, die mit der SDK-Version 3 erstellt wurden, zu SDK V4-Bots zu unterstützen. Es ist derzeit nicht geplant, das SDK V4 mit einer Kompatibilitätsebene für das SDK V3 auszustatten, damit in V3 erstellte Bots in einem V4-Bot funktionieren. 
+- Falls Sie Bots, die mit Version 3 des Bot Framework SDK erstellt wurden, bereits in Ihrer Produktionsumgebung verwenden, ist das kein Problem, da diese Bots auf absehbare Zeit weiter funktionieren. 
+- Bot Framework SDK V4 ist eine Weiterentwicklung der äußerst erfolgreichen Version 3 des SDK. V4 ist eine neue Hauptversion und enthält Breaking Changes, die dazu führen, dass V3-Bots nicht unter dem neueren V4 SDK funktionieren. 
+
+### <a name="should-i-build-new-a-bot-using-v3-or-v4"></a>Soll ich für die Erstellung eines neuen Bots V3 oder V4 verwenden?
+- Für neue Konversationserfahrungen empfiehlt es sich, den neuen Bot mithilfe des Bot Framework SDK V4 zu erstellen.
+- Wenn Sie bereits mit dem Bot Framework SDK V3 vertraut sind, sollten Sie sich über die neue Version und die Features des neuen [Bot Framework SDK V4](http://aka.ms/botframeowrkoverview) informieren.
+- Falls Sie Bots, die mit Version 3 des Bot Framework SDK erstellt wurden, bereits in Ihrer Produktionsumgebung verwenden, ist das kein Problem, da diese Bots auf absehbare Zeit weiter funktionieren.
+- Über das Azure-Portal und die Azure-Befehlszeile können Sie sowohl Bot Framework SDK V4-Bots als auch ältere V3-Bots erstellen. 
 
 ## <a name="channels"></a>Kanäle
 ### <a name="when-will-you-add-more-conversation-experiences-to-the-bot-framework"></a>Wann werden dem Bot Framework weitere Konversationsmöglichkeiten hinzugefügt?

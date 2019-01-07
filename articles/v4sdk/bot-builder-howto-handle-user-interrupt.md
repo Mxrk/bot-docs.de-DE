@@ -11,12 +11,12 @@ ms.subservice: sdk
 ms.date: 09/20/2018
 ms.reviewer: ''
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 74d4bb07274643d61da332d6ee1cdfb1a14372dc
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: af659dd1c2a75af03cfa45df54a815d2dd2306fc
+ms.sourcegitcommit: 561185b9c83f3e082e8b7aba1122b1706e431540
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998427"
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785423"
 ---
 # <a name="handle-user-interruptions"></a>Behandeln von Benutzerunterbrechungen
 
@@ -35,14 +35,14 @@ Ein prozeduraler Konversationsfluss besteht aus einer Reihe von Schritten, durch
 **Tischreservierung** Bei einem Tischreservierungsbot können die Schritte aus den Fragen nach Datum und Uhrzeit, nach Anzahl der Personen und nach dem Reservierungsnamen bestehen. Bei diesem Prozess können folgende Unterbrechungen erwartet werden:
 
 * `cancel`: Zum Beenden des Prozesses.
-* `help`: Zum Bereitstellen von zusätzlichen Anweisungen zu diesem Prozess.
-* `more info`: Zum Bereitstellen von Hinweisen und Vorschlägen oder von alternativen Möglichkeiten zum Reservieren eines Tisches (z.B. eine E-Mail-Adresse oder Telefonnummer).
-* `show list of available tables`: Wenn dies möglich ist, eine Liste mit Tischen anzeigen, die für das gewünschte Datum und die entsprechende Uhrzeit verfügbar sind.
+* `help`: Zum Bereitstellen zusätzlicher Anweisungen zu diesem Prozess.
+* `more info`: Zum Bereitstellen von Hinweisen und Vorschlägen oder von alternativen Möglichkeiten zum Reservieren eines Tisches (etwa eine E-Mail-Adresse oder Telefonnummer).
+* `show list of available tables`: Anzeigen einer Liste mit Tischen, die für das gewünschte Datum und die entsprechende Uhrzeit verfügbar sind (sofern dies eine Option ist).
 
 **Essensbestellung** Bei einem Bot zum Bestellen von Speisen können die Schritte in der Bereitstellung einer Liste mit Speisen und der Möglichkeit, dass Benutzer ihrem Einkaufswagen Speisen hinzufügen, bestehen. Bei diesem Prozess können folgende Unterbrechungen erwartet werden:
 
 * `cancel`: Zum Beenden des Bestellprozesses.
-* `more info`: Zum Bereitstellen von lebensmitteltechnische Details zu den einzelnen Speisen.
+* `more info`: Zum Angeben von Ernährungsdetails zu den einzelnen Speisen.
 * `help`: Zum Bereitstellen von Hilfe zur Verwendung des Systems.
 * `process order`: Zum Verarbeiten der Bestellung.
 
@@ -463,7 +463,7 @@ Sie können das Thema wechseln und den Essensbestellfluss beginnen oder dem Benu
 
 Bei Unterbrechungen außerhalb des Anwendungsbereichs Ihres Bots können Sie versuchen, die Absicht des Benutzers zu erraten. Hierzu können Sie KI-Dienste wie QnAMaker, LUIS oder benutzerdefinierte Logiken verwenden und Vorschläge für Möglichkeiten anbieten, von denen der Bot meint, dass sie der Absicht des Benutzers entsprechen.
 
-Beispielsweise wenn der Benutzer mitten im Tischreservierungsfluss sagt: „Ich möchte einen Burger bestellen.“ Der Bot weiß in diesem Konversationsfluss nicht, wie er diese Aussage behandeln soll. Da es beim aktuellen Fluss nicht um Bestellungen geht und „Essen bestellen“ ein anderer Konversationsbefehl ist, weiß der Bot mit dieser Eingabe nichts anzufangen. Wenn Sie beispielsweise LUIS verwenden, können Sie das Modell trainieren, sodass es erkennt, dass der Benutzer Essen bestellen möchte (LUIS kann beispielsweise eine „orderFood“-Absicht zurückgeben). Der Bot kann somit wie folgt antworten: „Anscheinend möchten Sie Essen bestellen. Möchten Sie zu unserem Essensbestellprozess wechseln?“ Weitere Informationen zum Trainieren von LUIS und Erkennen von Benutzerabsichten finden Sie unter [Verwenden von LUIS für Language Understanding](bot-builder-howto-v4-luis.md).
+Beispielsweise wenn der Benutzer mitten im Tischreservierungsfluss sagt: „Ich möchte einen Burger bestellen.“ Der Bot weiß in diesem Konversationsfluss nicht, wie er diese Aussage behandeln soll. Da es beim aktuellen Fluss nicht um Bestellungen geht und „Essen bestellen“ ein anderer Konversationsbefehl ist, weiß der Bot mit dieser Eingabe nichts anzufangen. Wenn Sie beispielsweise LUIS verwenden, können Sie das Modell trainieren, sodass es erkennt, dass der Benutzer Essen bestellen möchte. (LUIS kann beispielsweise eine Absicht vom Typ „orderFood“ zurückgeben.) Der Bot kann somit wie folgt antworten: „Anscheinend möchten Sie Essen bestellen. Möchten Sie zu unserem Essensbestellprozess wechseln?“ Weitere Informationen zum Trainieren von LUIS und Erkennen von Benutzerabsichten finden Sie unter [Verwenden von LUIS für Language Understanding](bot-builder-howto-v4-luis.md).
 
 ### <a name="default-response"></a>Standardantwort
 
@@ -471,7 +471,7 @@ Wenn alles andere nicht funktioniert, sollten Sie eine Standardantwort senden, s
 
 Sie können anhand des „context.**responded**“-Flags am Ende der Botlogik erkennen, ob der Bot während des Prozesses eine Antwort an den Benutzer gesendet hat. Wenn der Bot die Benutzereingabe verarbeitet, aber nicht antwortet, weiß der Bot mit der Eingabe wahrscheinlich nichts anzufangen. In diesem Fall können Sie einhaken und dem Benutzer eine Standardnachricht senden.
 
-Wenn Ihr Bot dem Benutzer standardmäßig einen `mainMenu`-Dialog sendet. Entscheiden Sie selbst, welche Oberfläche dem Benutzer in dieser Situation vom Bot angezeigt wird.
+Wenn Ihr Bot standardmäßig einen Dialog vom Typ `mainMenu` an den Benutzer zurückgibt, müssen Sie entscheiden, welche Boterfahrung Ihr Benutzer in dieser Situation haben soll.
 
 # <a name="ctabcsharptab"></a>[C#](#tab/csharptab)
 

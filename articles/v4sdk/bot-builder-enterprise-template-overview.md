@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.date: 09/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 43bc3c7606a12084690d71f8b6ea2dc3b2e5984d
-ms.sourcegitcommit: 6c719b51c9e4e84f5642100a33fe346b21360e8a
+ms.openlocfilehash: 3abfb82f555f458bc9cdd5125fafa1cfa70921cb
+ms.sourcegitcommit: 66769e697d94f7bf5e0441dfacf2c0e3768845ea
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52451992"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53654961"
 ---
 # <a name="enterprise-bot-template"></a>Vorlage für den Bot für Unternehmen 
 
@@ -34,7 +34,7 @@ Grundlegende Konversationsantworten  | Antworten auf grundlegende Konversationsa
 Erkennung ungeeigneter Inhalte oder personenbezogener Informationen (personally identifiable information, PII)  |Ermöglicht die Erkennung ungeeigneter Daten oder personenbezogener Informationen in eingehenden Konversationen durch die Verwendung von [Content Moderator](https://azure.microsoft.com/en-us/services/cognitive-services/content-moderator/) in einer Middlewarekomponente.
 Transkripte  | Transkripts sämtlicher Konversationen, die in Azure Storage gespeichert sind.
 Verteiler | Ein integriertes [Dispatchmodell](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=csaddref%2Ccsbotconfig) zur Erkennung, ob eine bestimmte Äußerung von LUIS und dem Code verarbeitet oder an QnA Maker übergeben werden soll.
-QnA Maker-Integration  | Integration von [QnA Maker](https://www.qnamaker.ai) zur Beantwortung allgemeiner Fragen auf der Grundlage einer Wissensdatenbank, die auf bereits vorhandene Datenquellen (beispielsweise PDF-Handbücher) zurückgreifen kann.
+QnA Maker-Integration  | Integration von [QnA Maker](https://www.qnamaker.ai) zur Beantwortung allgemeiner Fragen auf der Grundlage einer Wissensdatenbank, die auf bereits vorhandene Datenquellen (beispielsweise PDF-Handbücher) zurückgreifen kann. Darüber hinaus steht auch ein QnA Maker-Modell für Geplauder zur Verfügung, um Standardantworten auf gängige Fragen zu geben. ([Weitere Informationen](https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/how-to/chit-chat-knowledge-base))
 Konversationserkenntnisse  | Integration von [Application Insights](https://azure.microsoft.com/en-gb/services/application-insights/) zur Erfassung von Telemetriedaten für alle Konversationen und ein exemplarisches Power BI-Dashboard, um Ihnen den Einstieg in die Gewinnung von Erkenntnissen über Ihre Konversationsumgebungen zu erleichtern.
 
 Darüber hinaus werden alle für den Bot erforderlichen Azure-Ressourcen automatisch bereitgestellt: Botregistrierung, Azure App Service, LUIS, QnA Maker, Content Moderator, Cosmos DB, Azure Storage und Application Insights. Außerdem werden grundlegende Modelle für LUIS, QnA Maker und Dispatcher erstellt, trainiert und veröffentlicht, um das sofortige Testen grundlegender Absichten und der Weiterleitung zu ermöglichen.

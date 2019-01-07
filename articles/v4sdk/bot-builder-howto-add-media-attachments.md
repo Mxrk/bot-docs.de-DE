@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 10/25/2018
+ms.date: 12/17/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: fcbe28110ec71da7263d125e79ca59d15efa9d5f
-ms.sourcegitcommit: 15f7fa40b7e0a05507cdc66adf75bcfc9533e781
+ms.openlocfilehash: fd908335c69aab7c8b68925b8ecdece79e89ab4b
+ms.sourcegitcommit: f7a8f05fc05ff4a7212a437d540485bf68831604
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50916777"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735960"
 ---
 # <a name="add-media-to-messages"></a>Hinzufügen von Medien zu Nachrichten
 
@@ -60,7 +60,9 @@ Um dem Benutzer einen einzelnen Inhalt wie ein Bild oder ein Video zu senden, k�
 
 ```javascript
 const { ActionTypes, ActivityTypes, CardFactory } = require('botbuilder');
+
 // Call function to get an attachment.
+const reply = { type: ActivityTypes.Message };
 reply.attachments = [this.getInternetAttachment()];
 reply.text = 'This is an internet attachment.';
 // Send the activity to the user.
@@ -130,30 +132,32 @@ const card = CardFactory.heroCard('', undefined,
 buttons, { text: 'You can upload an image or select one of the following choices.' });
 
 // add card to Activity.
+const reply = { type: ActivityTypes.Message };
 reply.attachments = [card];
 
 // Send hero card to the user.
 await turnContext.sendActivity(reply);
 ```
+
 ---
 
 ## <a name="process-events-within-rich-cards"></a>Verarbeiten von Ereignissen auf Rich Cards
 
-Zum Verarbeiten von Ereignissen in Rich Cards verwenden Sie Objekte vom Typ _Kartenaktion_, um festzulegen, was passieren soll, wenn der Benutzer auf eine Schaltfläche klickt oder auf einen Abschnitt der Rich Card tippt.
+Zum Verarbeiten von Ereignissen in Rich Cards verwenden Sie Objekte vom Typ _Kartenaktion_, um festzulegen, was passieren soll, wenn der Benutzer auf eine Schaltfläche klickt oder auf einen Abschnitt der Rich Card tippt. Jede Kartenaktion hat einen _Typ_ und einen _Wert_.
 
-Weisen Sie für die korrekte Funktionsweise jedem anklickbaren Element auf der Karte einen Aktionstyp zu. Diese Tabelle listet die gültigen Werte für die Typeigenschaft eines Objekts vom Typ „Kartenaktion“ aus, und beschreibt den erwarteten Inhalt der Werteigenschaft für jeden Typ.
+Weisen Sie für die korrekte Funktionsweise jedem anklickbaren Element auf der Karte einen Aktionstyp zu. In der folgenden Tabelle werden die verfügbaren Aktionstypen aufgeführt und erläutert. Außerdem ist jeweils angegeben, was die zugeordnete Werteigenschaft enthalten muss.
 
-| Typ | Wert |
-| :---- | :---- |
-| openUrl | Die URL, die im integrierten Browser geöffnet werden soll. Reagiert auf Tippen oder Klicken durch Öffnen der URL. |
-| imBack | Der Text der Nachricht, die an den Bot gesendet werden soll (vom Benutzer, der auf die Schaltfläche geklickt oder auf die Karte getippt hat). Diese Nachricht (vom Benutzer an den Bot) ist für alle Unterhaltungsteilnehmer über die Clientanwendung sichtbar, auf der die Unterhaltung gehostet wird. |
-| postBack | Der Text der Nachricht, die an den Bot gesendet werden soll (vom Benutzer, der auf die Schaltfläche geklickt oder auf die Karte getippt hat). Einige Clientanwendungen zeigen diesen Text ggf. im Nachrichtenfeed an, wo er für alle Teilnehmer der Unterhaltung sichtbar ist. |
-| Aufruf | Ziel für einen Telefonanruf in diesem Format: `tel:123123123123`. Reagiert auf Tippen oder Klicken durch Einleiten eines Anrufs.|
-| playAudio | Die URL der Audiodatei, die wiedergegeben werden soll. Reagiert auf Tippen oder Klicken durch Wiedergabe der Audiodatei. |
-| playVideo | Die URL des Videos, das wiedergegeben werden soll. Reagiert auf Tippen oder Klicken durch Wiedergabe des Videos. |
-| showImage | Die URL des Bilds, das angezeigt werden soll. Reagiert auf Tippen oder Klicken durch Anzeigen des Bilds. |
-| downloadFile | Die URL der Datei, die heruntergeladen werden soll.  Reagiert auf Tippen oder Klicken durch Herunterladen der Datei. |
-| signin | Die URL des OAuth-Flusses, der initiiert werden soll. Regiert auf Tippen oder Klicken durch Initiieren der Anmeldung. |
+| Typ | Beschreibung | Wert |
+| :---- | :---- | :---- |
+| openUrl | Öffnet eine URL im integrierten Browser. | Die zu öffnende URL. |
+| imBack | Sendet eine Nachricht an den Bot und veröffentlicht eine sichtbare Antwort im Chat. | Text der zu sendenden Nachricht. |
+| postBack | Sendet eine Nachricht an den Bot und veröffentlicht ggf. keine sichtbare Antwort im Chat. | Text der zu sendenden Nachricht. |
+| Aufruf | Initiiert einen Telefonanruf. | Ziel für den Telefonanruf im folgenden Format: `tel:123123123123`. |
+| playAudio | Gibt Audio wieder. | Die URL des wiederzugebenden Audios. |
+| playVideo | Gibt ein Video wieder. | Die URL des wiederzugebenden Videos. |
+| showImage | Zeigt ein Bild an. | Die URL des anzuzeigenden Bilds. |
+| downloadFile | Lädt eine Datei herunter. | Die URL der herunterzuladenden Bilds. |
+| signin | Initiiert einen OAuth-Anmeldevorgang. | Die URL des zu initiierenden OAuth-Flusses. |
 
 ## <a name="hero-card-using-various-event-types"></a>Verwenden einer Hero-Karte mit verschiedenen Ereignistypen
 
@@ -360,5 +364,5 @@ await context.sendActivity(messageWithCarouselOfCards);
 
 Ausführliche Informationen zum Kartenschema finden Sie im [Bot Framework-Kartenschema](https://aka.ms/botSpecs-cardSchema).
 
-Unter folgenden Links finden Sie Beispielcode für Karten: [C#](https://aka.ms/bot-cards-sample-code)/[JS](https://aka.ms/bot-cards-js-sample-code), adaptive Karten: [C#](https://aka.ms/bot-adaptive-cards-sample-code)/[JS](https://aka.ms/bot-adaptive-cards-js-sample-code), Anlagen: [C#](https://aka.ms/bot-attachments-sample-code)/[JS](https://aka.ms/bot-attachments-sample-code-js) und vorgeschlagene Aktionen: [C#](https://aka.ms/SuggestedActionsCSharp)/[JS](https://aka.ms/SuggestedActionsJS).
+Beispielcode finden Sie hier: Für Karten: [C#](https://aka.ms/bot-cards-sample-code)/[JS](https://aka.ms/bot-cards-js-sample-code). Für adaptive Karten: [C#](https://aka.ms/bot-adaptive-cards-sample-code)/[JS](https://aka.ms/bot-adaptive-cards-js-sample-code). Für Anlagen: [C#](https://aka.ms/bot-attachments-sample-code)/[JS](https://aka.ms/bot-attachments-sample-code-js). Für vorgeschlagene Aktionen: [C#](https://aka.ms/SuggestedActionsCSharp)/[JS](https://aka.ms/SuggestedActionsJS).
 Weitere Beispiele finden Sie im Repository mit den Bot Builder-Beispielen auf [GitHub](https://aka.ms/bot-samples-readme).
