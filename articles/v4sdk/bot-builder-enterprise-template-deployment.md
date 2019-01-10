@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.date: 09/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: c7977400a53af916217e595dda8e9c9a0ff85496
-ms.sourcegitcommit: 958a28bbab7dd29b384bb2e2d58d866e88f53316
+ms.openlocfilehash: 622d5b4924a4739900659d6be8eebd1888191eab
+ms.sourcegitcommit: ddc8c116887ada67642d49ee5166e7f1ae287263
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52500666"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "54114884"
 ---
 # <a name="enterprise-bot-template---deploying-your-bot"></a>Vorlage für den Bot für Unternehmen: Bereitstellen des Bots
 
@@ -34,10 +34,7 @@ npm install -g ludown luis-apis qnamaker botdispatch msbot chatdown
 
 - Installieren Sie die Azure-Befehlszeilentools (CLI). Eine entsprechende Anleitung finden Sie [hier](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?view=azure-cli-latest). Wenn Sie das Azure Bot Service-Befehlszeilentool (CLI) bereits installiert haben, aktualisieren Sie es auf die neueste Version, indem Sie Ihre derzeitige Version deinstallieren und dann die neue installieren.
 
-- Installieren Sie die AZ-Erweiterung für Bot Service.
-```shell
-az extension add -n botservice
-```
+> Bei Verwendung von msbot 4.3.2 und höheren Versionen ist mindestens Version 2.0.53 der AZ CLI erforderlich. Ist darüber hinaus die botservice-Erweiterung installiert, entfernen Sie sie mithilfe von „az extension remove --name botservice“.
 
 - Installieren des Tools LUISGen
 
@@ -72,7 +69,7 @@ Für auf der Unternehmensvorlage basierende Bots werden folgende Abhängigkeiten
 - Azure Cognitive Services – QnA Maker (einschließlich Azure Search und Azure-Web-App)
 - Azure Cognitive Services – Content Moderator (optionaler manueller Schritt)
 
-Das Bereitstellungsrezept Ihres neuen Botprojekts ermöglicht es, mit dem Befehl `msbot clone services` die Bereitstellung aller oben genannten Dienste in Ihrem Azure-Abonnement zu automatisieren und sicherzustellen, dass die BOT-Datei in Ihrem Projekt mit allen Diensten, die Schlüssel enthalten, aktualisiert wird, um den reibungslosen Betrieb Ihres Bots zu gewährleisten. Es verfügt auch über mehrere Konfigurationsoptionen für die folgenden Sprachen: Chinesisch, Englisch, Französisch, Deutsch, Italienisch und Spanisch.
+Das Bereitstellungsrezept Ihres neuen Botprojekts ermöglicht es, mit dem Befehl `msbot clone services` die Bereitstellung aller oben genannten Dienste in Ihrem Azure-Abonnement zu automatisieren und sicherzustellen, dass die BOT-Datei in Ihrem Projekt mit allen Diensten, die Schlüssel enthalten, aktualisiert wird, um den reibungslosen Betrieb Ihres Bots zu gewährleisten. Darüber hinaus stehen mehrere Konfigurationsoptionen für die folgenden Sprachen zur Verfügung: Chinesisch, Englisch, Französisch, Deutsch, Italienisch und Spanisch.
 
 > Überprüfen Sie nach der Bereitstellung die Tarife für die erstellten Dienste, und passen Sie sie an Ihr Szenario an.
 
