@@ -9,12 +9,12 @@ layout: LandingPage
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 09/27/2018
-ms.openlocfilehash: ec7a21e790c945b261e7381ec76298460fa079ee
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 905b8592ebbc3fb4344af60b6bcbb219d0a2ee70
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50000257"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224315"
 ---
 ::: moniker range="azure-bot-service-3.0"
 
@@ -24,7 +24,7 @@ ms.locfileid: "50000257"
 <div class="content">
     <h1>Dokumentation zu Azure Bot Service</h1>
     <div class="intro" style="min-width: 200px">
-        <p>Bot Service bietet eine integrierte Umgebung, die speziell für die Bot-Entwicklung konzipiert wurde – so können Sie intelligente Bots von einer zentralen Stelle aus erstellen, verbinden, testen, bereitstellen und verwalten. Azure Bot Service nutzt das Bot Builder SDK mit Unterstützung für .NET und Node.js. Hier erfahren Sie anhand unserer Schnellstarts und Beispiele, wie Sie Bot Service verwenden.</p>
+        <p>Bot Service bietet eine integrierte Umgebung, die speziell für die Bot-Entwicklung konzipiert wurde – so können Sie intelligente Bots von einer zentralen Stelle aus erstellen, verbinden, testen, bereitstellen und verwalten. Azure Bot Service nutzt das Bot Framework SDK mit Unterstützung für .NET und Node.js. Hier erfahren Sie anhand unserer Schnellstarts und Beispiele, wie Sie Bot Service verwenden.</p>
     </div>
 <h2 style="margin-top: 18px; margin-bottom: 0px;">Fünfminütige Schnellstarts</h2>
 <div class="ico48Case">
@@ -73,7 +73,7 @@ ms.locfileid: "50000257"
 <div class="content">
     <h1>Dokumentation zu Azure Bot Service</h1>
     <div class="intro" style="min-width: 200px">
-        <p>Azure Bot Service bietet eine integrierte Umgebung, die speziell für die Bot-Entwicklung konzipiert wurde – so können Sie intelligente Bots von einer zentralen Stelle aus erstellen, verbinden, testen, bereitstellen und verwalten. Azure Bot Service nutzt das Bot Builder SDK mit Unterstützung für C# und JavaScript. Hier erfahren Sie anhand unserer Schnellstarts, Tutorials und Beispiele, wie Sie Bot Service verwenden.
+        <p>Azure Bot Service bietet eine integrierte Umgebung, die speziell für die Bot-Entwicklung konzipiert wurde – so können Sie intelligente Bots von einer zentralen Stelle aus erstellen, verbinden, testen, bereitstellen und verwalten. Azure Bot Service nutzt das Bot Framework SDK mit Unterstützung für C# und JavaScript. Hier erfahren Sie anhand unserer Schnellstarts, Tutorials und Beispiele, wie Sie Bot Service verwenden.
 </p>
 </div>
 

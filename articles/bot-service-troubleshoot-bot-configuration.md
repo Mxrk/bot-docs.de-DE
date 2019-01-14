@@ -28,7 +28,7 @@ Der erste Schritt bei der Problembehandlung eines Bots besteht darin, ihn im Web
 
 ![Testen im Webchat](./media/test-in-webchat.png)
 
-Wenn der Bot mit der erwarteten Ausgabe antwortet, fahren Sie mit [Bot funktioniert im Webchat nicht](#bot-does-not-work-in-web-chat) fort. Fahren Sie andernfalls mit [Bot funktioniert im Webchat, aber nicht in anderen Kanälen](#bot-works-in-web-chat-but-not-in-other-channels) fort.
+Wenn der Bot nicht mit der erwarteten Ausgabe antwortet, fahren Sie mit [Bot funktioniert im Webchat nicht](#bot-does-not-work-in-web-chat) fort. Fahren Sie andernfalls mit [Bot funktioniert im Webchat, aber nicht in anderen Kanälen](#bot-works-in-web-chat-but-not-in-other-channels) fort.
 
 ## <a name="bot-does-not-work-in-web-chat"></a>Bot funktioniert im Webchat nicht
 
