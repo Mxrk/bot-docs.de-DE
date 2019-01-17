@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.date: 09/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 622d5b4924a4739900659d6be8eebd1888191eab
-ms.sourcegitcommit: ddc8c116887ada67642d49ee5166e7f1ae287263
+ms.openlocfilehash: e557b359da09615d2998c4c729f57ffb9faf0de1
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54114884"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224965"
 ---
 # <a name="enterprise-bot-template---deploying-your-bot"></a>Vorlage für den Bot für Unternehmen: Bereitstellen des Bots
 
@@ -35,6 +35,12 @@ npm install -g ludown luis-apis qnamaker botdispatch msbot chatdown
 - Installieren Sie die Azure-Befehlszeilentools (CLI). Eine entsprechende Anleitung finden Sie [hier](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?view=azure-cli-latest). Wenn Sie das Azure Bot Service-Befehlszeilentool (CLI) bereits installiert haben, aktualisieren Sie es auf die neueste Version, indem Sie Ihre derzeitige Version deinstallieren und dann die neue installieren.
 
 > Bei Verwendung von msbot 4.3.2 und höheren Versionen ist mindestens Version 2.0.53 der AZ CLI erforderlich. Ist darüber hinaus die botservice-Erweiterung installiert, entfernen Sie sie mithilfe von „az extension remove --name botservice“.
+
+- Installieren des Tools LUISGen
+
+```shell
+dotnet tool install -g luisgen
+```
 
 - Installieren des Tools LUISGen
 
