@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 2a7c73a9df291514e750797a0d6c796df400609f
+ms.sourcegitcommit: f576981342fb3361216675815714e24281e20ddf
+ms.translationtype: HT
+ms.contentlocale: de-DE
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39303120"
+---
 # <a name="bot-review-guidelines"></a>Richtlinien für die Bot-Überprüfung
 
 Wir begrüßen Sie und bedanken uns dafür, dass Sie Ihre Begabung und Ihre Zeit in das Erstellen von Bots, Botlets, Web-Apps, Add-Ins oder Fertigkeiten („App-Integrationen“) für Microsoft-Kanäle investieren. Im Folgenden sind die Mindestanforderungen aufgeführt, die Ihre App-Integration erfüllen muss, bevor sie in einem Microsoft-Kanal wie Skype oder Microsoft Teams veröffentlicht werden kann. Jeder Kanal kann zusätzlich zu den unten aufgeführten Anforderungen weitere Anforderungen haben. Ggf. finden Sie kanalspezifische Begriffe auf der Konfigurationsseite eines Kanals, und Sie müssen sich möglicherweise für den Dienst eines Kanals registrieren, bevor Sie einen Bot auf diesem Kanal veröffentlichen können.
@@ -51,7 +59,7 @@ Iubenda – [Generator für Datenschutz-Richtlinien ](http://www.iubenda.com/en)
   - Werbung, Spam, unerwünschte oder unaufgeforderte Massenkommunikation, Beiträge oder Nachrichten enthalten;
   - als ungeeignetes oder anstößiges Material angesehen werden könnten (z.B. Nacktaufnahmen, Sodomie, anstößige Ausdrücke, pornografische oder sexuell freizügige Darstellungen, grafische oder überflüssige Gewaltdarstellung, Nikotinmissbrauch, kriminelle, gefährliche oder unverantwortliche Aktivitäten, Drogen, Menschenrechtsverletzungen, Bau oder unzulässige Verwendung von gegen Personen oder Tiere in der realen Welt gerichteten Waffen, Alkoholmissbrauch);
   - die falsch oder irreführend sind (z.B. Bitte um Geld unter Vorspiegelung falscher Tatsachen, Vorgabe einer falschen Identität);
-  - für Sie, den Microsoft Channel oder andere schädlich sind oder ein Sicherheitsrisiko darstellen (z.B. Übertragen von Viren, Stalken, terroristische Bloginhalte, Hass schürende Inhalte oder Befürwortung von Diskriminierung, Hass oder Gewalt auf Basis von Rasse, ethnischer Herkunft, nationalem Ursprung, Sprache, Geschlecht, Alter, Behinderung, Religion, sexueller Orientierung, Status als Veteran oder Mitgliedschaft in einer anderen sozialen Gruppe);
+  - für Sie, den Microsoft Channel oder andere schädlich sind oder ein Sicherheitsrisiko darstellen (z.B. Übertragen von Viren, Stalken, terroristische Bloginhalte, Hass schürende Inhalte oder Befürwortung von Diskriminierung, Hass oder Gewalt auf Basis von ethnischer Herkunft, nationalem Ursprung, Sprache, Geschlecht, Alter, Behinderung, Religion, sexueller Orientierung, Status als Veteran oder Mitgliedschaft in einer anderen sozialen Gruppe);
   - die Rechte Dritter verletzen (z.B. nicht autorisierte Freigabe von urheberrechtlich geschützter Musik oder anderen urheberrechtlich geschützten Materialien);
   - die verleumderisch, beleidigend oder bedrohlich sind;
   - die Privatsphäre anderer verletzen; 
