@@ -1,6 +1,6 @@
 ---
 title: Abfangen von Nachrichten | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie Nachrichten zwischen Benutzer und Bot mithilfe des Bot Builder SDK für .NET abfangen.
+description: Hier erfahren Sie, wie Sie Nachrichten zwischen Benutzer und Bot mithilfe des Bot Framework SDK für .NET abfangen.
 author: RobStand
 ms.author: kamrani
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 21607dae5c2a8d08ed4b7bf1b6e6983cd9bf1196
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 54ab447fac81ba17f1fa277347cf7a5aaaab8850
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999727"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54223775"
 ---
 # <a name="intercept-messages"></a>Abfangen von Nachrichten
 
@@ -28,7 +28,7 @@ ms.locfileid: "49999727"
 
 ## <a name="intercept-and-log-messages"></a>Abfangen und Protokollieren von Nachrichten
 
-Das folgende Codebeispiel zeigt, wie zwischen Benutzer und Bot ausgetauschte Nachrichten mithilfe des Konzepts der **Middleware** im Bot Builder SDK für .NET abgefangen werden. 
+Das folgende Codebeispiel zeigt, wie zwischen Benutzer und Bot ausgetauschte Nachrichten mithilfe des Konzepts der **Middleware** im Bot Framework SDK für .NET abgefangen werden. 
 
 Erstellen Sie zuerst eine `DebugActivityLogger`-Klasse, und definieren Sie eine `LogAsync`-Methode, um anzugeben, welche Aktion für jede abgefangene Nachricht ausgeführt wird. In diesem Beispiel werden nur einige Informationen zu jeder Nachricht ausgegeben.
 
@@ -62,9 +62,9 @@ In diesem Beispiel werden einfach einige Informationen zu jeder Nachricht ausgeg
 
 ## <a name="sample-code"></a>Beispielcode 
 
-Ein vollständiges Beispiel, das veranschaulicht, wie Sie Nachrichten mit dem Bot Builder SDK für .NET abfangen und protokollieren können, finden Sie in GitHub im <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-Middleware" target="_blank">Middleware-Beispiel</a>. 
+Ein vollständiges Beispiel, das veranschaulicht, wie Sie Nachrichten mit dem Bot Framework SDK für .NET abfangen und protokollieren können, finden Sie auf GitHub im <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-Middleware" target="_blank">Middleware-Beispiel</a>. 
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">Referenz zum Bot Builder SDK für .NET</a>
+- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">Referenz zum Bot Framework SDK für .NET</a>
 - <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-Middleware" target="_blank">Middleware-Beispiel (GitHub)</a>

@@ -6,14 +6,15 @@ ms.author: JonathanFingold
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
+ROBOTS: NOINDEX
 ms.date: 10/04/2018
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 9b9a3594e3a1f6a93ce3d9b3314880c78b88a9c5
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 33c6f22696038ed5e9d2ae09ad2ec99d401f6a60
+ms.sourcegitcommit: b94361234816e6b95459f142add936732fc40344
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998907"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54317710"
 ---
 [!INCLUDE [pre-release-label](includes/pre-release-label-v3.md)]
 
@@ -32,7 +33,7 @@ Sie enthält folgende Features:
 - Verbesserungen an den Kanälen zur Unterstützung neuer Authentifizierungsfeatures, z.B. neue WebChat- und DirectLineJS-Bibliotheken, damit die Überprüfung von sechsstelligem magischem Code nicht mehr erforderlich ist.
 - Verbesserungen am Hinzufügen, Löschen und Konfigurieren von Verbindungseinstellungen für verschiedene OAuth-Identitätsanbieter im Azure-Portal.
 - Unterstützung einer Vielzahl von einsatzbereiten Identitätsanbietern, einschließlich Azure Active Directory (V1- und V2-Endpunkte), GitHub und mehr.
-- Updates an den Bot Builder SDKs für C# und Node.js, um Token abrufen, OAuthCards erstellen und TokenResponse-Ereignisse verarbeiten zu können.
+- Updates an den Bot Framework SDKs für C# und Node.js, um Token abrufen, OAuthCards erstellen und TokenResponse-Ereignisse verarbeiten zu können.
 - Beispiele zum Erstellen eines Bots, der mit Azure Active Directory (V1- und V2-Endpunkte) und mit GitHub authentifiziert wird.
 
 Sie können die Schritte in diesem Artikel auch verwenden, um solche Features einem vorhandenen Bot hinzuzufügen. Im Folgenden werden Beispiel-Bots aufgeführt, die die neuen Authentifizierungsfeatures veranschaulichen.
@@ -317,7 +318,7 @@ private async Task SendOAuthCardAsync(IDialogContext context, Activity activity)
 
 ### <a name="wait-for-a-tokenresponseevent"></a>Warten auf TokenResponseEvent
 
-In diesem Code wartet die Dialogfeldklasse des Bots auf `TokenResponseEvent` (weitere Informationen zur Weiterleitung an den Dialogstapel finden Sie unten). Die `WaitForToken`-Methode ermittelt zunächst, ob dieses Ereignis gesendet wurde. Wenn es gesendet wurde, kann der Bot es verwenden. Wenn nicht, übergibt die `WaitForToken`-Methode den Text, der an den Bot gesendet wurde, an `GetUserTokenAsync`. Der Grund hierfür besteht darin, dass einige Clients (z.B. WebChat) keinen Code zum Überprüfen von magischem Code benötigen und das Token deshalb direkt in `TokenResponseEvent` senden. Für andere Clients ist der magische Code weiterhin erforderlich (z.B. Facebook oder Slack). Azure Bot Service sendet diesen Clients einen sechsstelligen magischen Code und fordert Benutzer dazu auf, diesen in das Chatfenster einzugeben. Zwar ist dieses Fallback-Verhalten nicht ideal, aber wenn `WaitForToke`n Code empfängt, kann der Bot diesen Code an Azure Bot Service senden und ein Token zurückerhalten. Wenn dieser Aufruf ebenfalls fehlschlägt, können Sie entscheiden, ob Sie einen Fehler melden oder auf andere Weise reagieren möchten. In den meisten Fällen sollte der Bot jedoch nun über ein Benutzertoken verfügen.
+In diesem Code wartet die Dialogfeldklasse des Bots auf `TokenResponseEvent` (weitere Informationen zur Weiterleitung an den Dialogstapel finden Sie unten). Die `WaitForToken`-Methode ermittelt zunächst, ob dieses Ereignis gesendet wurde. Wenn es gesendet wurde, kann der Bot es verwenden. Wenn nicht, übergibt die `WaitForToken`-Methode den Text, der an den Bot gesendet wurde, an `GetUserTokenAsync`. Der Grund hierfür besteht darin, dass einige Clients (z.B. WebChat) keinen Code zum Überprüfen von magischem Code benötigen und das Token deshalb direkt in `TokenResponseEvent` senden. Für andere Clients ist der magische Code weiterhin erforderlich (z.B. Facebook oder Slack). Azure Bot Service sendet diesen Clients einen sechsstelligen magischen Code und fordert Benutzer dazu auf, diesen in das Chatfenster einzugeben. Dieses Fallbackverhalten ist zwar nicht ideal, aber wenn `WaitForToken` Code empfängt, kann der Bot diesen Code an Azure Bot Service senden und ein Token zurückerhalten. Wenn dieser Aufruf ebenfalls fehlschlägt, können Sie entscheiden, ob Sie einen Fehler melden oder auf andere Weise reagieren möchten. In den meisten Fällen sollte der Bot jedoch nun über ein Benutzertoken verfügen.
 
 Wenn Sie sich die Datei **MessageController.cs** ansehen, werden Sie sehen, dass `Event`-Aktivitäten dieses Typs ebenfalls an den Dialogstapel weitergeleitet werden.
 
@@ -363,4 +364,4 @@ else if(message.Type == ActivityTypes.Event)
 }
 ```
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
-[Bot Builder SDK](https://github.com/microsoft/botbuilder)
+[Bot Framework SDK](https://github.com/microsoft/botbuilder)

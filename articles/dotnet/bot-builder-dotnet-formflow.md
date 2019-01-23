@@ -1,6 +1,6 @@
 ---
 title: Grundlegende Features von FormFlow | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie mithilfe von FormFlow im Bot Builder SDK für .NET Konversationsflüsse leiten können.
+description: Hier erfahren Sie, wie Sie mithilfe von FormFlow im Bot Framework SDK für .NET Konversationsflüsse leiten können.
 author: RobStand
 ms.author: kamrani
 manager: kamrani
@@ -9,18 +9,18 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: f5b36e1f916539b78f9bdcdd0970317db723f408
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 710a8ce315faa02a72eaeb753c44b9b212524ec3
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50000376"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224675"
 ---
 # <a name="basic-features-of-formflow"></a>Grundlegende Features von FormFlow
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
-[Dialogfelder](bot-builder-dotnet-dialogs.md) sind zwar ein nützliches und flexibles Mittel, aber die Verarbeitung einer geführten Konversation (z.B. zum Bestellen eines Sandwiches) kann sehr viel Mühe kosten. Es gibt jederzeit im Laufe einer Konversation mehrere Möglichkeiten, um fortzufahren. Möglicherweise müssen Unklarheiten geklärt oder Hilfe geleistet werden, oder Sie müssen einen Schritt vor oder zurück gehen. Wenn Sie **FormFlow** im Bot Builder SDK für .NET verwenden, können Sie den Prozess zum Verwalten einer geführten Konversation um einiges vereinfachen. 
+[Dialogfelder](bot-builder-dotnet-dialogs.md) sind zwar ein nützliches und flexibles Mittel, aber die Verarbeitung einer geführten Konversation (z.B. zum Bestellen eines Sandwiches) kann sehr viel Mühe kosten. Es gibt jederzeit im Laufe einer Konversation mehrere Möglichkeiten, um fortzufahren. Möglicherweise müssen Unklarheiten geklärt oder Hilfe geleistet werden, oder Sie müssen einen Schritt vor oder zurück gehen. Wenn Sie **FormFlow** im Bot Framework SDK für .NET verwenden, können Sie den Prozess zum Verwalten einer geführten Konversation um einiges vereinfachen. 
 
 FormFlow generiert basierend auf von Ihnen angegebenen Richtlinien automatisch Dialogfelder, die zum Verwalten einer geführten Konversation benötigt werden. Wenn Sie FormFlow verwenden, sind Sie zwar weniger flexibel als wenn Sie Dialogfelder selbst erstellen und verwalten, aber Sie sparen deutlich Zeit beim Entwickeln Ihres Bots, wenn Sie mit FormFlow eine geführte Konversation entwerfen. Außerdem können Sie Ihren Bot mithilfe von Dialogfeldern, die FormFlow generiert, und anderer Dialogfelder erstellen. Beispielsweise unterstützt ein FormFlow-Dialogfeld den Benutzer beim Ausfüllen eines Formulars, während ein [LuisDialog][LuisDialog]-Dialogfeld die Benutzereingabe bewertet, um die jeweilige Absicht zu bestimmen.
 
@@ -323,7 +323,7 @@ FormFlow vereinfacht das Entwickeln von Dialogfeldern. Mithilfe der erweiterten 
 - [Lokalisieren von Formularinhalten](bot-builder-dotnet-formflow-localize.md)
 - [Definieren eines Formulars mit dem JSON-Schema](bot-builder-dotnet-formflow-json-schema.md)
 - [Anpassen der Benutzeroberfläche mit Mustersprache](bot-builder-dotnet-formflow-pattern-language.md)
-- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">Referenz zum Bot Builder SDK für .NET</a>
+- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">Referenz zum Bot Framework SDK für .NET</a>
 
 [LuisDialog]: /dotnet/api/microsoft.bot.builder.dialogs.luisdialog-1
 

@@ -1,6 +1,6 @@
 ---
 title: Auffordern zu Benutzereingaben | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie Eingabeaufforderungen verwenden, um mit dem Bot Builder SDK für Node.js Benutzereingaben zu sammeln.
+description: Hier erfahren Sie, wie Sie Eingabeaufforderungen verwenden, um mit dem Bot Framework SDK für Node.js Benutzereingaben zu sammeln.
 author: v-ducvo
 ms.author: v-ducvo
 manager: kamrani
@@ -9,18 +9,18 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 0926c15d2c62bfa74ddb465d8c816dee7c8fb576
-ms.sourcegitcommit: 6c719b51c9e4e84f5642100a33fe346b21360e8a
+ms.openlocfilehash: 0ee70c1e775780bf884c4237e47cff4edb8934a9
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52451972"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224785"
 ---
 # <a name="prompt-for-user-input"></a>Auffordern zu Benutzereingaben
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
-Das Bot Builder SDK für Node.js stellt eine Reihe von integrierten Eingabeaufforderungen bereit, um auf einfache Weise Eingaben von einem Benutzer zu sammeln. 
+Das Bot Framework SDK für Node.js stellt eine Reihe von integrierten Eingabeaufforderungen bereit, um die Erfassung der Eingaben von einem Benutzer zu vereinfachen. 
 
 Eine *Eingabeaufforderung* wird verwendet, wenn ein Bot Eingaben vom Benutzer benötigt. Mit Eingabeaufforderungen können Sie einen Benutzer zu einer Reihe von Eingaben auffordern, indem Sie die Eingabeaufforderungen in einem Wasserfall verketten. Eingabeaufforderungen in Verbindung mit einem [Wasserfall](bot-builder-nodejs-dialog-waterfall.md) können Sie zur besseren [Verwaltung des Konversationsflusses](bot-builder-nodejs-manage-conversation-flow.md) in Ihrem Bot verwenden. 
 
@@ -74,7 +74,7 @@ bot.dialog('askName', [
 ```
 
 ## <a name="prompt-types"></a>Eingabeaufforderungstypen
-Das Bot Builder SDK für Node.js enthält integrierte Eingabeaufforderungen verschiedenen Typs. 
+Das Bot Framework SDK für Node.js enthält verschiedene Arten von integrierten Eingabeaufforderungen. 
 
 |**Eingabeaufforderungstyp**     | **Beschreibung** |     
 | ------------------ | --------------- |

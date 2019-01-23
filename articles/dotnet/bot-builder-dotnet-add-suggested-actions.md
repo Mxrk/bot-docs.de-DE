@@ -1,6 +1,6 @@
 ---
 title: Hinzufügen vorgeschlagener Aktionen zu Nachrichten | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie Nachrichten mithilfe des Bot Builder SDK für .NET vorgeschlagene Aktionen hinzufügen.
+description: Hier erfahren Sie, wie Sie mit dem Bot Framework SDK für .NET Nachrichten vorgeschlagene Aktionen hinzufügen.
 author: RobStand
 ms.author: kamrani
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 03/13/2018
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: b03003d4822c657f9b606de36087ddf4d5cbee7a
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: ad9b791cf74c4a67515fdf8d60eab29c51f93bc2
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997648"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224742"
 ---
 # <a name="add-suggested-actions-to-messages"></a>Hinzufügen von vorgeschlagenen Aktionen zu Nachrichten
 

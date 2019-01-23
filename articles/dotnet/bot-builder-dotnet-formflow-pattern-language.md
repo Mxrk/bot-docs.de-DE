@@ -1,6 +1,6 @@
 ---
 title: Anpassen der Benutzeroberfläche mit Mustersprache | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie mit dem Bot Builder SDK für .NET mithilfe von Mustersprache FormFlow-Eingabeaufforderungen anpassen und FormFlow-Vorlagen überschreiben.
+description: Hier erfahren Sie, wie Sie mit dem Bot Framework SDK für .NET mithilfe von Mustersprache FormFlow-Eingabeaufforderungen anpassen und FormFlow-Vorlagen überschreiben.
 author: RobStand
 ms.author: kamrani
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: bc0a2819f3adea63b53e464808f3bbaf5b93814a
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: f3d46431191638cc41026f6c020a5f04de21ff0d
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998047"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225635"
 ---
 # <a name="customize-user-experience-with-pattern-language"></a>Anpassen der Benutzeroberfläche mit Mustersprache
 
@@ -144,7 +144,7 @@ What kind of sandwich would you like?
 - [Customize a form using FormBuilder (Anpassen eines Formulars mithilfe von FormBuilder)](bot-builder-dotnet-formflow-formbuilder.md)
 - [Lokalisieren von Formularinhalten](bot-builder-dotnet-formflow-localize.md)
 - [Definieren eines Formulars mit dem JSON-Schema](bot-builder-dotnet-formflow-json-schema.md)
-- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">Referenz zum Bot Builder SDK für .NET</a>
+- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">Referenz zum Bot Framework SDK für .NET</a>
 
 [promptAttribute]: /dotnet/api/microsoft.bot.builder.formflow.promptattribute
 

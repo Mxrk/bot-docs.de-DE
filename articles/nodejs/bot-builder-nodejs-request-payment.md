@@ -1,6 +1,6 @@
 ---
 title: Anfordern von Zahlungen | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie mit dem Bot Builder SDK für Node.js eine Zahlungsanforderung senden.
+description: Hier erfahren Sie, wie Sie mit dem Bot Framework SDK für Node.js eine Zahlungsanforderung senden.
 author: v-ducvo
 ms.author: v-ducvo
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 5bdb699e242784883f7c1a5dda895a31ff80efb1
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 296004c654cfd59de6c245bf9702a80024526140
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999161"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225745"
 ---
 # <a name="request-payment"></a>Anfordern von Zahlungen
 
@@ -24,11 +24,11 @@ ms.locfileid: "49999161"
 > - [.NET](../dotnet/bot-builder-dotnet-request-payment.md)
 > - [Node.js](../nodejs/bot-builder-nodejs-request-payment.md)
 
-Wenn Ihr Bot Benutzern den Kauf von Artikeln ermöglicht, kann er durch Einbeziehen eines besonderen Schaltflächentyps in eine [Rich Card](bot-builder-nodejs-send-rich-cards.md) eine Zahlung anfordern. In diesem Artikel wird beschrieben, wie Sie mit dem Bot Builder SDK für Node.js eine Zahlungsanforderung senden.
+Wenn Ihr Bot Benutzern den Kauf von Artikeln ermöglicht, kann er durch Einbeziehen eines besonderen Schaltflächentyps in eine [Rich Card](bot-builder-nodejs-send-rich-cards.md) eine Zahlung anfordern. In diesem Artikel wird beschrieben, wie Sie mit dem Bot Framework SDK für Node.js eine Zahlungsanforderung senden.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Bevor Sie mit dem Bot Builder SDK für Node.js eine Zahlungsanforderung senden können, müssen Sie die folgenden erforderlichen Aufgaben abschließen.
+Bevor Sie mit dem Bot Framework SDK für Node.js eine Zahlungsanforderung senden können, müssen Sie die folgenden erforderlichen Aufgaben abschließen.
 
 ### <a name="register-and-configure-your-bot"></a>Registrieren und Konfigurieren des Bots
 

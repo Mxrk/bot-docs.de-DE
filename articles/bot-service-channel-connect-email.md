@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 10/10/2018
-ms.openlocfilehash: 93270dd6211d8aef1ff44fb8e272855df2058b8a
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: bd18edb87cdff502ed66177f92f88a8488135431
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997207"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225705"
 ---
 # <a name="connect-a-bot-to-office-365-email"></a>Verbinden eines Bots mit Office 365-E-Mails
 
@@ -76,11 +76,11 @@ Weitere Informationen zur Verwendung von `channelData` finden Sie unter [Impleme
 <!-- Put whole list in monikers, even though it's just the second item that needs to be different. -->
 ::: moniker range="azure-bot-service-3.0"
 * Verbinden eines Bots mit [Kanälen](~/bot-service-manage-channels.md)
-* [Implementieren von kanalspezifischer Funktionalität](dotnet/bot-builder-dotnet-channeldata.md) mit dem Bot Builder SDK für .NET
+* [Implementieren von kanalspezifischer Funktionalität](dotnet/bot-builder-dotnet-channeldata.md) mit dem Bot Framework SDK für .NET
 * Verwenden des [Kanalinspektors](bot-service-channel-inspector.md) zur Feststellung, wie ein Kanal eine bestimmte Funktion Ihrer Botanwendung rendert
 ::: moniker-end
 ::: moniker range="azure-bot-service-4.0"
 * Verbinden eines Bots mit [Kanälen](~/bot-service-manage-channels.md)
-* [Implementieren von kanalspezifischer Funktionalität](~/v4sdk/bot-builder-channeldata.md) mit dem Bot Builder SDK für .NET
+* [Implementieren von kanalspezifischer Funktionalität](~/v4sdk/bot-builder-channeldata.md) mit dem Bot Framework SDK für .NET
 * Verwenden des [Kanalinspektors](bot-service-channel-inspector.md) zur Feststellung, wie ein Kanal eine bestimmte Funktion Ihrer Botanwendung rendert
 ::: moniker-end

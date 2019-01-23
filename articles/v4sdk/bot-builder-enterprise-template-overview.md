@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.date: 09/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 3abfb82f555f458bc9cdd5125fafa1cfa70921cb
-ms.sourcegitcommit: 66769e697d94f7bf5e0441dfacf2c0e3768845ea
+ms.openlocfilehash: a0b56b77990c095d1cf8bb28235d06444837d164
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53654961"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224596"
 ---
 # <a name="enterprise-bot-template"></a>Vorlage für den Bot für Unternehmen 
 
@@ -22,7 +22,7 @@ ms.locfileid: "53654961"
 
 Für die Erstellung einer hochwertigen Konversationsumgebung werden gewisse Grundfunktionen benötigt. Aus diesem Grund haben wir die Vorlage für den Bot für Unternehmen erstellt, um Sie bei der Erstellung überzeugender Konversationsumgebungen zu unterstützen. Diese Vorlage vereint alle Best Practices und unterstützenden Komponenten, die wir im Rahmen der Erstellung von Konversationsumgebungen ermittelt haben. 
 
-Mit ihr lassen sich neue Botprojekte deutlich einfacher erstellen. Die Vorlage bietet folgende vorgefertigte Funktionen und nutzt dabei sowohl [Bot Builder SDK v4](https://github.com/Microsoft/botbuilder) als auch [Bot Builder-Tools](https://github.com/Microsoft/botbuilder-tools).
+Mit ihr lassen sich neue Botprojekte deutlich einfacher erstellen. Die Vorlage bietet folgende vorgefertigte Funktionen und nutzt dabei sowohl [Bot Framework SDK v4](https://github.com/Microsoft/botbuilder) als auch [Bot Framework-Tools](https://github.com/Microsoft/botbuilder-tools).
 
 Feature | BESCHREIBUNG |
 ------------ | -------------

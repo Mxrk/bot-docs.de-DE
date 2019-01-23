@@ -8,13 +8,14 @@ manager: kamrani
 ms.topic: get-started-article
 ms.service: bot-service
 ms.subservice: abs
-ms.date: 12/17/2018
-ms.openlocfilehash: 831268b1ddc711963c20ca9c99b333f070a6100c
-ms.sourcegitcommit: 8c10aa7372754596a3aa7303a3a893dd4939f7e9
+ms.date: 01/15/2019
+monikerRange: azure-bot-service-4.0
+ms.openlocfilehash: 78e960357d6c4dc1c9751a9921a2338f552738b0
+ms.sourcegitcommit: b94361234816e6b95459f142add936732fc40344
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53654325"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54317614"
 ---
 # <a name="deploy-bots-from-botbuilder-samples-repo"></a>Bereitstellen von Bots aus dem Repository „botbuilder-samples“
 
@@ -35,14 +36,18 @@ Bevor Sie die Schritte ausführen, sollten Sie sich diesen Artikel einmal vollst
 - Wenn Sie kein Azure-Abonnement besitzen, können Sie ein [kostenloses Konto](https://azure.microsoft.com/free/) erstellen, bevor Sie beginnen.
 - Installieren Sie das [.NET Core SDK](https://dotnet.microsoft.com/download) (Version 2.2 oder höher). Verwenden Sie `dotnet --version`, um Ihre aktuelle Version zu ermitteln.
 - Installieren Sie die aktuelle Version des [Azure CLI-Tools](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). Verwenden Sie `az --version`, um Ihre aktuelle Version zu ermitteln.
-- Installieren Sie die aktuelle `botservice`-Erweiterung für das `az`-Tool.
-  - Entfernen Sie zunächst mithilfe des Befehls `az extension remove -n botservice` die alte Version. Installieren Sie anschließend mit dem Befehl `az extension add -n botservice` die aktuelle Version.
 - Installieren Sie die aktuelle Version des [MSBot](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/MSBot)-Tools.
   - Sie benötigen die [LUIS CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUIS#installation), wenn der Klonvorgang LUIS- oder Dispatch-Ressourcen umfasst.
   - Sie benötigen die [QnA Maker CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/QnAMaker#as-a-cli), wenn der Klonvorgang QnA Maker-Ressourcen umfasst.
 - Installieren Sie [Bot Framework Emulator](https://aka.ms/Emulator-wiki-getting-started).
 - Installieren und konfigurieren Sie [ngrok](https://github.com/Microsoft/BotFramework-Emulator/wiki/Tunneling-%28ngrok%29).
 - Machen Sie sich mit [BOT-Dateien](v4sdk/bot-file-basics.md) vertraut.
+
+Bei Verwendung von msbot 4.3.2 und höheren Versionen ist mindestens Version 2.0.54 der Azure CLI erforderlich. Wenn Sie die botservice-Erweiterung installiert haben, entfernen Sie sie mit dem folgenden Befehl:
+
+```cmd
+az extension remove --name botservice
+```
 
 ### <a name="c"></a>C\#
 
@@ -152,13 +157,13 @@ Testen Sie Ihre App im Emulator mit einem Produktionsendpunkt. Wenn Sie die App 
 Verwenden Sie NICHT den Befehl `msbot clone services`, um den Botcode in Azure zu aktualisieren. Sie müssen wie unten dargestellt den Befehl `az bot publish` verwenden:
 
 ```cmd
-az bot publish --name "<your-azure-bot-name>" --proj-file "<your-proj-file>" --resource-group "<azure-resource-group>" --code-dir "<folder>" --verbose --version v4
+az bot publish --name "<your-azure-bot-name>" --proj-name "<your-proj-name>" --resource-group "<azure-resource-group>" --code-dir "<folder>" --verbose --version v4
 ```
 
-| Argumente        | Beschreibung |
+| Argumente        | BESCHREIBUNG |
 |----------------  |-------------|
 | `name`      | Der Name, den Sie bei der ersten Bereitstellung des Bots in Azure verwendet haben.|
-| `proj-file` | Für einen C#-Bot ist dies die CSPROJ-Datei. Für einen JS-/TS-Bot ist dies der Name der Startprojektdatei (z. B. „index.js“ oder „index.ts“) Ihres lokalen Bots.|
+| `proj-name` | Bei C# ist dies der Name der Startprojektdatei (ohne „.csproj“) für die Veröffentlichung. Beispiel: `EnterpriseBot`. Verwenden Sie für Node.js den Haupteinstiegspunkt für den Bot. Beispiel: `index.js`. |
 | `resource-group` | Die Azure-Ressourcengruppe, die im Befehl `msbot clone services` verwendet wurde.|
 | `code-dir`  | Verweist auf den lokalen Botordner.|
 
@@ -166,7 +171,7 @@ az bot publish --name "<your-azure-bot-name>" --proj-file "<your-proj-file>" --r
 
 Wenn Sie einen Bot bereitstellen, werden im Azure-Portal in der Regel folgende Ressourcen erstellt:
 
-| Ressourcen      | Beschreibung |
+| Ressourcen      | BESCHREIBUNG |
 |----------------|-------------|
 | Web-App-Bot | Ein Azure Bot Service-Bot, der in einer Azure App Service-Instanz bereitgestellt wird.|
 | [App Service](https://docs.microsoft.com/en-us/azure/app-service/)| Ermöglicht Ihnen das Erstellen und Hosten von Webanwendungen.|

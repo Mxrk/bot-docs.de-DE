@@ -1,6 +1,6 @@
 ---
 title: Übersicht über Aktivitäten | Microsoft-Dokumentation
-description: Hier erhalten Sie Informationen zu den verschiedenen Aktivitätstypen, die im Bot Builder SDK für .NET verfügbar sind.
+description: Hier erhalten Sie Informationen zu den verschiedenen Aktivitätstypen, die im Bot Framework SDK für .NET verfügbar sind.
 author: RobStand
 ms.author: kamrani
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: d5e1fd0b22883dbe4280bd2d375d389cbcabe6e7
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 076e460f393c5db524cfade81e5c007484fe2cca
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997597"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225665"
 ---
 # <a name="activities-overview"></a>Übersicht über Aktivitäten
 
@@ -22,9 +22,9 @@ ms.locfileid: "49997597"
 
 [!INCLUDE [Activity concept overview](../includes/snippet-dotnet-concept-activity.md)]
 
-## <a name="activity-types-in-the-bot-builder-sdk-for-net"></a>Aktivitätstypen im Bot Builder SDK für .NET
+## <a name="activity-types-in-the-bot-framework-sdk-for-net"></a>Aktivitätstypen im Bot Framework SDK für .NET
 
-Die folgenden Aktivitätstypen werden vom Bot Builder SDK für .NET unterstützt.
+Die folgenden Aktivitätstypen werden vom Bot Framework SDK für .NET unterstützt.
 
 | Activity.Type | Schnittstelle | BESCHREIBUNG |
 |------|------|------|

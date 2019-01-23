@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: 41cc36b7e4abc12bf57df7bf4272dd35031cf251
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 1cb9143e5ab2d5eb7e92e263b838cdd9217492ef
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997997"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225355"
 ---
 # <a name="authentication"></a>Authentifizierung
 
@@ -22,7 +22,7 @@ Ihr Bot kommuniziert mit dem Bot Connector-Dienst über HTTP über einen sichere
 > [!IMPORTANT]
 > Wenn Sie eigenen Authentifizierungscode schreiben, ist es wichtig, dass alle Sicherheitsverfahren ordnungsgemäß implementiert werden. Durch die Implementierung aller Schritte in diesem Artikel können Sie das Risiko verringern, dass ein Angreifer in der Lage ist, Nachrichten zu lesen, die an Ihren Bot gesendet werden, Nachrichten zu senden, die sich als Ihr Bot ausgeben, und geheime Schlüssel zu stehlen. 
 
-Wenn Sie das [Bot Builder-SDK für .NET](../dotnet/bot-builder-dotnet-overview.md) oder das [Bot Builder-SDK für Node.js](../nodejs/index.md) verwenden, müssen Sie die in diesem Artikel beschriebenen Sicherheitsverfahren nicht implementieren, da das SDK dies automatisch für Sie erledigt. Konfigurieren Sie einfach Ihr Projekt mit der für Ihren Bot während der [Registrierung](../bot-service-quickstart-registration.md) erhaltenen App-ID und dem Kennwort, und das SDK erledigt den Rest.
+Wenn Sie das [Bot Framework SDK für .NET](../dotnet/bot-builder-dotnet-overview.md) oder das [Bot Framework SDK für Node.js](../nodejs/index.md) verwenden, müssen Sie die in diesem Artikel beschriebenen Sicherheitsverfahren nicht implementieren, da das SDK dies automatisch für Sie erledigt. Konfigurieren Sie einfach Ihr Projekt mit der für Ihren Bot während der [Registrierung](../bot-service-quickstart-registration.md) erhaltenen App-ID und dem Kennwort, und das SDK erledigt den Rest.
 
 > [!WARNING]
 > Im Dezember 2016 wurde mit Version 3.1 des Bot Framework-Sicherheitsprotokolls Änderungen an mehreren Werten eingeführt, die bei der Tokengenerierung und -validierung verwendet werden. Im Spätherbst 2017 wurde die Version 3.2 des Bot Framework-Sicherheitsprotokolls eingeführt, die Änderungen an Werten enthält, die bei der Tokengenerierung und -validierung verwendet werden.
@@ -179,7 +179,7 @@ Um die Liste der gültigen Signaturschlüssel zu erhalten, geben Sie eine `GET`-
 GET https://login.botframework.com/v1/.well-known/keys
 ```
 
-Der Antworttext gibt das Dokument im [JWK-Format](https://tools.ietf.org/html/rfc7517) an, enthält jedoch auch eine zusätzliche Eigenschaft für jeden Schlüssel: `endorsements`. Die Liste der Schlüssel ist relativ stabil und kann über längere Zeiträume (standardmäßig 5 Tage innerhalb des Bot Builder-SDKs) zwischengespeichert werden.
+Der Antworttext gibt das Dokument im [JWK-Format](https://tools.ietf.org/html/rfc7517) an, enthält jedoch auch eine zusätzliche Eigenschaft für jeden Schlüssel: `endorsements`. Die Liste der Schlüssel ist relativ stabil und kann über längere Zeiträume (standardmäßig fünf Tage innerhalb des Bot Framework SDK) zwischengespeichert werden.
 
 Die `endorsements`-Eigenschaft in jedem Schlüssel enthält eine oder mehrere Endorsement-Zeichenfolgen, die Sie verwenden können, um sicherzustellen, dass die in der `channelId`-Eigenschaft im [Activity][Activity]-Objekt angegebene Kanal-ID der eingehenden Anforderung echt ist. Die Liste der Kanal-IDs, die Endorsements erfordern, kann in jedem Bot konfiguriert werden. Standardmäßig ist es die Liste aller veröffentlichten Kanal-IDs, aber Botentwickler können bestimmte Kanal-ID-Werde in beiden Fällen überschreiben. Wenn das Endorsement für eine Kanal-ID erforderlich ist:
 
@@ -323,7 +323,7 @@ payload:
 ## <a name="security-protocol-changes"></a>Änderungen des Sicherheitsprotokolls
 
 > [!WARNING]
-> Die Unterstützung für Version 3.0 des Sicherheitsprotokolls wurde zum **31. Juli 2017** eingestellt. Wenn Sie Ihren eigenen Authentifizierungscode geschrieben haben (d. h. den Bot nicht mit dem Bot Builder-SDK erstellt haben), müssen Sie ein Upgrade auf Version 3.1 des Sicherheitsprotokolls vornehmen, indem Sie Ihre Anwendung zur Verwendung der unten aufgeführten v3.1-Werte aktualisieren. 
+> Die Unterstützung für Version 3.0 des Sicherheitsprotokolls wurde zum **31. Juli 2017** eingestellt. Wenn Sie Ihren eigenen Authentifizierungscode geschrieben haben (d.h. den Bot nicht mit dem Bot Framework SDK erstellt haben), müssen Sie ein Upgrade auf Version 3.1 des Sicherheitsprotokolls vornehmen, indem Sie Ihre Anwendung zur Verwendung der unten aufgeführten v3.1-Werte aktualisieren. 
 
 ### <a name="bot-to-connector-authenticationbot-to-connector"></a>[Bot zu Connector-Authentifizierung](#bot-to-connector)
 

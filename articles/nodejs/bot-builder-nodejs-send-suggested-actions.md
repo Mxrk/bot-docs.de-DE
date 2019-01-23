@@ -1,6 +1,6 @@
 ---
 title: Hinzufügen vorgeschlagener Aktionen zu Nachrichten | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie vorgeschlagene Aktionen mithilfe des Bot Builder SDK für Node.js in Nachrichten senden können.
+description: Hier erfahren Sie, wie Sie mithilfe des Bot Framework SDK für Node.js vorgeschlagene Aktionen in Nachrichten senden können.
 author: v-ducvo
 ms.author: kamrani
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 06/06/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 1be5423de3859b32416b5acf9ba7b9d8e92ecb14
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 975496786e66a4d9b1de5c6ead6d8257687f23b7
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997247"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224525"
 ---
 # <a name="add-suggested-actions-to-messages"></a>Hinzufügen von vorgeschlagenen Aktionen zu Nachrichten
 

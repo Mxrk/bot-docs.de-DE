@@ -1,7 +1,7 @@
 ---
 title: Erstellen einer Cortana-Funktion mit .NET | Microsoft-Dokumentation
-description: Lernen Sie die grundlegenden Konzepte des Erstellens einer Cortana-Funktion im Bot Builder SDK für .NET kennen.
-keywords: Bot Framework, Cortana-Funktion, Sprache, .NET, Bot Builder, SDK, Hauptkonzepte, Kernkonzepte
+description: Lernen Sie die grundlegenden Konzepte des Erstellens einer Cortana-Funktion im Bot Framework SDK für .NET kennen.
+keywords: Bot Framework, Cortana-Funktion, Sprache, .NET, SDK, Hauptkonzepte, Kernkonzepte
 author: DeniseMak
 manager: kamrani
 ms.topic: article
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 030d17fa25a436ee8e8a1d093924e61f12e14e18
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 98fc10a806a4c8d1a4d6563934d92b0e0cdbb771
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998307"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224775"
 ---
 # <a name="build-a-speech-enabled-bot-with-cortana-skills"></a>Erstellen eines sprachaktivierten Bots mit Cortana-Funktionen
 
@@ -25,7 +25,7 @@ ms.locfileid: "49998307"
 > - [Node.js](../nodejs/bot-builder-nodejs-cortana-skill.md)
 
 
-Das Bot Builder SDK für .NET ermöglicht Ihnen, einen sprachaktivierten Bot zu erstellen, indem Sie ihn als eine Cortana-Funktion mit dem Cortana-Kanal verbinden. 
+Das Bot Framework SDK für .NET ermöglicht Ihnen die Erstellung eines sprachaktivierten Bots, indem Sie ihn als eine Cortana-Funktion mit dem Cortana-Kanal verbinden. 
 
 
 > [!TIP]
@@ -38,7 +38,7 @@ Das Erstellen einer Cortana-Funktion mit dem Bot Framework erfordert nur sehr ge
 
 ## <a name="adding-speech-to-your-bot"></a>Hinzufügen von Sprache zu Ihrem Bot
 
-Gesprochene Nachrichten von Ihrem Bot werden in der Speech Synthesis Markup Language (SSML) dargestellt. Mit dem Bot Builder SDK können Sie SSML in Ihre Bot-Antworten einbinden, um neben der Anzeige des Bots auch dessen Sprachausgabe zu steuern.  Sie können auch den Status des Mikrofons von Cortana steuern, indem Sie angeben, ob Ihr Bot Benutzereingaben akzeptiert, erwartet oder ignoriert.
+Gesprochene Nachrichten von Ihrem Bot werden in der Speech Synthesis Markup Language (SSML) dargestellt. Mit dem Bot Framework SDK können Sie SSML in Ihre Bot-Antworten einbinden, um neben der Anzeige des Bots auch dessen Sprachausgabe zu steuern.  Sie können auch den Status des Mikrofons von Cortana steuern, indem Sie angeben, ob Ihr Bot Benutzereingaben akzeptiert, erwartet oder ignoriert.
 
 Legen Sie die `Speak`-Eigenschaft des `IMessageActivity`-Objekts fest, um eine Nachricht anzugeben, die Cortana sprechen soll. Wenn Sie reinen Text angeben, legt Cortana fest, wie die Wörter indiziert werden. 
 
@@ -335,7 +335,7 @@ Wenn Ihr Bot lokal ausgeführt oder in der Cloud bereitgestellt wird, können Si
 * [Kartendesign – bewährte Methoden für Cortana][CardDesign]
 * [Cortana Dev Center][CortanaDevCenter]
 * [Bewährte Methoden beim Testen und Debuggen für Cortana][Cortana-TestBestPractice]
-* <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">Referenz zum Bot Builder SDK für .NET</a>
+* <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">Referenz zum Bot Framework SDK für .NET</a>
 
 [CortanaGetStarted]: /cortana/getstarted
 [BFPortal]: https://dev.botframework.com/

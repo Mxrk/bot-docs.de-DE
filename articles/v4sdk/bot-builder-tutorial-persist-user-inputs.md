@@ -1,6 +1,6 @@
 ---
 title: Speichern von Benutzerdaten | Microsoft-Dokumentation
-description: Erfahren Sie mehr zum Speichern von Benutzerstatusdaten im Speicher des Bot Builder SDK.
+description: Hier erfahren Sie mehr zum Speichern von Benutzerstatusdaten im Speicher des Bot Framework SDK.
 keywords: speichern von benutzerdaten, speicher, konversationsdaten
 author: v-ducvo
 ms.author: v-ducvo
@@ -10,18 +10,18 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 09/19/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 36e8efefb276e5b9fb45ba6243b1b472476d5046
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 97a89744282ca1e31a99aa0e45345656e43f5cd0
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997947"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225315"
 ---
 # <a name="persist-user-data"></a>Speichern von Benutzerdaten
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-Wenn der Bot eine Benutzereingabe anfordert, möchten Sie wahrscheinlich, dass einige der Informationen in einem Speicher beibehalten werden. Mit dem Bot Builder SDK können Sie Benutzereingaben in *In-Memory-Speicher* oder in Datenbankspeicher wie *CosmosDB* speichern. Lokale Speicherarten werden hauptsächlich während der Test- oder Prototyp-Phase Ihres Bots verwendet. Für Bots in Produktionsumgebungen sollten beständige Speicherarten wie etwa Datenbankspeicher verwendet werden.
+Wenn der Bot eine Benutzereingabe anfordert, möchten Sie wahrscheinlich, dass einige der Informationen in einem Speicher beibehalten werden. Mit dem Bot Framework SDK können Sie Benutzereingaben in *In-Memory-Speicher* oder in Datenbankspeicher wie *CosmosDB* speichern. Lokale Speicherarten werden hauptsächlich während der Test- oder Prototyp-Phase Ihres Bots verwendet. Für Bots in Produktionsumgebungen sollten beständige Speicherarten wie etwa Datenbankspeicher verwendet werden.
 
 In diesem Tutorial erfahren Sie, wie Sie Ihr Speicherobjekt definieren und Benutzereingaben dauerhaft in dem Speicherobjekt speichern. Wir verwenden einen Dialog, um den Benutzer nach seinem Namen zu fragen, sofern dieser nicht bereits vorliegt. Unabhängig davon, für welchen Speichertyp Sie sich entscheiden, ist das Verfahren für die Einbindung und die Speicherung der Daten gleich. Im Code dieses Themas wird `CosmosDB` als beständiger Datenspeicher verwendet.
 

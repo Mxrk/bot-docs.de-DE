@@ -1,6 +1,6 @@
 ---
 title: Erstellen von datengesteuerten Oberflächen mit Azure Search | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie mit Azure Search datengesteuerte Oberflächen erstellen und Benutzer mit dem Bot Builder SDK für .NET und Azure Search bei der Navigation in großen Mengen von Inhalten in einem Bot unterstützen.
+description: Hier erfahren Sie, wie Sie mit Azure Search datengesteuerte Oberflächen erstellen und Benutzer mit dem Bot Framework SDK für .NET und Azure Search bei der Navigation in umfangreichen Inhalten in einem Bot unterstützen.
 author: matthewshim-ms
 ms.author: v-shimma
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 8205f40053b2b3d0e62d9b9ce622f59432e059a4
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: ef2cb33e8d2ab7d8db291e3c6e051630d6af0394
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999007"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224545"
 ---
 # <a name="create-data-driven-experiences-with-azure-search"></a>Erstellen von datengesteuerten Oberflächen mit Azure Search 
 
@@ -173,7 +173,7 @@ Die Suchergebnisse werden dem Benutzer angezeigt, und Sie haben Ihrem Bot Azure 
 
 ## <a name="samples"></a>Beispiele
 
-Zwei vollständige Beispiele, die veranschaulichen, wie Azure Search mit Bots mithilfe des Bot Builder SDK für .NET unterstützt wird, finden Sie in GitHub im [RealEstateBot-Beispiel](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/demo-Search/RealEstateBot) oder [JobListingBot-Beispiel](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/demo-Search/JobListingBot). 
+Zwei vollständige Beispiele, die veranschaulichen, wie Azure Search mit Bots mithilfe des Bot Framework SDK für .NET unterstützt wird, finden Sie auf GitHub im [RealEstateBot-Beispiel](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/demo-Search/RealEstateBot) oder [JobListingBot-Beispiel](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/demo-Search/JobListingBot). 
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 * [Azure Search][search]

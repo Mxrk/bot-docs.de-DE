@@ -1,6 +1,6 @@
 ---
 title: Anfordern von Zahlungen | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie mit dem Bot Builder SDK für .NET eine Zahlungsanforderung senden.
+description: Hier erfahren Sie, wie Sie mit dem Bot Framework SDK für .NET eine Zahlungsanforderung senden.
 author: RobStand
 ms.author: kamrani
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/17
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: b3d1a1cea450d1fe821a90951a7a319ca863dfed
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: f9e693d8bd5aad03930259422939f5572a22ff0a
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997687"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225455"
 ---
 # <a name="request-payment"></a>Anfordern von Zahlungen
 
@@ -24,11 +24,11 @@ ms.locfileid: "49997687"
 > - [.NET](../dotnet/bot-builder-dotnet-request-payment.md)
 > - [Node.js](../nodejs/bot-builder-nodejs-request-payment.md)
 
-Wenn Ihr Bot Benutzern den Kauf von Artikeln ermöglicht, kann er durch Einbeziehen eines besonderen Schaltflächentyps in eine [Rich Card](bot-builder-dotnet-add-rich-card-attachments.md) eine Zahlung anfordern. In diesem Artikel wird beschrieben, wie Sie mit dem Bot Builder SDK für .NET eine Zahlungsanforderung senden.
+Wenn Ihr Bot Benutzern den Kauf von Artikeln ermöglicht, kann er durch Einbeziehen eines besonderen Schaltflächentyps in eine [Rich Card](bot-builder-dotnet-add-rich-card-attachments.md) eine Zahlung anfordern. In diesem Artikel wird beschrieben, wie Sie mit dem Bot Framework SDK für .NET eine Zahlungsanforderung senden.
 
 ## <a name="prerequisites"></a>Voraussetzungen
 
-Bevor Sie mit dem Bot Builder SDK für .NET eine Zahlungsanforderung senden können, müssen Sie die folgenden erforderlichen Aufgaben ausführen.
+Bevor Sie mit dem Bot Framework SDK für .NET eine Zahlungsanforderung senden können, müssen Sie die folgenden erforderlichen Aufgaben abschließen.
 
 ### <a name="update-webconfig"></a>Aktualisieren der Datei „Web.config“
 
@@ -127,4 +127,4 @@ Im <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/s
 - [Übersicht über Aktivitäten](bot-builder-dotnet-activities.md)
 - [Hinzufügen von Rich Cards zu Nachrichten](bot-builder-dotnet-add-rich-card-attachments.md)
 - <a href="http://www.w3.org/Payments/" target="_blank">Webzahlungen bei W3C</a> 
-- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">Referenz zum Bot Builder SDK für .NET</a>
+- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">Referenz zum Bot Framework SDK für .NET</a>

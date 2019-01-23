@@ -1,6 +1,6 @@
 ---
 title: Funktionsweise von Bots | Microsoft-Dokumentation
-description: Enthält eine Beschreibung der Funktionsweise von Aktivitäten und HTTP im Bot Builder SDK.
+description: Dieser Artikel enthält eine Beschreibung der Funktionsweise von Aktivitäten und HTTP im Bot Framework SDK.
 keywords: Konversationsfluss, Turn, Botkonversation, Dialoge, Eingabeaufforderungen, Wasserfälle, Dialogsatz
 author: johnataylor
 ms.author: johtaylo
@@ -8,20 +8,20 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 11/15/2018
+ms.date: 1/10/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: c4d4879f7ad127838de9d2563dee8f8d7320d61e
-ms.sourcegitcommit: 91156d0866316eda8d68454a0c4cd74be5060144
+ms.openlocfilehash: a1b155db3ec717a1084ae0e098e8f22997a80b0e
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53010575"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225935"
 ---
 # <a name="how-bots-work"></a>Funktionsweise von Bots
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-Ein Bot ist eine App, mit der Benutzer in Form einer Konversation mithilfe von Text, Grafiken (z.B. Karten oder Bilder) oder Sprache interagieren. Bei jeder Interaktion zwischen dem Benutzer und dem Bot wird eine *Aktivität* generiert. Der Bot Service sendet Informationen zwischen der mit dem Bot verbundenen App des Benutzers (z.B. Facebook, Skype, Slack usw., als *Kanal* bezeichnet) und dem Bot hin und her. Jeder Kanal kann zusätzliche Informationen in die gesendeten Aktivitäten einfügen. Vor dem Erstellen von Bots sollten Sie sich unbedingt damit vertraut machen, wie ein Bot Aktivitätsobjekte nutzt, um mit seinen Benutzern zu kommunizieren. Zuerst sehen wir uns die Aktivitäten an, die ausgetauscht werden, wenn ein einfacher Echobot ausgeführt wird.
+Ein Bot ist eine App, mit der Benutzer in Form einer Konversation mithilfe von Text, Grafiken (z.B. Karten oder Bilder) oder Sprache interagieren. Bei jeder Interaktion zwischen dem Benutzer und dem Bot wird eine *Aktivität* generiert. Der Bot Framework-Dienst, eine Komponente von Azure Bot Service, sendet Informationen zwischen der mit dem Bot verbundenen App des Benutzers (z.B. Facebook, Skype, Slack usw., als *Kanal* bezeichnet) und dem Bot hin und her. Jeder Kanal kann zusätzliche Informationen in die gesendeten Aktivitäten einfügen. Vor dem Erstellen von Bots sollten Sie sich unbedingt damit vertraut machen, wie ein Bot Aktivitätsobjekte nutzt, um mit seinen Benutzern zu kommunizieren. Zuerst sehen wir uns die Aktivitäten an, die ausgetauscht werden, wenn ein einfacher Echobot ausgeführt wird. 
 
 ![Aktivitätsdiagramm](media/bot-builder-activity.png)
 
@@ -41,7 +41,7 @@ Im Protokoll ist aber nicht die Reihenfolge angegeben, in der diese POST-Anforde
 
 ### <a name="defining-a-turn"></a>Definieren eines Durchlaufs
 
-In einer Konversation sprechen die Personen häufig einzeln. Sie wechseln sich also ab. Ein Bot reagiert im Allgemeinen auf die Eingabe eines Benutzers. Im Bot Builder SDK besteht ein _Turn_ (Durchlauf) aus der eingehenden Aktivität des Benutzers für den Bot und einer beliebigen Aktivität, die vom Bot als direkte Antwort zurück an den Benutzer gesendet wird. Sie können sich einen Durchlauf wie die Verarbeitung vorstellen, die dem Eintreffen einer bestimmten Aktivität zugeordnet ist.
+In einer Konversation sprechen die Personen häufig einzeln. Sie wechseln sich also ab. Ein Bot reagiert im Allgemeinen auf die Eingabe eines Benutzers. Im Bot Framework SDK besteht ein _Turn_ (Durchlauf) aus der eingehenden Aktivität des Benutzers für den Bot und einer beliebigen Aktivität, die vom Bot als direkte Antwort zurück an den Benutzer gesendet wird. Sie können sich einen Durchlauf wie die Verarbeitung vorstellen, die dem Eintreffen einer bestimmten Aktivität zugeordnet ist.
 
 Das Durchlaufkontext-Objekt (*turn context*) enthält Informationen zur Aktivität, z.B. den Absender und Empfänger, den Kanal und andere Daten, die zum Verarbeiten der Aktivität benötigt werden. Außerdem ermöglicht das Objekt das Hinzufügen von Informationen während des Turns für mehrere Ebenen des Bots.
 

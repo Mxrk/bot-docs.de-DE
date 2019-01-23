@@ -3,18 +3,18 @@ title: Debuggen eines Bots | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie einen mit Bot Service erstellten Bot debuggen.
 author: v-ducvo
 ms.author: v-ducvo
-keywords: Bot Builder SDK, Bot debuggen, Bot testen, Bot-Emulator, Emulator
+keywords: Bot Framework SDK, Bot debuggen, Bot testen, Bot-Emulator, Emulator
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/13/2018
-ms.openlocfilehash: fcda5c57a96b6f93aad965e868c824577616f630
-ms.sourcegitcommit: 6c719b51c9e4e84f5642100a33fe346b21360e8a
+ms.openlocfilehash: b445ce7796c3f7f3180b15fd6dfac1ef82b808ae
+ms.sourcegitcommit: d385ec5fe61c469ab17e6f21b4a0d50e5110d0fd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52452042"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54298297"
 ---
 # <a name="debug-a-bot"></a>Debuggen eines Bots
 
@@ -32,6 +32,7 @@ Führen Sie die folgenden Schritte aus, um einen JavaScript-Bot über die Befehl
 1. Starten Sie den Emulator, und stellen Sie eine Verbindung mit dem Endpunkte des Bots her (z.B. **http://localhost:3978/api/messages**). Wenn Sie den Bot zum ersten Mal ausführen, klicken Sie auf **Datei > Neuer Bot**, und folgen Sie den Anweisungen auf dem Bildschirm. Andernfalls klicken Sie auf **Datei > Bot öffnen**, um einen vorhandenen Bot zu öffnen. Da dieser Bot lokal auf Ihrem Computer ausgeführt wird, können Sie die Felder **MSA-App-ID** und **MSA-App-Kennwort** leer lassen. Weitere Informationen finden Sie unter [Debuggen mit dem Emulator](bot-service-debug-emulator.md).
 1. Senden Sie Ihrem Bot über den Emulator eine Nachricht (senden Sie z.B. die Nachricht „Hi“). 
 1. Verwenden Sie die Bereiche **Inspektor** und **Protokoll** auf der rechten Seite des Emulatorfensters zum Debuggen Ihres Bots. Beispielsweise werden beim Klicken auf eine der Nachrichtenblasen (z.B. die Nachrichtenblase „Hi“ im Screenshot unten) die Details der Nachricht im Bereich **Inspektor** angezeigt. Hiermit können Sie Anforderungen und Antworten anzeigen, während Nachrichten zwischen dem Emulator und dem Bot ausgetauscht werden. Sie können auch auf einen der verknüpften Texte im Bereich **Protokoll** klicken, um die Details im Bereich **Inspektor** anzuzeigen.
+
 
    ![Bereich „Inspektor“ im Emulator](~/media/bot-service-debug-bot/emulator_inspector.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Hinzufügen von Rich Card-Anlagen zu Nachrichten | Microsoft-Dokumentation
-description: Hier erfahren Sie, wie Sie mit dem Bot Builder SDK für .NET Nachrichten Rich Cards hinzufügen.
+description: Hier erfahren Sie, wie Sie mit dem Bot Framework SDK für .NET Nachrichten Rich Cards hinzufügen.
 author: RobStand
 ms.author: kamrani
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: f5687cc7faf4201485ced9535f2e98b0b4c2225a
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 5a6fc63005797a1c645de7506a8f15df2dcd0557
+ms.sourcegitcommit: b94361234816e6b95459f142add936732fc40344
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998177"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54317675"
 ---
 # <a name="add-rich-card-attachments-to-messages"></a>Hinzufügen von Rich Card-Anlagen zu Nachrichten
 
@@ -112,7 +112,7 @@ Dieses Codebeispiel zeigt, wie Sie eine Antwortnachricht erstellen, die eine Anm
 
 Adaptive Karten können eine beliebige Kombination von Text, Sprache, Bildern, Schaltflächen und Eingabefeldern enthalten. Sie werden mit dem unter <a href="http://adaptivecards.io" target="_blank">Adaptive Karten</a> angegebenen JSON-Format erstellt, das Ihnen die vollständige Steuerung über Inhalt und Format der Karte gibt. 
 
-Installieren Sie das NuGet-Paket `Microsoft.AdaptiveCards`, um eine adaptive Karte mit .NET zu erstellen. Auf der Website<a href="http://adaptivecards.io" target="_blank">Adaptive Karten</a> finden Sie Informationen zum Schema adaptiver Karten und zum Untersuchen adaptiver Kartenelemente sowie JSON-Beispiele, mit deren Hilfe Sie Karten mit unterschiedlichem Aufbau und unterschiedlicher Komplexität erstellen können. Darüber hinaus können Sie die interaktive Schnellansicht verwenden, um Nutzlasten adaptiver Karten zu entwerfen und die Kartenausgabe in der Vorschau anzuzeigen.
+Installieren Sie das NuGet-Paket `AdaptiveCards`, um eine adaptive Karte mit .NET zu erstellen. Auf der Website<a href="http://adaptivecards.io" target="_blank">Adaptive Karten</a> finden Sie Informationen zum Schema adaptiver Karten und zum Untersuchen adaptiver Kartenelemente sowie JSON-Beispiele, mit deren Hilfe Sie Karten mit unterschiedlichem Aufbau und unterschiedlicher Komplexität erstellen können. Darüber hinaus können Sie die interaktive Schnellansicht verwenden, um Nutzlasten adaptiver Karten zu entwerfen und die Kartenausgabe in der Vorschau anzuzeigen.
 
 Dieses Codebeispiel zeigt, wie Sie eine Nachricht erstellen, die eine adaptive Karte für eine Kalendererinnerung enthält: 
 

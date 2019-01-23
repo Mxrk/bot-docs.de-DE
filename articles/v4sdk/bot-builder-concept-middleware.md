@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/8/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 1bfa180967c55aac6012e02887ac2893947263f9
-ms.sourcegitcommit: 91156d0866316eda8d68454a0c4cd74be5060144
+ms.openlocfilehash: 231ed330faf9ce777a5acc5f4e6272b747a6f7fc
+ms.sourcegitcommit: d385ec5fe61c469ab17e6f21b4a0d50e5110d0fd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53010585"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54298277"
 ---
 # <a name="middleware"></a>Middleware
 
@@ -96,5 +96,6 @@ Das Problem bei diesem Ansatz ist, dass alle Zustandsaktualisierungen, die über
 
 Fügen Sie die Objekte für die Zustandsverwaltung hinzu, die eine Aktualisierung eines _BotStateSet_-Objekts erfordern, und verwenden Sie diese dann, wenn Sie Ihre „auto-save changes“-Middleware erstellen.
 
+
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
-Sie können sich die Middleware für die Transkriptprotokollierung ansehen, die im Bot Builder SDK implementiert ist [[C#](https://github.com/Microsoft/botbuilder-dotnet/blob/master/libraries/Microsoft.Bot.Builder/TranscriptLoggerMiddleware.cs) | [JS](https://github.com/Microsoft/botbuilder-js/blob/master/libraries/botbuilder-core/src/transcriptLogger.ts)].
+Sie können sich die Middleware für die Transkriptprotokollierung ansehen, die im Bot Framework SDK implementiert ist [[C#](https://github.com/Microsoft/botbuilder-dotnet/blob/master/libraries/Microsoft.Bot.Builder/TranscriptLoggerMiddleware.cs) | [JS](https://github.com/Microsoft/botbuilder-js/blob/master/libraries/botbuilder-core/src/transcriptLogger.ts)].

@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/23/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 276b553a6990ed286acbf073825afa7c4656de32
-ms.sourcegitcommit: 6c719b51c9e4e84f5642100a33fe346b21360e8a
+ms.openlocfilehash: fdf0b16cc89b322ffa9d36b5516b09b0338ce9dc
+ms.sourcegitcommit: b94361234816e6b95459f142add936732fc40344
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52452022"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54317570"
 ---
 # <a name="manage-resources-with-a-bot-file"></a>Verwalten von Ressourcen mit einer BOT-Datei
 
@@ -38,8 +38,8 @@ Abgesehen von diesen Diensten kann Ihr Bot von anderen benutzerdefinierten Diens
 
 ## <a name="when-is-a-bot-file-created"></a>Wann wird eine BOT-Datei erstellt? 
 - Wenn Sie einen Bot mit [Azure Bot Service](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/GalleryResultsListBlade/selectedSubMenuItemId/%7B%22menuItemId%22%3A%22gallery%2FCognitiveServices_MP%2FBotService%22%2C%22resourceGroupId%22%3A%22%22%2C%22resourceGroupLocation%22%3A%22%22%2C%22dontDiscardJourney%22%3Afalse%2C%22launchingContext%22%3A%7B%22source%22%3A%5B%22GalleryFeaturedMenuItemPart%22%5D%2C%22menuItemId%22%3A%22CognitiveServices_MP%22%2C%22subMenuItemId%22%3A%22BotService%22%7D%7D) erstellen, wird automatisch eine BOT-Datei für Sie erstellt, die eine Liste der bereitgestellten verbundenen Dienste enthält. Die BOT-Datei wird standardmäßig verschlüsselt.
-- Wenn Sie einen Bot mithilfe einer [Vorlage](https://marketplace.visualstudio.com/items?itemName=BotBuilder.botbuilderv4) des Bot Builder V4 SDK für Visual Studio oder mit dem [Yeoman-Generator](https://www.npmjs.com/package/generator-botbuilder) von Bot Builder erstellen, wird automatisch eine BOT-Datei erstellt. In diesem Flow werden keine verbundenen Dienste bereitgestellt, und die BOT-Datei wird nicht verschlüsselt.
-- Wenn Sie [Bot Builder-Beispiele](https://github.com/Microsoft/botbuilder-samples) nutzen, um mit der Erstellung zu beginnen, enthält jedes Beispiel für das Bot Builder V4 SDK eine BOT-Datei, und die BOT-Datei wird nicht verschlüsselt. 
+- Wenn Sie einen Bot mithilfe einer [Vorlage](https://marketplace.visualstudio.com/items?itemName=BotBuilder.botbuilderv4) des Bot Framework V4 SDK für Visual Studio oder mit dem [Yeoman-Generator](https://www.npmjs.com/package/generator-botbuilder) von Bot Builder erstellen, wird automatisch eine BOT-Datei erstellt. In diesem Flow werden keine verbundenen Dienste bereitgestellt, und die BOT-Datei wird nicht verschlüsselt.
+- Wenn Sie [Bot Builder-Beispiele](https://github.com/Microsoft/botbuilder-samples) nutzen, um mit der Erstellung zu beginnen, enthält jedes Beispiel für das Bot Framework V4 SDK eine BOT-Datei, und die BOT-Datei wird nicht verschlüsselt. 
 - Sie können eine BOT-Datei auch mithilfe des [MSBot](https://github.com/Microsoft/botbuilder-tools/blob/master/packages/MSBot/README.md)-Tools erstellen.
 
 ## <a name="what-does-a-bot-file-look-like"></a>Wie sieht eine BOT-Datei aus? 
@@ -47,14 +47,17 @@ Sehen Sie sich die folgende [BOT](https://github.com/Microsoft/botbuilder-tools/
 Informationen zur Verschlüsselung und Entschlüsselung der BOT-Datei finden Sie unter [Bot Secrets](https://github.com/Microsoft/botbuilder-tools/blob/master/packages/MSBot/docs/bot-file-encryption.md) (Botgeheimnisse).
 
 ## <a name="why-do-i-need-a-bot-file"></a>Wozu benötige ich eine BOT-Datei?
-Eine BOT-Datei ist zum Erstellen von Bots mit dem Bot Builder SDK **nicht** erforderlich. Sie können zum Nachverfolgen der Dienstverweise und Schlüssel, von denen Ihr Bot abhängt, weiterhin „appsettings.json“, „web.config“, ENV, Key Vault oder andere geeignete Mechanismen verwenden. Um den Bot mit dem Emulator zu testen, benötigen Sie jedoch eine BOT-Datei. Die gute Nachricht ist, dass der Emulator eine BOT-Datei zum Testen erstellen kann. Starten Sie hierzu den Emulator, und klicken Sie auf der Begrüßungsseite auf den Link **Neue Botkonfiguration erstellen**. Geben Sie im angezeigten Dialogfeld einen **Botnamen** und eine **Endpunkt-URL** ein. Stellen Sie anschließend eine Verbindung her.
+
+Eine BOT-Datei ist zum Erstellen von Bots mit dem Bot Framework SDK **nicht** erforderlich. Sie können zum Nachverfolgen der Dienstverweise und Schlüssel, von denen Ihr Bot abhängt, weiterhin „appsettings.json“, „web.config“, ENV, Key Vault oder andere geeignete Mechanismen verwenden. Um den Bot mit dem Emulator zu testen, benötigen Sie jedoch eine BOT-Datei. Die gute Nachricht ist, dass der Emulator eine BOT-Datei zum Testen erstellen kann. Starten Sie hierzu den Emulator, und klicken Sie auf der Begrüßungsseite auf den Link **Neue Botkonfiguration erstellen**. Geben Sie im angezeigten Dialogfeld einen **Botnamen** und eine **Endpunkt-URL** ein. Stellen Sie anschließend eine Verbindung her.
 
 Die Verwendung einer BOT-Datei bietet die folgenden Vorteile:
 - Sie stellt unabhängig von der verwendeten Programmiersprache/Plattform eine Standardmethode zum Speichern von Ressourcen bereit.   
 - Der Bot Framework-Emulator und die CLI-Tools beruhen auf verbundenen Überwachungsdiensten in einem konsistenten Format (in einer BOT-Datei) und funktionieren einwandfrei mit solchen Diensten. 
 - Elegante Toollösungen für die Erstellung und Verwaltung von Diensten sind ohne ein gut definiertes Schema (BOT-Datei) schwieriger zu realisieren.  
 
-## <a name="using-bot-file-in-your-bot-builder-sdk-bot"></a>Verwenden der BOT-Datei in Ihrem Bot Builder SDK-Bot
+
+## <a name="using-bot-file-in-your-bot-framework-sdk-bot"></a>Verwenden der BOT-Datei in Ihrem Bot Framework SDK-Bot
+
 Sie können die BOT-Datei verwenden, um Dienstkonfigurationsinformationen im Code Ihres Bots abzurufen. Die für [C#](https://www.nuget.org/packages/Microsoft.Bot.Configuration) und [JS](https://www.npmjs.com/package/botframework-config) verfügbare Bibliothek „BotFramework-Configuration“ ermöglicht Ihnen das Laden einer BOT-Datei und unterstützt mehrere Methoden zum Abfragen und Abrufen der entsprechenden Dienstkonfigurationsinformationen.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen

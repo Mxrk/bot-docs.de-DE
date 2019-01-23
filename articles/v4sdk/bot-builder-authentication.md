@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: abs
 ms.date: 10/30/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 27e0b54b4e790e76c55deb858e50d8c81507443a
-ms.sourcegitcommit: 91156d0866316eda8d68454a0c4cd74be5060144
+ms.openlocfilehash: 3bfbcb27aa6e38792f96e0d3fe042f02f6e11083
+ms.sourcegitcommit: d385ec5fe61c469ab17e6f21b4a0d50e5110d0fd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53010595"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54298317"
 ---
 # <a name="add-authentication-to-your-bot-via-azure-bot-service"></a>Hinzufügen von Authentifizierung zu Ihrem Bot über Azure Bot Service
 
@@ -34,7 +34,7 @@ Sie enthält folgende Features:
 - Verbesserungen an den Kanälen zur Unterstützung neuer Authentifizierungsfeatures, z.B. neue WebChat- und DirectLineJS-Bibliotheken, damit die Überprüfung von sechsstelligem magischem Code nicht mehr erforderlich ist.
 - Verbesserungen am Hinzufügen, Löschen und Konfigurieren von Verbindungseinstellungen für verschiedene OAuth-Identitätsanbieter im Azure-Portal.
 - Unterstützung einer Vielzahl von einsatzbereiten Identitätsanbietern, einschließlich Azure Active Directory (V1- und V2-Endpunkte), GitHub und mehr.
-- Updates an den Bot Builder SDKs für C# und Node.js, um Token abrufen, OAuthCards erstellen und TokenResponse-Ereignisse verarbeiten zu können.
+- Updates an den Bot Framework SDKs für C# und Node.js, um Token abrufen, OAuthCards erstellen und TokenResponse-Ereignisse verarbeiten zu können.
 - Beispiele für die Erstellung eines Bots, der gegenüber Azure AD authentifiziert wird.
 
 Sie können die Schritte in diesem Artikel auch verwenden, um solche Features einem vorhandenen Bot hinzuzufügen. Im Folgenden werden Beispiel-Bots aufgeführt, die die neuen Authentifizierungsfeatures veranschaulichen.
@@ -256,7 +256,8 @@ Sie müssen den [Bot-Emulator](https://github.com/Microsoft/BotFramework-Emulato
 1. Starten Sie Ihren Bot (mit oder ohne Debuggen).
 1. Notieren Sie sich die Localhost-Portnummer der Seite. Sie benötigen diese Information für die Interaktion mit Ihrem Bot.
 1. Starten Sie den Emulator.
-1. Stellen Sie eine Verbindung mit dem Bot her.
+1. Stellen Sie eine Verbindung mit dem Bot her. Stellen Sie sicher, dass in der Botkonfiguration bei Verwendung von Authentifizierung die **Microsoft-App-ID** und das **Microsoft-App-Kennwort** verwendet werden.
+1. Vergewissern Sie sich, dass in den Emulator-Einstellungen die Option **Use a sign-in verification code for OAuthCards** (Anmeldeprüfcode für OAuthCards verwenden) ausgewählt und **ngrok** aktiviert ist, damit Azure Bot Service das Token bei seiner Verfügbarkeit an den Emulator zurückgeben kann.
 
    Wenn Sie die Verbindung noch nicht konfiguriert haben, geben Sie die Adresse sowie die Microsoft-App-ID und das Kennwort Ihres Bots an. Fügen Sie `/api/messages` zur URL des Bots hinzu. Ihre URL sollte ungefähr wie folgt aussehen: `http://localhost:portNumber/api/messages`.
 
@@ -486,4 +487,4 @@ private isTeamsVerificationInvoke(context: TurnContext): boolean {
 Beachten Sie, dass das Token von diesem Beispiel-Bot bei aufeinanderfolgenden Aufrufen nie zwischengespeichert werden. Der Grund hierfür ist, dass der Bot das Token immer von Azure Bot Service anfragen kann. Damit wird vermieden, dass der Bot unter anderem den Lebenszyklus des Tokens verwalten und das Token aktualisieren muss, da Azure Bot Service sich darum kümmert.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
-[Bot Builder SDK](https://github.com/microsoft/botbuilder)
+[Bot Framework SDK](https://github.com/microsoft/botbuilder)

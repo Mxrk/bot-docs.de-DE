@@ -1,6 +1,6 @@
 ---
 title: Definieren von Unterhaltungsschritten mit Wasserfällen | Microsoft-Dokumentation
-description: In diesem Artikel erfahren Sie, wie mithilfe von Wasserfällen die Schritte einer Unterhaltung mit dem Bot Builder SDK für Node.js definiert werden können.
+description: In diesem Artikel erfahren Sie, wie mithilfe von Wasserfällen die Schritte einer Konversation mit dem Bot Framework SDK für Node.js definiert werden können.
 author: v-ducvo
 ms.author: v-ducvo
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 2fa857e57d5be4751476874b8c193c7053a1bf39
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 526091d61f10ac0c241b994aa3ea99c1d2a70074
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50000277"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225325"
 ---
 # <a name="define-conversation-steps-with-waterfalls"></a>Definieren von Unterhaltungsschritten mit Wasserfällen
 
@@ -45,7 +45,7 @@ bot.dialog('greetings', [
 ]);
 ```
 
-Dies wird durch die Verwendung von Eingabeaufforderungen ermöglicht. Das Bot Builder SDK für Node.js bietet verschiedene Arten von integrierten [Eingabeaufforderungen](bot-builder-nodejs-dialog-prompt.md), mit denen Sie den Benutzer um verschiedene Arten von Informationen bitten können.
+Dies wird durch die Verwendung von Eingabeaufforderungen ermöglicht. Das Bot Framework SDK für Node.js bietet verschiedene Arten von integrierten [Eingabeaufforderungen](bot-builder-nodejs-dialog-prompt.md), mit denen Sie den Benutzer um verschiedene Arten von Informationen bitten können.
 
 Der folgende Beispielcode zeigt einen Dialog, der im Rahmen eines 4-Schritte-Wasserfalls verschiedene Arten von Informationen vom Benutzer mithilfe von Eingabeaufforderungen sammelt.
 

@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/17
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: deb184483bf7e0963f827b20377291ab971c1516
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 455ee87f31e70470d8d118f010c77327347c032d
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997337"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224885"
 ---
 # <a name="secure-your-bot"></a>Absichern eines Bots
 
@@ -31,7 +31,7 @@ Wenn Sie sicherstellen möchten, dass der Endpunkt Ihres Bots nur über den [Bot
 Legen Sie für Ihren Bot die App-ID und das Kennwort in der Datei „web.config“ fest. 
 
 > [!NOTE]
-> Unter [MicrosoftAppID and MicrosoftAppPassword (MicrosoftAppID und MicrosoftAppPassword)](~/bot-service-manage-overview.md#microsoftappid-and-microsoftapppassword) wird beschrieben, wie Sie die Werte für **MicrosoftAppId** und **MicrosoftAppPassword** finden.
+> Unter [MicrosoftAppID und MicrosoftAppPassword](~/bot-service-manage-overview.md#microsoftappid-and-microsoftapppassword) wird beschrieben, wie Sie die Werte für **AppID** und **AppPassword** für Ihren Bot finden.
 
 ```xml
 <appSettings>
@@ -40,7 +40,7 @@ Legen Sie für Ihren Bot die App-ID und das Kennwort in der Datei „web.config�
 </appSettings>
 ```
 
-Legen Sie anschließend mithilfe des `[BotAuthentication]`-Attributs die Anmeldeinformationen fest, die beim Erstellen eines Bots mit dem Bot Builder SDK für .NET verwendet werden sollen. 
+Legen Sie anschließend mithilfe des `[BotAuthentication]`-Attributs die Authentifizierungsanmeldeinformationen fest, die beim Erstellen eines Bots mit dem Bot Framework SDK für .NET verwendet werden sollen. 
 
 Wenn Sie die Anmeldeinformationen in der Datei „web.config“ nutzen möchten, müssen Sie `[BotAuthentication]` ohne Parameter verwenden.
 
@@ -52,6 +52,6 @@ Andere Anmeldeinformationen können Sie festlegen, indem Sie das `[BotAuthentica
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-- [Bot Builder SDK für .NET](bot-builder-dotnet-overview.md)
+- [Bot Framework SDK für .NET](bot-builder-dotnet-overview.md)
 - [Key concepts in the bot Builder SDK for .NET (Schlüsselbegriffe für das Bot Builder SDK für .NET)](bot-builder-dotnet-concepts.md)
 - [Register a bot with the Bot Framework (Registrieren eines Bots bei Bot Framework)](~/bot-service-quickstart-registration.md)

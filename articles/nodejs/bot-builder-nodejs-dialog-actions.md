@@ -1,6 +1,6 @@
 ---
 title: Bearbeiten von Benutzeraktionen | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie mit Benutzeraktionen umgehen, indem Sie Ihrem Bot ermöglichen, mit dem Bot Builder SDK für Node.js auf Benutzereingaben mit bestimmten Schlüsselwörtern zu achten und diese zu bearbeiten.
+description: Hier erfahren Sie, wie Sie mit Benutzeraktionen umgehen, indem Sie Ihrem Bot ermöglichen, mit dem Bot Framework SDK für Node.js auf Benutzereingaben mit bestimmten Schlüsselwörtern zu achten und diese zu bearbeiten.
 author: DucVo
 ms.author: v-ducvo
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 26f6e9520fe5d2ebb83ceb4e6a497a35e9d2611f
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 7ca595b1c24769addfbdf7975c48d3a052c4a2de
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999257"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54226005"
 ---
 # <a name="handle-user-actions"></a>Bearbeiten von Benutzeraktionen
 
@@ -236,7 +236,7 @@ bot.dialog('orderDinner', [
 
 ### <a name="bind-an-endconversationaction"></a>Verknüpfen einer endConversationAction
 
-Beim Verknüpfen einer `endConversationAction` wird die Aktion im Dialog registriert. Nach dem Auslösen beendet diese Aktion die Konversation mit dem Benutzer. Das Auslösen dieser Aktion ähnelt dem Aufrufen der [endConversation](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session.html#endconversation)-Methode. Sobald eine Konversation beendet ist, löscht das Bot Builder SDK für Node.js den Dialogstapel und persistente Zustandsdaten. Weitere Informationen zu persistenten Zustandsdaten finden Sie unter [Verwalten von Zustandsdaten](bot-builder-nodejs-state.md).
+Beim Verknüpfen einer `endConversationAction` wird die Aktion im Dialog registriert. Nach dem Auslösen beendet diese Aktion die Konversation mit dem Benutzer. Das Auslösen dieser Aktion ähnelt dem Aufrufen der [endConversation](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session.html#endconversation)-Methode. Sobald eine Konversation beendet ist, löscht das Bot Framework SDK für Node.js den Dialogstapel und persistente Zustandsdaten. Weitere Informationen zu persistenten Zustandsdaten finden Sie unter [Verwalten von Zustandsdaten](bot-builder-nodejs-state.md).
 
 Der folgende Codeausschnitt zeigt, wie Sie eine [endConversationAction][endConversationAction] mit einem Dialog verknüpfen.
 

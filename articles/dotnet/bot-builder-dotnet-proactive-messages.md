@@ -1,6 +1,6 @@
 ---
 title: Senden von proaktiven Nachrichten | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie mithilfe des Bot Builder SDK für .NET proaktive Nachrichten senden.
+description: Hier erfahren Sie, wie Sie mithilfe des Bot Framework SDK für .NET proaktive Nachrichten senden.
 author: RobStand
 ms.author: kamrani
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 201f1aa1aca0d75190335fa114ef8a26caed2a03
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: d86ee290ebf33dbfd13017c3fe882ecfdd9102e4
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998339"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225725"
 ---
 # <a name="send-proactive-messages"></a>Senden von proaktiven Nachrichten
 
@@ -32,7 +32,7 @@ ms.locfileid: "49998339"
 
 ## <a name="send-an-ad-hoc-proactive-message"></a>Senden einer proaktiven Ad-hoc-Nachricht
 
-Die folgenden Codebeispiele zeigen, wie Sie mit dem Bot Builder SDK für .NET eine proaktive Ad-hoc-Nachricht senden.
+Die folgenden Codebeispiele zeigen, wie Sie mit dem Bot Framework SDK für .NET eine proaktive Ad-hoc-Nachricht senden.
 
 Um eine Ad-hoc-Nachricht an einen Benutzer senden zu können, muss der Bot zuerst aus der aktuellen Unterhaltung Informationen zum Benutzer sammeln und speichern. 
 
@@ -97,7 +97,7 @@ await connector.Conversations.SendToConversationAsync((Activity)message);
 
 ## <a name="send-a-dialog-based-proactive-message"></a>Senden einer dialogbasierten proaktiven Nachricht
 
-Die folgenden Codebeispiele zeigen, wie Sie mit dem Bot Builder SDK für .NET eine dialogbasierte proaktive Nachricht senden.
+Die folgenden Codebeispiele zeigen, wie Sie mit dem Bot Framework SDK für .NET eine dialogbasierte proaktive Nachricht senden.
 
 Um eine dialogbasierte proaktive Nachricht an einen Benutzer senden zu können, muss der Bot zuerst aus der aktuellen Unterhaltung Informationen sammeln und speichern. 
 
@@ -177,11 +177,11 @@ public class SurveyDialog : IDialog<object>
 
 ## <a name="sample-code"></a>Beispielcode
 
-Ein vollständiges Beispiel, das zeigt, wie Sie proaktive Nachrichten mit dem Bot Builder SDK für .NET senden können, finden Sie in GitHub im <a href="https://aka.ms/proactive-messaging-cs-v3 " target="_blank">Beispiel für proaktive Nachrichten</a>. Im Beispiel für proaktive Nachrichten zeigt <a href="https://aka.ms/proactive-sendmessage-cs-v3 " target="_blank">simpleSendMessage</a>, wie eine proaktive Ad-hoc-Nachricht gesendet wird, und <a href="https://aka.ms/proactive-newdialog-cs-v3 " target="_blank">startNewDialog</a> zeigt, wie Sie eine dialogbasierte proaktive Nachricht senden. 
+Ein vollständiges Beispiel, das zeigt, wie Sie Nachrichten mit dem Bot Framework SDK für .NET senden können, finden Sie auf GitHub im <a href="https://aka.ms/proactive-messaging-cs-v3 " target="_blank">Beispiel für proaktive Nachrichten</a>. Im Beispiel für proaktive Nachrichten zeigt <a href="https://aka.ms/proactive-sendmessage-cs-v3 " target="_blank">simpleSendMessage</a>, wie eine proaktive Ad-hoc-Nachricht gesendet wird, und <a href="https://aka.ms/proactive-newdialog-cs-v3 " target="_blank">startNewDialog</a> zeigt, wie Sie eine dialogbasierte proaktive Nachricht senden. 
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 - [Entwerfen und Steuern des Unterhaltungsflusses](../bot-service-design-conversation-flow.md)
-- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">Referenz zum Bot Builder SDK für .NET</a>
+- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">Referenz zum Bot Framework SDK für .NET</a>
 - <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-proactiveMessages" target="_blank">Beispiel für proaktive Nachrichten (GitHub)</a>
 

@@ -1,6 +1,6 @@
 ---
 title: Erkennen von Absichten und Entitäten mit LUIS | Microsoft-Dokumentation
-description: Integrieren Sie einen Bot mit LUIS, um durch Auslösen von Dialogen mit dem Bot Builder SDK für Node.js die Absicht des Benutzers zu erkennen und entsprechend darauf zu reagieren.
+description: Integrieren Sie einen Bot mit LUIS, um durch Auslösen von Dialogen mit dem Bot Framework SDK für Node.js die Absicht des Benutzers zu erkennen und entsprechend darauf zu reagieren.
 author: DeniseMak
 ms.author: v-demak
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 03/28/2018
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 5df1352241485bf95a46fa981b9b16c3cb7e3925
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: acdc6053f7d666c2f086dca554efafc93c8af769
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998697"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225285"
 ---
 # <a name="recognize-intents-and-entities-with-luis"></a>Erkennen von Absichten und Entitäten mit LUIS 
 
@@ -59,7 +59,7 @@ Der Bot antwortet mit „You have reached Greeting. You said: hello“. Dadurch 
 
 Melden Sie sich bei [https://www.luis.ai](https://www.luis.ai) mit dem gleichen Konto an, das Sie zum Anmelden bei Azure verwenden. Klicken Sie auf **Meine Apps**. Suchen Sie in der Liste der Apps nach der App, die mit dem Namen beginnt, den Sie beim Erstellen des Botdiensts auf dem Blatt **Botdienst** als **App-Name** angegeben haben. 
 
-In der LUIS-App sind zunächst 4 Absichten verfügbar: „Cancel“ „Greeting“, „Help“ und „None“. <!-- picture -->
+In der LUIS-App sind zunächst vier Absichten verfügbar: „Cancel“, „Greeting“, „Help“ und „None“. <!-- picture -->
 
 Mit den folgenden Schritten werden die Absichten „Note.Create“, „Note.ReadAloud“ und „Note.Delete“ hinzugefügt: 
 

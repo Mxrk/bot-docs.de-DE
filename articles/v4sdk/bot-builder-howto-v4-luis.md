@@ -1,6 +1,6 @@
 ---
 title: Hinzufügen von Features zum Verstehen natürlicher Sprache zu Ihrem Bot | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie LUIS zum Verstehen natürlicher Sprache mit dem Bot Builder SDK verwenden können.
+description: Hier erfahren Sie, wie Sie LUIS zum Verstehen natürlicher Sprache mit dem Bot Framework SDK verwenden können.
 keywords: Language Understanding, LUIS, absicht, erkennung, entitäten, middleware
 author: ivorb
 ms.author: v-ivorb
@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: cognitive-services
 ms.date: 11/28/18
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: a512cb92f35374b457c4d4cef05667edbd8d2f1f
-ms.sourcegitcommit: 892bf81d306ba607c293ee8639d5c6b66ab3710a
+ms.openlocfilehash: 77dbf8658030a18596507129c88156601d4272e5
+ms.sourcegitcommit: d385ec5fe61c469ab17e6f21b4a0d50e5110d0fd
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52460009"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54298307"
 ---
 # <a name="add-natural-language-understanding-to-your-bot"></a>Hinzufügen von Features zum Verstehen natürlicher Sprache zu Ihrem Bot
 
@@ -185,7 +185,7 @@ In der Datei **bot.js** lesen wir die Konfigurationsinformationen ein, um den LU
 Aktualisieren Sie den Wert von `LUIS_CONFIGURATION` in den Namen Ihrer LUIS-App, der in Ihrer Konfigurationsdatei angezeigt wird.
 
 ```javascript
-// Language Understanding (LUIS) service name as defined in the .bot file.YOUR_LUIS_APP_NAME is "LuisBot" in the C# code.
+// Language Understanding (LUIS) service name as defined in the .bot file.YOUR_LUIS_APP_NAME is "LuisBot" in the JavaScript code.
 const LUIS_CONFIGURATION = '<YOUR_LUIS_APP_NAME>';
 
 // Get endpoint and LUIS configurations by service name.
@@ -375,7 +375,7 @@ Mit LUIS-Entitäten kann Ihr Bot auf intelligente Weise bestimmte Dinge oder Ere
 
 ### <a name="prerequisites"></a>Voraussetzungen
 
-Zum Verwenden von Entitäten mit diesem Beispiel müssen Sie eine LUIS-App erstellen, die Entitäten enthält. Führen Sie die Schritte im obigen Abschnitt zur [Erstellung der LUIS-App](#create-a-luis-app-in-the-luis-portal) aus. Verwenden Sie dabei aber nicht die Datei `reminders.json`, sondern die Datei [reminders-with-entities.json](https://github.com/Microsoft/BotFramework-Samples/tree/master/SDKV4-Samples/dotnet_core/nlp-with-luis), um Ihre LUIS-App zu erstellen. Diese Datei enthält die gleichen Absichten sowie zusätzlich drei weitere Entitäten („Appointment“ (Termin), „Meeting“ (Besprechung) und „Schedule“ (Zeitplan)). Diese Entitäten unterstützen LUIS bei der Ermittlung der Absicht in der Nachricht Ihres Benutzers. 
+Zum Verwenden von Entitäten mit diesem Beispiel müssen Sie eine LUIS-App erstellen, die Entitäten enthält. Führen Sie die Schritte im obigen Abschnitt zur [Erstellung der LUIS-App](#create-a-luis-app-in-the-luis-portal) aus. Verwenden Sie dabei aber nicht die Datei `reminders.json`, sondern die Datei [reminders-with-entities.json](https://github.com/Microsoft/BotFramework-Samples/tree/master/SDKV4-Samples/dotnet_core/nlp-with-luis), um Ihre LUIS-App zu erstellen. Diese Datei enthält die gleichen Absichten sowie zusätzlich drei weitere Entitäten: „Appointment“ (Termin), „Meeting“ (Besprechung) und „Schedule“ (Zeitplan). Diese Entitäten unterstützen LUIS bei der Ermittlung der Absicht in der Nachricht Ihres Benutzers. 
 
 ### <a name="extract-and-display-entities"></a>Extrahieren und Anzeigen von Entitäten
 Der folgende optionale Code kann dieser Beispiel-App hinzugefügt werden, um die Entitätsinformationen zu extrahieren und anzuzeigen, wenn eine Entität von LUIS verwendet wird, um die Absicht des Benutzers zu identifizieren. 

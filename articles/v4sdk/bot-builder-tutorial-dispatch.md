@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 11/26/2018
+ms.date: 01/15/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 62cf3663a6e1c9b9321d7b74393b95e4a2ed3a69
-ms.sourcegitcommit: fd7781a06303fee5f39a253da5b3a3818d54b2ba
+ms.openlocfilehash: c798c26f108458e1caeb16aa22c02c6e7c70fb61
+ms.sourcegitcommit: 3cc768a8e676246d774a2b62fb9c688bbd677700
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806771"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54323656"
 ---
 # <a name="use-multiple-luis-and-qna-models"></a>Verwenden von mehreren LUIS- und QnA-Modellen
 
@@ -23,7 +23,7 @@ ms.locfileid: "53806771"
 
 In diesem Tutorial wird veranschaulicht, wie Sie den Dispatch-Dienst zum Weiterleiten von Äußerungen verwenden, wenn von einem Bot mehrere LUIS-Modelle und QnA Maker-Dienste für unterschiedliche Szenarien unterstützt werden. In diesem Fall konfigurieren wir den Dispatch-Dienst mit mehreren LUIS-Modellen für Konversationen im Bereich Gebäudeautomatisierung und Wetterdaten und den QnA Maker-Dienst für die Beantwortung von Fragen basierend auf einer FAQ-Textdatei als Eingabe. In diesem Beispiel werden die folgenden Dienste kombiniert.
 
-| Name | Beschreibung |
+| NAME | BESCHREIBUNG |
 |------|------|
 | HomeAutomation | Eine LUIS-App, die eine Absicht zur Gebäudeautomatisierung mit den zugeordneten Entitätsdaten erkennt.|
 | Weather | Eine LUIS-App, die die Absichten `Weather.GetForecast` und `Weather.GetCondition` mit Standortdaten erkennt.|
@@ -41,7 +41,7 @@ Sie können gemäß der Anleitung in der **Infodatei** für [C#](https://aka.ms/
 
  ### <a name="create-your-bot-using-service-ui"></a>Erstellen Ihres Bots per Dienstbenutzeroberfläche
  
-Wenn Sie Ihren Bot manuell erstellen möchten, laden Sie zunächst die vier folgenden Dateien aus dem GitHub-Repository [BotFramework-Samples](https://github.com/Microsoft/BotFramework-Samples) in einen lokalen Ordner herunter: [home-automation.json](https://aka.ms/dispatch-home-automation-json), [weather.json](https://aka.ms/dispatch-weather-json), [nlp-with-dispatchDispatch.json](https://aka.ms/dispatch-dispatch-json), [QnAMaker.tsv](https://aka.ms/dispatch-qnamaker-tsv)
+Wenn Sie Ihren Bot manuell erstellen möchten, laden Sie zunächst die folgenden vier Dateien aus dem GitHub-Repository [BotFramework-Samples](https://aka.ms/botdispatchgitsamples) in einen lokalen Ordner herunter: [home-automation.json](https://aka.ms/dispatch-home-automation-json), [weather.json](https://aka.ms/dispatch-weather-json), [nlp-with-dispatchDispatch.json](https://aka.ms/dispatch-dispatch-json) und [QnAMaker.tsv](https://aka.ms/dispatch-qnamaker-tsv). Sie können dazu den Link für das GitHub-Repository öffnen und dann auf **BotFramework-Samples** klicken. Über „Klonen oder herunterladen“ können Sie dann das Repository auf Ihren lokalen Computer herunterladen bzw. das Repository klonen. Beachten Sie, dass sich diese Dateien in einem anderen Repository befinden als das unter „Voraussetzungen“ erwähnte Beispiel.
 
 ### <a name="manually-create-luis-apps"></a>Manuelles Erstellen von LUIS-Apps
 
@@ -494,7 +494,10 @@ Sobald Ihr Bot aktiv ist, kann dessen Leistung durch Entfernen ähnlicher oder s
 
 Beide Aktionen sorgen dafür, dass Ihr Bot Benutzeranfragen seltener damit beantwortet, dass keine Antwort gefunden wurde. 
 
-## <a name="additional-resources"></a>Zusätzliche Ressourcen 
+## <a name="additional-resources"></a>Zusätzliche Ressourcen
+
+**Aktualisieren oder Erstellen eines neuen LUIS-Modells:** Dieses Beispiel basiert auf einem vorkonfigurierten LUIS-Modell. Zusätzliche Informationen zum Aktualisieren dieses Modells bzw. zum Erstellen eines neuen LUIS-Modells finden Sie [hier](https://aka.ms/create-luis-model#updating-your-cognitive-models
+).
 
 **Löschen von Ressourcen:** In diesem Beispiel werden einige Anwendungen und Ressourcen erstellt, die Sie mit den unten angegebenen Schritten löschen können. Sie sollten jedoch keine Ressourcen löschen, die von *anderen Apps oder Diensten* benötigt werden. 
 

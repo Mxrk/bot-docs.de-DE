@@ -1,6 +1,6 @@
 ---
 title: Verwalten von benutzerdefinierten Statusdaten mit Azure Table Storage | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie mithilfe des Bot Builder SDK für Node.js Statusdaten mit Azure Table Storage speichern und abrufen.
+description: Hier erfahren Sie, wie Sie mithilfe des Bot Framework SDK für Node.js Statusdaten mit Azure Table Storage speichern und abrufen.
 author: DucVo
 ms.author: v-ducvo
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 5bf308c440e08cb3c9d4730212fbba3053de459d
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 5c2b8832401ccc9260c9aa872c0848b3a3e8445b
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998332"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225715"
 ---
 # <a name="manage-custom-state-data-with-azure-table-storage-for-nodejs"></a>Verwalten von benutzerdefinierten Statusdaten mit Azure Table Storage für Node.js
 
@@ -24,7 +24,7 @@ In diesem Artikel wird beschrieben, wie Sie Azure Table Storage zum Speichern un
 
 - Höherer Durchsatz der Status-API (mehr Kontrolle über die Leistung)
 - Niedrigere Latenz bei geografischer Verteilung
-- Kontrolle über die Region, in der die Daten gespeichert werden (z.B. „USA, Westen“ statt „USA, Osten“)
+- Kontrolle über die Region, in der die Daten gespeichert werden (z.B. „USA, West“ statt „USA, Osten“).
 - Zugriff auf die tatsächlichen Statusdaten
 - Datenbank mit Statusdaten nicht für andere Bots freigegeben
 - Speichern von mehr als 32 KB

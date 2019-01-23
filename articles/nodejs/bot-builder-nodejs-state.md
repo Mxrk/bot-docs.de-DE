@@ -1,6 +1,6 @@
 ---
-title: Verwalten von Statusdaten | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie mithilfe des Bot Builder SDK für Node.js Statusdaten speichern und abrufen.
+title: Verwalten von Zustandsdaten | Microsoft-Dokumentation
+description: Hier erfahren Sie, wie Sie mithilfe des Bot Framework SDK für Node.js Statusdaten speichern und abrufen.
 author: DucVo
 ms.author: v-ducvo
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 519f188a29db2b9b37061ee0eff5361a63d2acac
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 6d653e47d2e906c6306134804c7731b374d830ba
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999987"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225005"
 ---
 # <a name="manage-state-data"></a>Verwalten von Statusdaten
 
@@ -56,7 +56,7 @@ Der Mechanismus zum Festlegen und Beibehalten der Daten über das Bot Framework-
 
 ## <a name="storage-containers"></a>Speichercontainer
 
-Im Bot Builder SDK für Node.js macht das `session`-Objekt die folgenden Eigenschaften zum Speichern von Statusdaten verfügbar.
+Im Bot Framework SDK für Node.js macht das `session`-Objekt die folgenden Eigenschaften zum Speichern von Statusdaten verfügbar:
 
 | Eigenschaft | Zuordnung | BESCHREIBUNG |
 | ---- | ---- | ---- |
@@ -129,7 +129,7 @@ session.userdata.start = startDate.toISOString();
 
 ### <a name="saving-data"></a>Speichern von Daten
 
-Daten, die in den einzelnen Speichercontainern erstellt werden, bleiben im Arbeitsspeicher, bis der Container gespeichert wird. Das Bot Builder SDK für Node.js sendet zu speichernde Daten in Batches an den `ChatConnector`-Dienst, wenn Nachrichten gesendet werden. Wenn Sie die Daten, die sich in den Speichercontainern befinden, ohne das Senden einer Nachricht speichern möchten, können Sie manuell die [`save`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session.html#save)-Methode aufrufen. Wenn Sie die `save`-Methode nicht aufrufen, bleiben die in den Speichercontainern vorhandenen Daten Bestandteil der Batchverarbeitung.
+Daten, die in den einzelnen Speichercontainern erstellt werden, bleiben im Arbeitsspeicher, bis der Container gespeichert wird. Das Bot Framework SDK für Node.js sendet zu speichernde Daten in Batches an den `ChatConnector`-Dienst, wenn Nachrichten gesendet werden. Wenn Sie die Daten, die sich in den Speichercontainern befinden, ohne das Senden einer Nachricht speichern möchten, können Sie manuell die [`save`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session.html#save)-Methode aufrufen. Wenn Sie die `save`-Methode nicht aufrufen, bleiben die in den Speichercontainern vorhandenen Daten Bestandteil der Batchverarbeitung.
 
 ```javascript
 session.userData.favoriteColor = "Red";

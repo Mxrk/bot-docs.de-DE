@@ -1,6 +1,6 @@
 ---
-title: Hinzufügen von Eingabehinweisen zu Nachrichten | Microsoft Docs
-description: Erfahren Sie, wie Sie mithilfe des Bot Builder SDK Eingabehinweise zu Nachrichten hinzufügen.
+title: Hinzufügen von Eingabehinweisen zu Nachrichten | Microsoft-Dokumentation
+description: Hier erfahren Sie, wie Sie mithilfe des Bot Framework SDK Eingabehinweise zu Nachrichten hinzufügen.
 keywords: Eingabehinweise, Akzeptieren der Eingabe, Erwarten der Eingabe, Ignorieren der Eingabe, Sprache
 author: ivorb
 ms.author: v-ivorb
@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 08/24/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: d55accd5ad9ad7db12d0b0e6865e04dcf7718110
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 751d5067d2e4b6b6ad21e1a4fd0ccb3818385d06
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49996738"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224875"
 ---
 # <a name="add-input-hints-to-messages"></a>Hinzufügen von Eingabehinweisen zu Nachrichten
 
@@ -118,7 +118,7 @@ await context.sendActivity(basicMessage);
 
 ## <a name="default-values-for-input-hint"></a>Standardwerte für den Eingabehinweis
 
-Wenn Sie den Eingabehinweis für eine Nachricht nicht festlegen, legt ihn das Bot Builder SDK automatisch anhand der folgenden Logik fest:
+Wenn Sie den Eingabehinweis für eine Nachricht nicht festlegen, legt ihn das Bot Framework SDK automatisch anhand der folgenden Logik fest:
 
 - Wenn Ihr Bot eine Eingabeaufforderung sendet, gibt der Eingabehinweis für die Nachricht an, dass Ihr Bot eine **Eingabe erwartet**.</li>
 - Wenn Ihr Bot eine einzelne Nachricht sendet, gibt der Eingabehinweis für die Nachricht an, dass Ihr Bot eine **Eingabe akzeptiert**.</li>

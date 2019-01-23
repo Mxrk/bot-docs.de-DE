@@ -1,6 +1,6 @@
 ---
 title: Hinzufügen von Sprache zu Nachrichten | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie mithilfe des Bot Builder SDK für .NET Nachrichten Sprache hinzufügen.
+description: Hier erfahren Sie, wie Sie mithilfe des Bot Framework SDK für .NET Nachrichten Sprache hinzufügen.
 author: RobStand
 ms.author: kamrani
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: dc542c7e85b3a79e1071edebea65d93c99742beb
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 3eef1ec583764449554a223ec9dc339ff505ace6
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50000358"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225595"
 ---
 # <a name="add-speech-to-messages"></a>Hinzufügen von Sprache zu Nachrichten
 
@@ -27,9 +27,9 @@ ms.locfileid: "50000358"
 
 Wenn Sie einen Bot für einen sprachaktivierten Kanal wie Cortana erstellen, können Sie Nachrichten erstellen, die den Text angeben, der von Ihrem Bot gesprochen werden soll. Sie können auch versuchen, den Status des Mikrofons des Clients zu beeinflussen, indem Sie einen [Eingabehinweis](bot-builder-dotnet-add-input-hints.md) angeben, um festzulegen, ob Ihr Bot Benutzereingaben akzeptiert, erwartet oder ignoriert.
 
-## <a name="specify-text-to-be-spoken-by-your-bot"></a>Angeben des von Ihrem Bot zu sprechenden Texts
+## <a name="specify-text-to-be-spoken-by-your-bot"></a>Angeben des vom Bot zu sprechenden Texts
 
-Mit dem Bot Builder SDK für .NET stehen Ihnen mehrere Möglichkeiten zum Angeben des Texts zur Verfügung, der von Ihrem Bot in einem sprachfähigen Kanal gesprochen werden soll. Sie können die `Speak`-Eigenschaft der [Nachricht][IMessageActivity] festlegen, die Methode `IDialogContext.SayAsync()` aufrufen oder die Eingabeaufforderungsoptionen `speak` und `retrySpeak` angeben, wenn Sie eine Nachricht mit einer integrierten Eingabeaufforderung senden.
+Mit dem Bot Framework SDK für .NET stehen Ihnen mehrere Möglichkeiten zum Angeben des Texts zur Verfügung, der von Ihrem Bot in einem sprachaktivierten Kanal gesprochen werden soll. Sie können die `Speak`-Eigenschaft der [Nachricht][IMessageActivity] festlegen, die Methode `IDialogContext.SayAsync()` aufrufen oder die Eingabeaufforderungsoptionen `speak` und `retrySpeak` angeben, wenn Sie eine Nachricht mit einer integrierten Eingabeaufforderung senden.
 
 ### <a id="message-speak"></a> IMessageActivity.Speak
 
@@ -59,7 +59,7 @@ Wenn Sie eine Nachricht in einem sprachaktivierten Kanal senden, können Sie ver
 
 ## <a name="sample-code"></a>Beispielcode 
 
-Ein vollständiges Beispiel, das die Erstellung eines sprachfähigen Bots mit dem Bot Builder SDK für .NET veranschaulicht, finden Sie in GitHub im <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples/CSharp" target="_blank">RollerSkill-Beispiel</a>.
+Ein vollständiges Beispiel, das die Erstellung eines sprachaktivierten Bots mit dem Bot Framework SDK für .NET veranschaulicht, finden Sie auf GitHub im <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/v3-sdk-samples/CSharp" target="_blank">RollerSkill-Beispiel</a>.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 

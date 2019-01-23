@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/19/2018
-ms.openlocfilehash: 79c37a48f9312d60b61124e15780fe46236aa0c7
-ms.sourcegitcommit: f7a8f05fc05ff4a7212a437d540485bf68831604
+ms.openlocfilehash: ae019f7da32969821db0c59a4710e32b57623b14
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53735980"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224486"
 ---
 ::: moniker range="azure-bot-service-3.0"
 
@@ -36,7 +36,7 @@ Dialoge können über grafische Benutzeroberflächen verfügen, dies ist aber ni
 
 [!INCLUDE [Dialog flow example](./includes/snippet-dotnet-manage-conversation-flow-intro.md)]
 
-Eine ausführliche exemplarische Vorgehensweise bei der Verwaltung des Konversationsflusses mithilfe von Dialogen und dem Bot Builder SDK finden Sie unter:
+Eine ausführliche exemplarische Vorgehensweise zur Verwaltung des Konversationsflusses mithilfe von Dialogen und dem Bot Framework SDK finden Sie unter:
 
 - [Verwalten des Konversationsflusses mit Dialogen (.NET)](./dotnet/bot-builder-dotnet-manage-conversation-flow.md)
 - [Verwalten des Konversationsflusses mit Dialogen (Node.js)](./nodejs/bot-builder-nodejs-manage-conversation-flow.md)
@@ -99,7 +99,7 @@ Die Konversation mit einem Bot konzentriert sich in der Regel auf die Aufgabe, d
 
 Bei einem prozeduralen Konversationsfluss definieren Sie die Reihenfolge der Fragen, und der Bot stellt die Fragen in der Reihenfolge, die Sie festgelegt haben. Sie können die Fragen in logischen *Modulen* organisieren, um den Code zu zentralisieren und den Fokus auf dem Führen der Konversation zu halten. Sie können beispielsweise eine Nachricht entwerfen, die die Logik enthält, mit der die Benutzer Produkte suchen können, und eine separate Nachricht mit der Logik, die Benutzer beim Erstellen einer neuen Bestellung unterstützt.
 
-Sie können den Ablauf dieser Module auf beliebige Weise strukturieren – von einer komplett freien Form bis hin zum sequenziellen Abarbeiten. Das Bot Builder SDK bietet mehrere Bibliotheken, mit denen Sie einen für Ihren Bot geeigneten Konversationsfluss erstellen können. Mithilfe der `prompts`-Bibliothek können Sie z.B. Benutzer um Eingaben bitten. Die `waterfall`-Bibliothek ermöglicht das Definieren einer Folge von Frage-Antwort-Paaren, die `dialog control`-Bibliothek erlaubt Ihnen das Modularisierten der Logik Ihres Konversationsflusses usw. Alle diese Bibliotheken sind über ein `dialogs`-Objekt miteinander verknüpft. Werfen wir einen genaueren Blick auf die Implementierung von Modulen als `dialogs` zum Entwerfen und Verwalten von Konversationsflüssen, um zu erfahren, worin der Fluss dem traditionellen Anwendungsfluss ähnelt.
+Sie können den Ablauf dieser Module auf beliebige Weise strukturieren – von einer komplett freien Form bis hin zum sequenziellen Abarbeiten. Das Bot Framework SDK bietet mehrere Bibliotheken, mit denen Sie einen für Ihren Bot geeigneten Konversationsfluss erstellen können. Mithilfe der `prompts`-Bibliothek können Sie z.B. Benutzer um Eingaben bitten. Die `waterfall`-Bibliothek ermöglicht das Definieren einer Folge von Frage-Antwort-Paaren, die `dialog control`-Bibliothek erlaubt Ihnen das Modularisierten der Logik Ihres Konversationsflusses usw. Alle diese Bibliotheken sind über ein `dialogs`-Objekt miteinander verknüpft. Werfen wir einen genaueren Blick auf die Implementierung von Modulen als `dialogs` zum Entwerfen und Verwalten von Konversationsflüssen, um zu erfahren, worin der Fluss dem traditionellen Anwendungsfluss ähnelt.
 
 ![Bot](./media/designing-bots/core/dialogs-screens.png)
 

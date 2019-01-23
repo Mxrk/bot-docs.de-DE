@@ -7,13 +7,13 @@ ms.author: kamrani
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
-ms.date: 10/31/2018
-ms.openlocfilehash: 616c3bfd5fcb36c06f4e2acf032ba3cf5fc125d3
-ms.sourcegitcommit: a496714fb72550a743d738702f4f79e254c69d06
+ms.date: 1/10/2019
+ms.openlocfilehash: 4e11ecfa2d42b93b85d186a5078b612ef64e7cdd
+ms.sourcegitcommit: b94361234816e6b95459f142add936732fc40344
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50736698"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54317650"
 ---
 ::: moniker range="azure-bot-service-3.0"
 
@@ -88,12 +88,15 @@ Bots sind mit modernen Webanwendungen im Internet vergleichbar, die APIs zum Sen
 
 Bots sind zu denselben Dingen wie andere Arten von Software in der Lage – Lesen und Schreiben von Dateien, Verwenden von Datenbanken und APIs und Durchführen von regulären Berechnungsaufgaben. Was Bots einzigartig macht, ist die Verwendung von Mechanismen, die in der Regel auf die Kommunikation zwischen Menschen beschränkt sind. 
 
-Bots umfassen in der Regel die folgenden Komponenten:
+Azure Bot Service bietet Folgendes:
+- Bot Framework SDK zum Entwickeln von Bots
+- Bot Framework-Tools für den kompletten Workflow für die Bot-Entwicklung
+- Bot Framework-Dienst (Bot Framework Service, BFS) zum Senden und Empfangen von Nachrichten und Ereignissen zwischen Bots und Kanälen
+- Botbereitstellung und Kanalkonfiguration in Azure
 
-- Ein Webserver, in den meisten Fällen einer, der im öffentlichen Internet verfügbar ist
-- Das Bot Builder-SDK und Bot Builder-Tools mit einer Schnittstelle für die Entwicklung von Bots
-- Azure Cognitive Services
-- Azure Storage
+Darüber hinaus können Bots andere Azure-Dienste verwenden, beispielsweise:
+- Azure Cognitive Services zum Erstellen intelligenter Anwendungen 
+- Azure Storage für Cloudspeicherlösungen
 
 ## <a name="building-a-bot"></a>Erstellen eines Bots 
 
@@ -105,7 +108,7 @@ Azure Bot Service bietet einen integrierten Satz von Tools und Diensten, die die
 Wie bei jeder Art von Software ist ein umfassendes Verständnis der Ziele, Prozesse und Benutzeranforderungen für das Erstellen eines erfolgreichen Bots wichtig. Sehen Sie sich vor dem Schreiben von Code die [Entwurfsrichtlinien](bot-service-design-principles.md)  für Bots an, um Informationen zu bewährten Methoden und Anforderungen für Ihren Bot zu erhalten. Sie können einen einfachen Bot erstellen oder komplexere Funktionen hinzufügen, beispielsweise Spracheingabe, das Verstehen natürlicher Sprache oder die Beantwortung von Fragen.
 
 ### <a name="build"></a>Entwickeln
-Ihr Bot ist ein Webdienst, der eine Konversationsoberfläche implementiert und mit dem Bot Framework-Dienst kommuniziert, um Nachrichten und Ereignisse zu senden und zu empfangen. Sie können Bots in einer beliebigen Anzahl von Umgebungen und Sprachen erstellen. Sie können Ihre Botentwicklung im [Azure-Portal](bot-service-quickstart.md) starten oder [[C#](dotnet/bot-builder-dotnet-sdk-quickstart.md) | [JavaScript](javascript/bot-builder-javascript-quickstart.md)]-Vorlagen für die lokale Entwicklung verwenden.
+Ihr Bot ist ein Webdienst, der eine Konversationsoberfläche implementiert und mit dem Bot Framework-Dienst kommuniziert, um Nachrichten und Ereignisse zu senden und zu empfangen. Der Bot Framework-Dienst ist eine Komponente von Azure Bot Service. Sie können Bots in einer beliebigen Anzahl von Umgebungen und Sprachen erstellen. Sie können Ihre Botentwicklung im [Azure-Portal](bot-service-quickstart.md) starten oder [[C#](dotnet/bot-builder-dotnet-sdk-quickstart.md) | [JavaScript](javascript/bot-builder-javascript-quickstart.md)]-Vorlagen für die lokale Entwicklung verwenden.
 
 Im Rahmen von Azure Bot Service bieten wir zusätzliche Komponenten an, die Sie zum Erweitern der Funktionalität Ihres Bots verwenden können.
 

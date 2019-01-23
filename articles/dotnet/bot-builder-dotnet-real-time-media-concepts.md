@@ -1,6 +1,6 @@
 ---
 title: Medienanrufe in Echtzeit mit Skype | Microsoft-Dokumentation
-description: Informationen zu wichtigen Konzepte zum Erstellen eines Bots mithilfe des Bot Builder SDK für .NET, der in Echtzeit Audio- und Videoanrufe mit Skype durchführen kann.
+description: Informationen zu wichtigen Konzepten zum Erstellen eines Bots mithilfe des Bot Framework SDK für .NET, der in Echtzeit Audio- und Videoanrufe mit Skype durchführen kann
 author: ssulzer
 ms.author: ssulzer
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: cf11a68c7ccc404506fdfe01dcf12c7c421f4e2b
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 893458a484c0e26545c23016ccbf3049adc61960
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998335"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225255"
 ---
 # <a name="real-time-media-calling-with-skype"></a>Medienanrufe in Echtzeit mit Skype
 
@@ -58,7 +58,7 @@ In einem Anruf mit einem einzelnen Skype-Anrufer empfängt der Bot automatisch d
 
 Um einen Echtzeit-Medienbot zu entwickeln, müssen Sie diese NuGet-Pakete in Ihrem Visual Studio-Projekt installieren:
 
-- [Bot Builder SDK für .NET](bot-builder-dotnet-overview.md)
+- [Bot Framework SDK für .NET](bot-builder-dotnet-overview.md)
 - [Bot Builder Real-Time Media Calling für .NET](https://www.nuget.org/packages?q=Bot.Builder.RealTimeMediaCalling)
 - [Microsoft.Skype.Bots.Media-Bibliothek für .NET](https://www.nuget.org/packages?q=Microsoft.Skype.Bots.Media)
 

@@ -1,6 +1,6 @@
 ---
 title: Senden und Empfangen von Anlagen | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie Nachrichten mit Anlagen mit dem Bot Builder SDK für Node.js senden und empfangen.
+description: Hier erfahren Sie, wie Sie Nachrichten mit Anlagen mit dem Bot Framework SDK für Node.js senden und empfangen.
 author: DeniseMak
 ms.author: v-demak
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 41e1e9e6fe59f00b8b8c873c2dd5fd2d698dabcb
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 1911a5b0f8e8f8b53de6f661c0a939767df1efbb
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998187"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224695"
 ---
 # <a name="send-and-receive-attachments"></a>Senden und Empfangen von Anlagen
 
@@ -27,8 +27,8 @@ ms.locfileid: "49998187"
 
 Ein Nachrichtenaustausch zwischen Benutzer und Bot kann Medienanlagen enthalten, z.B. Bilder, Videos, Audio und Dateien. Die gesendeten Anlagetypen variieren je nach Kanal, doch dies sind die Grundtypen:
 
-* **Medien und Dateien**: Sie können Dateien wie Bilder, Audio und Video senden, indem Sie **contentType** auf den MIME-Typ des [IAttachment-Objekts][IAttachment] festlegen und dann einen Link zur Datei in **contentUrl** übergeben.
-* **Karten**: Sie können einen umfangreichen Satz visueller Karten<!-- and custom keyboards --> senden, indem Sie **contentType** auf den gewünschten Kartentyp setzen und dann das JSON-Format für die Karte übergeben. Wenn Sie für Rich Card-Generatoren Klassen wie **HeroCard** verwenden, wird die Anlage automatisch für Sie ausgefüllt. Ein Beispiel finden Sie unter [Senden einer Rich Card](bot-builder-nodejs-send-rich-cards.md).
+* **Medien und Dateien:** Sie können Dateien wie Bilder, Audio und Video senden, indem Sie **contentType** auf den MIME-Typ des [IAttachment-Objekts][IAttachment] festlegen und dann einen Link zur Datei in **contentUrl** übergeben.
+* **Karten:** Sie können einen umfangreichen Satz visueller Karten <!-- and custom keyboards --> senden, indem Sie **contentType** auf den gewünschten Kartentyp setzen und dann das JSON-Format für die Karte übergeben. Wenn Sie für Rich Card-Generatoren Klassen wie **HeroCard** verwenden, wird die Anlage automatisch für Sie ausgefüllt. Ein Beispiel finden Sie unter [Senden einer Rich Card](bot-builder-nodejs-send-rich-cards.md).
 
 ## <a name="add-a-media-attachment"></a>Hinzufügen einer Medienanlage
 Das Nachrichtenobjekt wird als Instanz von [IMessage][IMessage] erwartet. Es wird empfohlen, dem Benutzer eine Nachricht als Objekt zu senden, wenn Sie eine Anlage wie ein Bild hinzufügen möchten. Verwenden Sie die Methode [session.send()][SessionSend], um Nachrichten als JSON-Objekt zu senden. 

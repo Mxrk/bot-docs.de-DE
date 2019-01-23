@@ -1,6 +1,6 @@
 ---
 title: Verwalten eines Unterhaltungsablaufs mit Dialogen | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie eine Unterhaltung mit Dialogen zwischen einem Bot und einem Benutzer im Bot Builder SDK für Node.js verwalten.
+description: Hier erfahren Sie, wie Sie eine Unterhaltung mit Dialogen zwischen einem Bot und einem Benutzer im Bot Framework SDK für Node.js verwalten.
 author: v-ducvo
 ms.author: v-ducvo
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 133f085a857d1bb8bf7622e7adab19374902327d
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 96c28101c3ea72c70c6ad53b06306f4ea00b2929
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997767"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225605"
 ---
 # <a name="manage-conversation-flow-with-dialogs"></a>Verwalten des Unterhaltungsablaufs mit Dialogen
 
@@ -24,9 +24,9 @@ ms.locfileid: "49997767"
 > - [.NET](../dotnet/bot-builder-dotnet-manage-conversation-flow.md)
 > - [Node.js](../nodejs/bot-builder-nodejs-dialog-manage-conversation-flow.md)
 
-Das Verwalten des Unterhaltungsablaufs ist eine wesentliche Aufgabe beim Erstellen von Bots. Ein Bot muss in der Lage sein, Kernaufgaben elegant auszuführen und Unterbrechungen ordnungsgemäß zu behandeln. Mit dem Bot Builder SDK für Node.js können Sie den Unterhaltungsablauf mit Dialogen verwalten.
+Das Verwalten des Unterhaltungsablaufs ist eine wesentliche Aufgabe beim Erstellen von Bots. Ein Bot muss in der Lage sein, Kernaufgaben elegant auszuführen und Unterbrechungen ordnungsgemäß zu behandeln. Mit dem Bot Framework SDK für Node.js können Sie den Unterhaltungsablauf mit Dialogen verwalten.
 
-Ein Dialog ist wie eine Funktion in einem Programm. Er dient in der Regel einem bestimmten Vorgang und kann so oft aufgerufen werden, wie er benötigt wird. Sie können mehrere Dialoge verketten, um jeden Unterhaltungsablauf zu behandeln, den Ihr Bot abwickeln soll. Das Bot Builder SDK für Node.js enthält integrierte Funktionen wie z.B. [Eingabeaufforderungen](bot-builder-nodejs-dialog-prompt.md) und [Wasserfälle](bot-builder-nodejs-dialog-waterfall.md), um Ihnen das Verwalten des Unterhaltungsablaufs zu erleichtern.
+Ein Dialog ist wie eine Funktion in einem Programm. Er dient in der Regel einem bestimmten Vorgang und kann so oft aufgerufen werden, wie er benötigt wird. Sie können mehrere Dialoge verketten, um jeden Unterhaltungsablauf zu behandeln, den Ihr Bot abwickeln soll. Das Bot Framework SDK für Node.js enthält integrierte Funktionen wie z.B. [Eingabeaufforderungen](bot-builder-nodejs-dialog-prompt.md) und [Wasserfälle](bot-builder-nodejs-dialog-waterfall.md), um Ihnen das Verwalten des Unterhaltungsablaufs zu erleichtern.
 
 Dieser Artikel enthält eine Reihe von Beispielen, um zu erläutern, wie sich sowohl einfache als auch komplexe Unterhaltungsabläufe handhaben lassen, in denen Ihr Bot Unterbrechungen behandeln kann und den Ablauf mithilfe von Dialogen ordnungsgemäß fortsetzen kann. Die Beispiele basieren auf den folgenden Szenarien: 
 
@@ -95,7 +95,7 @@ Das folgende Screenshot zeigt die Ergebnisse, die bei der Ausführung dieses Bot
 
 Jeder Schritt in diesem Beispiel verwendet eine Anfrage, um den Benutzer um eine Eingabe zu bitten. Eine Anfrage ist eine besondere Art von Dialog, die um eine Benutzereingabe bittet, auf eine Antwort wartet und die Antwort an den nächsten Schritt im Wasserfall weitergibt. Informationen über die vielen verschiedenen Arten von Anfragen, die Sie in Ihrem Bot verwenden können, finden Sie unter [Auffordern von Benutzern zur Eingabe](bot-builder-nodejs-dialog-prompt.md).
 
-In diesem Beispiel verwendet der Bot `Prompts.text()`, um eine formlose Antwort des Benutzers in Textform zu erbitten. Der Benutzer kann mit einem beliebigen Text antworten, und der Bot muss entscheiden, wie die Antwort behandelt werden soll. `Prompts.time()` verwendet die [Chrono](https://github.com/wanasit/chrono)-Bibliothek, um die Datums- und Uhrzeitinformationen in einer Zeichenfolge zu analysieren. Dies ermöglicht Ihrem Bot das Verständnis von eher natürlicher Sprache bei den Angaben für Datum und Uhrzeit. Beispielsweise „6. Juni 2017 um 9 Uhr“, „Heute um 7:30 Uhr“, „nächsten Montag um 6“ usw.
+In diesem Beispiel verwendet der Bot `Prompts.text()`, um eine formlose Antwort des Benutzers in Textform zu erbitten. Der Benutzer kann mit einem beliebigen Text antworten, und der Bot muss entscheiden, wie die Antwort behandelt werden soll. `Prompts.time()` verwendet die [Chrono](https://github.com/wanasit/chrono)-Bibliothek, um die Datums- und Uhrzeitinformationen in einer Zeichenfolge zu analysieren. Dies ermöglicht Ihrem Bot das Verständnis von eher natürlicher Sprache bei den Angaben für Datum und Uhrzeit. Beispiel:  „6. Juni 2017 um 9 Uhr“, „Heute um 7:30 Uhr“, „nächsten Montag um 6“ usw.
 
 > [!TIP] 
 > Die vom Benutzer eingegebene Uhrzeit wird basierend auf der Zeitzone des Servers, der den Bot hostet, in UTC-Zeit konvertiert. Da sich der Server möglicherweise in einer anderen Zeitzone als der Benutzer befindet, achten Sie darauf, die Zeitzonen zu berücksichtigen. Damit Datum und Uhrzeit in die Ortszeit des Benutzers konvertiert werden können, sollten Sie den Benutzer fragen, in welcher Zeitzone er sich befindet.
@@ -174,7 +174,7 @@ Mit dieser Technik können Sie den Unterhaltungsablauf von der Aufgabenlogik tre
 
 Wenn der Benutzer, während er durch eine Reihe von Aufgaben geführt wird, Fragen hat oder weitere Informationen wünscht, bevor er eine Frage beantwortet – wie würden Sie solche Anfragen behandeln? Wie sollte der Bot beispielsweise reagieren, wenn der Benutzer – unabhängig von der Position in der Unterhaltung – „Hilfe“, „Support“ oder „Abbrechen“ eingibt? Was geschieht, wenn der Benutzer weitere Informationen zu einem Schritt wünscht? Was geschieht, wenn der Benutzer seine Meinung ändert und die aktuelle Aufgabe abbrechen möchte, um mit einer ganz anderen Aufgabe anzufangen?
 
-Das Bot Builder SDK für Node.js ermöglicht es einem Bot, nach bestimmten Eingaben innerhalb eines globalen Kontext oder innerhalb eines lokalen Kontext im Bereich des aktuellen Dialogs zu lauschen. Diese Eingaben heißen [Aktionen](bot-builder-nodejs-dialog-actions.md), die es dem Bot ermöglichen, auf der Grundlage einer `matches`-Klausel nach Benutzereingaben zu lauschen. Die Entscheidung, wie auf bestimmte Benutzereingaben reagiert wird, liegt beim Bot.
+Das Bot Framework SDK für Node.js ermöglicht es einem Bot, auf bestimmte Eingaben innerhalb eines globalen Kontext oder innerhalb eines lokalen Kontext im Bereich des aktuellen Dialogs zu lauschen. Diese Eingaben heißen [Aktionen](bot-builder-nodejs-dialog-actions.md), die es dem Bot ermöglichen, auf der Grundlage einer `matches`-Klausel nach Benutzereingaben zu lauschen. Die Entscheidung, wie auf bestimmte Benutzereingaben reagiert wird, liegt beim Bot.
 
 ### <a name="handle-global-action"></a>Behandeln von globalen Aktionen
 

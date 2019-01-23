@@ -1,16 +1,16 @@
 ---
 redirect_url: /bot-framework/bot-builder-prompts
-ms.openlocfilehash: e7cfbad19290b3ef61d40dc90493db8f530a9a4e
-ms.sourcegitcommit: 4661b9bb31d74731dbbb16e625be088b44ba5899
+ms.openlocfilehash: d45ec888a0082ee17718c93fc34a3df99431a254
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51826937"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225415"
 ---
 <a name="--"></a><!--
 ---
-title: Stellen von Fragen an den Benutzer | Microsoft-Dokumentation description: Es wird beschrieben, wie Sie das Wasserfallmodell verwenden, um beim Bot Builder SDK von Benutzern mehrere Eingaben abzufragen.
-keywords: Wasserfälle, Dialoge, Stellen einer Frage, Eingabeaufforderungen author: v-ducvo ms.author: v-ducvo manager: kamrani ms.topic: article ms.service: bot-service ms.subservice: sdk ms.date: 5/10/2018 monikerRange: 'azure-bot-service-4.0'
+Titel: Stellen von Fragen an den Benutzer | Microsoft-Dokumentation description: Hier erfahren Sie, wie das Wasserfallmodell im Bot Framework SDK verwendet wird, um den Benutzer zu mehreren Eingaben aufzufordern.
+keywords: Wasserfälle, Dialoge, Stellen einer Frage, Eingabeaufforderungen author: v-ducvo ms.author: v-ducvo ms.author: v-ducvo manager: kamrani ms.topic: article ms.service: bot-service ms.subservice: sdk ms.date: 5/10/2018 monikerRange: 'azure-bot-service-4.0'
 ---
 
 # <a name="ask-the-user-questions"></a>Dem Benutzer Fragen stellen

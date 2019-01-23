@@ -1,6 +1,6 @@
 ---
 title: Direktes Schreiben in den Speicher | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie mit dem Bot Builder SDK für .NET direkt in den Speicher schreiben.
+description: Hier erfahren Sie, wie Sie mit dem Bot Framework SDK für .NET direkt in den Speicher schreiben.
 keywords: Speicher, lesen und schreiben, Arbeitsspeicher, eTag
 author: DeniseMak
 ms.author: v-demak
@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/13/18
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 803574e5d224b0556162fd677145d29cafa2cab1
-ms.sourcegitcommit: 8b7bdbcbb01054f6aeb80d4a65b29177b30e1c20
+ms.openlocfilehash: cd1f8270acf426c84d64efef796b7a007c49c2c1
+ms.sourcegitcommit: bdb981c0b11ee99d128e30ae0462705b2dae8572
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51645680"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54360790"
 ---
 # <a name="write-directly-to-storage"></a>Direktes Schreiben in den Speicher
 
@@ -217,12 +217,12 @@ Um Cosmos DB in Ihrem Bot verwenden zu können, müssen Sie einige Einrichtungss
 Die Kontoerstellung dauert einige Minuten. Warten Sie, bis im Portal die Seite „Herzlichen Glückwunsch! Ihr Azure Cosmos DB-Konto wurde erstellt“ angezeigt wird.
 
 ##### <a name="add-a-collection"></a>Hinzufügen einer Sammlung
-1. Klicken Sie auf **Einstellungen > Neue Sammlung**. Der Bereich **Sammlung hinzufügen** wird ganz rechts angezeigt. Möglicherweise müssen Sie nach rechts scrollen, damit Sie ihn sehen.
+1. Klicken Sie auf **Einstellungen > Neue Sammlung**. Der Bereich **Sammlung hinzufügen** wird ganz rechts angezeigt. Möglicherweise müssen Sie nach rechts scrollen, damit Sie ihn sehen. Fügen Sie aufgrund aktueller Updates an Cosmos DB unbedingt einen einzelnen Partitionsschlüssel hinzu: _/id_. Dieser Schlüssel verhindert partitionsübergreifende Abfragefehler.
 
 ![Azure Cosmos DB-Sammlung](./media/add_database_collection.png)
 
 2. Ihre neue Datenbanksammlung „bot-cosmos-sql-db“ besitzt die Sammlungs-ID „bot-storage“. Diese Werte verwenden Sie im unten beschriebenen Codebeispiel.
-
+ -
 ![Cosmos DB](./media/cosmos-db-sql-database.png)
 
 3. Der Endpunkt-URI und der Schlüssel sind in Ihren Datenbankeinstellungen auf der Registerkarte **Schlüssel** verfügbar. Diese Werte sind erforderlich, um den Code an späterer Stelle dieses Artikels zu konfigurieren. 
@@ -597,7 +597,7 @@ public async Task OnTurnAsync(ITurnContext turnContext, CancellationToken cancel
            var count = 0;
            do
            {
-               var pagedTranscript = await _transcriptStore.GetTranscriptActivitiesAsync(activity.ChannelId, activity.Conversation.Id);
+               var pagedTranscript = await _transcriptStore.GetTranscriptActivitiesAsync(activity.ChannelId, activity.Conversation.Id, continuationToken);
                var activities = pagedTranscript.Items
                   .Where(a => a.Type == ActivityTypes.Message)
                   .Select(ia => (Activity)ia)

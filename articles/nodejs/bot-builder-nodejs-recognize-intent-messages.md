@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 82541c4ac0848c3e995ab3ad1ed874436072fe63
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 211800211b422bb9c90c00705585be89737c77a9
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998082"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225555"
 ---
 # <a name="recognize-user-intent-from-message-content"></a>Erkennen von Absichten anhand des Nachrichteninhalts
 
@@ -57,11 +57,11 @@ Sobald Sie eine Erkennung registriert haben, können Sie diese mit einer `matche
 
 ## <a name="disambiguate-between-multiple-intents"></a>Vermeiden der Mehrdeutigkeit bei mehreren Absichten
 
-Ihr Bot kann mehr als eine Erkennung registrieren. Beachten Sie, dass die benutzerdefinierte Erkennung im Beispiel auch jeder Absicht einen numerischen Wert (score) zuweist. Dies geschieht, da Ihr Bot möglicherweise über mehrere Erkennungen verfügt und das Bot Builder SDK eine integrierte Logik bereitstellt, um Mehrdeutigkeiten zwischen den von mehreren Erkennungen zurückgegebenen Absichten zu vermeiden. Der einer Absicht zugewiesene Wert liegt in der Regel zwischen 0.0 und 1.0, doch möglicherweise definiert eine benutzerdefinierte Erkennung eine Absicht mit einem Wert größer als 1.1, um sicherzustellen, dass die Absicht stets von der Mehrdeutigkeitsvermeidungslogik des Bot Builder SDK ausgewählt wird. 
+Ihr Bot kann mehr als eine Erkennung registrieren. Beachten Sie, dass die benutzerdefinierte Erkennung im Beispiel auch jeder Absicht einen numerischen Wert (score) zuweist. Dies geschieht, da Ihr Bot möglicherweise über mehrere Erkennungen verfügt und das Bot Framework SDK eine integrierte Logik bereitstellt, um Mehrdeutigkeiten zwischen den von mehreren Erkennungen zurückgegebenen Absichten zu vermeiden. Der einer Absicht zugewiesene Wert liegt in der Regel zwischen 0,0 und 1,0, doch möglicherweise definiert eine benutzerdefinierte Erkennung eine Absicht mit einem Wert größer als 1,1, um sicherzustellen, dass die Absicht stets von der Mehrdeutigkeitsvermeidungslogik des Bot Framework SDK ausgewählt wird. 
 
 Standardmäßig werden Erkennungen parallel ausgeführt, aber Sie können in [IIntentRecognizerSetOptions][IntentRecognizerSetOptions] mit „RecognizeOrder“ die Erkennungsreihenfolge festlegen, sodass der Prozess beendet wird, sobald Ihr Bot eine Erkennung mit dem Punktwert 1.0 findet.
 
-Das Bot Builder SDK enthält ein [Beispiel][DisambiguationSample], das veranschaulicht, wie durch die Implementierung von [IDisambiguateRouteHandler][IDisambiguateRouteHandler] die benutzerdefinierte Mehrdeutigkeitsvermeidungslogik in Ihrem Bot implementiert wird.
+Das Bot Framework SDK enthält ein [Beispiel][DisambiguationSample], das veranschaulicht, wie durch die Implementierung von [IDisambiguateRouteHandler][IDisambiguateRouteHandler] die benutzerdefinierte Mehrdeutigkeitsvermeidungslogik in Ihrem Bot implementiert wird.
 
 ## <a name="next-steps"></a>Nächste Schritte
 Die Logik zum Verwenden von regulären Ausdrücken und zum Überprüfen von Nachrichteninhalten kann recht komplex werden, vor allem wenn das Ende des Konversationsflusses beim Bot unbestimmt ist. Damit Ihr Bot eine größere Anzahl von Text und Spracheingaben von Benutzern verarbeiten kann, können Sie einen Absichtserkennungsdienst wie [LUIS][LUIS] verwenden, um dem Bot ein natürliches Sprachverständnis hinzuzufügen.

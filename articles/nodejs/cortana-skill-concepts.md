@@ -1,6 +1,6 @@
 ---
 title: Erstellen einer Cortana-Funktion mit Node.js | Microsoft-Dokumentation
-description: Lernen Sie die grundlegenden Konzepte des Erstellens einer Cortana-Funktion im Bot Builder SDK für Node.js kennen.
+description: Lernen Sie die grundlegenden Konzepte des Erstellens einer Cortana-Funktion im Bot Framework SDK für Node.js kennen.
 keywords: Bot-Framework, Cortana-Funktion, Sprache, Node.js, Bot Builder, SDK, Schlüsselkonzepte, Kernkonzepte
 author: DeniseMak
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 99254c5f2de8b524212d8f6a268dbc37c128ab5e
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 909294243abe00ac95e8f5d89d6babc2edc4f994
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49996473"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225684"
 ---
 # <a name="key-concepts-for-building-a-bot-for-cortana-skills-using-nodejs"></a>Schlüsselkonzepte zum Erstellen eines Bots für Cortana-Funktionen mit Node.js
  
@@ -23,7 +23,7 @@ ms.locfileid: "49996473"
 > [!NOTE]
 > Dieser Artikel enthält vorläufigen Inhalt und wird aktualisiert.
 
-In diesem Artikel werden die Schlüsselkonzepte des Erstellens einer Cortana-Funktion im Bot Builder SDK für Node.js vorgestellt. 
+In diesem Artikel werden die Schlüsselkonzepte des Erstellens einer Cortana-Funktion im Bot Framework SDK für Node.js vorgestellt. 
 
 ## <a name="what-is-a-cortana-skill"></a>Was ist eine Cortana-Funktion?
 Eine Cortana-Funktion ist ein Bot, den Sie mit einem Cortana-Client wie dem in Windows 10 integrierten aufrufen können. Der Benutzer startet den Bot durch Sprechen einiger Schlüsselwörter oder Ausdrücke, die mit dem Bot verknüpft sind. Konfigurieren Sie im Bot-Frameworkportal, welche Schlüsselwörter zum Starten Ihres Bots verwendet werden. 
@@ -63,27 +63,27 @@ Grad der gemeinsamen Basis, von schwach bis stark:
 1. Fortgesetzte Aufmerksamkeit
 2. Nächster relevanter Beitrag
 3. Bestätigung: Minimale Antwort oder Fortsetzung: „Ja“, „Aha“, „OK“, „toll“
-4. Veranschaulichen: Signalisieren des Verständnisses durch Neuformuliergung, Vervollständigung.
-5. Hervorheben: Wiederholen des Gesamten oder eines Teils.
+4. Veranschaulichen: Signalisieren des Verständnisses durch Neuformulierung, Vervollständigung
+5. Hervorheben: Wiederholen des Gesamten oder eines Teils
 
 #### <a name="acknowledgement-and-next-relevant-contribution"></a>Bestätigung und nächster relevanter Beitrag
 Benutzer: ... Ich muss im Mai verreisen.
-Agent: **Und**, an welchem Tag im Mai möchten Sie reisen?
-Benutzer: OK, ich muss vom 12. bis zum 15. dort sein.
-Agent: **Und**, welche Stadt ist Ihr Flugziel?
+Mitarbeiter: **Und**, an welchem Tag im Mai möchten Sie reisen?
+User: OK, ich muss vom 12. bis zum 15. dort sein.
+Mitarbeiter: **Und**, welche Stadt ist Ihr Flugziel?
 
 #### <a name="grounding-by-demonstration"></a>Schaffen der gemeinsamen Basis durch Veranschaulichen
 Benutzer: ... Ich muss im Mai verreisen.
-Agent: Und, **an welchem Tag** im Mai möchten Sie reisen?
-Benutzer: OK, ich muss vom 12. bis zum 15. dort sein.
-Agent: **Und**, welche Stadt ist Ihr Flugziel?
+Mitarbeiter: Und, **an welchem Tag** im Mai möchten Sie reisen?
+User: OK, ich muss vom 12. bis zum 15. dort sein.
+Mitarbeiter: **Und**, welche Stadt ist Ihr Flugziel?
 
 
 ### <a name="closure"></a>Abschluss
 
 Der Bot, der eine Aktion ausführt, sollte einen Beweis der erfolgreichen Leistung liefern.
 Es ist auch wichtig, Fehler oder Verständnis anzuzeigen. 
-* Nonverbaler Abschluss: Wenn Sie die Schaltfläche eines Aufzugs drücken, leuchtet sie auf.
+* Nonverbaler Abschluss: Wenn Sie den Knopf eines Aufzugs drücken, leuchtet er auf.
 Prozess in zwei Schritten:
 * Präsentation 
 * Zustimmung

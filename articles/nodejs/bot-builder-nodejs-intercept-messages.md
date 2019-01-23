@@ -1,6 +1,6 @@
 ---
 title: Abfangen von Nachrichten | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie Protokolle oder andere Datensätze erstellen, indem Sie den Informationsaustausch mit dem Bot Builder SDK für Node.js abfangen und verarbeiten.
+description: Erfahren Sie, wie Sie Protokolle oder andere Datensätze erstellen, indem Sie den Informationsaustausch mit dem Bot Framework SDK für Node.js abfangen und verarbeiten.
 author: RobStand
 ms.author: kamrani
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/02/2018
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 31380961f117a2b4a3ffaae3c82d682a63001c0c
-ms.sourcegitcommit: 984705927561cc8d6a84f811ff24c8c71b71c76b
+ms.openlocfilehash: b262e936cd48bb73d7b5aa3fa4f7b6318ea7c2a0
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50965678"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225625"
 ---
 # <a name="intercept-messages"></a>Abfangen von Nachrichten
 
@@ -28,7 +28,7 @@ ms.locfileid: "50965678"
 
 ## <a name="example"></a>Beispiel
 
-Das folgende Codebeispiel zeigt, wie zwischen Benutzer und Bot ausgetauschte Nachrichten mithilfe des Konzepts der **Middleware** im Bot Builder SDK für Node.js abgefangen werden. 
+Das folgende Codebeispiel zeigt, wie zwischen Benutzer und Bot ausgetauschte Nachrichten mithilfe des Konzepts der **Middleware** im Bot Framework SDK für Node.js abgefangen werden. 
 
 Konfigurieren Sie zunächst den Handler für eingehende (`botbuilder`) und für ausgehende Nachrichten (`send`).
 
@@ -65,4 +65,4 @@ In diesem Beispiel gibt der Bot einfach einige Informationen über jede Nachrich
 
 ## <a name="sample-code"></a>Beispielcode
 
-Ein vollständiges Beispiel, das zeigt, wie Sie Nachrichten mit dem Bot Builder SDK für Node.js abfangen und protokollieren können, finden Sie in GitHub im <a href="https://aka.ms/v3-js-capability-middlewareLogging" target="_blank">Beispiel für Middleware und Protokollierung</a>.
+Ein vollständiges Beispiel, das zeigt, wie Sie Nachrichten mit dem Bot Framework SDK für Node.js abfangen und protokollieren können, finden Sie auf GitHub im <a href="https://aka.ms/v3-js-capability-middlewareLogging" target="_blank">Beispiel für Middleware und Protokollierung</a>.

@@ -1,6 +1,6 @@
 ---
 title: Hinzufügen von Medienanlagen zu Nachrichten | Microsoft-Dokumentation
-description: Hier erfahren Sie, wie Sie mit dem Bot Builder SDK für .NET Nachrichten Medienanlagen hinzufügen.
+description: Hier erfahren Sie, wie Sie mit dem Bot Framework SDK für .NET Nachrichten Medienanlagen hinzufügen.
 author: RobStand
 ms.author: kamrani
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 8fd9b181676eee24b1e9c64c79663d0d0ac8abfa
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 6dcfe6595f1c5961151a90783dd8ceee9c7684dd
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997317"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224335"
 ---
 # <a name="add-media-attachments-to-messages"></a>Hinzufügen von Medienanlagen zu Nachrichten
 

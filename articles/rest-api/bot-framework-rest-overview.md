@@ -1,5 +1,5 @@
 ---
-title: Bot Builder-REST-APIs | Microsoft-Dokumentation
+title: Bot Framework-REST-APIs | Microsoft-Dokumentation
 description: Erste Schritte mit den Bot-Framework-REST-APIs, die zum Erstellen von Bots und Clients, die Verbindungen mit Bots herstellen, verwendet werden können.
 author: RobStand
 ms.author: kamrani
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: 632d0b1e603445954eb4894fcfc256d5ac738539
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: eace4852feaadcc180f7329261990fc8eaf7f522
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998437"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224265"
 ---
 # <a name="bot-framework-rest-apis"></a>Bot-Framework-REST-APIs
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ Mit den Bot-Framework-REST-APIs können Sie Bots erstellen, die Nachrichten mit 
 Sie können einen Bot mit einer beliebigen Programmiersprache erstellen, wobei Sie den Bot-Connector-Dienst zum Austauschen von Nachrichten mit im Bot-Framework-Portal konfigurierten Kanälen verwenden. 
 
 > [!TIP]
-> Das Bot-Framework stellt Clientbibliotheken bereit, die zum Erstellen von Bots in C# oder Node.js verwendet werden können. Um einen Bot mit C# zu erstellen, verwenden Sie das [Bot Builder SDK für C#](../dotnet/bot-builder-dotnet-overview.md). Um einen Bot mit Node.js zu erstellen, verwenden Sie das [Bot Builder SDK für Node.js](../nodejs/index.md). 
+> Das Bot-Framework stellt Clientbibliotheken bereit, die zum Erstellen von Bots in C# oder Node.js verwendet werden können. Um einen Bot mit C# zu erstellen, verwenden Sie das [Bot Framework SDK für C#](../dotnet/bot-builder-dotnet-overview.md). Um einen Bot mit Node.js zu erstellen, verwenden Sie das [Bot Framework SDK für Node.js](../nodejs/index.md). 
 
 Weitere Informationen zum Erstellen von Bots mit dem Bot-Connector-Dienst finden Sie unter [Wichtige Begriffe](bot-framework-rest-connector-concepts.md).
 

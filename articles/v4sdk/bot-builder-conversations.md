@@ -1,6 +1,6 @@
 ---
-title: Konversationen innerhalb des Bot Builder SDK | Microsoft-Dokumentation
-description: Beschreibt, wie eine Konversation innerhalb des Bot Builder SDK abläuft.
+title: Konversationen innerhalb des Bot Framework SDK | Microsoft-Dokumentation
+description: Hier wird beschrieben, wie eine Konversation innerhalb des Bot Framework SDK abläuft.
 keywords: Konversationsfluss, Erkennen der Absicht, Einzeldurchlauf, Mehrfachdurchlauf, Botkonversation
 author: jonathanfingold
 ms.author: jonathanfingold
@@ -10,19 +10,19 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 09/01/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 19f0b67454a8c0a4bf171579f8e481e630db83ac
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: b94150e168942370a38d39742157e57d0118f0eb
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998917"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225079"
 ---
 # <a name="conversation-flow"></a>Konversationsablauf
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
 Bei der Gestaltung des Konversationsablaufs eines Bots muss entschieden werden, wie ein Bot reagiert, wenn der Benutzer etwas zu ihm sagt. Ein Bot erkennt zunächst die Aufgabe oder das Gesprächsthema anhand einer Nachricht des Benutzers. Um die Aufgabe oder das Thema (als *Absicht* bezeichnet) zu bestimmen, kann der Bot nach Wörtern oder Mustern im Nachrichtentext des Benutzers suchen, oder er kann Dienste wie [Language Understanding](bot-builder-concept-luis.md) und [QnA Maker](https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/overview/overview) nutzen.
 
-Sobald der Bot die Absicht des Benutzers erkannt hat, kann er, je nach Szenario, die Anforderung des Benutzers mit einer einzigen Antwort erfüllen und das Gespräch in einem Durchlauf abschließen, oder es sind ggf. mehrere Durchläufe erforderlich. Für Konversationsabläufe mit mehreren Durchläufen ermöglicht das Bot Builder SDK die [Zustandsverwaltung](./bot-builder-howto-v4-state.md) zur Verfolgung einer Konversation, [Eingabeaufforderungen](bot-builder-prompts.md) zur Anforderung von Informationen und [Dialoge](bot-builder-dialog-manage-conversation-flow.md) zur Kapselung von Konversationsflüssen.
+Sobald der Bot die Absicht des Benutzers erkannt hat, kann er, je nach Szenario, die Anforderung des Benutzers mit einer einzigen Antwort erfüllen und das Gespräch in einem Durchlauf abschließen, oder es sind ggf. mehrere Durchläufe erforderlich. Für Konversationsabläufe mit mehreren Durchläufen ermöglicht das Bot Framework SDK die [Zustandsverwaltung](./bot-builder-howto-v4-state.md) zur Verfolgung einer Konversation, [Eingabeaufforderungen](bot-builder-prompts.md) zur Anforderung von Informationen und [Dialoge](bot-builder-dialog-manage-conversation-flow.md) zur Kapselung von Konversationsflüssen.
 
 In einem komplexen Bot mit mehreren Subsystemen kann es vorkommen, dass Sie mehrere Dienste zum Erkennen der Absicht verwenden – jeweils einen für jede Unterkomponente des Bot. Das [Dispatch-Tool](bot-builder-tutorial-dispatch.md) liefert die Ergebnisse mehrerer Dienste zentral an einem Ort, wenn Sie Konversationssubsysteme zu einem Bot zusammenfassen.
 
@@ -73,7 +73,7 @@ Sie können Ihren Bot so gestalten, dass er mehr als eine Art von Aufgabe übern
 
 ### <a name="recognize-intent"></a>Erkennen der Absicht
 
-Das Bot Builder SDK enthält _Erkennungen_, mit denen eine Nachricht verarbeitet werden kann, um die Absicht zu bestimmen, damit Ihr Bot den entsprechenden Konversationsfluss initiieren kann. Rufen Sie die asynchrone _recognize_-Methode der Erkennung auf, um die Absicht des Benutzers aus dem Nachrichteninhalt zu ermitteln. Anschließend können Sie die _get top scoring intent_-Methode für das Ergebnis aufrufen, um die beste Vorhersage der Erkennung zu erhalten.
+Das Bot Framework SDK enthält _Erkennungen_, mit denen eine Nachricht verarbeitet werden kann, um die Absicht zu bestimmen, damit Ihr Bot den entsprechenden Konversationsfluss initiieren kann. Rufen Sie die asynchrone _recognize_-Methode der Erkennung auf, um die Absicht des Benutzers aus dem Nachrichteninhalt zu ermitteln. Anschließend können Sie die _get top scoring intent_-Methode für das Ergebnis aufrufen, um die beste Vorhersage der Erkennung zu erhalten.
 
 Für eine Erkennung können reguläre Ausdrücke, Language Understanding oder eine andere von Ihnen entwickelte Logik verwendet werden. Hier sind Beispiele für mögliche Erkennungen angegeben:
 
@@ -111,7 +111,7 @@ Wenn Sie Informationen über die Konversation speichern, können Sie diese Infor
 <!--  Types of conversations -->
 
 Ihr Bot kann Interaktionen mit mehreren Durchläufen unterstützen, bei denen unterschiedliche Informationen von Benutzern abgefragt werden. Hierbei kann es um eine spezifische Aufgabe oder mehrere Arten von Aufgaben gehen.
-Das Bot Builder SDK verfügt über integrierte Unterstützung für Language Understanding (LUIS) und QnA Maker, damit Sie Ihrem Bot Features vom Typ „Frage und Antwort“ in natürlicher Sprache hinzufügen können.
+Das Bot Framework SDK verfügt über integrierte Unterstützung für Language Understanding (LUIS) und QnA Maker, damit Sie Ihrem Bot Features vom Typ „Frage und Antwort“ in natürlicher Sprache hinzufügen können.
 
 ## <a name="conversations-channels-and-users"></a>Konversationen, Kanäle und Benutzer
 

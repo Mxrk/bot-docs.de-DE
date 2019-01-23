@@ -1,6 +1,6 @@
 ---
 title: Implementieren von benutzerdefiniertem Speicher für Ihren Bot | Microsoft-Dokumentation
-description: Erstellen von benutzerdefiniertem Speicher im Bot Builder SDK v4.0
+description: Erstellen von benutzerdefiniertem Speicher im Bot Framework SDK v4.0
 keywords: benutzerdefiniert, Speicher, Zustand, Dialog
 author: johnataylor
 ms.author: johtaylo
@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 10/31/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: b005b9f024c5813ba22cd8663c196a8c3a5bb716
-ms.sourcegitcommit: 15f7fa40b7e0a05507cdc66adf75bcfc9533e781
+ms.openlocfilehash: 4503e2953543d2ec9c06e8cd60484a5c87d95987
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50919009"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224005"
 ---
 # <a name="implement-custom-storage-for-your-bot"></a>Implementieren von benutzerdefiniertem Speicher für Ihren Bot
 
@@ -25,7 +25,7 @@ Die Interaktionen eines Bots lassen sich in drei Bereiche unterteilen: erstens d
 
 In diesem Artikel wird die Semantik im Zusammenhang mit den Interaktionen des Bots mit dem Azure Bot Service und dem Speicher behandelt.
 
-Bot Builder Framework enthält eine Standardimplementierung, die die Anforderungen vieler Anwendungen erfüllt und zu deren Verwendung nur einige Zeilen Initialisierungscode zum Zusammenfügen der einzelnen Komponenten erforderlich sind. Viele der Beispiele veranschaulichen diese Implementierung.
+Bot Framework enthält eine Standardimplementierung, die die Anforderungen vieler Anwendungen erfüllt und zu deren Verwendung nur einige Zeilen Initialisierungscode zum Zusammenfügen der einzelnen Komponenten erforderlich sind. Viele der Beispiele veranschaulichen diese Implementierung.
 
 In diesem Artikel soll jedoch erläutert werden, was Sie tun können, wenn die Semantik der Standardimplementierung in Ihrer Anwendung nicht wie gewünscht funktioniert. Der springende Punkt ist, dass dies ein Framework ist und keine vordefinierte Anwendung mit einem festen Verhalten. Anders ausgedrückt: Die Implementierung vieler der Mechanismen im Framework ist lediglich die Standardimplementierung und nicht die einzige Implementierung.
 

@@ -1,6 +1,6 @@
 ---
 title: Implementieren eines sequenziellen Konversationsflusses | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie einen einfachen Konversationsfluss mit Dialogen im Bot Builder SDK für Node.js verwalten.
+description: Hier erfahren Sie, wie Sie einen einfachen Konversationsfluss mit Dialogen im Bot Framework SDK für Node.js verwalten.
 keywords: einfacher Konversationsfluss, sequenzieller Konversationsfluss, Dialoge, Eingabeaufforderungen, Wasserfälle, Dialogsatz
 author: JonathanFingold
 ms.author: v-jofing
@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 2264b6927ccb863f153f2feb829cc0fb99c711f7
-ms.sourcegitcommit: 6c719b51c9e4e84f5642100a33fe346b21360e8a
+ms.openlocfilehash: 554d040dd4c9d126fa70c24f1af5a1ac97a39204
+ms.sourcegitcommit: b94361234816e6b95459f142add936732fc40344
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52452082"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54317615"
 ---
 # <a name="implement-sequential-conversation-flow"></a>Implementieren eines sequenziellen Konversationsflusses
 
@@ -58,7 +58,7 @@ public class MultiTurnPromptsBotAccessors
 }
 ```
 
-Wir registrieren die Accessors-Klasse in der `ConfigureServices`-Methode der `Statup`-Klasse.
+Wir registrieren die Accessors-Klasse in der `ConfigureServices`-Methode der `Startup`-Klasse.
 Auch hier werden nur Teile des Codes gezeigt.
 
 ```csharp

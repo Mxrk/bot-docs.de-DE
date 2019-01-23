@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: e3833595003edda46a6ffd1d508237262aad94e1
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 20ca2864b6498b0d80bea13ce97ffffc4cf1f22d
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999227"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225925"
 ---
 # <a name="integrate-your-bot-with-a-web-browser"></a>Integrieren des Bots in einen Webbrowser
 
@@ -73,7 +73,7 @@ Die magische Zahl muss eine zufällige Zahl sein, die mit einer starken Kryptogr
 
 ### <a id="website-signal-to-bot"></a> Wie „signalisiert“ die Website an den Bot?
 
-Wenn der Bot [den Link generiert](#generate-hyperlink), mit dem der Benutzer den Websiteablauf initiiert, enthält dieser über QueryString-Parameter an der Ziel-URL Informationen zum Kontext der aktuellen Unterhaltung angeben, z.B. Konversations-ID, Kanal-ID und Benutzer-ID im Kanal. Anhand dieser Informationen kann die Website anschließend mit dem Bot Builder-SDK oder REST-APIs Zustandsvariablen für diesen Benutzer oder diese Konversation lesen und schreiben. Unter [Schritt 6](#signal-to-bot) weiter oben finden Sie ein Beispiel dafür, wie die Website dem Bot „signalisiert“, dass der Websiteablauf abgeschlossen ist.
+Wenn der Bot [den Link generiert](#generate-hyperlink), mit dem der Benutzer den Websiteablauf initiiert, enthält dieser über QueryString-Parameter an der Ziel-URL Informationen zum Kontext der aktuellen Unterhaltung angeben, z.B. Konversations-ID, Kanal-ID und Benutzer-ID im Kanal. Anhand dieser Informationen kann die Website anschließend mit dem Bot Framework SDK oder REST-APIs Zustandsvariablen für diesen Benutzer oder diese Konversation lesen und schreiben. Unter [Schritt 6](#signal-to-bot) weiter oben finden Sie ein Beispiel dafür, wie die Website dem Bot „signalisiert“, dass der Websiteablauf abgeschlossen ist.
 
 ## <a name="sample-code"></a>Beispielcode
 

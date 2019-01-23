@@ -1,6 +1,6 @@
 ---
 title: Anpassen eines Formulars mithilfe von FormBuilder | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie den Konversationsfluss und entsprechende Inhalte mithilfe von FormBuilder für das Bot Builder SDK für .NET dynamisch ändern und anpassen.
+description: Hier erfahren Sie, wie Sie den Konversationsfluss und entsprechende Inhalte mithilfe von FormBuilder für das Bot Framework SDK für .NET dynamisch ändern und anpassen.
 author: RobStand
 ms.author: kamrani
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 1c4e60f76ecebfa01664500b8343d60ccff0064c
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 8a13358afca190606e235475a58f6aedd146fee5
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997697"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225405"
 ---
 # <a name="customize-a-form-using-formbuilder"></a>Anpassen eines Formulars mithilfe von FormBuilder
 
@@ -86,7 +86,7 @@ In diesem Beispiel führt das Formular die folgenden Schritte aus:
 - [Lokalisieren von Formularinhalten](bot-builder-dotnet-formflow-localize.md)
 - [Definieren eines Formulars mit dem JSON-Schema](bot-builder-dotnet-formflow-json-schema.md)
 - [Anpassen der Benutzeroberfläche mit Mustersprache](bot-builder-dotnet-formflow-pattern-language.md)
-- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">Referenz zum Bot Builder SDK für .NET</a>
+- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">Referenz zum Bot Framework SDK für .NET</a>
 
 [formBuilder]: /dotnet/api/microsoft.bot.builder.formflow.formbuilder-1
 

@@ -1,6 +1,6 @@
 ---
 title: Erstellen eines sprachaktivierten Bots mit Cortana-Fähigkeiten | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie mit dem Bot Builder SDK für Node.js einen sprachaktivierten Bot mit Cortana-Fähigkeiten erstellen.
+description: Hier erfahren Sie, wie Sie mit dem Bot Framework SDK für Node.js einen sprachaktivierten Bot mit Cortana-Funktionen erstellen.
 author: DeniseMak
 manager: kamrani
 ms.topic: article
@@ -8,12 +8,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: e728a3999c484d19a78f03bd8eb7b8bd8833c39f
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: e00128ca82ec8b97502d8f2fbf42be10cc91ade6
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998037"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225299"
 ---
 # <a name="build-a-speech-enabled-bot-with-cortana-skills"></a>Erstellen eines sprachaktivierten Bots mit Cortana-Funktionen
 
@@ -23,7 +23,7 @@ ms.locfileid: "49998037"
 > - [.NET](../dotnet/bot-builder-dotnet-cortana-skill.md)
 > - [Node.js](../nodejs/bot-builder-nodejs-cortana-skill.md)
 
-Das Bot Builder SDK für Node.js ermöglicht Ihnen, einen sprachaktivierten Bot zu erstellen, indem Sie ihn als eine Cortana-Fähigkeit mit dem Cortana-Kanal verbinden. Mit Cortana-Fähigkeiten können Sie über Cortana auf eine Spracheingabe eines Benutzers reagieren und eine Funktion bereitstellen.
+Das Bot Framework SDK für Node.js ermöglicht Ihnen die Erstellung eines sprachaktivierten Bots, indem Sie ihn als eine Cortana-Funktion mit dem Cortana-Kanal verbinden. Mit Cortana-Fähigkeiten können Sie über Cortana auf eine Spracheingabe eines Benutzers reagieren und eine Funktion bereitstellen.
 
 > [!TIP]
 > Weitere Informationen zur Definition einer Fähigkeit und zu den Einsatzmöglichkeiten finden Sie im [Cortana Skills Kit][CortanaGetStarted].
@@ -35,7 +35,7 @@ Das Erstellen einer Cortana-Fähigkeit mit dem Bot Framework erfordert nur sehr 
 
 ## <a name="adding-speech-to-your-bot"></a>Hinzufügen von Sprache zu Ihrem Bot
 
-Gesprochene Nachrichten von Ihrem Bot werden in der Speech Synthesis Markup Language (SSML) dargestellt. Mit dem Bot Builder SDK können Sie SSML in Ihre Bot-Antworten einbinden, um neben der Anzeige des Bots auch dessen Sprachausgabe zu steuern.
+Gesprochene Nachrichten von Ihrem Bot werden in der Speech Synthesis Markup Language (SSML) dargestellt. Mit dem Bot Framework SDK können Sie SSML in Ihre Bot-Antworten einbinden, um neben der Anzeige des Bots auch dessen Sprachausgabe zu steuern.
 
 ### <a name="sessionsay"></a>session.say
 

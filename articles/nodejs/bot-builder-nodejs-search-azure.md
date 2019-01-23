@@ -1,6 +1,6 @@
 ---
 title: Erstellen von datengesteuerten Oberflächen mit Azure Search | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie mit Azure Search datengesteuerte Oberflächen erstellen und Benutzer mit dem Bot Builder SDK für Node.js und Azure Search bei der Navigation in großen Mengen von Inhalten in einem Bot unterstützen.
+description: Hier erfahren Sie, wie Sie mit Azure Search datengesteuerte Oberflächen erstellen und Benutzer mit dem Bot Framework SDK für Node.js und Azure Search bei der Navigation in umfangreichen Inhalten in einem Bot unterstützen.
 author: matthewshim-ms
 ms.author: v-shimma
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 204fb5d8f4838c78d771bfad5c0ed6511b27932b
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: ac4597e93f8cdaa4c9b015a4136ab09e9b7adc95
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999997"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224715"
 ---
 # <a name="create-data-driven-experiences-with-azure-search"></a>Erstellen von datengesteuerten Oberflächen mit Azure Search 
 
@@ -85,7 +85,7 @@ Die `SearchLibrary` speichert nicht nur alle Dialoge im Zusammenhang mit der Suc
 
 ## <a name="create-a-search-dialog"></a>Erstellen eines Suchdialogs
 
-Sie können Ihre Dialoge beliebig strukturieren. Die einzige Voraussetzung zum Einrichten eines Azure Search-Dialogs besteht darin, die `.begin`-Methode über das `SearchLibrary`-Objekt aufzurufen und dabei das `session`-Objekt zu übergeben, das vom Bot Builder SDK generiert wurde. 
+Sie können Ihre Dialoge beliebig strukturieren. Die einzige Voraussetzung zum Einrichten eines Azure Search-Dialogs besteht darin, die `.begin`-Methode über das `SearchLibrary`-Objekt aufzurufen und dabei das `session`-Objekt zu übergeben, das vom Bot Framework SDK generiert wurde. 
 
 ```javascript
 function (session) {
@@ -151,7 +151,7 @@ function searchHitAsCard(showSave, searchHit) {
 
 ## <a name="sample-code"></a>Beispielcode
 
-Zwei vollständige Beispiele, die veranschaulichen, wie Azure Search mit Bots mithilfe des Bot Builder SDK für Node.js unterstützt wird, finden Sie in GitHub im [RealEstateBot-Beispiel](https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/demo-Search/RealEstateBot) oder [JobListingBot-Beispiel](https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/demo-Search/JobListingBot). 
+Zwei vollständige Beispiele, die veranschaulichen, wie Azure Search mit Bots mithilfe des Bot Framework SDK für Node.js unterstützt wird, finden Sie auf GitHub im [RealEstateBot-Beispiel](https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/demo-Search/RealEstateBot) oder [JobListingBot-Beispiel](https://github.com/Microsoft/BotBuilder-Samples/tree/master/Node/demo-Search/JobListingBot). 
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 

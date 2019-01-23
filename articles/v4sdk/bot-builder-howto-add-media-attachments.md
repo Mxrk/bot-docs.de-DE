@@ -1,6 +1,6 @@
 ---
 title: Hinzufügen von Medien zu Nachrichten | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie mit dem Bot Builder SDK Nachrichten Medien hinzufügen.
+description: Hier erfahren Sie, wie Sie mit dem Bot Framework SDK Nachrichten Medien hinzufügen.
 keywords: Medien, Nachrichten, Bilder, Audio, Video, Dateien, MessageFactory, Rich Cards, Meldungen, Adaptive Cards, Hero-Karte, Vorgeschlagene Aktionen
 author: ivorb
 ms.author: v-ivorb
@@ -10,18 +10,18 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/17/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: fd908335c69aab7c8b68925b8ecdece79e89ab4b
-ms.sourcegitcommit: f7a8f05fc05ff4a7212a437d540485bf68831604
+ms.openlocfilehash: 1ea9daeb35033e49232d64bfe98a223807dabf75
+ms.sourcegitcommit: b94361234816e6b95459f142add936732fc40344
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53735960"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54317600"
 ---
 # <a name="add-media-to-messages"></a>Hinzufügen von Medien zu Nachrichten
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-Nachrichten, die zwischen Benutzer und Bot ausgetauscht werden, können Medienanlagen enthalten, z.B. Bilder, Videos, Audio und Dateien. Das Bot Builder SDK unterstützt die Aufgabe zum Senden von umfassenden Nachrichten an den Benutzer. Um den Typ der umfassenden Nachrichten zu ermitteln, die von einem Kanal (Facebook, Skype, Slack usw.) unterstützt werden, können Sie in der Dokumentation zum jeweiligen Kanal nach Informationen zu Einschränkungen suchen. Eine Liste mit den verfügbaren Karten (Cards) finden Sie unter [Entwerfen der Benutzeroberfläche](../bot-service-design-user-experience.md). 
+Nachrichten, die zwischen Benutzer und Bot ausgetauscht werden, können Medienanlagen enthalten, z.B. Bilder, Videos, Audio und Dateien. Das Bot Framework SDK unterstützt die Aufgabe zum Senden von umfassenden Nachrichten an den Benutzer. Um den Typ der umfassenden Nachrichten zu ermitteln, die von einem Kanal (Facebook, Skype, Slack usw.) unterstützt werden, können Sie in der Dokumentation zum jeweiligen Kanal nach Informationen zu Einschränkungen suchen. Eine Liste mit den verfügbaren Karten (Cards) finden Sie unter [Entwerfen der Benutzeroberfläche](../bot-service-design-user-experience.md). 
 
 ## <a name="send-attachments"></a>Senden von Anlagen
 
@@ -29,7 +29,8 @@ Um Benutzerinhalte wie Bilder oder Videos zu senden, können Sie einer Nachricht
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-Die `Attachments`-Eigenschaft des `Activity`-Objekts enthält ein Array von `Attachment`-Objekten, die die an die Nachricht angehängten Medienanlagen und Rich Cards darstellen. Um einer Nachricht eine Medienanlage hinzuzufügen, erstellen Sie ein `Attachment`-Objekt für die Aktivität `message`, und legen Sie die Eigenschaften `ContentType`, `ContentUrl` und `Name` fest. Die `Attachments`-Eigenschaft des `Activity`-Objekts enthält ein Array von `Attachment`-Objekten, die die an die Nachricht angehängten Medienanlagen und Rich Cards darstellen. Um einer Nachricht eine Medienanlage hinzuzufügen, können Sie die `Attachment`-Methode zum Erstellen eines `Attachment`-Objekts für die Aktivität `message` verwenden und die Eigenschaften `ContentType`, `ContentUrl` und `Name` festlegen. Der hier gezeigte Quellcode basiert auf dem Beispiel unter [Handling Attachments](https://aka.ms/bot-attachments-sample-code) (Behandeln von Anlagen). 
+Die `Attachments`-Eigenschaft des `Activity`-Objekts enthält ein Array von `Attachment`-Objekten, die die an die Nachricht angehängten Medienanlagen und Rich Cards darstellen. Um einer Nachricht eine Medienanlage hinzuzufügen, erstellen Sie ein `Attachment`-Objekt für die Aktivität `message`, und legen Sie die Eigenschaften `ContentType`, `ContentUrl` und `Name` fest.
+Der hier gezeigte Quellcode basiert auf dem Beispiel unter [Handling Attachments](https://aka.ms/bot-attachments-sample-code) (Behandeln von Anlagen). 
 
 ```csharp
 using Microsoft.Bot.Builder;
@@ -147,7 +148,7 @@ Zum Verarbeiten von Ereignissen in Rich Cards verwenden Sie Objekte vom Typ _Kar
 
 Weisen Sie für die korrekte Funktionsweise jedem anklickbaren Element auf der Karte einen Aktionstyp zu. In der folgenden Tabelle werden die verfügbaren Aktionstypen aufgeführt und erläutert. Außerdem ist jeweils angegeben, was die zugeordnete Werteigenschaft enthalten muss.
 
-| Typ | Beschreibung | Wert |
+| Typ | BESCHREIBUNG | Wert |
 | :---- | :---- | :---- |
 | openUrl | Öffnet eine URL im integrierten Browser. | Die zu öffnende URL. |
 | imBack | Sendet eine Nachricht an den Bot und veröffentlicht eine sichtbare Antwort im Chat. | Text der zu sendenden Nachricht. |
@@ -219,7 +220,7 @@ await context.sendActivity(hero);
 ## <a name="send-an-adaptive-card"></a>Senden adaptiver Karten
 Adaptive Karten und MessageFactory werden verwendet, um zur Kommunikation mit Benutzern Rich-Media-Nachrichten mit Texten, Bildern, Video, Audio und Dateien zu senden. Es gibt jedoch einige Unterschiede zwischen diesen beiden Formaten. 
 
-Erstens unterstützen nur einige Kanäle adaptive Karten. Kanäle, bei denen dies nicht der Fall ist, unterstützen adaptive Karten möglicherweise teilweise. Wenn Sie beispielsweise eine adaptive Karte in Facebook senden, funktionieren die Schaltflächen nicht, während die Texte und Bilder einwandfrei funktionieren. MessageFactory ist lediglich eine Hilfsklasse innerhalb des Bot Builder SDK, die zum Automatisieren von Erstellungsschritten dient und von den meisten Kanälen unterstützt wird. 
+Erstens unterstützen nur einige Kanäle adaptive Karten. Kanäle, bei denen dies nicht der Fall ist, unterstützen adaptive Karten möglicherweise teilweise. Wenn Sie beispielsweise eine adaptive Karte in Facebook senden, funktionieren die Schaltflächen nicht, während die Texte und Bilder einwandfrei funktionieren. MessageFactory ist lediglich eine Hilfsklasse innerhalb des Bot Framework SDK, die zum Automatisieren von Erstellungsschritten dient und von den meisten Kanälen unterstützt wird. 
 
 Zweitens übermitteln adaptive Karten Nachrichten im Kartenformat, und der Kanal bestimmt das Layout der Karte. Das Format der Nachrichten von MessageFactory hängt vom Kanal ab, und sofern die adaptive Karte nicht Teil der Anlage ist, wird nicht unbedingt das Kartenformat verwendet. 
 

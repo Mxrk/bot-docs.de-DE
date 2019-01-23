@@ -2,19 +2,19 @@
 title: Verbinden eines Bots mit Slack | Microsoft-Dokumentation
 description: Erfahren Sie, wie Sie die Verbindung eines Bots mit Slack konfigurieren.
 keywords: connect a bot, bot channel, Slack bot, Slack messaging app
-author: RobStand
-ms.author: kamrani
+author: JonathanFingold
+ms.author: v-jofing
 manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 12/13/2017
-ms.openlocfilehash: f69cfa4c67a1f628d835f0d96903065b8b033d32
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.date: 01/09/2019
+ms.openlocfilehash: 3573103e1d1c55e3ad648ad68d84674a98b397f7
+ms.sourcegitcommit: 8161753641368567f239e24a35ad61768acccd8e
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50000127"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54202560"
 ---
 # <a name="connect-a-bot-to-slack"></a>Verbinden eines Bots mit Slack
 
@@ -68,9 +68,11 @@ Abonnieren Sie anhand der folgenden Schritte sechs spezielle Bot-Ereignisse. Dur
 
 1. Klicken Sie auf die Registerkarte **Event Subscriptions** (Ereignisabonnements).
 2. Wählen Sie für **Enable Events** (Ereignisse aktivieren) **On** (Ein) aus.
-3. Geben Sie unter **Request URL** (Anforderungs-URL) die folgende URL ein, ersetzen Sie `{YourBotHandle}` jedoch durch Ihren Bot-Handle. In diesem Tutorial wird testChannels als Bot-Handle verwendet.
-        `https://slack.botframework.com/api/Events/{YourBotHandle}`
-4. Klicken Sie unter **Subscribe to Workspace Events** (Arbeitsbereichsereignisse abonnieren) auf **Add Workspace Event** (Arbeitsbereichsereignis hinzufügen).
+3. Geben Sie unter **Anforderungs-URL** die URL `https://slack.botframework.com/api/Events/{YourBotHandle}` ein. Dabei steht `{YourBotHandle}` (ohne Klammern) für das Bot-Handle. Das in diesem Beispiel verwendete Bot-Handle lautet **ContosoBot**.
+
+   ![Abonnieren von Ereignissen: oben](~/media/channels/slack-SubscribeEvents-a.png)
+
+4. Klicken Sie unter **Subscribe to Bot Events** (Bot-Ereignisse abonnieren) auf **Add Bot User Event** (Bot-Benutzerereignis hinzufügen).
 5. Wählen Sie in der Liste mit den Ereignissen diese sechs Ereignistypen aus:
     * `member_joined_channel`
     * `member_left_channel`
@@ -79,8 +81,11 @@ Abonnieren Sie anhand der folgenden Schritte sechs spezielle Bot-Ereignisse. Dur
     * `message.im`
     * `message.mpim`
 
-![Abonnieren von Ereignissen](~/media/channels/slack-SubscribeEvents.png)
+   ![Abonnieren von Ereignissen: Mitte](~/media/channels/slack-SubscribeEvents-b.png)
+
 6. Klicken Sie auf **Änderungen speichern**.
+
+   ![Abonnieren von Ereignissen: unten](~/media/channels/slack-SubscribeEvents-c.png)
 
 ## <a name="add-and-configure-interactive-messages-optional"></a>Hinzufügen und Konfigurieren von interaktiven Nachrichten (optional)
 

@@ -1,6 +1,6 @@
 ---
 title: Senden und Empfangen von Aktivitäten | Microsoft-Dokumentation
-description: Hier erfahren Sie, wie Sie mit einem Benutzer über verschiedene Kanäle mit dem Connector-Dienst über das Bot Builder SDK für .NET Informationen austauschen.
+description: Hier erfahren Sie, wie Sie mit einem Benutzer über verschiedene Kanäle mit dem Connector-Dienst über das Bot Framework SDK für .NET Informationen austauschen.
 author: RobStand
 ms.author: kamrani
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 393490fd97ce0d09b4087ad7598ee30b0fdc8c0e
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 0407ec0d90c58e10aa14616e2aa9205bb8840d55
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997787"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225225"
 ---
 # <a name="send-and-receive-activities"></a>Senden und Empfangen von Aktivitäten
 
@@ -22,10 +22,10 @@ ms.locfileid: "49997787"
 
 Der Bot Framework Connector stellt eine einzelne REST-API bereit, mit der ein Bot über verschiedene Kanäle wie Skype, Slack, E-Mail etc. kommunizieren kann. Die Kommunikation zwischen Bot und Benutzer wird ermöglicht, indem Nachrichten vom Bot zum Kanal und vom Kanal zum Bot weitergeleitet werden. 
 
-Dieser Artikel beschreibt, wie mit dem Connector über das Bot Builder SDK für .NET Informationen zwischen Bot und Benutzer über einen Kanal ausgetauscht werden. 
+Dieser Artikel beschreibt, wie mit dem Connector über das Bot Framework SDK für .NET Informationen zwischen Bot und Benutzer über einen Kanal ausgetauscht werden. 
 
 > [!NOTE]
-> Es ist zwar möglich, einen Bot ausschließlich unter Verwendung der in diesem Artikel beschriebenen Techniken zu entwickeln, allerdings bietet das Bot Builder SDK zusätzliche Funktionen wie [Dialoge](bot-builder-dotnet-dialogs.md) und [FormFlow](bot-builder-dotnet-formflow.md), die die Verwaltung von Unterhaltungsfluss und -status optimieren sowie die Integration kognitiver Dienste wie Sprachverständnis vereinfachen.
+> Es ist zwar möglich, einen Bot ausschließlich unter Verwendung der in diesem Artikel beschriebenen Techniken zu entwickeln, allerdings bietet das Bot Framework SDK zusätzliche Funktionen wie [Dialoge](bot-builder-dotnet-dialogs.md) und [FormFlow](bot-builder-dotnet-formflow.md), die die Verwaltung von Unterhaltungsfluss und -status optimieren sowie die Integration kognitiver Dienste wie Sprachverständnis vereinfachen.
 
 ## <a name="create-a-connector-client"></a>Erstellen eines Connector-Clients
 
@@ -44,7 +44,7 @@ Der Connector verwendet ein [Activity](bot-builder-dotnet-activities.md)-Objekt,
 
 Wenn Ihr Bot eine Aktivität vom Connector empfängt, gibt die Eigenschaft `Recipient` der eingehenden Aktivität die Identität des Bots in dieser Unterhaltung an. Da einige Kanäle (z.B. Slack) dem Bot eine neue Identität zuweisen, wenn er einer Unterhaltung hinzugefügt wird, muss der Bot immer den Wert der `Recipient`-Eigenschaft der eingehenden Aktivität als Wert der `From`-Eigenschaft in seiner Antwort verwenden.
 
-Obwohl Sie das ausgehende `Activity`-Objekt selbst erstellen und initialisieren können, bietet das Bot Builder SDK eine einfachere Möglichkeit, eine Antwort zu erstellen. Mit der `CreateReply`-Methode der eingehenden Aktivität geben Sie einfach den Nachrichtentext für die Antwort an, und die ausgehende Aktivität wird mit den automatisch gefüllten Eigenschaften `Recipient`, `From` und `Conversation` erstellt.
+Sie können das ausgehende `Activity`-Objekt zwar selbst erstellen und initialisieren, das Bot Framework SDK bietet aber eine einfachere Möglichkeit, eine Antwort zu erstellen. Mit der `CreateReply`-Methode der eingehenden Aktivität geben Sie einfach den Nachrichtentext für die Antwort an, und die ausgehende Aktivität wird mit den automatisch gefüllten Eigenschaften `Recipient`, `From` und `Conversation` erstellt.
 
 [!code-csharp[Create reply](../includes/code/dotnet-send-and-receive.cs#createReply)]
 
@@ -87,7 +87,7 @@ Dieses Codebeispiel verwendet die `CreateConversation`-Methode, um eine Gruppenu
 
 - [Übersicht über Aktivitäten](bot-builder-dotnet-activities.md)
 - [Erstellen von Nachrichten](bot-builder-dotnet-create-messages.md)
-- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">Referenz zum Bot Builder SDK für .NET</a>
+- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">Referenz zum Bot Framework SDK für .NET</a>
 - <a href="https://docs.botframework.com/en-us/csharp/builder/sdkreference/dc/d2f/class_microsoft_1_1_bot_1_1_connector_1_1_activity.html" target="_blank">Activity-Klasse</a>
 - <a href="/dotnet/api/microsoft.bot.connector.connectorclient" target="_blank">ConnectorClient-Klasse</a>
 

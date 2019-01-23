@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
-ms.openlocfilehash: e11b99aeb8475ff27304c57c515e02a5c031e4ea
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 03c7e1316e463caf84b8dfd503e1502bb66469e6
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998378"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224845"
 ---
 # <a name="embed-a-bot-in-a-website"></a>Einbetten eines Bots in eine Website
 
@@ -47,7 +47,7 @@ Das <a href="https://aka.ms/BotFramework-WebChat" target="_blank">Open Source-We
 
 ## <a name="sample-code"></a>Beispielcode
 
-Das <a href="https://aka.ms/BotFramework-WebChat" target="_blank">Open Source-Webchat-Steuerelement</a> ist auf GitHub verfügbar. Weitere Informationen dazu, wie Sie den Backchannelmechanismus mithilfe des Open Source-Webchat-Steuerelements und des Bot Builder SDK für Node.js implementieren können, finden Sie unter [Verwenden des Backchannelmechanismus](~/nodejs/bot-builder-nodejs-backchannel.md).
+Das <a href="https://aka.ms/BotFramework-WebChat" target="_blank">Open Source-Webchat-Steuerelement</a> ist auf GitHub verfügbar. Weitere Informationen dazu, wie Sie den Backchannelmechanismus mithilfe des Open-Source-Webchat-Steuerelements und des Bot Framework SDK für Node.js implementieren können, finden Sie unter [Verwenden des Backchannelmechanismus](~/nodejs/bot-builder-nodejs-backchannel.md).
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 

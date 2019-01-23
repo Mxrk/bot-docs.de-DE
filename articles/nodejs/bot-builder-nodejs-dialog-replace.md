@@ -1,6 +1,6 @@
 ---
 title: Ersetzen von Dialogfeldern |Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie Dialogfelder ersetzen, um mithilfe des Bot Builder SDK für Node.js erneute Eingabeaufforderungen zu senden und den Konversationsfluss zu verwalten.
+description: Hier erfahren Sie, wie Sie Dialoge ersetzen, um mithilfe des Bot Framework SDK für Node.js erneute Eingabeaufforderungen zu senden und den Konversationsfluss zu verwalten.
 author: v-ducvo
 ms.author: v-ducvo
 manager: kamrani
@@ -9,22 +9,22 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 30ac28f5ce700829b8c382c49905883ffa45da29
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 58d2c3fc4a1fb266b74402541fc937f0b52fa189
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50000057"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224985"
 ---
 # <a name="replace-dialogs"></a>Ersetzen von Dialogfeldern
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
-Es kann nützlich sein, Dialogfelder zu ersetzen, wenn Sie im Laufe einer Konversation eine Benutzereingaben überprüfen oder eine Aktion wiederholen müssen. Mithilfe des Bot Builder SDK für Node.js können Sie über die [`session.replaceDialog`](http://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session#replacedialog)-Methode ein Dialogfeld ersetzen. Mit dieser Methode können Sie das aktuelle Dialogfeld beenden und durch ein neues ersetzen, ohne dabei den Aufrufer erneut kontaktieren zu müssen. 
+Es kann nützlich sein, Dialogfelder zu ersetzen, wenn Sie im Laufe einer Konversation eine Benutzereingaben überprüfen oder eine Aktion wiederholen müssen. Mithilfe des Bot Framework SDK für Node.js können Sie über die [`session.replaceDialog`](http://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session#replacedialog)-Methode einen Dialog ersetzen. Mit dieser Methode können Sie das aktuelle Dialogfeld beenden und durch ein neues ersetzen, ohne dabei den Aufrufer erneut kontaktieren zu müssen. 
 
 ## <a name="create-custom-prompts-to-validate-input"></a>Erstellen von benutzerdefinierten Eingabeaufforderungen, um Eingaben zu überprüfen
 
-Das Bot Builder SDK für Node.js umfasst die Eingabeüberprüfung für einige [Eingabeaufforderungstypen](bot-builder-nodejs-dialog-prompt.md) wie `Prompts.time` und `Prompts.choice`. Wenn Sie Texteingaben überprüfen möchten, die Sie als Antwort auf `Prompts.text` erhalten, müssen Sie Ihre eigene Validierungslogik und benutzerdefinierte Eingabeaufforderungen erstellen. 
+Das Bot Framework SDK für Node.js umfasst die Eingabeüberprüfung für einige [Eingabeaufforderungstypen](bot-builder-nodejs-dialog-prompt.md) wie `Prompts.time` und `Prompts.choice`. Wenn Sie Texteingaben überprüfen möchten, die Sie als Antwort auf `Prompts.text` erhalten, müssen Sie Ihre eigene Validierungslogik und benutzerdefinierte Eingabeaufforderungen erstellen. 
 
 Sie sollten eine Eingabe überprüfen, wenn diese mit einem bestimmten Wert, Muster, Bereich oder Kriterium konform sein muss. Wenn Fehler bei der Überprüfung einer Eingabe auftreten, kann der Bot über die `session.replaceDialog`-Methode den Benutzer dazu auffordern, diese Informationen erneut einzugeben.
 

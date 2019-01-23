@@ -1,6 +1,6 @@
 ---
-title: Beispiel-Bots für das Bot Builder SDK für JavaScript | Microsoft-Dokumentation
-description: Erkunden Sie eine große Auswahl von Beispiel-Bots für einen schnellen Einstieg in die Bot-Entwicklung mit dem Bot Builder SDK für JavaScript.
+title: Beispielbots für das Bot Framework SDK für JavaScript | Microsoft-Dokumentation
+description: Hier finden Sie eine große Auswahl an Beispielbots für einen schnellen Einstieg in die Bot-Entwicklung mit dem Bot Framework SDK für JavaScript.
 author: jonathanfingold
 ms.author: jonathanfingold
 manager: kamrani
@@ -9,14 +9,14 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 09/13/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 780b5301b29e5cec59f6fb3be4fad3087aceefb3
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 7c8f49644f38c0621937a74fda8e470495e11e01
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49996917"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224026"
 ---
-# <a name="javascript-samples-for-bot-builder-sdk"></a>JavaScript-Beispiele für das Bot Builder SDK
+# <a name="javascript-samples-for-bot-framework-sdk"></a>JavaScript-Beispiele für das Bot Framework SDK
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
 Die Beispiele im Repository für Bot Builder-Beispiele veranschaulichen aufgabenorientierte Bots, die zeigen, wie Sie die Features im SDK für JavaScript nutzen. Sie können die Beispiele dazu verwenden, schnell in die Erstellung großartiger Bots mit umfangreichen Funktionen einzusteigen. Die [Infodatei](https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md) enthält eine Beispielliste und zusätzliche Informationen.

@@ -1,6 +1,6 @@
 ---
 title: Verwalten des Unterhaltungsablaufs mit Dialogen | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie Unterhaltungen modellieren und den Unterhaltungsablauf mithilfe von Dialogen und dem Bot Builder-SDK für .NET verwalten können.
+description: Hier erfahren Sie, wie Sie Konversationen modellieren und den Konversationsfluss mithilfe von Dialogen und dem Bot Framework SDK für .NET verwalten.
 author: RobStand
 ms.author: kamrani
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 94690f58526e8ee322a73c68136d2b52667e1c89
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: d8e482d8f4003ad7bcd807e8fd12e3c68c4ce8c8
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49999947"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225895"
 ---
 # <a name="manage-conversation-flow-with-dialogs"></a>Verwalten des Unterhaltungsablaufs mit Dialogen
 
@@ -26,7 +26,7 @@ ms.locfileid: "49999947"
 
 [!INCLUDE [Dialog flow example](../includes/snippet-dotnet-manage-conversation-flow-intro.md)]
 
-In diesem Artikel wird die Modellierung dieses Unterhaltungsablaufs mithilfe von [Dialogen](bot-builder-dotnet-dialogs.md) und des Bot Builder-SDKs für .NET beschrieben. 
+In diesem Artikel wird die Modellierung dieses Konversationsflusses mithilfe von [Dialogen](bot-builder-dotnet-dialogs.md) und des Bot Framework SDK für .NET beschrieben. 
 
 ## <a name="invoke-the-root-dialog"></a>Aufrufen des Stammdialogs
 
@@ -129,11 +129,11 @@ private async Task NameDialogResumeAfter(IDialogContext context, IAwaitable<stri
 
 ## <a name="sample-code"></a>Beispielcode 
 
-Ein vollständiges Beispiel, das das Verwalten einer Unterhaltung mithilfe von Dialogen im Bot Builder-SDK für .NET zeigt, finden Sie im <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-BasicMultiDialog" target="_blank">Basic Multi-Dialog sample</a> (Einfaches Beispiel mit mehreren Dialogen) in GitHub.
+Ein vollständiges Beispiel, das das Verwalten einer Konversation mithilfe von Dialogen im Bot Framework SDK für .NET zeigt, finden Sie auf GitHub im <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-BasicMultiDialog" target="_blank">BasicMultiDialog-Beispiel</a>.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 - [Dialoge](bot-builder-dotnet-dialogs.md)
 - [Entwerfen und Steuern des Unterhaltungsflusses](../bot-service-design-conversation-flow.md)
 - <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-BasicMultiDialog" target="_blank">Basic Multi-Dialog sample (GitHub)</a> (Einfaches Beispiel mit mehreren Dialogen)
-- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">Referenz zum Bot Builder SDK für .NET</a>
+- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">Referenz zum Bot Framework SDK für .NET</a>

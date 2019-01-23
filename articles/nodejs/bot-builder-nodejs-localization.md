@@ -1,6 +1,6 @@
 ---
 title: Unterstützen der Lokalisierung | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie mit dem Bot Builder SDK für Node.js den Standort des Benutzers bestimmen und die Lokalisierungsfunktion aktivieren.
+description: Hier erfahren Sie, wie Sie mit dem Bot Framework SDK für Node.js den Standort des Benutzers bestimmen und die Lokalisierungsfunktion aktivieren.
 author: DeniseMak
 ms.author: v-demak
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 5ac9fabcb0c6626e1b0133b7718b135a88d4c846
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: d592aa8b37e1d73e3cf9003209b985b8ca0f03f8
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998062"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224395"
 ---
 # <a name="support-localization"></a>Unterstützen der Lokalisierung
 
@@ -98,7 +98,7 @@ bot.use({
 Wenn Sie Ihrem Bot den obigen Codeausschnitt hinzugefügt haben, wird durch Aufrufen von [session.preferredLocale()][preferredLocal] automatisch die erkannte Sprache zurückgegeben. Die Suchreihenfolge für `preferredLocale()` lautet wie folgt:
 1. Durch Aufrufen von `session.preferredLocale()` gespeichertes Gebietsschema. Dieser Wert wird in `session.userData['BotBuilder.Data.PreferredLocale']` gespeichert.
 2. Erkanntes und `session.message.textLocale` zugewiesenes Gebietsschema.
-3. Konfiguriertes Standardgebietsschema für den Bot (z. B. Englisch („en“)).
+3. Konfiguriertes Standardgebietsschema für den Bot (z.B. Englisch („en“)).
 
 Das Standardgebietsschema des Bots können Sie mit dem entsprechenden Konstruktor konfigurieren:
 
@@ -111,7 +111,7 @@ var bot = new builder.UniversalBot(connector, {
 ```
 
 ## <a name="localize-prompts"></a>Lokalisieren von Eingabeaufforderungen
-Das standardmäßige Lokalisierungssystem für das Bot Builder SDK ist dateibasiert und ermöglicht dem Bot mithilfe von JSON-Dateien, die auf dem Datenträger gespeichert sind, die Unterstützung mehrerer Sprachen. Standardmäßig sucht das Lokalisierungssystem in der Datei **./locale/<IETF TAG>/index.json** nach den Eingabeaufforderungen des Bots. Dabei stellt <IETF TAG> ein gültiges [IETF-Sprachtag][IEFT] für das bevorzugte Gebietsschema dar, für das Eingabeaufforderungen gesucht werden. 
+Das standardmäßige Lokalisierungssystem für das Bot Framework SDK ist dateibasiert und ermöglicht dem Bot mithilfe von JSON-Dateien, die auf dem Datenträger gespeichert sind, die Unterstützung mehrerer Sprachen. Standardmäßig sucht das Lokalisierungssystem in der Datei **./locale/<IETF TAG>/index.json** nach den Eingabeaufforderungen des Bots. Dabei stellt <IETF TAG> ein gültiges [IETF-Sprachtag][IEFT] für das bevorzugte Gebietsschema dar, für das Eingabeaufforderungen gesucht werden. 
 
 Der folgende Screenshot zeigt die Verzeichnisstruktur für einen Bot, der drei Sprachen unterstützt: Englisch, Italienisch und Spanisch.
 

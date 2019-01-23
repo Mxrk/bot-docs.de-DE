@@ -1,6 +1,6 @@
 ---
 title: Übersicht über Dialoge | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie Dialoge im Bot Builder SDK für Node.js verwenden, um Konversationen zu modellieren und den Konversationsfluss zu verwalten.
+description: Hier erfahren Sie, wie Sie Dialoge im Bot Framework SDK für Node.js verwenden, um Konversationen zu modellieren und den Konversationsfluss zu verwalten.
 author: DucVo
 ms.author: v-ducvo
 manager: kamrani
@@ -9,14 +9,14 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 78f1660aaa91888655515d3402c8ad7702a5b6f6
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: dfa52914b3f0a2e81f4ff3a2f90c7404bfe53d4a
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49997127"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225995"
 ---
-# <a name="dialogs-in-the-bot-builder-sdk-for-nodejs"></a>Dialoge im Bot Builder SDK für Node.js
+# <a name="dialogs-in-the-bot-framework-sdk-for-nodejs"></a>Dialoge im Bot Framework SDK für .Node.js
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label-v3.md)]
 
@@ -24,13 +24,13 @@ ms.locfileid: "49997127"
 > - [.NET](../dotnet/bot-builder-dotnet-dialogs.md)
 > - [Node.js](../nodejs/bot-builder-nodejs-dialog-overview.md)
 
-Mit Dialogen im Bot Builder SDK für Node.js können Sie Konversationen modellieren und den Konversationsfluss verwalten. Ein Bot kommuniziert mit einem Benutzer über Konversationen. Konversationen sind in Dialogen organisiert. Dialoge können Wasserfallschritte und Anweisungen enthalten. Während der Benutzer mit dem Bot interagiert, startet und beendet der Bot verschiedene Dialoge als Reaktion auf Benutzernachrichten und wechselt zwischen diesen. Ein Verständnis der Funktionsweise von Dialogen ist der Schlüssel für das erfolgreiche Entwerfen und Erstellen ausgezeichneter Bots. 
+Mit Dialogen im Bot Framework SDK für Node.js können Sie Konversationen modellieren und den Konversationsfluss verwalten. Ein Bot kommuniziert mit einem Benutzer über Konversationen. Konversationen sind in Dialogen organisiert. Dialoge können Wasserfallschritte und Anweisungen enthalten. Während der Benutzer mit dem Bot interagiert, startet und beendet der Bot verschiedene Dialoge als Reaktion auf Benutzernachrichten und wechselt zwischen diesen. Ein Verständnis der Funktionsweise von Dialogen ist der Schlüssel für das erfolgreiche Entwerfen und Erstellen ausgezeichneter Bots. 
 
 In diesem Artikel werden Konzepte von Dialogen einführend erläutert. Nachdem Sie diesen Artikel gelesen haben, folgen Sie den Links im Abschnitt [Nächste Schritte](#next-steps), um tiefer in diese Konzepte einzudringen.
 
 ## <a name="conversations-through-dialogs"></a>Konversationen über Dialoge
 
-Im Bot Builder SDK für Node.js ist eine Konversation als Kommunikation zwischen einem Bot und einem Benutzer über Dialoge definiert. Ein Dialog ist auf grundlegender Ebene ein wiederverwendbares Modul, das einen Vorgang ausführt oder Informationen von einem Benutzer sammelt. Sie können die komplexe Logik Ihres Bots in wiederverwendbarem Dialogcode kapseln.
+Im Bot Framework SDK für Node.js ist eine Konversation als Kommunikation zwischen einem Bot und einem Benutzer über Dialoge definiert. Ein Dialog ist auf grundlegender Ebene ein wiederverwendbares Modul, das einen Vorgang ausführt oder Informationen von einem Benutzer sammelt. Sie können die komplexe Logik Ihres Bots in wiederverwendbarem Dialogcode kapseln.
 
 Eine Konversation kann vielfältig strukturiert und geändert werden:
 

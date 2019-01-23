@@ -1,6 +1,6 @@
 ---
 title: Lokalisieren von Formularinhalten | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie Formularinhalte mit FormFlow und dem Bot Builder SDK für .NET lokalisieren.
+description: Hier erfahren Sie, wie Sie Formularinhalte mit FormFlow und dem Bot Framework SDK für .NET lokalisieren.
 author: RobStand
 ms.author: kamrani
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/02/2018
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 914c33033be3fe35db7cae6d54b5835cb032a5fd
-ms.sourcegitcommit: 984705927561cc8d6a84f811ff24c8c71b71c76b
+ms.openlocfilehash: 3ec3d12a7d35f65adca901395edff2db3ab71c66
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50965688"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225585"
 ---
 # <a name="localize-form-content"></a>Lokalisieren von Formularinhalten
 
@@ -165,7 +165,7 @@ Par pain "neuf" vouliez-vous dire (1. Neuf grains miel avoine, ou 2. Neuf grains
 - [Anpassen eines Formulars mithilfe von FormBuilder](bot-builder-dotnet-formflow-formbuilder.md)
 - [Definieren eines Formulars mit dem JSON-Schema](bot-builder-dotnet-formflow-json-schema.md)
 - [Anpassen der Benutzeroberfläche mit Mustersprache](bot-builder-dotnet-formflow-pattern-language.md)
-- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">Referenz zum Bot Builder SDK für .NET</a>
+- <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">Referenz zum Bot Framework SDK für .NET</a>
 
 [build]: /dotnet/api/microsoft.bot.builder.formflow.formbuilder-1.build 
 

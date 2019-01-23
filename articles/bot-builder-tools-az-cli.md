@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: tools
 ms.date: 10/31/2018
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 8a59c0a8b7ee664cdb38ab9d0cb186114938d73f
-ms.sourcegitcommit: 782b3a2e788c25effd7d150a070bd2819ea92dad
+ms.openlocfilehash: 4b09ca152f99faa66d2da55ebeb93fb9cce090db
+ms.sourcegitcommit: b94361234816e6b95459f142add936732fc40344
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50743664"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54317690"
 ---
 # <a name="create-bots-with-azure-cli"></a>Erstellen von Bots mit der Azure CLI
 
@@ -35,7 +35,7 @@ Um diese Tools über die Befehlszeile nutzen zu können, muss Node.js auf Ihrem 
 
 ## <a name="1-install-tools"></a>1. Installieren von Tools
 1. [Installieren](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) Sie die aktuelle Version der Azure-Befehlszeilenschnittstelle (CLI).
-2. [Installieren](https://aka.ms/botbuilder-tools-readme) Sie die Bot Builder-Tools.
+2. [Installieren](https://aka.ms/botbuilder-tools-readme) Sie Bot Framework-Tools.
 
 Sie können jetzt Bots mit der Azure CLI wie jede andere Azure-Ressource verwalten.
 
@@ -64,12 +64,12 @@ az bot [command]
 ```
 |Befehle|  |
 |----|----|
-| create      |Hinzufügen einer Ressource|
-| delete     |Klonen einer Ressource|
-| Download   | Herunterladen des Botquellcodes|
-| Veröffentlichen   |Veröffentlichen in einem vorhandenen Botdienst|
-| show |Anzeigen vorhandener Botressourcen|
-| aktualisieren| Aktualisieren eines vorhandenen Botdiensts|
+| create      |Dient zum Erstellen eines neuen Bots.|
+| delete     |Dient zum Löschen eines vorhandenen Bots.|
+| Download   |Dient zum Herunterladen eines vorhandenen Bots.|
+| Veröffentlichen   |Dient zum Veröffentlichen des zugeordneten App-Diensts eines Bots.|
+| show |Dient zum Abrufen eines vorhandenen Bots.|
+| aktualisieren|Dient zum Aktualisieren eines vorhandenen Bots.|
 
 Um einen neuen Bot mithilfe der CLI zu erstellen, müssen Sie eine vorhandene [Ressourcengruppe](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) auswählen oder eine neue Ressourcengruppe erstellen. 
 
@@ -160,10 +160,10 @@ Auf diese Weise werden der aktuelle Endpunkt, die MSA-appID und das Kennwort aus
 
 ## <a name="5-manage-update-or-create-luis-and-qna-services-with--new-botbuilder-tools"></a>5. Verwalten, Aktualisieren oder Erstellen von LUIS- und QnA-Diensten mit den neuen Botgeneratortools
 
-Die [Botgeneratortools](https://aka.ms/botbuilder-tools) sind ein neues Toolset, das Sie zum Verwalten und Interagieren mit Ihren Botressourcen direkt über die Befehlszeile verwenden können.
+Die [Bot Framework-Tools](https://aka.ms/botbuilder-tools) sind ein neues Toolset, das Sie zum Verwalten und Interagieren mit Ihren Botressourcen direkt über die Befehlszeile verwenden können.
 
 >[!TIP]
-> Jedes Botgeneratortool enthält einen globalen Hilfebefehl, auf den über die Befehlszeile durch die Eingabe von **-h** oder **--help** zugegriffen werden kann. Dieser Befehl steht jederzeit in beliebigen Aktionen zur Verfügung und bietet eine nützliche Anzeige der verfügbaren Optionen sowie deren Beschreibungen.
+> Jedes Bot Framework-Tool enthält einen globalen Hilfebefehl, auf den über die Befehlszeile durch die Eingabe von **-h** oder **--help** zugegriffen werden kann. Dieser Befehl steht jederzeit in beliebigen Aktionen zur Verfügung und bietet eine nützliche Anzeige der verfügbaren Optionen sowie deren Beschreibungen.
 
 ### <a name="ludown"></a>LUDown
 
@@ -333,5 +333,5 @@ az bot publish --name "my-bot-name" --resource-group "my-resource-group"
 ```
 
 ## <a name="references"></a>Referenzen
-- [Bot Builder-Tools](https://aka.ms/botbuilder-tools-readme)
+- [Bot Framework-Tools](https://aka.ms/botbuilder-tools-readme)
 - [Azure-Befehlszeilenschnittstelle](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)

@@ -1,6 +1,6 @@
 ---
-title: Dialoge im Bot Builder-SDK | Microsoft-Dokumentation
-description: Beschreibt, was ein Dialog ist, und wie er innerhalb des Bot Builder-SDK funktioniert.
+title: Dialoge innerhalb des Bot Framework SDK | Microsoft-Dokumentation
+description: Hier wird beschrieben, was ein Dialog ist und wie er innerhalb des Bot Framework SDK funktioniert.
 keywords: Konversationsablauf, Eingabeaufforderung, Dialogzustand, Erkennen der Absicht, Einzeldurchlauf, Mehrfachdurchlauf, Bot-Konversation, Dialoge, Eingabeaufforderungen, Wasserfälle, Dialogsatz
 author: johnataylor
 ms.author: johtaylo
@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/28/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: a1187efd3280d9ec2d74af29d1c013e916b79e5b
-ms.sourcegitcommit: 91156d0866316eda8d68454a0c4cd74be5060144
+ms.openlocfilehash: fc44701d7739ecfca662d27cad4f521caa7f4d6d
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53010605"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225485"
 ---
 # <a name="dialogs-library"></a>Dialogbibliothek
 

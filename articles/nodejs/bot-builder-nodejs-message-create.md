@@ -1,6 +1,6 @@
 ---
 title: Erstellen von Nachrichten | Microsoft-Dokumentation
-description: Erfahren Sie, wie Sie Nachrichten mit dem Bot Builder SDK für Node.js erstellen.
+description: Hier erfahren Sie, wie Sie Nachrichten mit dem Bot Framework SDK für Node.js erstellen.
 author: v-ducvo
 ms.author: v-ducvo
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 09/7/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 8011611aa11e81cf322ba841f616fa2797038e84
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 3a4f9e1dc3c5598c3aa79996b01f11e8b1339fe2
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998167"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54225215"
 ---
 # <a name="create-messages"></a>Erstellen von Nachrichten
 
@@ -26,7 +26,7 @@ Dieser Artikel beschreibt einige der häufig verwendeten Nachrichtenmethoden, mi
 
 ## <a name="default-message-handler"></a>Standardnachrichtenhandler
 
-Das Bot Builder SDK für Node.js enthält einen Standardnachrichtenhandler, der in das [`session`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session.html)-Objekt integriert ist. Dieser Nachrichtenhandler ermöglicht das Senden und Empfangen von Textnachrichten zwischen Bot und Benutzer.
+Das Bot Framework SDK für Node.js enthält einen Standardnachrichtenhandler, der in das [`session`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.session.html)-Objekt integriert ist. Dieser Nachrichtenhandler ermöglicht das Senden und Empfangen von Textnachrichten zwischen Bot und Benutzer.
 
 ### <a name="send-a-text-message"></a>Senden einer Textnachricht
 
@@ -93,7 +93,7 @@ Nachrichteneigenschaften werden durch die Methoden des Objekts festgelegt und ab
 | [`sourceEvent(map:ISourceEventMap)`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.message.html#sourceevent) | Kann für ausgehende Nachrichten verwendet werden, um quellenspezifische Ereignisdaten wie benutzerdefinierte Anlagen zu übergeben. |
 | [`speak(ssml:TextType, ...args:any[])`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.message.html#speak) | Legt *Speech Synthesis Markup Language (SSML)* für das Sprachfeld der Nachricht fest. Dieses wird dem Benutzer auf unterstützten Geräten vorgelesen. |
 | [`suggestedActions(suggestions:ISuggestedActions `&#124;` IIsSuggestedActions)`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.message.html#suggestedactions) | Optional vorgeschlagene Aktionen, die an den Benutzer gesendet werden sollen. Vorgeschlagene Aktionen werden nur auf den Kanälen angezeigt, die vorgeschlagene Aktionen unterstützen. |
-| [`summary(text:TextType, ...argus:any[])`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.message.html#summary) | Text, der als Fallback sowie als kurze Beschreibung des Nachrichteninhalts angezeigt wird (z. B. Liste der kürzlichen Unterhaltungen). |
+| [`summary(text:TextType, ...argus:any[])`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.message.html#summary) | Text, der als Fallback sowie als kurze Beschreibung des Nachrichteninhalts angezeigt wird (z.B. Liste der letzten Konversationen) |
 | [`text(text:TextType, ...args:any[])`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.message.html#text) | Legt den Nachrichtentext fest. |
 | [`textFormat(style:string)`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.message.html#textformat) | Legt das Textformat fest. Das Standardformat ist **markdown**. |
 | [`textLocale(locale:string)`](https://docs.botframework.com/en-us/node/builder/chat-reference/classes/_botbuilder_d_.message.html#textlocale) | Legt die Zielsprache der Nachricht fest. |

@@ -1,6 +1,6 @@
 ---
 title: Implementieren von globalen Nachrichtenhandlern | Microsoft-Dokumentation
-description: Hier erfahren Sie, wie Sie Ihrem Bot ermöglichen, mit dem Bot Builder SDK für .NET auf Benutzereingaben mit bestimmten Schlüsselwörtern zu achten und diese zu verarbeiten.
+description: Hier erfahren Sie, wie Sie Ihrem Bot ermöglichen, mit dem Bot Framework SDK für .NET auf Benutzereingaben mit bestimmten Schlüsselwörtern zu achten und diese zu verarbeiten.
 author: RobStand
 ms.author: kamrani
 manager: kamrani
@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: 3f180e721dc6ca2cf1ca85f5ff54137f16b36be5
-ms.sourcegitcommit: b78fe3d8dd604c4f7233740658a229e85b8535dd
+ms.openlocfilehash: 86964bc39a95a23f397af649cfac6e2784dd588a
+ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49998365"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54224365"
 ---
 # <a name="implement-global-message-handlers"></a>Implementieren von globalen Nachrichtenhandlern
 
@@ -24,7 +24,7 @@ ms.locfileid: "49998365"
 
 ## <a name="listen-for-keywords-in-user-input"></a>Erkennen von Schlüsselwörtern in der Benutzereingabe
 
-Die folgende Anleitung zeigt, wie Sie mit dem Bot Builder SDK für .NET globale Nachrichtenhandler implementieren.
+Die folgende Anleitung zeigt, wie Sie mit dem Bot Framework SDK für .NET globale Nachrichtenhandler implementieren.
 
 Zuerst registriert `Global.asax.cs` `GlobalMessageHandlersBotModule`, dessen Implementierung wie hier gezeigt erfolgt. In diesem Beispiel registriert das Modul zwei bewertbare Elemente: eins für die Verwaltung einer Anforderung zum Ändern von Einstellungen (`SettingsScorable`) und eins für die Verwaltung einer Anforderung zum Abbrechen (`CancelScoreable`).
 
@@ -92,10 +92,10 @@ protected override async Task PostAsync(IActivity item, string state, Cancellati
 
 ## <a name="sample-code"></a>Beispielcode
 
-Ein vollständiges Beispiel für das Implementieren eines globalen Nachrichtenhandlers mit dem Bot Builder SDK für .NET finden Sie in GitHub unter <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-GlobalMessageHandlers" target="_blank">Globale Nachrichtenhandler – Beispiel</a>.
+Ein vollständiges Beispiel für das Implementieren eines globalen Nachrichtenhandlers mit dem Bot Framework SDK für .NET finden Sie auf GitHub im <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-GlobalMessageHandlers" target="_blank">Beispiel für globale Nachrichtenhandler</a>.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 - [Entwerfen und Steuern des Unterhaltungsflusses](../bot-service-design-conversation-flow.md)
-- <a href="/dotnet/api/?view=botbuilder-3.12.2.4" target="_blank">Referenz zum Bot Builder SDK für .NET</a>
+- <a href="/dotnet/api/?view=botbuilder-3.12.2.4" target="_blank">Referenz zum Bot Framework SDK für .NET</a>
 - <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-GlobalMessageHandlers" target="_blank">Globale Nachrichtenhandler – Beispiel</a> (GitHub)
