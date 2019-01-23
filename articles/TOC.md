@@ -1,11 +1,3 @@
----
-ms.openlocfilehash: 73149f8137144ee34c1ab1e8fc6a645d1405b694
-ms.sourcegitcommit: bdb981c0b11ee99d128e30ae0462705b2dae8572
-ms.translationtype: HT
-ms.contentlocale: de-DE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360760"
----
 # [Dokumentation zu Azure Bot Service](index.md)
 # Übersicht
 ## [Informationen zu Azure Bot Service](bot-service-overview-introduction.md)
