@@ -8,17 +8,17 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: abs
-ms.date: 01/08/2019
-ms.openlocfilehash: da809023338847374715f7576481fc8d17a21ded
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.date: 01/17/2019
+ms.openlocfilehash: 515ef592e4ce7f159890db4cb5f61f97cccf3786
+ms.sourcegitcommit: c6ce4c42fc56ce1e12b45358d2c747fb77eb74e2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54225395"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54453944"
 ---
-::: moniker range="azure-bot-service-3.0"
-
 # <a name="create-a-bot-with-azure-bot-service"></a>Erstellen eines Bots mit Azure Bot Service
+
+::: moniker range="azure-bot-service-3.0"
 
 [!INCLUDE [pre-release-label](includes/pre-release-label-v3.md)]
 
@@ -79,13 +79,14 @@ In diesem Thema haben Sie gelernt, wie Sie einen **einfachen** Web-App-Bot/Funct
 
 ::: moniker range="azure-bot-service-4.0"
 
-# <a name="create-a-bot-with-azure-bot-service"></a>Erstellen eines Bots mit Azure Bot Service
-
 [!INCLUDE [pre-release-label](includes/pre-release-label.md)]
 
 Azure Bot Service stellt die Kernkomponenten zum Erstellen von Bots bereit, einschließlich Bot Framework SDK für die Entwicklung von Bots und Bot Service für die Verbindung von Bots mit Kanälen. In diesem Thema können Sie eine .NET- oder Node.js-Vorlage zum Erstellen eines Bots mit dem Bot Framework SDK v4 auswählen.
 
+[!INCLUDE [Azure vs local development](~/includes/snippet-quickstart-paths.md)]
+
 ## <a name="prerequisites"></a>Voraussetzungen
+
 - [Azure](http://portal.azure.com)-Konto
 
 ### <a name="create-a-new-bot-service"></a>Erstellen eines neuen Botdiensts

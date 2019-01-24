@@ -7,13 +7,13 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 12/13/2017
-ms.openlocfilehash: a3d6bd957b835a0b8d86e47595ce28506c32d636
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.date: 01/16/2019
+ms.openlocfilehash: 7464e6f19ac1cd1a5744af845bd62c3a48cd2eb8
+ms.sourcegitcommit: c6ce4c42fc56ce1e12b45358d2c747fb77eb74e2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54224555"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54453824"
 ---
 # <a name="key-concepts"></a>Wichtige Begriffe
 
@@ -50,7 +50,7 @@ Das Bot-Framework stellt Clientbibliotheken bereit, die zum Erstellen von Bots i
 Zusätzlich zur Modellierung des Bot Connector- und des Bot State-Diensts bietet jedes Bot Framework SDK auch ein leistungsstarkes System zur Erstellung von Dialogen, die Konversationslogik, integrierte Eingabeaufforderungen für einfache Dinge wie Ja/Nein, Zeichenfolgen, Zahlen und Aufzählungen, integrierte Unterstützung für leistungsstarke KI-Frameworks wie <a href="https://www.luis.ai/" target="_blank">LUIS</a> und vieles mehr einschließen. 
 
 > [!NOTE]
-> Alternativ zur Verwendung des C#- oder Node.js-SDKs können Sie Ihre eigene Clientbibliothek in der Sprache Ihrer Wahl erstellen, indem Sie die <a href="https://raw.githubusercontent.com/Microsoft/BotBuilder/master/CSharp/Library/Microsoft.Bot.Connector.Shared/Swagger/ConnectorAPI.json" target="_blank">Bot Connector-Swagger-Datei</a> und die <a href="https://raw.githubusercontent.com/Microsoft/BotBuilder/master/CSharp/Library/Microsoft.Bot.Connector.Shared/Swagger/StateAPI.json" target="_blank">Bot State-Swagger-Datei</a> verwenden.
+> Alternativ zur Verwendung des C#- oder Node.js-SDKs können Sie Ihre eigene Clientbibliothek in der Sprache Ihrer Wahl erstellen, indem Sie die <a href="https://aka.ms/connector-swagger-file" target="_blank">Bot Connector-Swagger-Datei</a> und die <a href="https://aka.ms/state-swagger-file" target="_blank">Bot State-Swagger-Datei</a> verwenden.
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 

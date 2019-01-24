@@ -9,12 +9,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/13/2017
 monikerRange: azure-bot-service-3.0
-ms.openlocfilehash: d8e482d8f4003ad7bcd807e8fd12e3c68c4ce8c8
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: cfb849474c23c62a666e013c700b755519c1868a
+ms.sourcegitcommit: c6ce4c42fc56ce1e12b45358d2c747fb77eb74e2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54225895"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54453805"
 ---
 # <a name="manage-conversation-flow-with-dialogs"></a>Verwalten des Unterhaltungsablaufs mit Dialogen
 
@@ -129,11 +129,11 @@ private async Task NameDialogResumeAfter(IDialogContext context, IAwaitable<stri
 
 ## <a name="sample-code"></a>Beispielcode 
 
-Ein vollständiges Beispiel, das das Verwalten einer Konversation mithilfe von Dialogen im Bot Framework SDK für .NET zeigt, finden Sie auf GitHub im <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-BasicMultiDialog" target="_blank">BasicMultiDialog-Beispiel</a>.
+Ein vollständiges Beispiel, das das Verwalten einer Konversation mithilfe von Dialogen im Bot Framework SDK für .NET zeigt, finden Sie auf GitHub im [BasicMultiDialog-Beispiel](https://aka.ms/v3cs-MultiDialog-Sample).
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
 - [Dialoge](bot-builder-dotnet-dialogs.md)
 - [Entwerfen und Steuern des Unterhaltungsflusses](../bot-service-design-conversation-flow.md)
-- <a href="https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/core-BasicMultiDialog" target="_blank">Basic Multi-Dialog sample (GitHub)</a> (Einfaches Beispiel mit mehreren Dialogen)
+- [Basic Multi-Dialog sample (GitHub)](https://aka.ms/v3cs-MultiDialog-Sample) (Einfaches Beispiel mit mehreren Dialogen)
 - <a href="/dotnet/api/?view=botbuilder-3.11.0" target="_blank">Referenz zum Bot Framework SDK für .NET</a>
