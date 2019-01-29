@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/15/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 82811d202e0e20169ae2ebb348949366009d2421
-ms.sourcegitcommit: 4661b9bb31d74731dbbb16e625be088b44ba5899
+ms.openlocfilehash: 7a9a2e4f30d1e9b293e51a921afce57d243376d7
+ms.sourcegitcommit: c6ce4c42fc56ce1e12b45358d2c747fb77eb74e2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51826927"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54453964"
 ---
 # <a name="get-notification-from-bots"></a>Abrufen von Benachrichtigungen aus Bots
 
@@ -38,7 +38,8 @@ Eine proaktive Ad-hoc-Nachricht ist der einfachste Typ von proaktiven Nachrichte
 Ziehen Sie zur reibungsloseren Verarbeitung von Benachrichtigungen andere Möglichkeiten zum Integrieren der Benachrichtigung in den Konversationsablauf in Betracht. Legen Sie beispielsweise ein Flag im Konversationsstatus fest, oder fügen Sie die Benachrichtigung zu einer Warteschlange hinzu.
 
 ## <a name="prerequisites"></a>Voraussetzungen
-- Sie müssen mit den [Bot-Grundlagen](bot-builder-basics.md) vertraut sein. 
+
+- Kenntnisse über die [Funktionsweise von Bots](bot-builder-basics.md) und das [Verwalten des Zustands](bot-builder-concept-state.md)
 - Eine Kopie des **Beispiels für proaktive Nachrichten** in [C#](https://aka.ms/proactive-sample-cs) oder [JS](https://aka.ms/proactive-sample-js). Anhand dieses Beispiels werden in diesem Artikel proaktive Nachrichten beschrieben. 
 
 ## <a name="about-the-sample-code"></a>Informationen zum Beispielcode
@@ -48,9 +49,12 @@ Im Beispiel für proaktive Nachrichten werden Benutzeraufgaben modelliert, die e
 ## <a name="define-job-data-and-state"></a>Definieren der Auftragsdaten und des Zustands
 
 In diesem Szenario verfolgen wir einige Aufträge nach, die von verschiedenen Benutzern in verschiedenen Konversationen erstellt werden können. Wir müssen Informationen zu den einzelnen Aufträgen speichern, z.B. den Konversationsverweis und eine Auftrags-ID. Dazu benötigen wir Folgendes:
+
 - Den Konversationsverweis, damit wir die proaktive Nachricht an die richtige Konversation senden können.
 - Eine Möglichkeit zum Identifizieren von Aufträgen. In diesem Beispiel verwenden wir einen einfachen Zeitstempel.
 - Eine Möglichkeit, den Auftragszustand unabhängig vom Konversations- oder Benutzerzustand zu speichern.
+
+Der _Botzustand_ wird erweitert, um ein eigenes Zustandsverwaltungsobjekt für den gesamten Bot zu definieren. Bot Framework nutzt den _Speicherschlüssel_ und den Durchlaufkontext, um den Zustand zu speichern und abzurufen. Weitere Informationen finden Sie unter [Verwalten des Zustands](bot-builder-concept-state.md).
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -77,7 +81,7 @@ public class JobLog : Dictionary<long, JobLog.JobData>
 }
 ```
 
-### <a name="define-a-state-middleware-class"></a>Definieren einer Middleware-Klasse für den Zustand
+### <a name="define-a-state-management-class"></a>Definieren einer Klasse für die Zustandsverwaltung
 
 Mit der `JobState`-Klasse wird der Auftragszustand unabhängig vom Konversations- oder Benutzerzustand verwaltet.
 
@@ -129,11 +133,10 @@ public void ConfigureServices(IServiceCollection services)
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-Für einen Bot wird ein System zum Speichern des Zustands benötigt, um den Dialog- und Benutzerzustand zwischen Nachrichten beibehalten zu können. Hier wird dies mit einem In-Memory-Speicheranbieter definiert. 
+Für einen Bot wird ein System zum Speichern des Zustands benötigt, um den Dialog- und Benutzerzustand zwischen Nachrichten beibehalten zu können. Hier wird dies mit einem In-Memory-Speicheranbieter definiert.
 
 ```javascript
-// index.js 
-
+// index.js
 
 const memoryStorage = new MemoryStorage();
 const botState = new BotState(memoryStorage, () => 'proactiveBot.botState');
@@ -173,8 +176,6 @@ Für den Bot müssen einige Aspekte berücksichtigt werden:
 - Methoden zum Erstellen und Ausführen der Aufträge
 
 ### <a name="declare-the-class"></a>Deklarieren der Klasse
-
-Für jede Interaktion des Benutzers wird eine Instanz der `ProactiveBot`-Klasse erstellt. Der Prozess zur jeweiligen Erstellung eines Diensts, sofern dies erforderlich ist, wird als Dienst für vorübergehende Lebensdauer bezeichnet. Objekte, deren Erstellung aufwändig ist oder deren Lebensdauer über einen einzelnen Durchlauf hinausreicht, sollten sorgfältig verwaltet werden.
 
 Für jede Interaktion des Benutzers wird eine Instanz der `ProactiveBot`-Klasse erstellt. Der Prozess zur jeweiligen Erstellung eines Diensts, sofern dies erforderlich ist, wird als Dienst für vorübergehende Lebensdauer bezeichnet. Objekte, deren Erstellung aufwändig ist oder deren Lebensdauer über einen einzelnen Durchlauf hinausreicht, sollten sorgfältig verwaltet werden.
 

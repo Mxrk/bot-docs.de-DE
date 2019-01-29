@@ -9,19 +9,18 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 09/22/2018
-ms.openlocfilehash: a00e1d0d70e48b1af9cf10fd4e47ea86ae4908e9
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: 0430562fd615aef67b4ba95538d390cf2223fb45
+ms.sourcegitcommit: c6ce4c42fc56ce1e12b45358d2c747fb77eb74e2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54224255"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54453904"
 ---
 # <a name="connect-a-bot-to-channels"></a>Verbinden eines Bots mit Kanälen
 
 Ein Kanal ist eine Verbindung zwischen dem Bot und Kommunikations-Apps. Sie konfigurieren einen Bot für eine Verbindung mit den Kanälen, auf denen er verfügbar sein soll. Der Bot Framework-Dienst, der über das Azure-Portal konfiguriert wird, verbindet Ihren Bot mit diesen Kanälen und ermöglicht die Kommunikation zwischen Ihrem Bot und dem Benutzer. Sie können Verbindungen mit zahlreichen beliebten Diensten wie z.B. [Cortana](bot-service-channel-connect-cortana.md), [Facebook Messenger](bot-service-channel-connect-facebook.md), [Kik](bot-service-channel-connect-kik.md) und [Slack](bot-service-channel-connect-slack.md) sowie verschiedenen anderen herstellen. [Skype](https://dev.skype.com/bots) und Web Chat sind vorkonfiguriert. Zusätzlich zu den Standardkanälen, die mit dem Bot Connector-Dienst bereitgestellt werden, können Sie Ihren Bot auch mit Ihrer eigenen Clientanwendung verbinden, indem Sie eine Direktverbindung als Ihren Kanal verwenden.
 
-Mit dem Bot Framework-Dienst können Sie Ihren Bot kanalunabhängig entwickeln, indem Sie Nachrichten normalisieren, die der Bot an einen Kanal sendet. Dies schließt die Konvertierung aus dem Bot Framework-Schema in das Schema des Kanals ein. Wenn der Kanal jedoch nicht alle Aspekte des Bot Framework-Schemas unterstützt, versucht der Dienst, die Nachricht in ein Format zu konvertieren, das der Kanal unterstützt. Wenn der Bot beispielsweise eine Nachricht mit einer Karte mit Aktionsschaltflächen an den SMS-Kanal sendet, kann der Connector die Karte als Bild senden und die Aktionen als Links in den Text der Nachricht aufnehmen.
-
+Mit dem Bot Framework-Dienst können Sie Ihren Bot kanalunabhängig entwickeln, indem Sie Nachrichten normalisieren, die der Bot an einen Kanal sendet. Dies schließt die Konvertierung aus dem Bot Framework-Schema in das Schema des Kanals ein. Wenn der Kanal jedoch nicht alle Aspekte des Bot Framework-Schemas unterstützt, versucht der Dienst, die Nachricht in ein Format zu konvertieren, das der Kanal unterstützt. Wenn der Bot beispielsweise eine Nachricht mit einer Karte mit Aktionsschaltflächen an den E-Mail-Kanal sendet, kann der Connector die Karte als Bild senden und die Aktionen als Links in den Text der Nachricht aufnehmen.
 
 
 Bei den meisten Kanälen müssen Sie Informationen für die Kanalkonfiguration bereitstellen, um den Bot auf dem Kanal auszuführen. Die meisten Kanäle erfordern, dass der Bot über ein Konto auf dem Kanal verfügt. Bei anderen Kanälen (z.B. Facebook Messenger) ist es erforderlich, dass der Bot zudem über eine beim Kanal registrierte Anwendung verfügt.

@@ -8,20 +8,20 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 12/17/2018
+ms.date: 01/16/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 1ea9daeb35033e49232d64bfe98a223807dabf75
-ms.sourcegitcommit: b94361234816e6b95459f142add936732fc40344
+ms.openlocfilehash: 4805e1a3c86ce28833054ce374a57c5c40b717e1
+ms.sourcegitcommit: c6ce4c42fc56ce1e12b45358d2c747fb77eb74e2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54317600"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54453864"
 ---
 # <a name="add-media-to-messages"></a>Hinzufügen von Medien zu Nachrichten
 
 [!INCLUDE [pre-release-label](../includes/pre-release-label.md)]
 
-Nachrichten, die zwischen Benutzer und Bot ausgetauscht werden, können Medienanlagen enthalten, z.B. Bilder, Videos, Audio und Dateien. Das Bot Framework SDK unterstützt die Aufgabe zum Senden von umfassenden Nachrichten an den Benutzer. Um den Typ der umfassenden Nachrichten zu ermitteln, die von einem Kanal (Facebook, Skype, Slack usw.) unterstützt werden, können Sie in der Dokumentation zum jeweiligen Kanal nach Informationen zu Einschränkungen suchen. Eine Liste mit den verfügbaren Karten (Cards) finden Sie unter [Entwerfen der Benutzeroberfläche](../bot-service-design-user-experience.md). 
+Nachrichten, die zwischen Benutzer und Bot ausgetauscht werden, können Medienanlagen enthalten, z.B. Bilder, Videos, Audio und Dateien. Das Bot Framework SDK unterstützt die Aufgabe zum Senden von umfassenden Nachrichten an den Benutzer. Um den Typ der umfassenden Nachrichten zu ermitteln, die von einem Kanal (Facebook, Skype, Slack usw.) unterstützt werden, können Sie in der Dokumentation zum jeweiligen Kanal nach Informationen zu Einschränkungen suchen. Eine Liste mit den verfügbaren Karten (Cards) finden Sie unter [Entwerfen der Benutzeroberfläche](../bot-service-design-user-experience.md).
 
 ## <a name="send-attachments"></a>Senden von Anlagen
 
@@ -84,11 +84,11 @@ Wenn eine Anlage ein Bild, eine Audiodatei oder ein Video ist, übermittelt der 
 
 ## <a name="send-a-hero-card"></a>Senden einer Hero-Karte
 
-Neben einfachen Bild- oder Videoanlagen können Sie auch eine **Hero-Karte** anhängen, mit der Sie Bilder und Schaltflächen in einem Objekt kombinieren und an Benutzer senden können.
+Neben einfachen Bild- oder Videoanlagen können Sie auch eine **Hero-Karte** anhängen, mit der Sie Bilder und Schaltflächen in einem Objekt kombinieren und an Benutzer senden können. Markdown wird für die meisten Textfelder unterstützt, die Unterstützung hängt jedoch ggf. vom jeweiligen Kanal ab.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-Um eine Nachricht mit einer Hero-Karte und einer Schaltfläche zu verfassen, können Sie an eine Nachricht ein `HeroCard`-Element anfügen. Der hier gezeigte Quellcode basiert auf dem Beispiel unter [Handling Attachments](https://aka.ms/bot-attachments-sample-code) (Behandeln von Anlagen). 
+Um eine Nachricht mit einer Hero-Karte und einer Schaltfläche zu verfassen, können Sie an eine Nachricht ein `HeroCard`-Element anfügen. Der hier gezeigte Quellcode basiert auf dem Beispiel unter [Handling Attachments](https://aka.ms/bot-attachments-sample-code) (Behandeln von Anlagen).
 
 ```csharp
 using Microsoft.Bot.Builder;
@@ -363,7 +363,7 @@ await context.sendActivity(messageWithCarouselOfCards);
 
 ## <a name="additional-resources"></a>Zusätzliche Ressourcen
 
-Ausführliche Informationen zum Kartenschema finden Sie im [Bot Framework-Kartenschema](https://aka.ms/botSpecs-cardSchema).
+Ausführliche Informationen zum Schema finden Sie im Bot Framework-Aktivitätsschema in den Abschnitten zum [Bot Framework-Kartenschema](https://aka.ms/botSpecs-cardSchema) und zu [Nachrichtenaktivitäten](https://aka.ms/botSpecs-activitySchema#message-activity).
 
 Beispielcode finden Sie hier: Für Karten: [C#](https://aka.ms/bot-cards-sample-code)/[JS](https://aka.ms/bot-cards-js-sample-code). Für adaptive Karten: [C#](https://aka.ms/bot-adaptive-cards-sample-code)/[JS](https://aka.ms/bot-adaptive-cards-js-sample-code). Für Anlagen: [C#](https://aka.ms/bot-attachments-sample-code)/[JS](https://aka.ms/bot-attachments-sample-code-js). Für vorgeschlagene Aktionen: [C#](https://aka.ms/SuggestedActionsCSharp)/[JS](https://aka.ms/SuggestedActionsJS).
 Weitere Beispiele finden Sie im Repository mit den Bot Builder-Beispielen auf [GitHub](https://aka.ms/bot-samples-readme).

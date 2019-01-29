@@ -8,14 +8,14 @@ manager: kamrani
 ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
-ms.date: 11/08/2018
+ms.date: 01/16/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 3f4b2dd49b738132affd19fea8fd5dbfbd6ff99e
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: 0a931ad73ed4d7a71978555df0e77d6b2bd2dbbc
+ms.sourcegitcommit: c6ce4c42fc56ce1e12b45358d2c747fb77eb74e2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54224565"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54453924"
 ---
 # <a name="reuse-dialogs"></a>Wiederverwenden von Dialogen
 
@@ -230,6 +230,14 @@ const myBot = new MyBot(conversationState, userState);
 ```
 
 ---
+
+## <a name="about-component-dialogs"></a>Informationen zu Komponentendialogen
+
+Mit einem Komponentendialog können Sie unabhängige Dialoge für bestimmte Szenarien erstellen, indem ein umfangreicher Dialogsatz in besser verwaltbare Teile unterteilt wird. Jeder dieser Teile verfügt über einen eigenen Dialogsatz, wodurch Namenskonflikte mit dem übergeordneten Dialogsatz vermieden werden.
+
+Verwenden Sie die Methode _add dialog_, um dem Komponentendialog Dialoge und Eingabeaufforderungen hinzuzufügen.
+Das erste Element, das Sie mit dieser Methode hinzufügen, wird als erster Dialog festgelegt. Sie können dies jedoch ändern, indem Sie explizit die Eigenschaft _initial dialog_ im Konstruktor des Komponentendialogs festlegen.
+Wenn Sie einen Komponentendialog starten, wird sein _erster Dialog_ gestartet.
 
 ## <a name="define-the-check-in-component-dialog"></a>Definieren des Dialogs für das Einchecken
 
@@ -604,9 +612,9 @@ class SetAlarmDialog extends ComponentDialog {
         this.initialDialogId = dialogId;
 
         // Define the prompts used in this conversation flow.
-        this.dialogs.add(new DateTimePrompt('datePrompt'));
+        this.addDialog(new DateTimePrompt('datePrompt'));
 
-        this.dialogs.add(new WaterfallDialog(dialogId, [
+        this.addDialog(new WaterfallDialog(dialogId, [
             async function (step) {
                 step.values.wakeUp = {};
                 if (step.options && step.options.roomNumber) {

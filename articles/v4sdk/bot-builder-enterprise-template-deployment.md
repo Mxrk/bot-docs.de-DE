@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.date: 09/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: e557b359da09615d2998c4c729f57ffb9faf0de1
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: dd52376e049f1f0e09216e0065ced7443b6eb02a
+ms.sourcegitcommit: c6ce4c42fc56ce1e12b45358d2c747fb77eb74e2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54224965"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54453884"
 ---
 # <a name="enterprise-bot-template---deploying-your-bot"></a>Vorlage für den Bot für Unternehmen: Bereitstellen des Bots
 
@@ -81,8 +81,10 @@ Das Bereitstellungsrezept Ihres neuen Botprojekts ermöglicht es, mit dem Befehl
 
 Die Datei „README.md“ in Ihrem erstellten Projekt enthält eine exemplarische Befehlszeile vom Typ „`msbot clone services`“, die mit dem Namen Ihres erstellten Bots aktualisiert wurde. (Eine generische Version finden Sie weiter unten.) Aktualisieren Sie den Erstellungsschlüssel mit dem Schlüssel aus dem vorherigen Schritt, und wählen Sie den Standort des zu verwendenden Azure-Datencenters aus (beispielsweise „westus“ oder „westeurope“). Stellen Sie sicher, dass der im vorherigen Schritt abgerufene LUIS-Erstellungsschlüssel für die Region bestimmt ist, die Sie unten angeben (z.B. „westus“ für „luis.ai“ oder „westeurope“ für „eu.luis.ai“). Verweisen Sie abschließend auf den Ordner der Sprache, die Sie verwenden möchten (z.B. `DeploymentScripts\en`).
 
+> **Hinweis:** Im msbot-Befehl weiter unten wird YOUR-BOT-NAME zum Erstellen eines Azure-Dienstnamens verwendet. Zulässige Zeichen für Azure-Dienstnamen sind Kleinbuchstaben, Zahlen und Bindestriche (-). YOUR-BOT-NAME darf keine Unterstriche (_) und keine anderen nicht alphabetischen Zeichen enthalten.
+
 ```shell
-msbot clone services --name "YOUR_BOT_NAME" --luisAuthoringKey "YOUR_AUTHORING_KEY" --folder "DeploymentScripts\LOCALE_FOLDER" --location "REGION"
+msbot clone services --name "YOUR-BOT-NAME" --luisAuthoringKey "YOUR_AUTHORING_KEY" --folder "DeploymentScripts\LOCALE_FOLDER" --location "REGION"
 ```
 
 > Bei einigen Benutzern besteht ein bekanntes Problem, bei dem beim Ausführen der Bereitstellung der folgende Fehler auftritt: `ERROR: Unable to provision MSA id automatically. Please pass them in as parameters and try again`. Navigieren Sie in diesem Fall zu https://apps.dev.microsoft.com, und erstellen Sie manuell eine neue Anwendung, indem Sie die ApplicationID und das Kennwort bzw. Geheimnis abrufen. Führen Sie den obigen Befehl „msbot clone services“ aus, aber stellen Sie die beiden neuen Argumente `appId` und `appSecret` bereit, und übergeben Sie die gerade abgerufenen Werte. Schließen Sie das Geheimnis unbedingt in Anführungszeichen ein, um Probleme bei der Analyse zu vermeiden. Beispiel: `-appSecret "YOUR_SECRET"`
@@ -119,7 +121,7 @@ Stellen Sie bei Problemen mit dem Bot Framework-Emulator zuerst sicher, dass Sie
 Tests können vollständig lokal ausgeführt werden. Wenn Sie bereit sind, Ihren Bot für weitere Tests in Azure bereitzustellen, können Sie den folgenden Befehl verwenden, um den Quellcode zu veröffentlichen. Dieser Befehl kann jederzeit ausgeführt werden, um Quellcodeaktualisierungen zu pushen.
 
 ```shell
-az bot publish -g YOUR_BOT_NAME -n YOUR_BOT_NAME --proj-file YOUR_BOT_NAME.csproj --sdk-version v4
+az bot publish -g YOUR-BOT-NAME -n YOUR-BOT-NAME --proj-file YOUR-BOT-NAME.csproj --sdk-version v4
 ```
 
 ## <a name="enabling-more-scenarios"></a>Ermöglichen weiterer Szenarien

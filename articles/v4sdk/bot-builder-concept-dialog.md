@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 11/28/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: fc44701d7739ecfca662d27cad4f521caa7f4d6d
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: 31a0497f1422cee8c4966e59d94a89ae359a5cb7
+ms.sourcegitcommit: c6ce4c42fc56ce1e12b45358d2c747fb77eb74e2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54225485"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54453934"
 ---
 # <a name="dialogs-library"></a>Dialogbibliothek
 
@@ -121,7 +121,7 @@ Der Dialogkontext kann zum Starten, Fortsetzen, Ersetzen oder Beenden eines Dial
 
 Sie können sich Dialoge als einen programmgesteuerten Stapel vorstellen, den so genannten *Dialogstapel*. Der Turn-Handler steuert den Stapel und fungiert als Fallback, wenn der Stapel leer ist. Das oberste Element in diesem Stapel gilt als *aktiver Dialog*, und der Dialogkontext steuert sämtliche Eingaben für den aktiven Dialog.
 
-Wenn ein Dialog gestartet wird, wird er in den Stapel gepusht und ist dann der aktive Dialog. Er bleibt der aktive Dialog, bis er beendet oder von der [ReplaceDialog](#repeating-a-dialog)-Methode entfernt wird oder bis ein anderer Dialog (vom Turn-Handler oder vom aktiven Dialog selbst) in den Stapel gepusht und zum aktiven Dialog wird. Wenn dieser neue Dialog endet, wird er per Pop aus dem Stapel entfernt, und der nächste Dialog im Stapel wird zum aktiven Dialog. Dies ermöglicht die unten erläuterten [Verzweigungen und Schleifen](#looping-and-branching).
+Wenn ein Dialog gestartet wird, wird er in den Stapel gepusht und ist dann der aktive Dialog. Er bleibt der aktive Dialog, bis er beendet oder von der [ReplaceDialog](#repeating-a-dialog)-Methode entfernt wird oder bis ein anderer Dialog (vom Turn-Handler oder vom aktiven Dialog selbst) in den Stapel gepusht und zum aktiven Dialog wird. Wenn dieser neue Dialog endet, wird er aus dem Stapel entfernt, und der nächste Dialog im Stapel wird zum aktiven Dialog. Dies ermöglicht die unten erläuterten [Verzweigungen und Schleifen](#looping-and-branching).
 
 ### <a name="create-the-dialog-context"></a>Erstellen des Dialogkontexts
 
@@ -131,11 +131,22 @@ Der Dialogsatz erfordert die Verwendung eines *Zustandseigenschaftenaccessors*, 
 
 ### <a name="to-start-a-dialog"></a>So starten Sie einen Dialog
 
-Um einen Dialog zu starten, übergeben Sie die zu startende *Dialog-ID* an die Methode *BeginDialog*, *Prompt* oder *ReplaceDialog* des Dialogkontexts. Die BeginDialog-Methode verschiebt den Dialog an den Anfang des Stapels, während die ReplaceDialog-Methode den aktuellen Dialog per Pop aus dem Stapel entfernt und den Ersatzdialog in den Stapel verschiebt.
+Um einen Dialog zu starten, übergeben Sie die zu startende *Dialog-ID* an die Methode *BeginDialog*, *Prompt* oder *ReplaceDialog* des Dialogkontexts.
+
+* Die Methode „begin dialog“ verschiebt den Dialog an den Anfang des Stapels.
+* Die Methode „replace dialog“ entfernt den aktuellen Dialog aus dem Stapel und verschiebt den ersetzenden Dialog an den Anfang des Stapels. Der ersetzte Dialog wird abgebrochen, und alle in dieser Instanz enthaltenen Informationen werden entfernt.
+
+Verwenden Sie den _options_-Parameter, um Informationen an die neue Instanz des Dialogs zu übergeben.
+Der Zugriff auf die in den neuen Dialog übergebenen Optionen ist in jedem Schritt des Dialogs über die *options*-Eigenschaft des Schrittkontexts möglich.
+Beispielcode finden Sie unter [Erstellen eines erweiterten Konversationsflusses mithilfe von Verzweigungen und Schleifen](bot-builder-dialog-manage-complex-conversation-flow.md).
 
 ### <a name="to-continue-a-dialog"></a>So setzen Sie einen Dialog fort
 
 Um einen Dialog fortzusetzen, rufen Sie die *ContinueDialog*-Methode auf. Die ContinueDialog-Methode setzt immer den obersten Dialog im Stapel (den aktiven Dialog) fort, sofern ein Dialog vorhanden ist. Wenn der fortgesetzte Dialog endet, wird die Steuerung an den übergeordneten Kontext übergeben, der die Ausführung innerhalb des gleichen Turns fortsetzt.
+
+Verwenden Sie die Eigenschaft *values* des Schrittkontexts, um den Zustand zwischen den Durchgängen beizubehalten.
+Jeder Wert, der dieser Sammlung in einem vorherigen Durchgang hinzugefügt wurde, ist in den nachfolgenden Durchgängen verfügbar.
+Beispielcode finden Sie unter [Erstellen eines erweiterten Konversationsflusses mithilfe von Verzweigungen und Schleifen](bot-builder-dialog-manage-complex-conversation-flow.md).
 
 ### <a name="to-end-a-dialog"></a>So beenden Sie einen Dialog
 
@@ -152,10 +163,11 @@ Wenn Sie alle Dialoge aus dem Stapel entfernen möchten, können Sie den Dialogs
 
 ### <a name="repeating-a-dialog"></a>Wiederholen eines Dialogs
 
-Verwenden Sie zum Wiederholen eines Dialogs die *replace dialog*-Methode. Die *ReplaceDialog*-Methode des Dialogkontexts entfernt den aktuellen aktiven Dialog per Pop aus dem Stapel (ohne ihn normal zu beenden), verschiebt den ersetzenden Dialog an den Anfang des Stapels und startet diesen Dialog. Dies ist eine hervorragende Möglichkeit zum Behandeln [komplexer Interaktionen](~/v4sdk/bot-builder-dialog-manage-complex-conversation-flow.md) und eine gute Technik zum Verwalten von Menüs. Mit dieser Methode können Sie also Schleife erstellen, indem Sie einen Dialog durch sich selbst ersetzen.
+Sie können einen Dialog durch sich selbst ersetzen, indem Sie eine Schleife erstellen.
+Dies ist eine hervorragende Möglichkeit zum Behandeln [komplexer Interaktionen](~/v4sdk/bot-builder-dialog-manage-complex-conversation-flow.md) und eine gute Technik zum Verwalten von Menüs.
 
 > [!NOTE]
-> Wenn der interne Zustand für den aktuellen Dialog beibehalten werden muss, müssen Sie im Aufruf der *ReplaceDialog*-Methode Informationen an die neue Instanz des Dialogs übergeben und dann den Dialog entsprechend initialisieren. Der Zugriff auf die in den neuen Dialog übergebenen Optionen ist in jedem Schritt des Dialogs über die *options*-Eigenschaft des Schrittkontexts möglich.
+> Wenn der interne Zustand für den aktuellen Dialog beibehalten werden muss, müssen Sie im Aufruf der *ReplaceDialog*-Methode Informationen an die neue Instanz des Dialogs übergeben und dann den Dialog entsprechend initialisieren.
 
 ### <a name="branch-a-conversation"></a>Verzweigen einer Konversation
 

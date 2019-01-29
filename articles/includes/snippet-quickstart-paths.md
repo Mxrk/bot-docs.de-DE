@@ -1,0 +1,1 @@
+Bots können sowohl mit Azure Bot Service als auch lokal erstellt werden.

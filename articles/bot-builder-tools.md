@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: tools
 ms.date: 11/13/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: f9eafa708be2ce597ec2679fb6975d7da71951ea
-ms.sourcegitcommit: b15cf37afc4f57d13ca6636d4227433809562f8b
+ms.openlocfilehash: 07df43111f3b2e57dcf0140f291a771e749de563
+ms.sourcegitcommit: c6ce4c42fc56ce1e12b45358d2c747fb77eb74e2
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54225875"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54453854"
 ---
 # <a name="manage-bots-using-cli-tools"></a>Verwalten von Bots mithilfe von CLI-Tools
 
@@ -63,6 +63,7 @@ Here's a form for you
 ```
 
 ### <a name="create-a-transcript-file-from-chat-file"></a>Erstellen einer Transkriptdatei aus einer CHAT-Datei
+
 Ein Chatdown-Befehl sieht wie folgt aus:
 
 ```bash
@@ -72,13 +73,15 @@ chatdown sample.chat > sample.transcript
 Hierfür wird `sample.chat` genutzt und `sample.transcript` ausgegeben. Weitere Informationen finden Sie unter [Chatdown CLI][chatdown].
 
 ## <a name="build"></a>Entwickeln
+
 ### <a name="create-a-luis-application-with-ludown"></a>Erstellen einer LUIS-Anwendung mit LUDown
+
 Das LUDown-Tool kann zum Erstellen von neuen JSON-Modellen für LUIS und QnA verwendet werden.  
 Sie können [Absichten](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/add-intents) und [Entitäten](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/add-entities) für eine LUIS-Anwendung auf die gleiche Weise definieren, wie Sie über das LUIS-Portal vorgehen würden.
 
 „#\<intent-name\>“ beschreibt einen neuen Absichtsdefinitionsabschnitt. In den folgenden Zeilen werden [Äußerungen](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/add-example-utterances) aufgelistet, die diese Absicht beschreiben.
 
-Beispielsweise können Sie mehrere LUIS-Absichten in einer einzelnen LU-Datei wie folgt erstellen: 
+Beispielsweise können Sie mehrere LUIS-Absichten in einer einzelnen LU-Datei wie folgt erstellen:
 
 ```LUDown
 # Greeting
@@ -95,12 +98,12 @@ Beispielsweise können Sie mehrere LUIS-Absichten in einer einzelnen LU-Datei wi
 
 ### <a name="create-qna-pairs-with-ludown"></a>Erstellen von QnA-Paaren mit LUDown
 
-Das LU-Dateiformat unterstützt auch QnA-Paare mithilfe der folgenden Notation: 
+Das LU-Dateiformat unterstützt auch QnA-Paare mithilfe der folgenden Notation:
 
 ~~~LUDown
 > comment
 ### ? question ?
-  ```markdown
+  ```
     answer
   ```
 ~~~
@@ -109,7 +112,7 @@ Das LUDown-Tool trennt automatisch Fragen und Antworten in einer qnamaker-JSON-D
 
 ~~~LUDown
 ### ? How do I change the default message for QnA Maker?
-  ```markdown
+  ```
   You can change the default message if you use the QnAMakerDialog. 
   See [this link](https://docs.botframework.com/en-us/azure-bot-service/templates/qnamaker/#navtitle) for details.
   ```
@@ -120,14 +123,14 @@ Sie können auch mehrere Fragen für dieselbe Antwort hinzufügen, indem Sie ein
 ~~~LUDown
 ### ? What is your name?
 - What should I call you?
-  ```markdown
+  ```
     I'm the echoBot! Nice to meet you.
   ```
 ~~~
 
 ### <a name="generate-json-models-with-ludown"></a>Generieren von JSON-Modellen mit LUDown
 
-Nachdem Sie LUIS- oder QnA-Sprachkomponenten im LU-Format definiert haben, können Sie diese in einer LUIS-JSON-, QnA-JSON- oder QnA-TSV-Datei veröffentlichen. Bei der Ausführung sucht das LUDown-Tool innerhalb des gleichen Arbeitsverzeichnisses nach LU-Dateien, die es analysieren kann. Da das Tool LUDown LU-Dateien von LUIS oder QnA als Ziel verwenden kann, müssen Sie mithilfe des allgemeinen Befehls **ludown parse <Service> -- in <luFile>** einfach nur den Sprachdienst angeben, für den die Generierung erfolgen soll. 
+Nachdem Sie LUIS- oder QnA-Sprachkomponenten im LU-Format definiert haben, können Sie diese in einer LUIS-JSON-, QnA-JSON- oder QnA-TSV-Datei veröffentlichen. Bei der Ausführung sucht das LUDown-Tool innerhalb des gleichen Arbeitsverzeichnisses nach LU-Dateien, die es analysieren kann. Da das Tool LUDown LU-Dateien von LUIS oder QnA als Ziel verwenden kann, müssen Sie mithilfe des allgemeinen Befehls **ludown parse \<to-service-type> -- in \<lu-file-path>** einfach nur den Sprachdienst angeben, für den die Generierung erfolgen soll.
 
 In unserem Beispielarbeitsverzeichnis können zwei LU-Dateien analysiert werden: „1.lu“ zum Erstellen des LUIS-Modells und „qna1.lu“ zum Erstellen einer QnA-Wissensdatenbank.
 
@@ -144,7 +147,7 @@ ludown parse ToLuis --in <luFile>
 Um eine QnA-Wissensdatenbank zu erstellen, müssen Sie analog dazu nur das Analyseziel ändern.
 
 ```shell
-ludown parse ToQna --in <luFile> 
+ludown parse ToQna --in <luFile>
 ```
 
 Die sich ergebenden JSON-Dateien können von LUIS und QnA über die jeweiligen Portale oder über die neuen CLI-Tools genutzt werden. Weitere Informationen finden Sie im GitHub-Repository zur [LUDown CLI][ludown].
@@ -290,10 +293,10 @@ az bot show [options] --msbot | msbot connect bot --stdin
 | --resource-group -g               | Name der Ressourcengruppe Sie können die Standardgruppe mit `az configure --defaults group=<name>` konfigurieren.  Standard: build2018. |
 | --tags                            | Satz mit Tags, die dem Bot hinzugefügt werden sollen. |
 
-
 ### <a name="configure-channels"></a>Konfigurieren von Kanälen
 
-Sie können die Azure CLI nutzen, um Kanäle für Ihren Bot zu verwalten. 
+Sie können die Azure CLI nutzen, um Kanäle für Ihren Bot zu verwalten.
+
 ```shell
 >az bot -h
 Group
@@ -321,7 +324,9 @@ Group
 ```
 
 ## <a name="additional-information"></a>Zusätzliche Informationen
+
 - [Bot Framework-Tools auf GitHub][cliTools]
+- [Format der LU-Datei](https://aka.ms/ludown-file-format)
 
 <!-- Footnote links -->
 
