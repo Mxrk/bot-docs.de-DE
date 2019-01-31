@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: bot-service
 ms.date: 09/18/2018
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: dd52376e049f1f0e09216e0065ced7443b6eb02a
-ms.sourcegitcommit: c6ce4c42fc56ce1e12b45358d2c747fb77eb74e2
+ms.openlocfilehash: c9a462c1ff9a1de8bc7929cb11368191aafd031a
+ms.sourcegitcommit: 1ed179ae48bd2e28920a3f1e270e59d15d86fbf7
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453884"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54892983"
 ---
 # <a name="enterprise-bot-template---deploying-your-bot"></a>Vorlage für den Bot für Unternehmen: Bereitstellen des Bots
 
@@ -87,7 +87,10 @@ Die Datei „README.md“ in Ihrem erstellten Projekt enthält eine exemplarisch
 msbot clone services --name "YOUR-BOT-NAME" --luisAuthoringKey "YOUR_AUTHORING_KEY" --folder "DeploymentScripts\LOCALE_FOLDER" --location "REGION"
 ```
 
-> Bei einigen Benutzern besteht ein bekanntes Problem, bei dem beim Ausführen der Bereitstellung der folgende Fehler auftritt: `ERROR: Unable to provision MSA id automatically. Please pass them in as parameters and try again`. Navigieren Sie in diesem Fall zu https://apps.dev.microsoft.com, und erstellen Sie manuell eine neue Anwendung, indem Sie die ApplicationID und das Kennwort bzw. Geheimnis abrufen. Führen Sie den obigen Befehl „msbot clone services“ aus, aber stellen Sie die beiden neuen Argumente `appId` und `appSecret` bereit, und übergeben Sie die gerade abgerufenen Werte. Schließen Sie das Geheimnis unbedingt in Anführungszeichen ein, um Probleme bei der Analyse zu vermeiden. Beispiel: `-appSecret "YOUR_SECRET"`
+> Bei einigen Benutzern besteht ein bekanntes Problem, bei dem beim Ausführen der Bereitstellung der folgende Fehler auftritt: `ERROR: Unable to provision MSA id automatically. Please pass them in as parameters and try again`. Navigieren Sie in diesem Fall zu https://apps.dev.microsoft.com, und erstellen Sie manuell eine neue Anwendung, indem Sie die ApplicationID und das Kennwort bzw. Geheimnis abrufen. Führen Sie den obigen Befehl „msbot clone services“ aus, aber stellen Sie die beiden neuen Argumente `appId` und `appSecret` bereit, und übergeben Sie die gerade abgerufenen Werte. Sonderzeichen im Kennwort, die von der Shell als Befehl interpretiert werden könnten, müssen mit Escapezeichen versehen werden:
+>   - Setzen Sie bei Verwendung der *Windows-Eingabeaufforderung* das App-Geheimnis (appSecret) in doppelte Anführungszeichen. Beispiel: msbt clone services --name xxxx --luisAuthoringKey xxxx --location xxxx --folder bot.recipt ***--appSecret "!|%gr%"***
+>   - Versuchen Sie bei *Windows PowerShell, das App-Geheimnis (appSecret) nach dem Argument „--%“ zu übergeben. Beispiel: msbot clone services --name xxxx --luisAuthoringKey xxxx --location xxxx --folder bot.recipt ***--% --appSecret "!|%gr%"***
+>   - Setzen Sie unter *MacOS oder Linux* das App-Geheimnis (appSecret) in einfache Anführungszeichen. Beispiel: msbot clone services --name xxxx --luisAuthoringKey xxxx --location xxxx --folder bot.recipt ***--appSecret '!|%gr%'***
 
 Das msbot-Tool zeigt eine Zusammenfassung des Bereitstellungsplans einschließlich Standort und SKU an. Prüfen Sie diese, bevor Sie fortfahren.
 
