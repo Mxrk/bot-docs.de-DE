@@ -10,12 +10,12 @@ ms.service: bot-service
 ms.subservice: sdk
 ms.date: 01/16/2019
 monikerRange: azure-bot-service-4.0
-ms.openlocfilehash: 4805e1a3c86ce28833054ce374a57c5c40b717e1
-ms.sourcegitcommit: c6ce4c42fc56ce1e12b45358d2c747fb77eb74e2
+ms.openlocfilehash: 4999f08c62d2926be37b5730a2d1025749fc280e
+ms.sourcegitcommit: 32615b88e4758004c8c99e9d564658a700c7d61f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453864"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55711984"
 ---
 # <a name="add-media-to-messages"></a>Hinzufügen von Medien zu Nachrichten
 
@@ -148,7 +148,7 @@ Zum Verarbeiten von Ereignissen in Rich Cards verwenden Sie Objekte vom Typ _Kar
 
 Weisen Sie für die korrekte Funktionsweise jedem anklickbaren Element auf der Karte einen Aktionstyp zu. In der folgenden Tabelle werden die verfügbaren Aktionstypen aufgeführt und erläutert. Außerdem ist jeweils angegeben, was die zugeordnete Werteigenschaft enthalten muss.
 
-| Typ | BESCHREIBUNG | Wert |
+| Type | BESCHREIBUNG | Wert |
 | :---- | :---- | :---- |
 | openUrl | Öffnet eine URL im integrierten Browser. | Die zu öffnende URL. |
 | imBack | Sendet eine Nachricht an den Bot und veröffentlicht eine sichtbare Antwort im Chat. | Text der zu sendenden Nachricht. |
@@ -241,6 +241,7 @@ using AdaptiveCards;
 using Microsoft.Bot.Builder;
 using Microsoft.Bot.Builder.Core.Extensions;
 using Microsoft.Bot.Schema;
+using Newtonsoft.Json;
 
 // Creates an attachment that contains an adaptive card
 // filePath is the path to JSON file
