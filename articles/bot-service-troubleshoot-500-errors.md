@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: bot-service
 ms.subservice: sdk
 ms.date: 12/20/2018
-ms.openlocfilehash: 8ab1cd34f2cc239602db423bccd131d9df39222a
-ms.sourcegitcommit: f7a8f05fc05ff4a7212a437d540485bf68831604
+ms.openlocfilehash: f86cacce5b25f60010f646cf5989123e3abf3bf2
+ms.sourcegitcommit: 32615b88e4758004c8c99e9d564658a700c7d61f
 ms.translationtype: HT
 ms.contentlocale: de-DE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736007"
+ms.lasthandoff: 02/04/2019
+ms.locfileid: "55711974"
 ---
 # <a name="troubleshoot-http-500-errors"></a>Behandeln von HTTP 500-Fehlern
 
@@ -28,7 +28,7 @@ Eine grundlegende Application Insights-Unterstützung erhalten Sie, indem Sie [A
 
 ## <a name="enable-application-insights-on-nodejs"></a>Aktivieren von Application Insights in Node.js
 
-Eine grundlegende Application Insights-Unterstützung erhalten Sie, indem Sie [Ihre Node.js-Dienste und -Apps mit Application Insights überwachen](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs). Das Bot Framework (ab Version 4.2) liefert zwar zusätzliche Application Insights-Telemetriedaten, diese sind jedoch zum Diagnostizieren von HTTP 500-Fehlern nicht erforderlich.
+Eine grundlegende Application Insights-Unterstützung erhalten Sie, indem Sie [Ihre Node.js-Dienste und -Apps mit Application Insights überwachen](https://docs.microsoft.com/azure/azure-monitor/learn/nodejs-quick-start). Das Bot Framework (ab Version 4.2) liefert zwar zusätzliche Application Insights-Telemetriedaten, diese sind jedoch zum Diagnostizieren von HTTP 500-Fehlern nicht erforderlich.
 
 ## <a name="query-for-exceptions"></a>Abfragen von Ausnahmen
 
@@ -166,7 +166,7 @@ Sowohl ASP.NET als auch Node.js geben Protokolle auf der Serverebene aus, die ü
 #### <a name="set-up-browser-to-restart-your-bot-service"></a>Einrichten des Browsers zum Neustarten Ihres Botdiensts
 
 1. Öffnen Sie Ihren Bot unter Verwendung eines separaten Browsers im Azure-Portal.
-1. Öffnen Sie die Seite **mit den App Service-Einstellungen**, um alle Diensteinstellungen anzuzeigen.
+1. Öffnen Sie die Seite**** mit den App Service-Einstellungen, um alle Diensteinstellungen anzuzeigen.
 1. Wechseln Sie zur **Übersichtsseite** für den App-Dienst, und klicken Sie auf **Neu starten**.
    - Bestätigen Sie die Nachfrage mit **Ja**.
 1. Kehren Sie zum ersten Browserfenster zurück, und sehen Sie sich die Protokolle an.

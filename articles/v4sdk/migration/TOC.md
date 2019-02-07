@@ -1,0 +1,1 @@
+# [Migrieren eines Bots innerhalb eines .NET Framework-Projekts](conversion-framework.md)
