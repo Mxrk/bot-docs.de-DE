@@ -59,17 +59,17 @@
 ### [Node.js](nodejs/TOC.md)
 ## [Debuggen](debug/TOC.md)
 ## Bereitstellen
-### [Bereitstellen Ihres Bots mit der Azure CLI](bot-builder-deploy-az-cli.md)
-### [Bereitstellen Ihres C#-Bots mit Visual Studio](bot-builder-howto-deploy-azure.md)
-<!-- ### [Download and redeploy bot code](bot-service-build-download-source-code.md) -->
-### [Festlegen der kontinuierlichen Bereitstellung](bot-service-build-continuous-deployment.md)
+### [Bereitstellen Ihres Bots in Azure](bot-builder-deploy-az-cli.md)
+<!-- ### [Deploy your C# bot using Visual Studio](bot-builder-howto-deploy-azure.md)
+### [Download and redeploy bot code](bot-service-build-download-source-code.md) 
+### [Set up continuous deployment](bot-service-build-continuous-deployment.md) -->
 ## [Verwalten](manage/TOC.md)
 ## [Migrieren](v4sdk/migration/TOC.md)
 # Verweis
 ## [.NET SDK v4](https://aka.ms/dotnetsdk4)
 ## [JavaScript SDK v4](https://aka.ms/jssdk4)
 ## [REST](rest-api/TOC.md)
-## [.NET SDK v3](/dotnet/api/?view=botbuilder-3.12.2.4)
+## [.NET SDK v3](/dotnet/api/?view=botbuilder-dotnet-3.0)
 ## [Node.js SDK v3](https://docs.botframework.com/en-us/node/builder/chat-reference/modules/_botbuilder_d_.html)
 ## [Entitäten und Aktivitätstypen](bot-service-activities-entities.md)
 # [Ressourcen](resources/TOC.md)
