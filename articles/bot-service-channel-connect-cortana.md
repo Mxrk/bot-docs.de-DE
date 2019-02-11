@@ -18,7 +18,7 @@ ms.locfileid: "49999084"
 ---
 # <a name="connect-a-bot-to-cortana"></a>Verbinden eines Bots mit Cortana
 
-Cortana ist ein sprachaktivierter Kanal, der neben Textkonversation auch Sprachnachrichten senden und empfangen kann. Eine Bot, der mit Cortana verbunden werden soll, muss für Sprache und Text konzipiert sein. Eine Cortana-*Funktion* ist ein Bot, der über einen Cortana-Client aufgerufen werden kann. Der Bot wird nach seiner Veröffentlichung der Liste mit verfügbaren Funktionen hinzugefügt.
+Cortana ist ein sprachaktivierter Kanal, der neben Textkonversation auch Sprachnachrichten senden und empfangen kann. Ein Bot, der mit Cortana verbunden werden soll, muss für Sprache und Text konzipiert sein. Eine Cortana-*Funktion* ist ein Bot, der über einen Cortana-Client aufgerufen werden kann. Der Bot wird nach seiner Veröffentlichung der Liste mit verfügbaren Funktionen hinzugefügt.
 
 Zum Hinzufügen des Cortana-Kanals öffnen Sie den Bot im [Azure-Portal](https://portal.azure.com/), klicken Sie auf das Blatt **Kanäle** und dann auf **Cortana**.
 
